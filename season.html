@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>明星賽詳情</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #0f172a; color: #e2e8f0; }
+    .tab-btn { transition: all 0.2s; }
+    .tab-btn.active { background-color: #eab308; color: #0f172a; }
+    .prev-best-badge { font-size: 0.7rem; padding: 1px 6px; border-radius: 9999px; font-weight: 600; }
+  </style>
+</head>
+<body class="min-h-screen p-4 md:p-6">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-6">
+      <a href="index.html" class="text-slate-400 hover:text-white text-sm mb-3 inline-block">← 返回列表</a>
+      <div class="flex items-center gap-3 flex-wrap">
+        <h1 id="title-date" class="text-2xl font-bold text-yellow-400"></h1>
+        <span id="title-status"></span>
+      </div>
+      <p id="title-theme" class="text-slate-400 text-sm mt-1"></p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-2 mb-6 flex-wrap">
+      <button class="tab-btn active px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="qualifier">資格賽排名</button>
+      <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="groups">淘汰賽對陣</button>
+      <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="finals">總決賽</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="tab-qualifier"></div>
+    <div id="tab-groups" class="hidden"></div>
+    <div id="tab-finals" class="hidden"></div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
+
+    const PREV_COLORS = {
+      '1強':  'bg-yellow-500 text-black',
+      '2強':  'bg-slate-300 text-black',
+      '4強':  'bg-amber-700 text-white',
+      '8強':  'bg-purple-600 text-white',
+      '16強': 'bg-blue-600 text-white',
+      '32強': 'bg-teal-600 text-white',
+      '64強': 'bg-slate-600 text-slate-200',
+      '未入選':'bg-slate-800 text-slate-500',
+    };
+
+    function prevBadge(val) {
+      if (!val) return '';
+      const cls = PREV_COLORS[val] || 'bg-slate-600 text-slate-200';
+      return `<span class="prev-best-badge ${cls}">${val}</span>`;
+    }
+
+    function renderQualifier(data) {
+      const el = document.getElementById('tab-qualifier');
+      el.innerHTML = `
+        <div class="bg-slate-800 rounded-xl overflow-hidden">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-slate-700 text-slate-300 text-left">
+                <th class="px-4 py-3 w-12">排名</th>
+                <th class="px-4 py-3">玩家</th>
+                <th class="px-4 py-3 text-right">通關時間</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${data.qualifier.map((p, i) => `
+                <tr class="${i % 2 === 0 ? 'bg-slate-800' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700">
+                  <td class="px-4 py-2.5 text-slate-400 font-mono">#${p.rank}</td>
+                  <td class="px-4 py-2.5 font-medium">${p.name}</td>
+                  <td class="px-4 py-2.5 text-right font-mono text-yellow-300">${p.time}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderGroups(data) {
+      const el = document.getElementById('tab-groups');
+      el.innerHTML = data.groups.map(g => `
+        <div class="bg-slate-800 border border-slate-700 rounded-xl mb-5 overflow-hidden">
+          <div class="bg-slate-700 px-4 py-2.5 font-bold text-yellow-300">第 ${g.id} 組</div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-slate-400 text-left border-b border-slate-700">
+                <th class="px-4 py-2">排名</th>
+                <th class="px-4 py-2">玩家</th>
+                <th class="px-4 py-2 text-right">戰力</th>
+                <th class="px-4 py-2 text-right">時間</th>
+                <th class="px-4 py-2 text-right">上屆</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${g.players.map((p, i) => `
+                <tr class="${i % 2 === 0 ? '' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700/50">
+                  <td class="px-4 py-2.5 text-slate-400 font-mono">#${p.qualifier_rank}</td>
+                  <td class="px-4 py-2.5 font-medium">${p.name}</td>
+                  <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.power}</td>
+                  <td class="px-4 py-2.5 text-right text-yellow-300 font-mono">${p.qualifier_time}</td>
+                  <td class="px-4 py-2.5 text-right">${prevBadge(p.prev_best || '')}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+          ${g.champion ? `
+            <div class="px-4 py-2 bg-slate-900 text-xs text-slate-400 flex gap-4">
+              <span>🏆 冠軍：<strong class="text-yellow-400">${g.champion}</strong></span>
+              <span>亞軍：<strong class="text-slate-300">${g.runner_up}</strong></span>
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    function renderFinals(data) {
+      const el = document.getElementById('tab-finals');
+      if (!data.grand_finals) {
+        el.innerHTML = '<div class="text-slate-500 text-center py-12">總決賽尚未開始</div>';
+        return;
+      }
+
+      const gf = data.grand_finals;
+      const roundOrder = ['8強', '4強', '決賽'];
+
+      el.innerHTML = `
+        <div class="bg-slate-800 rounded-xl mb-5 overflow-hidden">
+          <div class="bg-slate-700 px-4 py-2.5 font-bold text-yellow-300">最終排名</div>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-slate-400 text-left border-b border-slate-700">
+                <th class="px-4 py-2">名次</th>
+                <th class="px-4 py-2">玩家</th>
+                <th class="px-4 py-2 text-right">戰力</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${gf.results.map((p, i) => `
+                <tr class="${i % 2 === 0 ? '' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700/50">
+                  <td class="px-4 py-2.5 font-mono text-slate-300">
+                    ${p.rank === 1 ? '🏆 冠軍' : p.rank === 2 ? '🥈 亞軍' : p.rank <= 4 ? '🥉 4強' : '8強'}
+                  </td>
+                  <td class="px-4 py-2.5 font-medium ${p.rank === 1 ? 'text-yellow-400 font-bold' : ''}">${p.name}</td>
+                  <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.power}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-slate-800 rounded-xl overflow-hidden">
+          <div class="bg-slate-700 px-4 py-2.5 font-bold text-yellow-300">對戰路徑</div>
+          <div class="divide-y divide-slate-700">
+            ${roundOrder.map(round => {
+              const matches = gf.bracket.filter(m => m.round === round);
+              if (!matches.length) return '';
+              return `
+                <div class="px-4 py-3">
+                  <div class="text-xs text-slate-500 mb-2 font-semibold uppercase tracking-wider">${round}</div>
+                  ${matches.map(m => `
+                    <div class="flex items-center gap-2 text-sm mb-1.5">
+                      <span class="${m.winner === m.p1 ? 'text-white font-bold' : 'text-slate-500'}">${m.p1}</span>
+                      <span class="text-slate-600 text-xs">def</span>
+                      <span class="${m.winner === m.p2 ? 'text-white font-bold' : 'text-slate-500'}">${m.p2}</span>
+                      <span class="ml-auto text-yellow-400 text-xs font-semibold">▶ ${m.winner}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    async function load() {
+      const res = await fetch(`data/${id}.json`);
+      const data = await res.json();
+
+      document.title = `${data.date} 明星賽`;
+      document.getElementById('title-date').textContent = data.date + ' 明星賽';
+      document.getElementById('title-theme').textContent = '主題：' + data.theme;
+
+      const statusEl = document.getElementById('title-status');
+      if (data.status === 'in_progress') {
+        statusEl.innerHTML = '<span class="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">進行中</span>';
+      } else {
+        statusEl.innerHTML = '<span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded-full">已結束</span>';
+      }
+
+      renderQualifier(data);
+      renderGroups(data);
+      renderFinals(data);
+    }
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        ['qualifier', 'groups', 'finals'].forEach(t => {
+          document.getElementById('tab-' + t).classList.toggle('hidden', t !== btn.dataset.tab);
+        });
+      });
+    });
+
+    load();
+  </script>
+</body>
+</html>

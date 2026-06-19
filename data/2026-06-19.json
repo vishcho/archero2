@@ -1,0 +1,179 @@
+{
+  "id": "2026-06-19",
+  "date": "2026/6/19",
+  "theme": "獲得飛劍和元素流派技能",
+  "status": "in_progress",
+  "qualifier": [
+    { "rank": 1,  "name": "koeee",        "time": "04:27.9" },
+    { "rank": 2,  "name": "一火焰球一",    "time": "04:28.5" },
+    { "rank": 3,  "name": "Cashasy",       "time": "04:39.8" },
+    { "rank": 4,  "name": "RV297",         "time": "04:43.8" },
+    { "rank": 5,  "name": "龍×과트",       "time": "04:44.2" },
+    { "rank": 6,  "name": "紅桃A",         "time": "04:47.5" },
+    { "rank": 7,  "name": "仔仔團奧奧",    "time": "04:49.3" },
+    { "rank": 8,  "name": "龍×이뮤",       "time": "04:51.4" },
+    { "rank": 9,  "name": "龍×기샨",       "time": "04:51.8" },
+    { "rank": 10, "name": "烏薩奇Usagi",   "time": "04:51.9" },
+    { "rank": 11, "name": "I매I매I매",     "time": "04:53.7" },
+    { "rank": 12, "name": "LD丨짱구",      "time": "04:54.3" },
+    { "rank": 13, "name": "LD丨팡대",      "time": "04:55.5" },
+    { "rank": 14, "name": "牛大力",        "time": "04:58.7" },
+    { "rank": 15, "name": "SuperAaron",    "time": "04:59.1" },
+    { "rank": 16, "name": "Egø",           "time": "05:01.1" },
+    { "rank": 17, "name": "賽博陀螺",      "time": "05:01.2" },
+    { "rank": 18, "name": "戰神冥海龍靈",  "time": "05:01.6" },
+    { "rank": 19, "name": "I매I진",        "time": "05:02.0" },
+    { "rank": 20, "name": "劍人海拉",      "time": "05:02.2" },
+    { "rank": 21, "name": "Niff",          "time": "05:03.0" },
+    { "rank": 22, "name": "龍×교수",       "time": "05:03.4" },
+    { "rank": 23, "name": "Leojian",       "time": "05:03.6" },
+    { "rank": 24, "name": "I매I우연",      "time": "05:03.6" },
+    { "rank": 25, "name": "夜濃月",        "time": "05:04.2" },
+    { "rank": 26, "name": "戰神角角",      "time": "05:04.4" },
+    { "rank": 27, "name": "LD丨팡대oo3",   "time": "05:05.1" },
+    { "rank": 28, "name": "休閑仔",        "time": "05:05.5" },
+    { "rank": 29, "name": "LD丨팡팡대",    "time": "05:06.0" },
+    { "rank": 30, "name": "牛大力",        "time": "05:06.5" },
+    { "rank": 31, "name": "LD丨저축왕",    "time": "05:06.6" },
+    { "rank": 32, "name": "阿武花豆",      "time": "05:07.0" },
+    { "rank": 33, "name": "메투스",        "time": "05:07.0" },
+    { "rank": 34, "name": "戰神彬彬",      "time": "05:07.3" },
+    { "rank": 35, "name": "LD丨말랭",      "time": "05:07.7" },
+    { "rank": 36, "name": "MrKevin",       "time": "05:08.2" },
+    { "rank": 37, "name": "龍×냥코",       "time": "05:08.4" },
+    { "rank": 38, "name": "戰神子龍",      "time": "05:08.8" },
+    { "rank": 39, "name": "龍×조이",       "time": "05:10.9" },
+    { "rank": 40, "name": "FLEX2Rfx",      "time": "05:11.1" },
+    { "rank": 41, "name": "瑪法里恩中風",  "time": "05:11.3" },
+    { "rank": 42, "name": "戰神蕉蕉",      "time": "05:11.5" },
+    { "rank": 43, "name": "I매I연인",      "time": "05:11.6" },
+    { "rank": 44, "name": "巴嗝鴨肉",      "time": "05:12.0" },
+    { "rank": 45, "name": "牛大办",        "time": "05:12.1" },
+    { "rank": 46, "name": "I매IFLEX3R",    "time": "05:12.3" },
+    { "rank": 47, "name": "I매I네이비",    "time": "05:12.5" },
+    { "rank": 48, "name": "龍×식현",       "time": "05:12.8" },
+    { "rank": 49, "name": "육정",          "time": "05:12.8" },
+    { "rank": 50, "name": "LD丨도하",      "time": "05:13.0" },
+    { "rank": 51, "name": "龍×령녀",       "time": "05:13.8" },
+    { "rank": 52, "name": "紫薯芋泥c",     "time": "05:14.3" },
+    { "rank": 53, "name": "歐洲閃魚閃",    "time": "05:14.6" },
+    { "rank": 54, "name": "龍騎士神さま",  "time": "05:14.9" },
+    { "rank": 55, "name": "고른주부J",     "time": "05:15.0" },
+    { "rank": 56, "name": "戰神SAKE",      "time": "05:15.3" },
+    { "rank": 57, "name": "戰營養腸七拍",  "time": "05:16.0" },
+    { "rank": 58, "name": "CoBe",          "time": "05:16.0" },
+    { "rank": 59, "name": "I매I매",        "time": "05:16.1" },
+    { "rank": 60, "name": "Yöö fx",        "time": "05:16.1" },
+    { "rank": 61, "name": "I매I루아흐",    "time": "05:16.2" },
+    { "rank": 62, "name": "螞蟥王子",      "time": "05:16.4" },
+    { "rank": 63, "name": "戰神大叔o",     "time": "05:16.9" },
+    { "rank": 64, "name": "秘運行者Kai",   "time": "05:17.1" }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "players": [
+        { "name": "紅桃A",        "power": "12.46M", "qualifier_rank": 6,  "qualifier_time": "04:47.5", "prev_best": "16強" },
+        { "name": "龍×기샨",      "power": "13.80M", "qualifier_rank": 9,  "qualifier_time": "04:51.8", "prev_best": "32強" },
+        { "name": "Leojian",     "power": "21.30M", "qualifier_rank": 23, "qualifier_time": "05:03.6", "prev_best": "8強" },
+        { "name": "阿武花豆",     "power": "6.57M",  "qualifier_rank": 32, "qualifier_time": "05:07.0", "prev_best": "未入選" },
+        { "name": "FLEX2Rfx",    "power": "15.56M", "qualifier_rank": 40, "qualifier_time": "05:11.1", "prev_best": "64強" },
+        { "name": "I매I네이비",   "power": "11.84M", "qualifier_rank": 47, "qualifier_time": "05:12.5", "prev_best": "16強" },
+        { "name": "龍騎士神さま", "power": "10.21M", "qualifier_rank": 54, "qualifier_time": "05:14.9", "prev_best": "未入選" },
+        { "name": "秘運行者Kai",  "power": "8.87M",  "qualifier_rank": 64, "qualifier_time": "05:17.1", "prev_best": "64強" }
+      ]
+    },
+    {
+      "id": 2,
+      "players": [
+        { "name": "龍×과트",   "power": "11.05M", "qualifier_rank": 5,  "qualifier_time": "04:44.2", "prev_best": "未入選" },
+        { "name": "Egø",      "power": "4.26M",  "qualifier_rank": 16, "qualifier_time": "05:01.1", "prev_best": "32強" },
+        { "name": "I매I진",   "power": "15.07M", "qualifier_rank": 19, "qualifier_time": "05:02.0", "prev_best": "64強" },
+        { "name": "戰神角角", "power": "14.25M", "qualifier_rank": 26, "qualifier_time": "05:04.4", "prev_best": "32強" },
+        { "name": "MrKevin",  "power": "8.53M",  "qualifier_rank": 36, "qualifier_time": "05:08.2", "prev_best": "64強" },
+        { "name": "I매I연인", "power": "13.79M", "qualifier_rank": 43, "qualifier_time": "05:11.6", "prev_best": "32強" },
+        { "name": "龍×령녀",  "power": "8.97M",  "qualifier_rank": 51, "qualifier_time": "05:13.8", "prev_best": "64強" },
+        { "name": "螞蟥王子", "power": "11.47M", "qualifier_rank": 62, "qualifier_time": "05:16.4", "prev_best": "未入選" }
+      ]
+    },
+    {
+      "id": 3,
+      "players": [
+        { "name": "龍×이뮤",     "power": "11.80M", "qualifier_rank": 8,  "qualifier_time": "04:51.4", "prev_best": "64強" },
+        { "name": "LD丨짱구",    "power": "26.17M", "qualifier_rank": 12, "qualifier_time": "04:54.3", "prev_best": "32強" },
+        { "name": "I매I우연",    "power": "11.12M", "qualifier_rank": 24, "qualifier_time": "05:03.6", "prev_best": "32強" },
+        { "name": "LD丨팡대oo3", "power": "11.15M", "qualifier_rank": 27, "qualifier_time": "05:05.1", "prev_best": "64強" },
+        { "name": "龍×조이",     "power": "10.34M", "qualifier_rank": 39, "qualifier_time": "05:10.9", "prev_best": "64強" },
+        { "name": "戰神蕉蕉",    "power": "9.10M",  "qualifier_rank": 42, "qualifier_time": "05:11.5", "prev_best": "16強" },
+        { "name": "고른주부J",   "power": "15.73M", "qualifier_rank": 55, "qualifier_time": "05:15.0", "prev_best": "32強" },
+        { "name": "I매I매",      "power": "6.17M",  "qualifier_rank": 59, "qualifier_time": "05:16.1", "prev_best": "64強" }
+      ]
+    },
+    {
+      "id": 4,
+      "players": [
+        { "name": "Cashasy",   "power": "17.42M", "qualifier_rank": 3,  "qualifier_time": "04:39.8", "prev_best": "4強" },
+        { "name": "牛大力",    "power": "41.52M", "qualifier_rank": 14, "qualifier_time": "04:58.7", "prev_best": "2強" },
+        { "name": "賽博陀螺",  "power": "16.77M", "qualifier_rank": 17, "qualifier_time": "05:01.2", "prev_best": "未入選" },
+        { "name": "LD丨팡팡대","power": "28.74M", "qualifier_rank": 29, "qualifier_time": "05:06.0", "prev_best": "未入選" },
+        { "name": "龍×냥코",   "power": "10.44M", "qualifier_rank": 37, "qualifier_time": "05:08.4", "prev_best": "64強" },
+        { "name": "牛大办",    "power": "12.66M", "qualifier_rank": 45, "qualifier_time": "05:12.1", "prev_best": "16強" },
+        { "name": "육정",      "power": "13.95M", "qualifier_rank": 49, "qualifier_time": "05:12.8", "prev_best": "64強" },
+        { "name": "Yöö fx",    "power": "11.43M", "qualifier_rank": 60, "qualifier_time": "05:16.1", "prev_best": "未入選" }
+      ]
+    },
+    {
+      "id": 5,
+      "players": [
+        { "name": "koeee",       "power": "54.24M", "qualifier_rank": 1,  "qualifier_time": "04:27.9", "prev_best": "1強" },
+        { "name": "LD丨팡대",    "power": "22.17M", "qualifier_rank": 13, "qualifier_time": "04:55.5", "prev_best": "8強" },
+        { "name": "龍×교수",     "power": "9.55M",  "qualifier_rank": 22, "qualifier_time": "05:03.4", "prev_best": "64強" },
+        { "name": "休閑仔",      "power": "12.44M", "qualifier_rank": 28, "qualifier_time": "05:05.5", "prev_best": "未入選" },
+        { "name": "메투스",      "power": "24.73M", "qualifier_rank": 33, "qualifier_time": "05:07.0", "prev_best": "32強" },
+        { "name": "龍×식현",     "power": "4.80M",  "qualifier_rank": 48, "qualifier_time": "05:12.8", "prev_best": "64強" },
+        { "name": "歐洲閃魚閃",  "power": "18.41M", "qualifier_rank": 53, "qualifier_time": "05:14.6", "prev_best": "64強" },
+        { "name": "戰營養腸七拍","power": "8.75M",  "qualifier_rank": 57, "qualifier_time": "05:16.0", "prev_best": "64強" }
+      ]
+    },
+    {
+      "id": 6,
+      "players": [
+        { "name": "一火焰球一",  "power": "33.25M", "qualifier_rank": 2,  "qualifier_time": "04:28.5", "prev_best": "4強" },
+        { "name": "烏薩奇Usagi", "power": "10.33M", "qualifier_rank": 10, "qualifier_time": "04:51.9", "prev_best": "64強" },
+        { "name": "劍人海拉",    "power": "11.47M", "qualifier_rank": 20, "qualifier_time": "05:02.2", "prev_best": "32強" },
+        { "name": "夜濃月",      "power": "7.80M",  "qualifier_rank": 25, "qualifier_time": "05:04.2", "prev_best": "64強" },
+        { "name": "LD丨말랭",    "power": "12.15M", "qualifier_rank": 35, "qualifier_time": "05:07.7", "prev_best": "64強" },
+        { "name": "I매IFLEX3R", "power": "22.65M", "qualifier_rank": 46, "qualifier_time": "05:12.3", "prev_best": "16強" },
+        { "name": "LD丨도하",    "power": "11.93M", "qualifier_rank": 50, "qualifier_time": "05:13.0", "prev_best": "32強" },
+        { "name": "CoBe",        "power": "10.26M", "qualifier_rank": 58, "qualifier_time": "05:16.0", "prev_best": "未入選" }
+      ]
+    },
+    {
+      "id": 7,
+      "players": [
+        { "name": "I매I매I매",   "power": "9.93M",  "qualifier_rank": 11, "qualifier_time": "04:53.7", "prev_best": "32強" },
+        { "name": "牛大力",      "power": "27.88M", "qualifier_rank": 14, "qualifier_time": "04:58.7", "prev_best": "2強" },
+        { "name": "SuperAaron",  "power": "16.68M", "qualifier_rank": 15, "qualifier_time": "04:59.1", "prev_best": "16強" },
+        { "name": "戰神冥海龍靈","power": "8.94M",  "qualifier_rank": 18, "qualifier_time": "05:01.6", "prev_best": "64強" },
+        { "name": "Niff",        "power": "12.16M", "qualifier_rank": 21, "qualifier_time": "05:03.0", "prev_best": "未入選" },
+        { "name": "紫薯芋泥c",   "power": "10.47M", "qualifier_rank": 52, "qualifier_time": "05:14.3", "prev_best": "64強" },
+        { "name": "戰神SAKE",    "power": "13.29M", "qualifier_rank": 56, "qualifier_time": "05:15.3", "prev_best": "未入選" },
+        { "name": "I매I루아흐",  "power": "9.95M",  "qualifier_rank": 61, "qualifier_time": "05:16.2", "prev_best": "未入選" }
+      ]
+    },
+    {
+      "id": 8,
+      "players": [
+        { "name": "RV297",      "power": "23.17M", "qualifier_rank": 4,  "qualifier_time": "04:43.8", "prev_best": "8強" },
+        { "name": "仔仔圓奧奧", "power": "13.23M", "qualifier_rank": 7,  "qualifier_time": "04:49.3", "prev_best": "32強" },
+        { "name": "LD丨저축왕", "power": "8.87M",  "qualifier_rank": 31, "qualifier_time": "05:06.6", "prev_best": "64強" },
+        { "name": "戰神彬彬",   "power": "8.76M",  "qualifier_rank": 34, "qualifier_time": "05:07.3", "prev_best": "64強" },
+        { "name": "戰神子龍",   "power": "13.31M", "qualifier_rank": 38, "qualifier_time": "05:08.8", "prev_best": "16強" },
+        { "name": "瑪法里恩中風","power": "9.18M",  "qualifier_rank": 41, "qualifier_time": "05:11.3", "prev_best": "64強" },
+        { "name": "巴嗝鴨肉",   "power": "18.39M", "qualifier_rank": 44, "qualifier_time": "05:12.0", "prev_best": "64強" },
+        { "name": "戰神大叔o",  "power": "10.09M", "qualifier_rank": 63, "qualifier_time": "05:16.9", "prev_best": "64強" }
+      ]
+    }
+  ],
+  "grand_finals": null
+}

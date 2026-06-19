@@ -193,7 +193,8 @@
       const champY = semiY - champH / 2;
 
       return `
-      <svg width="${svgW}" height="${svgH}"
+      <svg viewBox="0 0 ${svgW} ${svgH}" width="100%"
+           style="max-width:${svgW}px;display:block;"
            xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
         <!-- ── LEFT players ── -->

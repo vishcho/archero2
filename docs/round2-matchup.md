@@ -226,6 +226,6 @@
 
 ---
 
-> 資料來源：截圖 [img/star-cup/2026-7-3/](../img/star-cup/2026-7-3/)（8 張，102237＝第1組，104147–104241＝第2–8組）
+> 資料來源：截圖 `screenshots/star-cup/2026-07-03-round2-matchup/`（僅本地留存，見 [sources.md](./sources.md)；8 張，102237＝第1組，104147–104241＝第2–8組）
 > 上屆成績來源：[round1-tournament-results.md](./round1-tournament-results.md)
 > 最後更新：2026-07-03

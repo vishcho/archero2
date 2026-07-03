@@ -47,15 +47,21 @@ archero2-web/
 │   ├── round1-tournament-results.md # 6/19 淘汰賽逐場戰報（含 R1/R2/決賽細節）
 │   ├── round2-matchup.md            # 7/3 對陣表原始整理（含同名玩家考證註記）
 │   ├── activity-calendar.md         # 遊戲活動日曆
-│   └── rune-ruins-stats.md          # 符文廢墟符文統計
-└── img/
-    ├── fire.png        # 網站 favicon
-    ├── star-cup/       # 明星杯截圖（依輪次/日期分資料夾）
-    └── rune-ruins/     # 符文廢墟截圖（rune-ruins-stats.md 的資料來源）
+│   ├── rune-ruins-stats.md          # 符文廢墟符文統計
+│   └── sources.md                   # 截圖批次索引（截圖本體不進 git）
+├── img/
+│   └── fire.png        # 網站 favicon（img/ 只放頁面會引用的資產）
+└── screenshots/        # 原始截圖 — gitignored，只留本地供 AI 分析
+    ├── star-cup/{YYYY-MM-DD-用途}/
+    └── rune-ruins/{YYYY-MM-DD}/
 ```
 
 **docs/ 與 data/ 的分工**：`data/` 是網站唯一的結構化資料來源；`docs/` 放
 JSON 裝不下的東西——規則、逐場戰報、同名玩家考證。同一筆成績以 `data/` 為準。
+
+**截圖不進 git**：原始截圖放 `screenshots/`（已 gitignore），分析產出
+（`data/*.json`、`docs/*.md`）才 commit。每批截圖在 [docs/sources.md](docs/sources.md)
+登記位置、張數與產出，維持可追溯性。截圖如需備份請另外用雲端同步。
 
 ## 資料格式
 
@@ -120,7 +126,7 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 
 1. 在 `data/` 新增 `{id}.json`（複製上一屆改內容，注意 players 要照對陣位置排序）
 2. 在 `data/seasons.json` 尾端加上新 id
-3. 截圖放進 `img/star-cup/{日期}/`
+3. 截圖放進 `screenshots/star-cup/{YYYY-MM-DD-用途}/`，並在 `docs/sources.md` 登記
 4. 逐場戰報、考證註記寫進 `docs/`
 5. 賽事結束後把該屆 `status` 改為 `finished`、填入 `champion` 與各組 `champion`/`runner_up`
 

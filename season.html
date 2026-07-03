@@ -39,29 +39,18 @@
     <div id="tab-finals" class="hidden"></div>
   </div>
 
+  <script src="js/common.js"></script>
   <script>
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
 
-    const PREV_COLORS = {
-      '1強':  'bg-yellow-500 text-black',
-      '2強':  'bg-slate-300 text-black',
-      '4強':  'bg-amber-700 text-white',
-      '8強':  'bg-purple-600 text-white',
-      '16強': 'bg-blue-600 text-white',
-      '32強': 'bg-teal-600 text-white',
-      '64強': 'bg-slate-600 text-slate-200',
-      '未入選':'bg-slate-800 text-slate-500',
-    };
-
-    function prevBadge(val) {
-      if (!val) return '';
-      const cls = PREV_COLORS[val] || 'bg-slate-600 text-slate-200';
-      return `<span class="prev-best-badge ${cls}">${val}</span>`;
-    }
-
     function renderQualifier(data) {
       const el = document.getElementById('tab-qualifier');
+      if (!data.qualifier || !data.qualifier.length) {
+        el.innerHTML = '<div class="text-slate-500 text-center py-12">尚無資格賽資料</div>';
+        return;
+      }
+      const hasTitle = data.qualifier.some(p => p.title);
       el.innerHTML = `
         <div class="bg-slate-800 rounded-xl overflow-hidden">
           <table class="w-full text-sm">
@@ -69,6 +58,7 @@
               <tr class="bg-slate-700 text-slate-300 text-left">
                 <th class="px-4 py-3 w-12">排名</th>
                 <th class="px-4 py-3">玩家</th>
+                ${hasTitle ? '<th class="px-4 py-3">流派/稱號</th>' : ''}
                 <th class="px-4 py-3 text-right">通關時間</th>
               </tr>
             </thead>
@@ -77,6 +67,7 @@
                 <tr class="${i % 2 === 0 ? 'bg-slate-800' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700">
                   <td class="px-4 py-2.5 text-slate-400 font-mono">#${p.rank}</td>
                   <td class="px-4 py-2.5 font-medium">${p.name}</td>
+                  ${hasTitle ? `<td class="px-4 py-2.5 text-slate-400">${p.title || '—'}</td>` : ''}
                   <td class="px-4 py-2.5 text-right font-mono text-yellow-300">${p.time}</td>
                 </tr>
               `).join('')}
@@ -88,31 +79,51 @@
 
     function renderGroups(data) {
       const el = document.getElementById('tab-groups');
-      el.innerHTML = data.groups.map(g => `
+      if (!data.groups || !data.groups.length) {
+        el.innerHTML = '<div class="text-slate-500 text-center py-12">尚無分組資料</div>';
+        return;
+      }
+      const header = `
+        <div class="mb-4 flex justify-end">
+          <a href="bracket.html?id=${data.id}" class="text-sm text-yellow-400 hover:underline">查看對陣圖 →</a>
+        </div>`;
+      el.innerHTML = header + data.groups.map(g => {
+        const hasRank = g.players.some(p => p.qualifier_rank != null);
+        const hasPrevBest = g.players.some(p => p.prev_best);
+        const hasPrevDetail = g.players.some(p => p.prev_power || p.prev_progress);
+        return `
         <div class="bg-slate-800 border border-slate-700 rounded-xl mb-5 overflow-hidden">
           <div class="bg-slate-700 px-4 py-2.5 font-bold text-yellow-300">第 ${g.id} 組</div>
+          <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
               <tr class="text-slate-400 text-left border-b border-slate-700">
-                <th class="px-4 py-2">排名</th>
+                <th class="px-4 py-2">場次</th>
+                ${hasRank ? '<th class="px-4 py-2">排名</th>' : ''}
                 <th class="px-4 py-2">玩家</th>
                 <th class="px-4 py-2 text-right">戰力</th>
-                <th class="px-4 py-2 text-right">時間</th>
-                <th class="px-4 py-2 text-right">上屆</th>
+                <th class="px-4 py-2 text-right">資格賽時間</th>
+                ${hasPrevBest ? '<th class="px-4 py-2 text-right">上屆</th>' : ''}
+                ${hasPrevDetail ? '<th class="px-4 py-2 text-right">上屆戰力</th><th class="px-4 py-2 text-right">上屆成績</th>' : ''}
               </tr>
             </thead>
             <tbody>
               ${g.players.map((p, i) => `
                 <tr class="${i % 2 === 0 ? '' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700/50">
-                  <td class="px-4 py-2.5 text-slate-400 font-mono">#${p.qualifier_rank}</td>
-                  <td class="px-4 py-2.5 font-medium">${p.name}</td>
-                  <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.power}</td>
-                  <td class="px-4 py-2.5 text-right text-yellow-300 font-mono">${p.qualifier_time}</td>
-                  <td class="px-4 py-2.5 text-right">${prevBadge(p.prev_best || '')}</td>
+                  <td class="px-4 py-2.5 text-slate-400 font-mono">${matchLabel(i)}</td>
+                  ${hasRank ? `<td class="px-4 py-2.5 text-slate-400 font-mono">${p.qualifier_rank != null ? '#' + p.qualifier_rank : '—'}</td>` : ''}
+                  <td class="px-4 py-2.5 font-medium">${displayName(p)}</td>
+                  <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.power || '—'}</td>
+                  <td class="px-4 py-2.5 text-right text-yellow-300 font-mono">${p.qualifier_time || '—'}</td>
+                  ${hasPrevBest ? `<td class="px-4 py-2.5 text-right">${prevBadge(p.prev_best || '')}</td>` : ''}
+                  ${hasPrevDetail ? `
+                    <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.prev_power || '—'}</td>
+                    <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.prev_progress ? `${p.prev_progress}｜${p.prev_time || '未通關'}` : '—'}</td>` : ''}
                 </tr>
               `).join('')}
             </tbody>
           </table>
+          </div>
           ${g.champion ? `
             <div class="px-4 py-2 bg-slate-900 text-xs text-slate-400 flex gap-4">
               <span>🏆 冠軍：<strong class="text-yellow-400">${g.champion}</strong></span>
@@ -120,7 +131,8 @@
             </div>
           ` : ''}
         </div>
-      `).join('');
+      `;
+      }).join('');
     }
 
     function renderFinals(data) {
@@ -184,19 +196,12 @@
     }
 
     async function load() {
-      const res = await fetch(`data/${id}.json`);
-      const data = await res.json();
+      const data = await fetchSeason(id);
 
       document.title = `${data.date} 明星賽`;
       document.getElementById('title-date').textContent = data.date + ' 明星賽';
       document.getElementById('title-theme').textContent = '主題：' + data.theme;
-
-      const statusEl = document.getElementById('title-status');
-      if (data.status === 'in_progress') {
-        statusEl.innerHTML = '<span class="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">進行中</span>';
-      } else {
-        statusEl.innerHTML = '<span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded-full">已結束</span>';
-      }
+      document.getElementById('title-status').innerHTML = statusBadge(data.status);
 
       renderQualifier(data);
       renderGroups(data);

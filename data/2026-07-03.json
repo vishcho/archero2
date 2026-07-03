@@ -1,0 +1,186 @@
+{
+  "id": "2026-07-03",
+  "date": "2026/7/3",
+  "theme": "獲得飛劍和流星流派技能",
+  "status": "in_progress",
+  "champion": null,
+  "qualifier": [
+    { "rank": 1,  "name": "koeee",        "title": "魅力之星", "time": "04:26.4" },
+    { "rank": 2,  "name": "o月亮惹的禍o", "title": "課金",     "time": "04:41.0" },
+    { "rank": 3,  "name": "Cashasy",      "title": "洞察先機", "time": "04:43.7" },
+    { "rank": 4,  "name": "RV297",        "title": "洞察先機", "time": "04:52.1" },
+    { "rank": 5,  "name": "LD丨팡대",     "title": "레전더리", "time": "04:53.8" },
+    { "rank": 6,  "name": "SuperAaron",   "title": "洞察先機", "time": "04:57.2" },
+    { "rank": 7,  "name": "劍人海拉",     "title": "戰神殿",   "time": "04:57.2" },
+    { "rank": 8,  "name": "夜凜月",       "title": "逆天改命", "time": "05:00.5" },
+    { "rank": 9,  "name": "龍×똥꼬",      "title": "용기사",   "time": "05:00.6" },
+    { "rank": 10, "name": "LD丨짱구",     "title": "洞察先機", "time": "05:03.6" },
+    { "rank": 11, "name": "仔仔團奧奧",   "title": "洞察先機", "time": "05:04.1" },
+    { "rank": 12, "name": "Egø",          "title": "洞察先機", "time": "05:04.4" },
+    { "rank": 13, "name": "Leojian",      "title": "洞察先機", "time": "05:04.5" },
+    { "rank": 14, "name": "doityourself", "title": "洞察先機", "time": "05:04.7" },
+    { "rank": 15, "name": "紅桃A",        "title": "逆天改命", "time": "05:05.1" },
+    { "rank": 16, "name": "I매I우연",     "title": "洞察先機", "time": "05:06.5" },
+    { "rank": 17, "name": "烏薩奇Usagi",  "title": "洞察先機", "time": "05:07.2" },
+    { "rank": 18, "name": "龍×식현",      "title": "용기사",   "time": "05:08.2" },
+    { "rank": 19, "name": "메투스",       "title": "洞察先機", "time": "05:08.3" },
+    { "rank": 20, "name": "I매IFLEX3R",   "title": "洞察先機", "time": "05:08.6" },
+    { "rank": 21, "name": "賽博陀螺",     "title": "洞察先機", "time": "05:08.7" },
+    { "rank": 22, "name": "I매I똥꼬",     "title": "洞察先機", "time": "05:09.1" },
+    { "rank": 23, "name": "巴嗝鴨肉",     "title": "洞察先機", "time": "05:09.1" },
+    { "rank": 24, "name": "Niff",         "title": "洞察先機", "time": "05:09.6" },
+    { "rank": 25, "name": "龍×이뮤",      "title": "용기사",   "time": "05:09.9" },
+    { "rank": 26, "name": "阿武花豆",     "title": "課金",     "time": "05:14.4" },
+    { "rank": 27, "name": "戰神子龍",     "title": "洞察先機", "time": "05:14.8" },
+    { "rank": 28, "name": "放開隻牛仔",   "title": "洞察先機", "time": "05:16.5" },
+    { "rank": 29, "name": "I매I네이비",   "title": "洞察先機", "time": "05:17.1" },
+    { "rank": 30, "name": "戰神角角",     "title": "逆天改命", "time": "05:17.6" },
+    { "rank": 31, "name": "牛大力",       "title": "課金",     "time": "05:18.0" },
+    { "rank": 32, "name": "牛大力",       "title": "巔峰之上", "time": "05:19.0" },
+    { "rank": 33, "name": "FLEX2R fx",    "title": "FLEX",     "time": "05:20.9" },
+    { "rank": 34, "name": "욕정",         "title": "逆天改命", "time": "05:21.2" },
+    { "rank": 35, "name": "Makabaka",     "title": "洞察先機", "time": "05:21.7" },
+    { "rank": 36, "name": "龍×교슈",      "title": "용기사",   "time": "05:22.7" },
+    { "rank": 37, "name": "牛大力",       "title": "逆天改命", "time": "05:22.7" },
+    { "rank": 38, "name": "I매I일여행중", "title": "매",       "time": "05:22.8" },
+    { "rank": 39, "name": "戰神蕉蕉",     "title": "逆天改命", "time": "05:23.1" },
+    { "rank": 40, "name": "龍×조이",      "title": "용기사",   "time": "05:24.7" },
+    { "rank": 41, "name": "I매I똥꼬",     "title": "洞察先機", "time": "05:25.0" },
+    { "rank": 42, "name": "泰融",         "title": "逆天改命", "time": "05:25.9" },
+    { "rank": 43, "name": "瑪法里恩中風", "title": "姒神",     "time": "05:26.9" },
+    { "rank": 44, "name": "I매I진",       "title": "洞察先機", "time": "05:27.5" },
+    { "rank": 45, "name": "龍×콰트",      "title": "용기사",   "time": "05:27.6" },
+    { "rank": 46, "name": "丫丸仔",       "title": "逆天改命", "time": "05:27.6" },
+    { "rank": 47, "name": "龍×령녀",      "title": "용기사",   "time": "05:27.6" },
+    { "rank": 48, "name": "I매I연인",     "title": "洞察先機", "time": "05:28.0" },
+    { "rank": 49, "name": "仔仔團宗宗",   "title": "逆天改命", "time": "05:28.8" },
+    { "rank": 50, "name": "紫薯芋泥c",    "title": "逆天改命", "time": "05:29.3" },
+    { "rank": 51, "name": "CoBe",         "title": "逆天改命", "time": "05:31.2" },
+    { "rank": 52, "name": "LD丨말랭",     "title": "洞察先機", "time": "05:31.9" },
+    { "rank": 53, "name": "戰神大叔o",    "title": "洞察先機", "time": "05:32.5" },
+    { "rank": 54, "name": "고른주부J",    "title": "고른햇살", "time": "05:32.5" },
+    { "rank": 55, "name": "龍×냥코",      "title": "용기사",   "time": "05:32.7" },
+    { "rank": 56, "name": "龍騎士神さま", "title": "洞察先機", "time": "05:33.2" },
+    { "rank": 57, "name": "LD丨팡대ㅇ③", "title": "레전더리", "time": "05:33.4" },
+    { "rank": 58, "name": "I매I사냥",     "title": "洞察先機", "time": "05:33.6" },
+    { "rank": 59, "name": "I매I루아흐",   "title": "洞察先機", "time": "05:33.9" },
+    { "rank": 60, "name": "戰神SAKE",     "title": "洞察先機", "time": "05:34.2" },
+    { "rank": 61, "name": "Yöö fx",       "title": "FLEX",     "time": "05:34.2" },
+    { "rank": 62, "name": "I매I인써하",   "title": "逆天改命", "time": "05:34.8" },
+    { "rank": 63, "name": "頭殼芭蕊",     "title": "逆天改命", "time": "05:35.1" },
+    { "rank": 64, "name": "LD丨도하",     "title": "레전더리", "time": "05:35.2" },
+    { "rank": 65, "name": "단별ll헌큐",   "title": "洞察先機", "time": "05:36.5" },
+    { "rank": 66, "name": "I매I롱",       "title": "洞察先機", "time": "05:36.7" },
+    { "rank": 67, "name": "I매I심쿵Dad",  "title": "洞察先機", "time": "05:37.7" },
+    { "rank": 68, "name": "螞蟻王子",     "title": "洞察先機", "time": "05:38.9" },
+    { "rank": 69, "name": "戰神彬彬",     "title": "戰神殿",   "time": "05:39.1" },
+    { "rank": 70, "name": "LD丨저축왕",   "title": "洞察先機", "time": "05:41.5" }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "players": [
+        { "name": "龍×과트",      "power": "12.25M", "qualifier_time": "05:27.6", "prev_power": "10.98M", "prev_progress": "10/10", "prev_time": "03:03.42" },
+        { "name": "戰神大叔o",    "power": "11.73M", "qualifier_time": "05:32.5", "prev_power": "11.30M", "prev_progress": "10/10", "prev_time": "05:25.05" },
+        { "name": "RV297",        "power": "25.50M", "qualifier_time": "04:52.1", "prev_power": "24.20M", "prev_progress": "10/10", "prev_time": "02:35.66" },
+        { "name": "戰神子龍",     "power": "21.01M", "qualifier_time": "05:14.8", "prev_power": "13.31M", "prev_progress": "10/10", "prev_time": "04:44.19" },
+        { "name": "I매I인써하",   "power": "8.97M",  "qualifier_time": "05:34.8" },
+        { "name": "I매IFLEX3R",   "power": "27.05M", "qualifier_time": "05:08.6", "prev_power": "22.65M", "prev_progress": "10/10", "prev_time": "03:07.22" },
+        { "name": "욕정",         "power": "16.83M", "qualifier_time": "05:21.2", "prev_power": "14.05M", "prev_progress": "10/10", "prev_time": "06:18.37" },
+        { "name": "doityourself", "power": "31.63M", "qualifier_time": "05:04.7", "prev_power": "28.73M", "prev_progress": "10/10", "prev_time": "01:46.10" }
+      ]
+    },
+    {
+      "id": 2,
+      "players": [
+        { "name": "LD丨팡대ㅇ③", "power": "14.77M", "qualifier_time": "05:33.4" },
+        { "name": "仔仔團宗宗",   "power": "14.49M", "qualifier_time": "05:28.8" },
+        { "name": "阿武花豆",     "power": "12.07M", "qualifier_time": "05:14.4", "prev_power": "6.64M",  "prev_progress": "10/10", "prev_time": "03:52.27" },
+        { "name": "仔仔團奧奧",   "power": "15.91M", "qualifier_time": "05:04.1" },
+        { "name": "瑪法里恩中風", "power": "11.08M", "qualifier_time": "05:26.9", "prev_power": "7.49M",  "prev_progress": "10/10", "prev_time": "04:56.36" },
+        { "name": "Cashasy",      "power": "21.02M", "qualifier_time": "04:43.7", "prev_power": "18.74M", "prev_progress": "10/10", "prev_time": "01:27.81" },
+        { "name": "I매I일여행중", "power": "15.29M", "qualifier_time": "05:22.8" },
+        { "name": "烏薩奇Usagi",  "power": "12.07M", "qualifier_time": "05:07.2", "prev_power": "10.70M", "prev_progress": "10/10", "prev_time": "03:50.77" }
+      ]
+    },
+    {
+      "id": 3,
+      "players": [
+        { "name": "LD丨짱구",   "power": "27.70M", "qualifier_time": "05:03.6" },
+        { "name": "放開隻牛仔", "power": "12.52M", "qualifier_time": "05:16.5" },
+        { "name": "牛大꿢",     "power": "14.30M" },
+        { "name": "賽博陀螺",   "power": "21.01M", "qualifier_time": "05:08.7", "prev_power": "16.77M", "prev_progress": "10/10", "prev_time": "04:08.73" },
+        { "name": "劍人海拉",   "power": "12.78M", "qualifier_time": "04:57.2", "prev_power": "12.42M", "prev_progress": "10/10", "prev_time": "05:50.08" },
+        { "name": "戰神SAKE",   "power": "13.33M", "qualifier_time": "05:34.2", "prev_power": "13.29M", "prev_progress": "10/10", "prev_time": "04:21.80" },
+        { "name": "LD丨말랭",   "power": "16.24M", "qualifier_time": "05:31.9" },
+        { "name": "丫丸仔",     "power": "11.38M", "qualifier_time": "05:27.6" }
+      ]
+    },
+    {
+      "id": 4,
+      "players": [
+        { "name": "牛大力",     "flag": "⚠", "power": "30.55M", "prev_power": "28.95M", "prev_progress": "10/10", "prev_time": "01:40.54" },
+        { "name": "I매I루아흐", "power": "9.42M",  "qualifier_time": "05:33.9", "prev_power": "9.95M",  "prev_progress": "10/10", "prev_time": "05:47.58" },
+        { "name": "戰神蕉蕉",   "power": "10.32M", "qualifier_time": "05:23.1" },
+        { "name": "Niff",       "power": "13.79M", "qualifier_time": "05:09.6", "prev_power": "12.36M", "prev_progress": "10/10", "prev_time": "05:49.04" },
+        { "name": "夜凜月",     "power": "10.48M", "qualifier_time": "05:00.5", "prev_power": "9.47M",  "prev_progress": "10/10", "prev_time": "07:22.22" },
+        { "name": "I매I우연",   "power": "11.94M", "qualifier_time": "05:06.5" },
+        { "name": "紫薯芋泥c",  "power": "10.67M", "qualifier_time": "05:29.3", "prev_power": "10.05M", "prev_progress": "10/10", "prev_time": "10:00.02" },
+        { "name": "I매I진",     "power": "18.11M", "qualifier_time": "05:27.5" }
+      ]
+    },
+    {
+      "id": 5,
+      "players": [
+        { "name": "戰神角角",   "power": "15.86M", "qualifier_time": "05:17.6" },
+        { "name": "龍×똥꼬",    "power": "15.83M", "qualifier_time": "05:00.6" },
+        { "name": "SuperAaron", "power": "20.00M", "qualifier_time": "04:57.2", "prev_power": "16.45M", "prev_progress": "10/10", "prev_time": "03:13.05" },
+        { "name": "Makabaka",   "power": "10.28M", "qualifier_time": "05:21.7" },
+        { "name": "LD丨도하",   "power": "13.22M", "qualifier_time": "05:35.2", "prev_power": "11.92M", "prev_progress": "10/10", "prev_time": "04:03.10" },
+        { "name": "I매I연인",   "power": "14.72M", "qualifier_time": "05:28.0", "prev_power": "14.45M", "prev_progress": "10/10", "prev_time": "02:54.42" },
+        { "name": "CoBe",       "power": "12.07M", "qualifier_time": "05:31.2", "prev_power": "10.52M", "prev_progress": "10/10", "prev_time": "05:41.63" },
+        { "name": "I매I똥꼬",   "flag": "⚠", "power": "12.02M" }
+      ]
+    },
+    {
+      "id": 6,
+      "players": [
+        { "name": "龍×냥코",    "power": "10.95M", "qualifier_time": "05:32.7", "prev_power": "10.44M", "prev_progress": "1/10",  "prev_time": "未通關" },
+        { "name": "koeee",      "power": "58.84M", "qualifier_time": "04:26.4", "prev_power": "54.24M", "prev_progress": "10/10", "prev_time": "00:52.52" },
+        { "name": "메투스",     "power": "30.11M", "qualifier_time": "05:08.3", "prev_power": "26.51M", "prev_progress": "10/10", "prev_time": "01:36.14" },
+        { "name": "I매I네이비", "power": "16.01M", "qualifier_time": "05:17.1", "prev_power": "11.84M", "prev_progress": "7/10",  "prev_time": "未通關" },
+        { "name": "Egø",        "flag": "≈", "power": "18.56M", "qualifier_time": "05:04.4", "prev_power": "16.38M", "prev_progress": "10/10", "prev_time": "02:02.63" },
+        { "name": "I매I똥꼬",   "flag": "⚠", "power": "6.80M" },
+        { "name": "Yöö",        "power": "14.22M", "qualifier_time": "05:34.2", "prev_power": "11.43M", "prev_progress": "10/10", "prev_time": "07:41.38" },
+        { "name": "龍×교수",    "power": "11.93M", "qualifier_time": "05:22.7", "prev_power": "10.96M", "prev_progress": "10/10", "prev_time": "06:57.08" }
+      ]
+    },
+    {
+      "id": 7,
+      "players": [
+        { "name": "龍×이뮤",      "power": "12.13M", "qualifier_time": "05:09.9" },
+        { "name": "龍騎士神さま", "power": "11.59M", "qualifier_time": "05:33.2", "prev_power": "10.21M", "prev_progress": "10/10", "prev_time": "05:12.52" },
+        { "name": "紅桃A",        "power": "16.35M", "qualifier_time": "05:05.1", "prev_power": "12.08M", "prev_progress": "10/10", "prev_time": "03:07.08" },
+        { "name": "LD丨팡대",     "flag": "⚠", "power": "24.81M", "qualifier_time": "04:53.8", "prev_power": "21.59M", "prev_progress": "10/10", "prev_time": "01:18.07" },
+        { "name": "고른주부J",    "flag": "≈", "power": "16.46M", "qualifier_time": "05:32.5", "prev_power": "15.73M", "prev_progress": "7/10", "prev_time": "未通關" },
+        { "name": "FLEX2R",       "power": "17.81M", "qualifier_time": "05:20.9", "prev_power": "15.77M", "prev_progress": "10/10", "prev_time": "03:34.43" },
+        { "name": "龍×령녀",      "power": "11.54M", "qualifier_time": "05:27.6" },
+        { "name": "Leojian",      "power": "24.50M", "qualifier_time": "05:04.5", "prev_power": "21.62M", "prev_progress": "10/10", "prev_time": "02:29.13" }
+      ]
+    },
+    {
+      "id": 8,
+      "players": [
+        { "name": "牛大力",       "flag": "⚠", "power": "48.50M", "prev_power": "42.04M", "prev_progress": "10/10", "prev_time": "01:11.87" },
+        { "name": "泰融",         "power": "13.21M", "qualifier_time": "05:25.9" },
+        { "name": "o月亮惹的禍o", "power": "37.46M", "qualifier_time": "04:41.0" },
+        { "name": "頭殼芭蕊",     "power": "11.08M", "qualifier_time": "05:35.1" },
+        { "name": "I매I사냥",     "power": "16.90M", "qualifier_time": "05:33.6" },
+        { "name": "巴嗝鴨肉",     "power": "19.91M", "qualifier_time": "05:09.1", "prev_power": "18.60M", "prev_progress": "10/10", "prev_time": "01:45.47" },
+        { "name": "龍×조이",      "power": "11.40M", "qualifier_time": "05:24.7", "prev_power": "10.79M", "prev_progress": "10/10", "prev_time": "04:12.07" },
+        { "name": "龍×식현",      "power": "8.51M",  "qualifier_time": "05:08.2", "prev_power": "5.03M",  "prev_progress": "7/10",  "prev_time": "未通關" }
+      ]
+    }
+  ],
+  "grand_finals": null
+}

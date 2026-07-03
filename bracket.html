@@ -13,114 +13,20 @@
 <body class="p-6">
   <div class="max-w-full mx-auto">
     <div class="mb-4 flex items-center gap-3 flex-wrap">
-      <a href="index.html" class="text-slate-500 hover:text-white text-sm">← 返回</a>
-      <h1 class="text-xl font-bold text-yellow-400">2026/6/19 淘汰賽對陣</h1>
+      <a id="back-link" href="index.html" class="text-slate-500 hover:text-white text-sm">← 返回</a>
+      <h1 id="title" class="text-xl font-bold text-yellow-400">淘汰賽對陣</h1>
     </div>
     <div id="tabs" class="flex gap-2 mb-6 flex-wrap"></div>
     <div id="bracket-wrap" class="overflow-x-auto"></div>
   </div>
 
+  <script src="js/common.js"></script>
   <script>
-    const BADGE = {
-      '1強':   'background:#ca8a04;color:#000',
-      '2強':   'background:#94a3b8;color:#000',
-      '4強':   'background:#92400e;color:#fff',
-      '8強':   'background:#6d28d9;color:#fff',
-      '16強':  'background:#1d4ed8;color:#fff',
-      '32強':  'background:#0f766e;color:#fff',
-      '64強':  'background:#374151;color:#9ca3af',
-      '未入選':'background:#1e293b;color:#4b5563',
-    };
-
-    // Groups data
-    // players[0..3] = left side (top→bot), players[4..7] = right side (top→bot)
-    // Bracket:
-    //   Top half semi:  [0] vs [1]  winner  vs  [4] vs [5] winner
-    //   Bot half semi:  [2] vs [3]  winner  vs  [6] vs [7] winner
-    //   Final: top semi winner vs bot semi winner
-    const groups = [
-      { id: 1, players: [
-        { rank: 9,  name: '龍×기샨',      power: '13.80M', time: '04:51.8', prev: '32強'  },
-        { rank: 32, name: '阿武花豆',      power: '6.57M',  time: '05:07.0', prev: '未入選' },
-        { rank: 47, name: 'I매I네이비',    power: '11.84M', time: '05:12.5', prev: '16強'  },
-        { rank: 6,  name: '紅桃A',         power: '12.46M', time: '04:47.5', prev: '16強'  },
-        { rank: 40, name: 'FLEX2Rfx',      power: '15.56M', time: '05:11.1', prev: '64強'  },
-        { rank: 23, name: 'Leojian',       power: '21.30M', time: '05:03.6', prev: '8強'   },
-        { rank: 54, name: '龍騎士神さま',  power: '10.21M', time: '05:14.9', prev: '未入選' },
-        { rank: 64, name: '秘運行者Kai',   power: '8.87M',  time: '05:17.1', prev: '64強'  },
-      ]},
-      { id: 2, players: [
-        { rank: 5,  name: '龍×과트',   power: '11.05M', time: '04:44.2', prev: '未入選' },
-        { rank: 36, name: 'MrKevin',   power: '8.53M',  time: '05:08.2', prev: '64強'  },
-        { rank: 26, name: '戰神角角',  power: '14.25M', time: '05:04.4', prev: '32強'  },
-        { rank: 62, name: '螞蟥王子',  power: '11.47M', time: '05:16.4', prev: '未入選' },
-        { rank: 19, name: 'I매I진',    power: '15.07M', time: '05:02.0', prev: '64強'  },
-        { rank: 43, name: 'I매I연인',  power: '13.79M', time: '05:11.6', prev: '32強'  },
-        { rank: 16, name: 'Egø',       power: '4.26M',  time: '05:01.1', prev: '32強'  },
-        { rank: 51, name: '龍×령녀',   power: '8.97M',  time: '05:13.8', prev: '64強'  },
-      ]},
-      { id: 3, players: [
-        { rank: 55, name: '고른주부J',   power: '15.73M', time: '05:15.0', prev: '32強'  },
-        { rank: 12, name: 'LD丨짱구',    power: '26.17M', time: '04:54.3', prev: '32強'  },
-        { rank: 27, name: 'LD丨팡대oo3', power: '11.15M', time: '05:05.1', prev: '64強'  },
-        { rank: 8,  name: '龍×이뮤',     power: '11.80M', time: '04:51.4', prev: '64強'  },
-        { rank: 59, name: 'I매I매I',     power: '6.17M',  time: '05:16.1', prev: '64強'  },
-        { rank: 24, name: 'I매I우연',    power: '11.12M', time: '05:03.6', prev: '32強'  },
-        { rank: 42, name: '戰神蕉蕉',   power: '9.10M',  time: '05:11.5', prev: '16強'  },
-        { rank: 39, name: '龍×조이',     power: '10.34M', time: '05:10.9', prev: '64強'  },
-      ]},
-      { id: 4, players: [
-        { rank: 29, name: 'LD丨팡팡대', power: '28.74M', time: '05:06.0', prev: '未入選' },
-        { rank: 17, name: '賽博陀螺',  power: '16.77M', time: '05:01.2', prev: '未入選' },
-        { rank: 3,  name: 'Cashasy',   power: '17.42M', time: '04:39.8', prev: '4強'   },
-        { rank: 45, name: '牛大办',    power: '12.66M', time: '05:12.1', prev: '16強'  },
-        { rank: 14, name: '牛大力',    power: '41.52M', time: '04:58.7', prev: '2強'   },
-        { rank: 60, name: 'Yöö fx',    power: '11.43M', time: '05:16.1', prev: '未入選' },
-        { rank: 49, name: '육정',      power: '13.95M', time: '05:12.8', prev: '64強'  },
-        { rank: 37, name: '龍×냥코',   power: '10.44M', time: '05:08.4', prev: '64強'  },
-      ]},
-      { id: 5, players: [
-        { rank: 1,  name: 'koeee',       power: '54.24M', time: '04:27.9', prev: '1強'   },
-        { rank: 53, name: '歐洲閃魚閃',  power: '18.41M', time: '05:14.6', prev: '64強'  },
-        { rank: 57, name: '戰營養腸七拍', power: '8.75M',  time: '05:16.0', prev: '64強'  },
-        { rank: 28, name: '休閑仔',      power: '12.44M', time: '05:05.5', prev: '未入選' },
-        { rank: 48, name: '龍×식현',     power: '4.80M',  time: '05:12.8', prev: '64強'  },
-        { rank: 22, name: '龍×교수',     power: '9.55M',  time: '05:03.4', prev: '64強'  },
-        { rank: 33, name: '메투스',      power: '24.73M', time: '05:07.0', prev: '32強'  },
-        { rank: 13, name: 'LD丨팡대',    power: '22.17M', time: '04:55.5', prev: '8強'   },
-      ]},
-      { id: 6, players: [
-        { rank: 35, name: 'LD丨말랭',    power: '12.15M', time: '05:07.7', prev: '64強'  },
-        { rank: 25, name: '夜濃月',      power: '7.80M',  time: '05:04.2', prev: '64強'  },
-        { rank: 2,  name: '一火焰球一',  power: '33.25M', time: '04:28.5', prev: '4強'   },
-        { rank: 20, name: '劍人海拉',    power: '11.47M', time: '05:02.2', prev: '32強'  },
-        { rank: 50, name: 'LD丨도하',    power: '11.93M', time: '05:13.0', prev: '32強'  },
-        { rank: 10, name: '烏薩奇Usagi', power: '10.33M', time: '04:51.9', prev: '64強'  },
-        { rank: 58, name: 'CoBe',        power: '10.26M', time: '05:16.0', prev: '未入選' },
-        { rank: 46, name: 'I매IFLEX3R', power: '22.65M', time: '05:12.3', prev: '16強'  },
-      ]},
-      { id: 7, players: [
-        { rank: 52, name: '紫薯芋泥c',    power: '10.47M', time: '05:14.3', prev: '64強'  },
-        { rank: 56, name: '戰神SAKE',     power: '13.29M', time: '05:15.3', prev: '未入選' },
-        { rank: 14, name: '牛大力',       power: '27.88M', time: '04:58.7', prev: '2強'   },
-        { rank: 21, name: 'Niff',         power: '12.16M', time: '05:03.0', prev: '未入選' },
-        { rank: 15, name: 'SuperAaron',   power: '16.68M', time: '04:59.1', prev: '16強'  },
-        { rank: 11, name: 'I매I매I매',    power: '9.93M',  time: '04:53.7', prev: '32強'  },
-        { rank: 61, name: 'I매I루아흐',   power: '9.95M',  time: '05:16.2', prev: '未入選' },
-        { rank: 18, name: '戰神冥海龍靈', power: '8.94M',  time: '05:01.6', prev: '64強'  },
-      ]},
-      { id: 8, players: [
-        { rank: 7,  name: '仔仔圓奧奧',  power: '13.23M', time: '04:49.3', prev: '32強'  },
-        { rank: 44, name: '巴嗝鴨肉',    power: '18.39M', time: '05:12.0', prev: '64強'  },
-        { rank: 31, name: 'LD丨저축왕',  power: '8.87M',  time: '05:06.6', prev: '64強'  },
-        { rank: 63, name: '戰神大叔o',   power: '10.09M', time: '05:16.9', prev: '64強'  },
-        { rank: 34, name: '戰神彬彬',     power: '8.76M',  time: '05:07.3', prev: '64強'  },
-        { rank: 4,  name: 'RV297',        power: '23.17M', time: '04:43.8', prev: '8強'   },
-        { rank: 41, name: '瑪法里恩中風', power: '9.18M',  time: '05:11.3', prev: '64強'  },
-        { rank: 38, name: '戰神子龍',     power: '13.31M', time: '05:08.8', prev: '16強'  },
-      ]},
-    ];
-
+    // groups[].players 依對陣位置排序（見 README「資料格式」）：
+    //   players[0..3] = 左側（上→下）、players[4..7] = 右側（上→下）
+    //   準決賽（上半）：[0]v[1] 勝者 vs [4]v[5] 勝者
+    //   準決賽（下半）：[2]v[3] 勝者 vs [6]v[7] 勝者
+    //   組決賽：上半勝者 vs 下半勝者
     function renderBracket(g) {
       const p = g.players;
 
@@ -154,7 +60,9 @@
       const lw = 2;
 
       function playerFO(pl, x, y) {
-        const bs = BADGE[pl.prev] || BADGE['未入選'];
+        const badgeVal = pl.prev_best || pl.prev_progress || '';
+        const bs = PREV_BADGE_STYLE[badgeVal] || 'background:#374151;color:#9ca3af';
+        const rank = pl.qualifier_rank != null ? `#${pl.qualifier_rank} ` : '';
         return `
           <foreignObject x="${x}" y="${y}" width="${PW}" height="${PH}">
             <div xmlns="http://www.w3.org/1999/xhtml"
@@ -162,14 +70,14 @@
                         padding:5px 10px;height:${PH}px;box-sizing:border-box;">
               <div style="font-size:12px;font-weight:600;color:#f1f5f9;
                           white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                #${pl.rank} ${pl.name}
-                <span style="${bs};font-size:9px;padding:1px 5px;border-radius:999px;
-                              font-weight:600;margin-left:3px;">${pl.prev}</span>
+                ${rank}${displayName(pl)}
+                ${badgeVal ? `<span style="${bs};font-size:9px;padding:1px 5px;border-radius:999px;
+                              font-weight:600;margin-left:3px;">${badgeVal}</span>` : ''}
               </div>
               <div style="font-size:11px;color:#64748b;font-family:monospace;
                           display:flex;gap:8px;margin-top:3px;">
-                <span>${pl.power}</span>
-                <span style="color:#eab308;">${pl.time}</span>
+                <span>${pl.power || '—'}</span>
+                <span style="color:#eab308;">${pl.qualifier_time || '—'}</span>
               </div>
             </div>
           </foreignObject>`;
@@ -256,31 +164,48 @@
         <rect x="${champX}" y="${champY}" width="${champW}" height="${champH}"
               rx="8" fill="#1c2a0a" stroke="#eab308" stroke-width="2"/>
         <text x="${midX}" y="${champY + 16}" text-anchor="middle"
-              fill="#eab308" font-size="11" font-weight="bold">🏆 決賽</text>
+              fill="#eab308" font-size="11" font-weight="bold">🏆 組冠軍</text>
         <text x="${midX}" y="${champY + 31}" text-anchor="middle"
-              fill="#94a3b8" font-size="11">待定</text>
+              fill="${g.champion ? '#f1f5f9' : '#94a3b8'}" font-size="11">${g.champion || '待定'}</text>
       </svg>`;
     }
 
-    // Tabs
-    const tabsEl = document.getElementById('tabs');
-    const wrapEl = document.getElementById('bracket-wrap');
+    async function init() {
+      const params = new URLSearchParams(location.search);
+      const ids = await fetchSeasonIds();
+      const id = params.get('id') || ids[ids.length - 1];
+      const data = await fetchSeason(id);
 
-    groups.forEach((g, i) => {
-      const btn = document.createElement('button');
-      btn.textContent = `第 ${g.id} 組`;
-      btn.className = `px-4 py-2 rounded-lg text-sm font-semibold transition
-        ${i === 0 ? 'bg-yellow-500 text-black' : 'bg-slate-700 text-slate-300 hover:bg-slate-600'}`;
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('#tabs button').forEach(b =>
-          b.className = 'px-4 py-2 rounded-lg text-sm font-semibold transition bg-slate-700 text-slate-300 hover:bg-slate-600');
-        btn.className = 'px-4 py-2 rounded-lg text-sm font-semibold transition bg-yellow-500 text-black';
-        wrapEl.innerHTML = renderBracket(g);
+      document.title = `${data.date} 淘汰賽對陣 — 弓箭傳說2`;
+      document.getElementById('title').textContent = `${data.date} 淘汰賽對陣`;
+      document.getElementById('back-link').href = `season.html?id=${id}`;
+
+      const tabsEl = document.getElementById('tabs');
+      const wrapEl = document.getElementById('bracket-wrap');
+
+      if (!data.groups || !data.groups.length) {
+        wrapEl.innerHTML = '<div class="text-slate-500 text-center py-12">尚無分組資料</div>';
+        return;
+      }
+
+      data.groups.forEach((g, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = `第 ${g.id} 組`;
+        btn.className = `px-4 py-2 rounded-lg text-sm font-semibold transition
+          ${i === 0 ? 'bg-yellow-500 text-black' : 'bg-slate-700 text-slate-300 hover:bg-slate-600'}`;
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#tabs button').forEach(b =>
+            b.className = 'px-4 py-2 rounded-lg text-sm font-semibold transition bg-slate-700 text-slate-300 hover:bg-slate-600');
+          btn.className = 'px-4 py-2 rounded-lg text-sm font-semibold transition bg-yellow-500 text-black';
+          wrapEl.innerHTML = renderBracket(g);
+        });
+        tabsEl.appendChild(btn);
       });
-      tabsEl.appendChild(btn);
-    });
 
-    wrapEl.innerHTML = renderBracket(groups[0]);
+      wrapEl.innerHTML = renderBracket(data.groups[0]);
+    }
+
+    init();
   </script>
 </body>
 </html>

@@ -17,14 +17,13 @@
     <div id="seasons-list" class="space-y-4"></div>
   </div>
 
+  <script src="js/common.js"></script>
   <script>
     async function load() {
-      const res = await fetch('data/seasons.json');
-      const seasons = await res.json();
+      const seasons = await fetchAllSeasons();
 
       const container = document.getElementById('seasons-list');
       seasons.reverse().forEach(s => {
-        const isLive = s.status === 'in_progress';
         const card = document.createElement('a');
         card.href = `season.html?id=${s.id}`;
         card.className = 'block bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl p-5 transition';
@@ -33,9 +32,7 @@
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-lg font-bold text-white">${s.date}</span>
-                ${isLive
-                  ? '<span class="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">進行中</span>'
-                  : '<span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded-full">已結束</span>'}
+                ${statusBadge(s.status)}
               </div>
               <div class="text-sm text-slate-400">主題：${s.theme}</div>
               ${s.champion

@@ -19,6 +19,7 @@
 ## 工作流
 
 - [淘汰賽結果全自動工作流](./workflows/tournament-results-workflow.md)
+- [明星杯賽前對陣與競猜 Guide 工作流](./workflows/star-cup-pre-match-workflow.md)
 
 ## 來源
 

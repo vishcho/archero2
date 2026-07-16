@@ -16,10 +16,11 @@ screenshots/<主題>/<YYYY-MM-DD-用途>/Screenshot_*.png
 
 | 批次路徑 | 日期 | 張數 | 內容 | 產出 |
 | -------- | ---- | ---- | ---- | ---- |
-| `screenshots/star-cup/2026-06-23-round1-results/` | 2026-06-23 | 50 | 6/19 明星杯淘汰賽逐場成績（8 組 R1/R2/決賽） | [round1-tournament-results.md](./round1-tournament-results.md)、`data/2026-06-19.json`（各組冠亞軍） |
-| `screenshots/star-cup/2026-07-03-round2-matchup/` | 2026-07-03 | 8 | 7/3 明星杯淘汰賽賽前對陣（102237＝第1組，104147–104241＝第2–8組） | [round2-matchup.md](./round2-matchup.md)、`data/2026-07-03.json` |
-| `screenshots/rune-ruins/2026-06-24/` | 2026-06-24 | 22 | 符文廢墟符文一覽（顏色×形狀） | [rune-ruins-stats.md](./rune-ruins-stats.md) |
-| `screenshots/skills/` | 2026-07-03 | 1+ | 蓄能流技能組合木樁 60 秒 DPS 測試（10 組合；部分截圖僅貼在對話中未存檔） | [skill-dps-analysis.md](./skill-dps-analysis.md) |
+| `screenshots/star-cup/2026-06-23-round1-results/` | 2026-06-23 | 64 | 6/19 明星杯淘汰賽逐場成績（8 組 R1/R2/決賽） | [2026-06-23-tournament-results.md](./star-cup/2026-06-23-tournament-results.md)、`data/2026-06-19.json`（逐場結果、各組冠亞軍） |
+| `screenshots/star-cup/2026-07-03-round2-matchup/` | 2026-07-03 | 8 | 7/3 明星杯淘汰賽賽前對陣（102237＝第1組，104147–104241＝第2–8組） | [2026-07-03-round2-matchup.md](./star-cup/2026-07-03-round2-matchup.md)、`data/2026-07-03.json` |
+| `screenshots/star-cup/2026-07-07-round2-results/` | 2026-07-07 | 64 | 7/4 明星杯淘汰賽逐場成績（8 組 R1/R2/決賽） | [2026-07-07-tournament-results.md](./star-cup/2026-07-07-tournament-results.md)、`data/2026-07-03.json`（逐場結果、各組冠亞軍） |
+| `screenshots/rune-ruins/2026-06-24/` | 2026-06-24 | 22 | 符文廢墟符文一覽（顏色×形狀） | [rune-ruins-stats.md](./analysis/rune-ruins-stats.md) |
+| `screenshots/skills/` | 2026-07-03 | 1+ | 蓄能流技能組合木樁 60 秒 DPS 測試（10 組合；部分截圖僅貼在對話中未存檔） | [skill-dps-analysis.md](./analysis/skill-dps-analysis.md) |
 
 ## 備份提醒
 

@@ -181,6 +181,6 @@ R2
 
 ---
 
-> 資料來源：截圖 `screenshots/star-cup/2026-07-07-round2-results/`（僅本地留存，見 [sources.md](./sources.md)；64 張＝8 組 × 8 張，每組首張為晉級樹狀圖，餘 7 張為對戰詳情）
-> 對陣與賽前數據：[round2-matchup.md](./round2-matchup.md)｜上屆成績：[round1-tournament-results.md](./round1-tournament-results.md)
+> 資料來源：截圖 `screenshots/star-cup/2026-07-07-round2-results/`（僅本地留存，見 [sources.md](../sources.md)；64 張＝8 組 × 8 張，每組首張為晉級樹狀圖，餘 7 張為對戰詳情）
+> 對陣與賽前數據：[2026-07-03-round2-matchup.md](./2026-07-03-round2-matchup.md)｜上屆成績：[2026-06-23-tournament-results.md](./2026-06-23-tournament-results.md)
 > 淘汰賽約於 2026/7/4 進行（依對陣表競猜期推算），截圖攝於 2026/7/7｜最後更新：2026-07-07

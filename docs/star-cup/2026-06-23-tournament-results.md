@@ -163,4 +163,4 @@ R2
 
 ---
 
-> 資料來源：截圖 `screenshots/star-cup/2026-06-23-round1-results/`（僅本地留存，見 [sources.md](./sources.md)）｜最後更新：2026-06-23
+> 資料來源：截圖 `screenshots/star-cup/2026-06-23-round1-results/`（僅本地留存，見 [sources.md](../sources.md)）｜最後更新：2026-06-23

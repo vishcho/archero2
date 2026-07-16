@@ -43,12 +43,11 @@ archero2-web/
 │   ├── 2026-06-19.json # 單屆完整資料（見下方 schema）
 │   └── 2026-07-03.json
 ├── docs/               # 規則、詳細戰報與分析（非網站資料源）
-│   ├── star-cup.md                  # 明星杯規則（賽制、競猜）
-│   ├── round1-tournament-results.md # 6/19 淘汰賽逐場戰報（含 R1/R2/決賽細節）
-│   ├── round2-matchup.md            # 7/3 對陣表原始整理（含同名玩家考證註記）
-│   ├── activity-calendar.md         # 遊戲活動日曆
-│   ├── rune-ruins-stats.md          # 符文廢墟符文統計
-│   └── sources.md                   # 截圖批次索引（截圖本體不進 git）
+│   ├── README.md                    # 文件索引
+│   ├── sources.md                   # 截圖批次索引（截圖本體不進 git）
+│   ├── star-cup/                    # 明星杯規則、對陣、戰報與活動
+│   ├── analysis/                    # 符文、技能等分析
+│   └── workflows/                   # 資料整理與自動化流程
 ├── img/
 │   └── fire.png        # 網站 favicon（img/ 只放頁面會引用的資產）
 └── screenshots/        # 原始截圖 — gitignored，只留本地供 AI 分析
@@ -122,6 +121,31 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 `prev_best`（徽章式）與 `prev_power/progress/time`（明細式）兩種「上屆」表達
 擇一使用即可，表格欄位會依資料自動調整。
 
+#### `groups[].matches` 的逐場結果約定
+
+淘汰賽結果寫進 `groups[].matches`，作為 `docs/star-cup/YYYY-MM-DD-tournament-results.md`
+的結構化來源：
+
+```json
+{
+  "round": "R1",
+  "slot": "A",
+  "p1": { "name": "玩家A", "progress": 10, "time": "03:07.25", "power": "13.24M" },
+  "p2": { "name": "玩家B", "progress": 10, "time": "03:52.27", "power": "6.64M" },
+  "winner": "玩家A",
+  "loser": "玩家B",
+  "notes": ["雙方滿時，依遊戲標示判定勝負"]
+}
+```
+
+- `round`：`R1` / `R2` / `決賽`
+- `slot`：R1 使用 `A`/`B`/`C`/`D`，R2 使用 `upper`/`lower`，決賽使用 `final`
+- `power`：對戰彈窗的賽時戰力；R2/決賽若截圖不顯示可省略
+- `champion_power`：該組冠軍賽時戰力
+- `champion_current_power`：樹狀圖目前戰力；無資料時省略
+
+完整自動化流程見 [docs/workflows/tournament-results-workflow.md](docs/workflows/tournament-results-workflow.md)。
+
 ## 新增一屆賽事的流程
 
 1. 在 `data/` 新增 `{id}.json`（複製上一屆改內容，注意 players 要照對陣位置排序）
@@ -133,4 +157,4 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 ## 明星杯賽制速覽
 
 資格賽（全員，前 64 名晉級）→ 淘汰賽（8 組 × 8 人，組冠軍晉級）→ 總決賽（8 人單淘汰）。
-完整規則與競猜機制見 [docs/star-cup.md](docs/star-cup.md)。
+完整規則與競猜機制見 [docs/star-cup/star-cup.md](docs/star-cup/star-cup.md)。

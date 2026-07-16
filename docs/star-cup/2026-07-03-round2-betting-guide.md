@@ -1,6 +1,6 @@
 # 2026/7/3 淘汰賽下注 Guide
 
-> 依據 [round2-matchup.md](./round2-matchup.md) 對陣表整理的下注建議。
+> 依據 [2026-07-03-round2-matchup.md](./2026-07-03-round2-matchup.md) 對陣表整理的下注建議。
 > 每組下注 7 場：R1(4) → R2(2) → 組決賽(1)。
 > **R2 對戰：A/C 勝者互打、B/D 勝者互打**（已確認）。
 
@@ -138,5 +138,5 @@
 
 ---
 
-> 對陣表：[round2-matchup.md](./round2-matchup.md)｜上屆成績：[round1-tournament-results.md](./round1-tournament-results.md)
+> 對陣表：[2026-07-03-round2-matchup.md](./2026-07-03-round2-matchup.md)｜上屆成績：[2026-06-23-tournament-results.md](./2026-06-23-tournament-results.md)
 > 最後更新：2026-07-03

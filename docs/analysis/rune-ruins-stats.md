@@ -1,6 +1,6 @@
 # 符文廢墟符文統計
 
-> 資料來源：截圖 `screenshots/rune-ruins/2026-06-24/`（僅本地留存，見 [sources.md](./sources.md)），共 22 張，合計 **135 個符文**。
+> 資料來源：截圖 `screenshots/rune-ruins/2026-06-24/`（僅本地留存，見 [sources.md](../sources.md)），共 22 張，合計 **135 個符文**。
 
 ## 統計匯總
 

@@ -1,0 +1,1032 @@
+{
+  "id": "2026-07-17",
+  "date": "2026/7/17",
+  "theme": "明星盃-精靈季",
+  "status": "in_progress",
+  "champion": null,
+  "qualifier": [
+    {
+      "rank": 1,
+      "name": "LD丨힝",
+      "title": "洞察先機",
+      "time": "04:06.1"
+    },
+    {
+      "rank": 2,
+      "name": "koeee",
+      "title": "魅力之星",
+      "time": "04:06.2"
+    },
+    {
+      "rank": 3,
+      "name": "I매IFLEX3R",
+      "title": "洞察先機",
+      "time": "04:09.4"
+    },
+    {
+      "rank": 4,
+      "name": "메투스",
+      "title": "洞察先機",
+      "time": "04:10.5"
+    },
+    {
+      "rank": 5,
+      "name": "牛大力",
+      "title": "巔峰之上",
+      "time": "04:10.8"
+    },
+    {
+      "rank": 6,
+      "name": "LD丨팡대",
+      "title": "레전더리",
+      "time": "04:11.1"
+    },
+    {
+      "rank": 7,
+      "name": "o月亮惹的禍o",
+      "title": "課金",
+      "time": "04:11.5"
+    },
+    {
+      "rank": 8,
+      "name": "泰融",
+      "title": "逆天改命",
+      "time": "04:15.3"
+    },
+    {
+      "rank": 9,
+      "name": "丫丸仔",
+      "title": "逆天改命",
+      "time": "04:15.3"
+    },
+    {
+      "rank": 10,
+      "name": "욕정",
+      "title": "逆天改命",
+      "time": "04:15.5"
+    },
+    {
+      "rank": 11,
+      "name": "龍×식현",
+      "title": "용기사",
+      "time": "04:16.8"
+    },
+    {
+      "rank": 12,
+      "name": "Cashasy",
+      "title": "洞察先機",
+      "time": "04:16.9"
+    },
+    {
+      "rank": 13,
+      "name": "紅桃A",
+      "title": "逆天改命",
+      "time": "04:17.2"
+    },
+    {
+      "rank": 14,
+      "name": "SuperAaron",
+      "title": "洞察先機",
+      "time": "04:17.4"
+    },
+    {
+      "rank": 15,
+      "name": "龍×교수",
+      "title": "용기사",
+      "time": "04:18.6"
+    },
+    {
+      "rank": 16,
+      "name": "I매I연인",
+      "title": "洞察先機",
+      "time": "04:18.9"
+    },
+    {
+      "rank": 17,
+      "name": "仔仔團奧奧",
+      "title": "洞察先機",
+      "time": "04:19.1"
+    },
+    {
+      "rank": 18,
+      "name": "放開隻牛仔",
+      "title": "洞察先機",
+      "time": "04:19.2"
+    },
+    {
+      "rank": 19,
+      "name": "LD丨저축왕",
+      "title": "逆天改命",
+      "time": "04:19.5"
+    },
+    {
+      "rank": 20,
+      "name": "龍×똥꼬",
+      "title": "용기사",
+      "time": "04:19.8"
+    },
+    {
+      "rank": 21,
+      "name": "LD丨팡대ㅇ③",
+      "title": "레전더리",
+      "time": "04:19.8"
+    },
+    {
+      "rank": 22,
+      "name": "賽博陀螺",
+      "title": "洞察先機",
+      "time": "04:19.9"
+    },
+    {
+      "rank": 23,
+      "name": "阿武花豆",
+      "title": "課金",
+      "time": "04:20.0"
+    },
+    {
+      "rank": 24,
+      "name": "龍×콰트",
+      "title": "용기사",
+      "time": "04:20.2"
+    },
+    {
+      "rank": 25,
+      "name": "FLEX2R",
+      "title": "FLEX",
+      "time": "04:20.4"
+    },
+    {
+      "rank": 26,
+      "name": "RV297",
+      "title": "洞察先機",
+      "time": "04:20.5"
+    },
+    {
+      "rank": 27,
+      "name": "I매I우연",
+      "title": "洞察先機",
+      "time": "04:20.5"
+    },
+    {
+      "rank": 28,
+      "name": "牛大力",
+      "title": "課金",
+      "time": "04:20.6"
+    },
+    {
+      "rank": 29,
+      "name": "仔仔團宗宗",
+      "title": "逆天改命",
+      "time": "04:20.7"
+    },
+    {
+      "rank": 30,
+      "name": "劍人海拉",
+      "title": "戰神殿",
+      "time": "04:20.8"
+    },
+    {
+      "rank": 31,
+      "name": "단별ll에이스",
+      "title": "단별",
+      "time": "04:20.9"
+    },
+    {
+      "rank": 32,
+      "name": "CoBe",
+      "title": "逆天改命",
+      "time": "04:20.9"
+    },
+    {
+      "rank": 33,
+      "name": "LD丨짱구",
+      "title": "洞察先機",
+      "time": "04:21.0"
+    },
+    {
+      "rank": 34,
+      "name": "Egø",
+      "title": "課金",
+      "time": "04:21.4"
+    },
+    {
+      "rank": 35,
+      "name": "瑪法里恩中風",
+      "title": "姒神",
+      "time": "04:21.5"
+    },
+    {
+      "rank": 36,
+      "name": "烏薩奇Usagi",
+      "title": "課金",
+      "time": "04:21.6"
+    },
+    {
+      "rank": 37,
+      "name": "I매I똥꼬",
+      "title": "洞察先機",
+      "time": "04:21.6"
+    },
+    {
+      "rank": 38,
+      "name": "LD丨도하",
+      "title": "레전더리",
+      "time": "04:22.2"
+    },
+    {
+      "rank": 39,
+      "name": "고른주부J",
+      "title": "고른햇살",
+      "time": "04:22.2"
+    },
+    {
+      "rank": 40,
+      "name": "龍×이뮤",
+      "title": "용기사",
+      "time": "04:22.3"
+    },
+    {
+      "rank": 41,
+      "name": "戰營養腦七拍",
+      "title": "洞察先機",
+      "time": "04:22.3"
+    },
+    {
+      "rank": 42,
+      "name": "派對孔明",
+      "title": "逆天改命",
+      "time": "04:22.4"
+    },
+    {
+      "rank": 43,
+      "name": "夜凜月",
+      "title": "逆天改命",
+      "time": "04:22.4"
+    },
+    {
+      "rank": 44,
+      "name": "Niff",
+      "title": "洞察先機",
+      "time": "04:22.4"
+    },
+    {
+      "rank": 45,
+      "name": "LD丨삐얀코",
+      "title": "洞察先機",
+      "time": "04:22.6"
+    },
+    {
+      "rank": 46,
+      "name": "Leojian",
+      "title": "洞察先機",
+      "time": "04:22.8"
+    },
+    {
+      "rank": 47,
+      "name": "김미태",
+      "title": "언노인정",
+      "time": "04:22.8"
+    },
+    {
+      "rank": 48,
+      "name": "某剩啊",
+      "title": "課金",
+      "time": "04:22.9"
+    },
+    {
+      "rank": 49,
+      "name": "龍×이노40",
+      "title": "洞察先機",
+      "time": "04:22.9"
+    },
+    {
+      "rank": 50,
+      "name": "吐司夾蛋",
+      "title": "放戰線",
+      "time": "04:23.0",
+      "note": "稱號首字被頭像遮擋，疑為「解放戰線」"
+    },
+    {
+      "rank": 51,
+      "name": "犇魔王",
+      "title": "逆天改命",
+      "time": "04:23.1"
+    },
+    {
+      "rank": 52,
+      "name": "Yöö",
+      "title": "FLEX",
+      "time": "04:23.2"
+    },
+    {
+      "rank": 53,
+      "name": "I매I똥꼬",
+      "title": "洞察先機",
+      "time": "04:23.3"
+    },
+    {
+      "rank": 54,
+      "name": "龍×냥코",
+      "title": "용기사",
+      "time": "04:23.4"
+    },
+    {
+      "rank": 55,
+      "name": "龍×령녀",
+      "title": "용기사",
+      "time": "04:23.4"
+    },
+    {
+      "rank": 56,
+      "name": "단별ll헌큔",
+      "title": "단별",
+      "time": "04:23.4"
+    },
+    {
+      "rank": 57,
+      "name": "디킨비",
+      "title": "FLEX",
+      "time": "04:23.6"
+    },
+    {
+      "rank": 58,
+      "name": "戰神冥海龍靈",
+      "title": "洞察先機",
+      "time": "04:23.7"
+    },
+    {
+      "rank": 59,
+      "name": "LD丨말랭",
+      "title": "레전더리",
+      "time": "04:24.1"
+    },
+    {
+      "rank": 60,
+      "name": "I매I네이비",
+      "title": "洞察先機",
+      "time": "04:24.2"
+    },
+    {
+      "rank": 61,
+      "name": "MrKevin",
+      "title": "洞察先機",
+      "time": "04:24.2"
+    },
+    {
+      "rank": 62,
+      "name": "I매I인써하",
+      "title": "逆天改命",
+      "time": "04:24.4"
+    },
+    {
+      "rank": 63,
+      "name": "龍×조이",
+      "title": "용기사",
+      "time": "04:24.6"
+    },
+    {
+      "rank": 64,
+      "name": "I매I진",
+      "title": "洞察先機",
+      "time": "04:24.6"
+    },
+    {
+      "rank": 65,
+      "name": "紫薯芋泥c",
+      "title": "逆天改命",
+      "time": "04:24.7"
+    },
+    {
+      "rank": 66,
+      "name": "coco幻",
+      "title": "戰神殿",
+      "time": "04:24.7"
+    },
+    {
+      "rank": 67,
+      "name": "龍×엘릭스",
+      "title": "용기사",
+      "time": "04:25.2"
+    },
+    {
+      "rank": 68,
+      "name": "I매I루아흐",
+      "title": "洞察先機",
+      "time": "04:25.6"
+    },
+    {
+      "rank": 69,
+      "name": "공대망해라",
+      "title": "洞察先機",
+      "time": "04:26.5"
+    },
+    {
+      "rank": 70,
+      "name": "戰神SAKE",
+      "title": "洞察先機",
+      "time": "04:26.6"
+    }
+  ],
+  "qualifier_note": "全員進度 7-3→100%，排名依通關時間。截至 2026/7/17 10:54 截圖，共讀到前 70 名（第 71 名起被畫面底部自己名次列遮擋）。龍×냥코 名稱尾端帶小符號、Yöö/FLEX2R 帶上標 fx，照主體拼法記錄。",
+  "groups": [
+    {
+      "id": 1,
+      "players": [
+        {
+          "name": "夜凜月",
+          "power": "12.01M",
+          "qualifier_rank": 43,
+          "qualifier_time": "04:22.4",
+          "prev_power": "8.38M",
+          "prev_progress": "10/10",
+          "prev_time": "10:00.02"
+        },
+        {
+          "name": "I매I인써하",
+          "power": "9.38M",
+          "qualifier_rank": 62,
+          "qualifier_time": "04:24.4",
+          "prev_power": "7.60M",
+          "prev_progress": "2/10"
+        },
+        {
+          "name": "Cashasy",
+          "power": "22.11M",
+          "qualifier_rank": 12,
+          "qualifier_time": "04:16.9",
+          "prev_power": "18.54M",
+          "prev_progress": "10/10",
+          "prev_time": "01:27.64",
+          "prev_title": "上屆第2組冠軍"
+        },
+        {
+          "name": "LD丨팡대",
+          "power": "25.39M",
+          "qualifier_rank": 6,
+          "qualifier_time": "04:11.1",
+          "prev_power": "25.14M",
+          "prev_progress": "10/10",
+          "prev_time": "01:27.01",
+          "prev_title": "上屆第7組冠軍"
+        },
+        {
+          "name": "吐司夾蛋",
+          "power": "13.90M",
+          "qualifier_rank": 50,
+          "qualifier_time": "04:23.0"
+        },
+        {
+          "name": "阿武花豆",
+          "power": "19.57M",
+          "qualifier_rank": 23,
+          "qualifier_time": "04:20.0",
+          "prev_power": "10.37M",
+          "prev_progress": "10/10",
+          "prev_time": "04:20.83",
+          "prev_title": "上屆第2組亞軍"
+        },
+        {
+          "name": "龍×이뮤",
+          "power": "12.99M",
+          "qualifier_rank": 40,
+          "qualifier_time": "04:22.3",
+          "prev_power": "11.04M",
+          "prev_progress": "10/10",
+          "prev_time": "07:48.28"
+        },
+        {
+          "name": "CoBe",
+          "power": "13.32M",
+          "qualifier_rank": 32,
+          "qualifier_time": "04:20.9",
+          "prev_power": "10.63M",
+          "prev_progress": "10/10",
+          "prev_time": "07:39.58",
+          "prev_title": "上屆第5組亞軍"
+        }
+      ],
+      "champion": null,
+      "runner_up": null,
+      "matches": []
+    },
+    {
+      "id": 2,
+      "players": [
+        {
+          "name": "단별ll헌큔",
+          "power": "16.69M",
+          "qualifier_rank": 56,
+          "qualifier_time": "04:23.4",
+          "flag": "≈",
+          "note": "疑=上屆資格賽第65名 단별ll헌큐（未進上屆淘汰賽），字形微異"
+        },
+        {
+          "name": "김미태",
+          "power": "8.12M",
+          "qualifier_rank": 47,
+          "qualifier_time": "04:22.8"
+        },
+        {
+          "name": "SuperAaron",
+          "power": "20.71M",
+          "qualifier_rank": 14,
+          "qualifier_time": "04:17.4",
+          "prev_power": "16.54M",
+          "prev_progress": "10/10",
+          "prev_time": "04:55.26"
+        },
+        {
+          "name": "仔仔團奧奧",
+          "power": "16.91M",
+          "qualifier_rank": 17,
+          "qualifier_time": "04:19.1",
+          "prev_power": "14.03M",
+          "prev_progress": "10/10",
+          "prev_time": "05:10.15"
+        },
+        {
+          "name": "I매I똥꼬",
+          "power": "12.04M",
+          "flag": "⚠",
+          "note": "上屆有兩位 I매I똥꼬（8.38M/5.40M），戰力均不接近，無法對應"
+        },
+        {
+          "name": "LD丨말랭",
+          "power": "16.45M",
+          "qualifier_rank": 59,
+          "qualifier_time": "04:24.1",
+          "prev_power": "15.35M",
+          "prev_progress": "10/10",
+          "prev_time": "10:00.02"
+        },
+        {
+          "name": "LD丨힝",
+          "power": "33.77M",
+          "qualifier_rank": 1,
+          "qualifier_time": "04:06.1"
+        },
+        {
+          "name": "劍人海拉",
+          "power": "13.54M",
+          "qualifier_rank": 30,
+          "qualifier_time": "04:20.8",
+          "prev_power": "12.95M",
+          "prev_progress": "10/10",
+          "prev_time": "01:57.30",
+          "prev_title": "上屆第3組冠軍"
+        }
+      ],
+      "champion": null,
+      "runner_up": null,
+      "matches": []
+    },
+    {
+      "id": 3,
+      "players": [
+        {
+          "name": "紅桃A",
+          "power": "17.04M",
+          "qualifier_rank": 13,
+          "qualifier_time": "04:17.2",
+          "prev_power": "13.39M",
+          "prev_progress": "10/10",
+          "prev_time": "02:11.36"
+        },
+        {
+          "name": "戰神冥海龍靈",
+          "power": "11.97M",
+          "qualifier_rank": 58,
+          "qualifier_time": "04:23.7"
+        },
+        {
+          "name": "RV297",
+          "power": "26.12M",
+          "qualifier_rank": 26,
+          "qualifier_time": "04:20.5",
+          "prev_power": "21.97M",
+          "prev_progress": "10/10",
+          "prev_time": "03:12.98"
+        },
+        {
+          "name": "龍×냥코",
+          "power": "11.45M",
+          "qualifier_rank": 54,
+          "qualifier_time": "04:23.4",
+          "prev_power": "8.27M",
+          "prev_progress": "4/10",
+          "note": "名稱尾端帶小符號，沿上屆記法記為 龍×냥코"
+        },
+        {
+          "name": "龍×콰트",
+          "power": "12.98M",
+          "qualifier_rank": 24,
+          "qualifier_time": "04:20.2",
+          "prev_power": "10.49M",
+          "prev_progress": "10/10",
+          "prev_time": "10:00.02"
+        },
+        {
+          "name": "戰營養腦七拍",
+          "power": "11.31M",
+          "qualifier_rank": 41,
+          "qualifier_time": "04:22.3",
+          "flag": "⚠",
+          "note": "OCR 字形不確定"
+        },
+        {
+          "name": "LD丨짱구",
+          "power": "29.24M",
+          "qualifier_rank": 33,
+          "qualifier_time": "04:21.0",
+          "prev_power": "23.71M",
+          "prev_progress": "10/10",
+          "prev_time": "03:24.48"
+        },
+        {
+          "name": "I매IFLEX3R",
+          "power": "27.95M",
+          "qualifier_rank": 3,
+          "qualifier_time": "04:09.4",
+          "prev_power": "25.23M",
+          "prev_progress": "10/10",
+          "prev_time": "03:39.91",
+          "prev_title": "上屆第1組亞軍"
+        }
+      ],
+      "champion": null,
+      "runner_up": null,
+      "matches": []
+    },
+    {
+      "id": 4,
+      "players": [
+        {
+          "name": "koeee",
+          "power": "60.18M",
+          "qualifier_rank": 2,
+          "qualifier_time": "04:06.2",
+          "prev_power": "56.79M",
+          "prev_progress": "10/10",
+          "prev_time": "00:42.68",
+          "prev_title": "上屆第6組冠軍（兩屆蟬聯）"
+        },
+        {
+          "name": "Yöö",
+          "power": "14.60M",
+          "qualifier_rank": 52,
+          "qualifier_time": "04:23.2",
+          "prev_power": "10.94M",
+          "prev_progress": "10/10",
+          "prev_time": "08:42.33",
+          "note": "名稱帶上標 fx"
+        },
+        {
+          "name": "고른주부J",
+          "power": "17.51M",
+          "qualifier_rank": 39,
+          "qualifier_time": "04:22.2",
+          "prev_power": "16.17M",
+          "prev_progress": "8/10"
+        },
+        {
+          "name": "LD丨삐얀코",
+          "power": "13.22M",
+          "qualifier_rank": 45,
+          "qualifier_time": "04:22.6"
+        },
+        {
+          "name": "LD丨저축왕",
+          "power": "10.89M",
+          "qualifier_rank": 19,
+          "qualifier_time": "04:19.5",
+          "note": "上屆資格賽第70名，未進上屆淘汰賽"
+        },
+        {
+          "name": "I매I우연",
+          "power": "14.41M",
+          "qualifier_rank": 27,
+          "qualifier_time": "04:20.5",
+          "prev_power": "11.46M",
+          "prev_progress": "10/10",
+          "prev_time": "07:51.88"
+        },
+        {
+          "name": "龍×조이",
+          "power": "12.22M",
+          "qualifier_rank": 63,
+          "qualifier_time": "04:24.6",
+          "prev_power": "9.51M",
+          "prev_progress": "1/10"
+        },
+        {
+          "name": "욕정",
+          "power": "17.73M",
+          "qualifier_rank": 10,
+          "qualifier_time": "04:15.5",
+          "prev_power": "16.59M",
+          "prev_progress": "8/10"
+        }
+      ],
+      "champion": null,
+      "runner_up": null,
+      "matches": []
+    },
+    {
+      "id": 5,
+      "players": [
+        {
+          "name": "메투스",
+          "power": "31.17M",
+          "qualifier_rank": 4,
+          "qualifier_time": "04:10.5",
+          "prev_power": "26.89M",
+          "prev_progress": "10/10",
+          "prev_time": "03:28.24",
+          "prev_title": "上屆第6組亞軍"
+        },
+        {
+          "name": "瑪法里恩中風",
+          "power": "11.53M",
+          "qualifier_rank": 35,
+          "qualifier_time": "04:21.5",
+          "prev_power": "8.24M",
+          "prev_progress": "1/10"
+        },
+        {
+          "name": "MrKevin",
+          "power": "10.65M",
+          "qualifier_rank": 61,
+          "qualifier_time": "04:24.2"
+        },
+        {
+          "name": "龍×교수",
+          "power": "12.18M",
+          "qualifier_rank": 15,
+          "qualifier_time": "04:18.6",
+          "prev_power": "10.44M",
+          "prev_progress": "10/10",
+          "prev_time": "10:00.02"
+        },
+        {
+          "name": "I매I똥꼬",
+          "power": "9.30M",
+          "flag": "⚠",
+          "note": "同第2組註記，上屆兩筆無法對應"
+        },
+        {
+          "name": "FLEX2R",
+          "power": "18.32M",
+          "qualifier_rank": 25,
+          "qualifier_time": "04:20.4",
+          "prev_power": "13.86M",
+          "prev_progress": "10/10",
+          "prev_time": "07:11.72",
+          "note": "名稱帶上標 fx"
+        },
+        {
+          "name": "Leojian",
+          "power": "25.31M",
+          "qualifier_rank": 46,
+          "qualifier_time": "04:22.8",
+          "prev_power": "23.64M",
+          "prev_progress": "10/10",
+          "prev_time": "04:54.99"
+        },
+        {
+          "name": "LD丨팡대ㅇ③",
+          "power": "15.67M",
+          "qualifier_rank": 21,
+          "qualifier_time": "04:19.8",
+          "prev_power": "12.37M",
+          "prev_progress": "10/10",
+          "prev_time": "10:00.02"
+        }
+      ],
+      "champion": null,
+      "runner_up": null,
+      "matches": []
+    },
+    {
+      "id": 6,
+      "players": [
+        {
+          "name": "龍×이노40",
+          "power": "14.15M",
+          "qualifier_rank": 49,
+          "qualifier_time": "04:22.9"
+        },
+        {
+          "name": "LD丨도하",
+          "power": "14.26M",
+          "qualifier_rank": 38,
+          "qualifier_time": "04:22.2",
+          "prev_power": "11.58M",
+          "prev_progress": "10/10",
+          "prev_time": "08:29.37"
+        },
+        {
+          "name": "I매I진",
+          "power": "18.99M",
+          "qualifier_rank": 64,
+          "qualifier_time": "04:24.6",
+          "prev_power": "15.59M",
+          "prev_progress": "10/10",
+          "prev_time": "05:15.98",
+          "prev_title": "上屆第4組冠軍"
+        },
+        {
+          "name": "牛大力",
+          "power": "31.19M",
+          "prev_power": "29.25M",
+          "prev_progress": "10/10",
+          "prev_time": "06:05.27",
+          "prev_title": "疑=上屆第4組亞軍（決賽 0 進度疑棄賽）",
+          "flag": "⚠",
+          "note": "上屆有兩位牛大力（29.25M/44.41M），依戰力取近者"
+        },
+        {
+          "name": "I매I연인",
+          "power": "15.88M",
+          "qualifier_rank": 16,
+          "qualifier_time": "04:18.9",
+          "prev_power": "14.77M",
+          "prev_progress": "10/10",
+          "prev_time": "08:09.48"
+        },
+        {
+          "name": "Niff",
+          "power": "14.85M",
+          "qualifier_rank": 44,
+          "qualifier_time": "04:22.4",
+          "prev_power": "13.71M",
+          "prev_progress": "10/10",
+          "prev_time": "05:12.85"
+        },
+        {
+          "name": "o月亮惹的禍o",
+          "power": "38.23M",
+          "qualifier_rank": 7,
+          "qualifier_time": "04:11.5",
+          "prev_power": "36.74M",
+          "prev_progress": "10/10",
+          "prev_time": "01:38.94",
+          "prev_title": "上屆第8組亞軍"
+        },
+        {
+          "name": "放開隻牛仔",
+          "power": "13.62M",
+          "qualifier_rank": 18,
+          "qualifier_time": "04:19.2",
+          "prev_power": "9.77M",
+          "prev_progress": "8/10"
+        }
+      ],
+      "champion": null,
+      "runner_up": null,
+      "matches": []
+    },
+    {
+      "id": 7,
+      "players": [
+        {
+          "name": "龍×령녀",
+          "power": "12.01M",
+          "qualifier_rank": 55,
+          "qualifier_time": "04:23.4",
+          "prev_power": "10.63M",
+          "prev_progress": "1/10"
+        },
+        {
+          "name": "派對孔明",
+          "power": "12.25M",
+          "qualifier_rank": 42,
+          "qualifier_time": "04:22.4"
+        },
+        {
+          "name": "某剩啊",
+          "power": "13.51M",
+          "qualifier_rank": 48,
+          "qualifier_time": "04:22.9"
+        },
+        {
+          "name": "단별ll에이스",
+          "power": "7.72M",
+          "qualifier_rank": 31,
+          "qualifier_time": "04:20.9"
+        },
+        {
+          "name": "仔仔團宗宗",
+          "power": "15.34M",
+          "qualifier_rank": 29,
+          "qualifier_time": "04:20.7",
+          "prev_power": "11.76M",
+          "prev_progress": "10/10",
+          "prev_time": "07:58.14"
+        },
+        {
+          "name": "牛大力",
+          "power": "52.65M",
+          "prev_power": "44.41M",
+          "prev_progress": "10/10",
+          "prev_time": "01:09.94",
+          "prev_title": "疑=上屆第8組冠軍",
+          "flag": "⚠",
+          "note": "上屆有兩位牛大力，依戰力取近者"
+        },
+        {
+          "name": "丫丸仔",
+          "power": "11.50M",
+          "qualifier_rank": 9,
+          "qualifier_time": "04:15.3",
+          "prev_power": "9.53M",
+          "prev_progress": "9/10"
+        },
+        {
+          "name": "디킨비",
+          "power": "10.59M",
+          "qualifier_rank": 57,
+          "qualifier_time": "04:23.6"
+        }
+      ],
+      "champion": null,
+      "runner_up": null,
+      "matches": []
+    },
+    {
+      "id": 8,
+      "players": [
+        {
+          "name": "犇魔王",
+          "power": "9.97M",
+          "qualifier_rank": 51,
+          "qualifier_time": "04:23.1"
+        },
+        {
+          "name": "烏薩奇Usagi",
+          "power": "12.24M",
+          "qualifier_rank": 36,
+          "qualifier_time": "04:21.6",
+          "prev_power": "8.79M",
+          "prev_progress": "10/10",
+          "prev_time": "08:15.27"
+        },
+        {
+          "name": "龍×식현",
+          "power": "8.64M",
+          "qualifier_rank": 11,
+          "qualifier_time": "04:16.8",
+          "prev_power": "6.95M",
+          "prev_progress": "10/10",
+          "prev_time": "06:12.60"
+        },
+        {
+          "name": "賽博陀螺",
+          "power": "21.59M",
+          "qualifier_rank": 22,
+          "qualifier_time": "04:19.9",
+          "prev_power": "16.77M",
+          "prev_progress": "10/10",
+          "prev_time": "08:14.87"
+        },
+        {
+          "name": "泰融",
+          "power": "13.88M",
+          "qualifier_rank": 8,
+          "qualifier_time": "04:15.3",
+          "prev_power": "9.81M",
+          "prev_progress": "9/10"
+        },
+        {
+          "name": "龍×똥꼬",
+          "power": "16.23M",
+          "qualifier_rank": 20,
+          "qualifier_time": "04:19.8",
+          "prev_power": "13.50M",
+          "prev_progress": "10/10",
+          "prev_time": "06:23.50"
+        },
+        {
+          "name": "Egø",
+          "power": "19.92M",
+          "qualifier_rank": 34,
+          "qualifier_time": "04:21.4",
+          "prev_power": "16.87M",
+          "prev_progress": "10/10",
+          "prev_time": "03:42.47"
+        },
+        {
+          "name": "I매I네이비",
+          "power": "16.37M",
+          "qualifier_rank": 60,
+          "qualifier_time": "04:24.2",
+          "prev_power": "11.84M",
+          "prev_progress": "0/10"
+        }
+      ],
+      "champion": null,
+      "runner_up": null,
+      "matches": []
+    }
+  ],
+  "grand_finals": null
+}

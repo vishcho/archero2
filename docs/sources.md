@@ -21,6 +21,8 @@ screenshots/<主題>/<YYYY-MM-DD-用途>/Screenshot_*.png
 | `screenshots/star-cup/2026-07-07-round2-results/` | 2026-07-07 | 64 | 7/4 明星杯淘汰賽逐場成績（8 組 R1/R2/決賽） | [2026-07-07-tournament-results.md](./star-cup/2026-07-07-tournament-results.md)、`data/2026-07-03.json`（逐場結果、各組冠亞軍） |
 | `screenshots/star-cup/2026-07-17-round3-matchup/` | 2026-07-17 | 8 | 7/17 明星杯淘汰賽賽前對陣（101651＝第1組，101748–101833＝第2–8組）；本批**無資格賽排行榜** | [2026-07-17-round3-matchup.md](./star-cup/2026-07-17-round3-matchup.md)、[2026-07-17-round3-betting-guide.md](./star-cup/2026-07-17-round3-betting-guide.md)、`data/2026-07-17.json`（groups 已併入） |
 | `screenshots/star-cup/2026-07-17-round3-rank/` | 2026-07-17 | 10 | 7/17 明星杯資格賽排行榜前 70 名＋本期主題（明星盃-精靈季）；第 71 名起被自己名次列遮擋 | `data/2026-07-17.json`（主題、qualifier 前70名）、回填 [2026-07-17-round3-matchup.md](./star-cup/2026-07-17-round3-matchup.md) 資格賽欄與 [2026-07-17-round3-betting-guide.md](./star-cup/2026-07-17-round3-betting-guide.md) |
+| `screenshots/star-cup/2026-07-23-round3-results/` | 2026-07-23 | 64 | 7/23 明星杯淘汰賽逐場成績（8 組 R1/R2/決賽） | [2026-07-23-tournament-results.md](./star-cup/2026-07-23-tournament-results.md)、`data/2026-07-17.json`（逐場結果、各組冠亞軍已併入） |
+| `screenshots/star-cup/2026-07-23-round3-results/Screenshot_20260724-000015.png` | 2026-07-24 | 1 | 補件：第4組 R2 上半（koeee vs I매I우연）對戰彈窗，原批次遺漏此張 | 回填 `data/2026-07-17.json`、[2026-07-23-tournament-results.md](./star-cup/2026-07-23-tournament-results.md) |
 | `screenshots/rune-ruins/2026-06-24/` | 2026-06-24 | 22 | 符文廢墟符文一覽（顏色×形狀） | [rune-ruins-stats.md](./analysis/rune-ruins-stats.md) |
 | `screenshots/skills/` | 2026-07-03 | 1+ | 蓄能流技能組合木樁 60 秒 DPS 測試（10 組合；部分截圖僅貼在對話中未存檔） | [skill-dps-analysis.md](./analysis/skill-dps-analysis.md) |
 

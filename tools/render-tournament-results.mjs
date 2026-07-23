@@ -14,7 +14,9 @@ const season = JSON.parse(await readFile(dataPath, 'utf8'));
 
 function formatPlayer(player, includePower = true) {
   const power = includePower && player.power ? ` (${player.power})` : '';
-  return `${player.progress.toString().padStart(2, ' ')}  ${player.time.padEnd(8, ' ')}  ${player.name}${power}`;
+  const progress = (player.progress ?? '?').toString().padStart(2, ' ');
+  const time = (player.time ?? '未知').padEnd(8, ' ');
+  return `${progress}  ${time}  ${player.name}${power}`;
 }
 
 function formatMatch(match) {
@@ -22,13 +24,17 @@ function formatMatch(match) {
   const rightMark = match.winner === match.p2.name ? '✓' : '✗';
   const left = formatPlayer(match.p1, match.round === 'R1').padEnd(34, ' ');
   const rightName = `${match.p2.name}${match.round === 'R1' && match.p2.power ? ` (${match.p2.power})` : ''}`.padEnd(24, ' ');
-  const right = `${rightName} ${match.p2.progress.toString().padStart(2, ' ')}  ${match.p2.time}`;
+  const right = `${rightName} ${(match.p2.progress ?? '?').toString().padStart(2, ' ')}  ${match.p2.time ?? '未知'}`;
   const note = match.notes?.length ? `  ← ${match.notes.join('；')}` : '';
   return `  ${left} ${leftMark} vs ${rightMark}  ${right}${note}`;
 }
 
-const roundLabel = season.id === '2026-06-19' ? '第一輪' : '第二輪';
-const resultDate = season.id === '2026-06-19' ? '2026/6/19' : '2026/7/4';
+const ROUND_INFO = {
+  '2026-06-19': { roundLabel: '第一輪', resultDate: '2026/6/19' },
+  '2026-07-03': { roundLabel: '第二輪', resultDate: '2026/7/4' },
+  '2026-07-17': { roundLabel: '第三輪', resultDate: '2026/7/23' },
+};
+const { roundLabel, resultDate } = ROUND_INFO[season.id] ?? { roundLabel: '淘汰賽', resultDate: season.date };
 const hasCurrentPower = season.groups?.some((group) => group.champion_current_power);
 
 const lines = [
@@ -75,7 +81,7 @@ for (const group of season.groups) {
 lines.push(
   '---',
   '',
-  `> 資料來源：詳見 [sources.md](./sources.md)｜本檔可由 \`data/${season.id}.json\` 重新產生`
+  `> 資料來源：詳見 [sources.md](../sources.md)｜本檔可由 \`data/${season.id}.json\` 重新產生`
 );
 
 await writeFile(outputPath, `${lines.join('\n')}\n`, 'utf8');

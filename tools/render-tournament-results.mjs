@@ -19,9 +19,17 @@ function formatPlayer(player, includePower = true) {
   return `${progress}  ${time}  ${player.name}${power}`;
 }
 
+// 同名對戰（兩個不同帳號同名）時名稱無法判定勝負，改以 winner_power 指定的戰力區分。
+function p1IsWinner(match) {
+  if (match.p1.name !== match.p2.name) return match.winner === match.p1.name;
+  if (match.winner_power) return match.p1.power === match.winner_power;
+  return false;
+}
+
 function formatMatch(match) {
-  const leftMark = match.winner === match.p1.name ? '✓' : '✗';
-  const rightMark = match.winner === match.p2.name ? '✓' : '✗';
+  const p1Won = p1IsWinner(match);
+  const leftMark = p1Won ? '✓' : '✗';
+  const rightMark = p1Won ? '✗' : '✓';
   const left = formatPlayer(match.p1, match.round === 'R1').padEnd(34, ' ');
   const rightName = `${match.p2.name}${match.round === 'R1' && match.p2.power ? ` (${match.p2.power})` : ''}`.padEnd(24, ' ');
   const right = `${rightName} ${(match.p2.progress ?? '?').toString().padStart(2, ' ')}  ${match.p2.time ?? '未知'}`;
@@ -33,6 +41,7 @@ const ROUND_INFO = {
   '2026-06-19': { roundLabel: '第一輪', resultDate: '2026/6/19' },
   '2026-07-03': { roundLabel: '第二輪', resultDate: '2026/7/4' },
   '2026-07-17': { roundLabel: '第三輪', resultDate: '2026/7/23' },
+  '2026-07-31': { roundLabel: '第四輪', resultDate: '2026/8/6' },
 };
 const { roundLabel, resultDate } = ROUND_INFO[season.id] ?? { roundLabel: '淘汰賽', resultDate: season.date };
 const hasCurrentPower = season.groups?.some((group) => group.champion_current_power);

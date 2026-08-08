@@ -671,6 +671,27 @@
       }
     }
   },
+  "101804999": {
+    "player_id": "101804999",
+    "names": [
+      "龍×똥꼬"
+    ],
+    "guild": "용기사",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.43M",
+        "title": "洞察先機",
+        "qualifier_rank": 46,
+        "normal": 141,
+        "hard": 36,
+        "tower": 2460,
+        "charm": 6525,
+        "emblem": 530,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-023312.png"
+      }
+    }
+  },
   "101807642": {
     "player_id": "101807642",
     "names": [

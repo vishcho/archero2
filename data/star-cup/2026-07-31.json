@@ -4,8 +4,14 @@
   "date": "2026/7/31",
   "theme": null,
   "season": "精靈季",
-  "qualifier_period": ["2026-07-27", "2026-07-30"],
-  "knockout_period": ["2026-07-31", "2026-08-07"],
+  "qualifier_period": [
+    "2026-07-27",
+    "2026-07-30"
+  ],
+  "knockout_period": [
+    "2026-07-31",
+    "2026-08-07"
+  ],
   "status": "finished",
   "champion": null,
   "qualifier": [
@@ -408,11 +414,14 @@
         {
           "name": "牛大力",
           "power": "54.27M",
-          "flag": "⚠",
           "prev_power": "52.65M",
           "prev_progress": "10/10",
           "prev_time": "00:38.55",
-          "prev_title": "上屆第7組冠軍"
+          "prev_title": "上屆第7組冠軍",
+          "player_id": "102045250",
+          "qualifier_rank": 10,
+          "qualifier_time": "04:15.4",
+          "note": "經 2026-08-09 top64 名片（用戶ID 102045250）確認：本格為資格賽第 10 名、稱號「超星亞軍」者，依 R1 賽果戰力 42.72M 區分同名。"
         },
         {
           "name": "牛大刃",
@@ -435,10 +444,13 @@
         {
           "name": "牛大力",
           "power": "31.19M",
-          "flag": "⚠",
           "prev_power": "31.19M",
           "prev_progress": "10/10",
-          "prev_time": "01:08.71"
+          "prev_time": "01:08.71",
+          "player_id": "101474994",
+          "qualifier_rank": 34,
+          "qualifier_time": "04:27.6",
+          "note": "經 2026-08-09 top64 名片（用戶ID 101474994）確認：本格為資格賽第 34 名、稱號「課金」者，依 R1 賽果戰力 30.53M 區分同名。"
         },
         {
           "name": "龍×이노40",

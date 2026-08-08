@@ -3,7 +3,7 @@
 本工作流把資格賽前 64 名的「個人資訊」名片截圖，轉成跨屆累積的選手檔案庫：
 
 ```text
-data/star-cup/players.json
+data/players.json
 ```
 
 這是四類批次中唯一**跨屆累積**的一批：matchup / rank / results 都只描述單一屆，
@@ -41,7 +41,7 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
 
 | 欄位 | 說明 | 穩定性 |
 | ---- | ---- | ------ |
-| `user_id` | 用戶ID，例：`101874870` | **唯一且永久**，跨屆識別的鍵 |
+| `player_id` | 用戶ID，例：`101874870` | **唯一且永久**，跨屆識別的鍵 |
 | `name` | 顯示名稱 | 可改 |
 | `guild` | 公會 | 可改 |
 | `power` | 戰力 | 每屆變動 |
@@ -71,7 +71,7 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
   "players": [
     {
       "source": "Screenshot_20260809-011011.png",
-      "user_id": "101874870",
+      "player_id": "101874870",
       "name": "koeee",
       "guild": "課金",
       "power": "60.95M",
@@ -83,14 +83,14 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
 }
 ```
 
-`user_id` 是純數字字串，**不要轉成 number**（前導零與長度都可能變）。
+`player_id` 是純數字字串，**不要轉成 number**（前導零與長度都可能變）。
 
 ### 2b. 抽取完整性檢查點
 
 進入後續階段前必須通過，未通過一律中止：
 
 - **張數對齊**：64 張全部有抽取結果，與 §1 檔名清單一一對應。
-- **`user_id` 必填且唯一**：任一張讀不出 ID 即中止（沒有 ID 這批就失去意義）；
+- **`player_id` 必填且唯一**：任一張讀不出 ID 即中止（沒有 ID 這批就失去意義）；
   出現重複 ID 表示同一人被拍兩次、有人漏拍，須回頭補拍。
 - **欄位齊全**：上表十個欄位皆有值；模糊不清者標 `[UNSURE]`，不得猜數字。
 - **與資格賽榜交叉比對**：64 個名稱應與 `data/{season}.json` 的 `qualifier[]` 前 64 名一一對應。
@@ -100,12 +100,12 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
 
 ### 3. 併入選手檔案庫
 
-`data/star-cup/players.json` 以 `user_id` 為主鍵：
+`data/players.json` 以 `player_id` 為主鍵：
 
 ```json
 {
   "101874870": {
-    "user_id": "101874870",
+    "player_id": "101874870",
     "names": ["koeee"],
     "guild": "課金",
     "seasons": {
@@ -121,15 +121,37 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
 
 合併規則：
 
-1. `user_id` 已存在 → 新增 `seasons[{season}]`；歷史屆不得覆寫。
+1. `player_id` 已存在 → 新增 `seasons[{season}]`；歷史屆不得覆寫。
 2. 顯示名稱與 `names[]` 皆不同 → **push 進 `names[]`**（改名，保留歷史名）並在報告中列出。
-3. `user_id` 不存在 → 新建，`names` 為單元素陣列。
+3. `player_id` 不存在 → 新建，`names` 為單元素陣列。
 4. 累積型欄位（`normal`/`hard`/`tower`/`charm`/`emblem`）若比前屆**減少**，
    標 `[UNSURE]` 回報人工確認——正常只會遞增，減少通常是 OCR 讀錯。
 
 ### 4. 回填既有資料的懸案
 
-這是本流程的**主要產出**。比對新的 `user_id` 對應後，回頭修正：
+這是本流程的**主要產出**。
+
+```bash
+node tools/backfill-from-players.mjs data/star-cup/{season}.json --dry-run
+node tools/backfill-from-players.mjs data/star-cup/{season}.json
+```
+
+**戰力有兩種，不可混用**（2026-08-09 實測發現，是本流程最容易出錯的地方）：
+
+| 來源 | 語意 | 可否與名片比對 |
+| ---- | ---- | -------------- |
+| `groups[].matches[].p1/p2.power` | 平時戰力 | ✅ 可以。80 筆中 67 筆與名片**完全相同**，其餘 13 筆為兩批截圖相隔數日的正常成長 |
+| `groups[].players[].power` | **賽時戰力**（含賽事增益） | ❌ 不可。47 位中 44 位系統性高於名片，拿來配對必錯 |
+
+因此「同名兩人誰是誰」的判定鏈是：
+**名片提供 ID 與稱號 → 稱號在資格賽榜上定位名次 → R1 賽果戰力把名片對到對陣表的格子。**
+
+另有一個反直覺點：**`groups[].players[]` 的索引不等於實際 R1 場次**。
+索引順序來自賽前對陣截圖，實際籤表可能不同——2026-07-31 第 1 組對陣表 A 格是
+牛大力×牛大刃，實際 R1-A 卻是牛大力×LD丨도하。所以不能用索引推 slot，
+要從 R1 各場中找同名者。
+
+比對新的 `player_id` 對應後，回頭修正：
 
 - `data/{season}.json` 中 `flag: "⚠ 同名多筆"` 的選手 → 用 ID 確定是誰，補上正確的
   `qualifier_rank` / `qualifier_time`，移除 flag，並在 `note` 保留「經 top64 用戶ID 確認」。
@@ -141,12 +163,17 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
 ### 5. 驗證
 
 ```bash
-node tools/validate-players.mjs data/star-cup/players.json   # 待建
-node tools/validate-season.mjs data/star-cup/{season}.json   # 回填後重跑
+node tools/validate-players.mjs                               # 預設驗 data/players.json
+node tools/validate-season.mjs data/star-cup/{season}.json     # 回填後重跑
+node tools/validate-tournament-results.mjs data/star-cup/{season}.json
 ```
 
-`validate-players.mjs` 應檢查：`user_id` 為主鍵且與物件內 `user_id` 相符、`names[]` 非空、
-`seasons` 的 key 都在 `data/star-cup/seasons.json` 內、累積型欄位跨屆遞增。
+`validate-players.mjs` 檢查：`player_id` 為主鍵且與物件內 `player_id` 相符、`names[]` 非空且無重複、
+`seasons` 的 key 都有對應的賽季檔、累積型欄位跨屆遞增（倒退報錯，通常是 OCR 讀錯）。
+同名不同 ID 只警告不報錯——那正是本批要記錄的事實。
+
+`validate-season.mjs` 另檢查賽季檔中回填的 `player_id` 必須存在於 `data/players.json`，
+避免憑空多出一個帳號。`data/players.json` 不存在時自動跳過此檢查。
 
 回填 `data/{season}.json` 後**必須重跑既有的兩支驗證**，確認沒有破壞既有結構與晉級自洽。
 
@@ -169,12 +196,35 @@ node tools/build-docs-index.mjs
 
 ## 現況
 
-- **2026-08-09（round4）**：首批 `top64`，64 張已就位，**尚未分析**。
-  `data/star-cup/players.json` 與 `tools/validate-players.mjs` 都還沒建立。
-  這批可回填的已知懸案：`data/star-cup/2026-07-31.json` 中「牛大力」的 `⚠ 同名多筆`。
+- **2026-08-09（round4）**：首批 `top64` 已分析完成，建立 `data/players.json`（59 位）。
+  - **這批只涵蓋 59/64 位**：拍攝時有 5 位被重複點開（龍×이뮤、Yööᶠˣ、coco幻、
+    橙色楓葉、秘運行者Kai 各兩張），等量的人因此漏拍。以 `--allow-partial` 明示入庫。
+  - 未拍到者：資格賽第 48（LD丨말랭）、57（聖心）、60（夜凜月，為本機帳號自己）、
+    64（牛大办）名。下次拍攝時可補。
+  - 已解決的懸案：`2026-07-31.json` 第 1 組兩位「牛大力」——
+    `102045250`（資格賽第 10 名、稱號超星亞軍）與 `101474994`（第 34 名、稱號課金），
+    `⚠` flag 已移除並補上 `qualifier_rank` / `qualifier_time`。
+  - 已確認的改名：`o月亮惹的禍o` → `送你離開`（id `102037229`）。前者只在資格賽榜、
+    後者只在對陣表，過去無從得知是同一人。
+  - **仍未解決**：兩位「龍×똥꼬」只拍到一位（`101750016`，第 12 名），
+    第 46 名那位沒有名片，不足以判定對陣表第 2 / 第 6 組各是誰，維持 `⚠`。
+  - rank 批次的 OCR 對韓文與特殊字形失真嚴重（`ᴬᴷ` 被讀成 `I매I`、`丨` vs `|`、
+    `荃雄瓏` vs `荃雉瓏`），19 筆已在 `tmp/top64-extract.json` 的 `aliases` 中人工對應。
+    **名片可信度遠高於排行榜**，日後衝突一律以名片為準。
+- 跨賽事效果：`data/players.json` 與 `data/super-star-cup/` 的 `roster[].player_id` 共用同一組 ID，
+  已可對到 5 位（koeee、LD | 힘、RV297、Cashasy、送你離開）。
 - round1–round3 沒有這批（`top64` 自 round4 才納入流程），
   歷史屆的同名/改名懸案只能靠往後累積的 ID 逐步回推。
 
 ## 沿革
 
 - 2026-08-09：初版。`top64` 批次首次拍攝，流程先於分析寫下。
+- 2026-08-09（同日）：首次實跑後依實作經驗修訂——
+  1. `user_id` 更名為 `player_id`，與 `data/super-star-cup/` 既有欄位一致；
+     檔案位置由 `data/star-cup/players.json` 移到 `data/players.json`（跨賽事共用）。
+  2. 新增 §4 的「兩種戰力」表與判定鏈——`matches[].power` 可與名片比對，
+     `players[].power` 是賽時戰力不可比對。這是實跑中最容易出錯的一點。
+  3. 新增「`players[]` 索引不等於 R1 場次」的警告（第 1 組實例）。
+  4. 檢查點細分 `[MISSING]`（無 ID，致命）與 `[DUPE]`（重複拍攝，可 `--allow-partial` 放行），
+     並新增「榜上前 64 名未拍到」的補拍清單輸出。
+  5. 新增 `aliases` 機制處理 rank 批 OCR 字形差異。

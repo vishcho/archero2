@@ -31,6 +31,10 @@ const ID_RE = /^\d{4}-\d{2}-\d{2}$/;
 const errors = [];
 const warnings = [];
 
+// data/players.json 是選填的（尚未建立時所有賽季檔仍應可驗證），
+// 有建立時才用來檢查賽季檔引用的 player_id 是否真的存在。
+let knownPlayerIds = null;
+
 function err(where, message) {
   errors.push(`${where}: ${message}`);
 }
@@ -45,6 +49,15 @@ function isStr(v) {
 
 function checkPlayer(where, p) {
   if (!isStr(p?.name)) return err(where, 'name 必填且須為非空字串');
+  // player_id 由 top64 名片批次回填（見 notes/workflows/top64-profile-workflow.md），
+  // 有值時必須是 data/players.json 裡登記過的 id——否則等於憑空多出一個帳號。
+  if (p.player_id !== undefined) {
+    if (!/^\d+$/.test(p.player_id)) {
+      err(where, `player_id 應為數字字串，得到 ${JSON.stringify(p.player_id)}`);
+    } else if (knownPlayerIds && !knownPlayerIds.has(p.player_id)) {
+      err(where, `player_id ${p.player_id} 不存在於 data/players.json`);
+    }
+  }
   if (p.flag !== undefined && !FLAGS.includes(p.flag)) {
     err(where, `flag 只能是 ${FLAGS.join(' / ')}，得到 ${JSON.stringify(p.flag)}`);
   }
@@ -285,6 +298,13 @@ if (args.length === 0) {
 }
 
 const cups = JSON.parse(await readFile(path.join(DATA_DIR, 'cups.json'), 'utf8'));
+
+try {
+  const players = JSON.parse(await readFile(path.join(DATA_DIR, 'players.json'), 'utf8'));
+  knownPlayerIds = new Set(Object.keys(players));
+} catch {
+  knownPlayerIds = null; // 尚未建立，跳過 player_id 存在性檢查
+}
 
 // 檔案路徑 data/{cup}/{id}.json → 用中間那段查 cups.json 決定套哪組檢查
 function cupOf(file) {

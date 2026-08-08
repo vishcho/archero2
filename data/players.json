@@ -1,0 +1,1241 @@
+{
+  "101464153": {
+    "player_id": "101464153",
+    "names": [
+      "單品咖啡"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "13.34M",
+        "title": "課金",
+        "qualifier_rank": 31,
+        "normal": 138,
+        "hard": 63,
+        "tower": 2006,
+        "charm": 6595,
+        "emblem": 702,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011608.png"
+      }
+    }
+  },
+  "101472573": {
+    "player_id": "101472573",
+    "names": [
+      "戰神蕉蕉"
+    ],
+    "guild": "戰神殿",
+    "seasons": {
+      "2026-07-31": {
+        "power": "10.90M",
+        "title": "逆天改命",
+        "qualifier_rank": 54,
+        "normal": 154,
+        "hard": 93,
+        "tower": 3371,
+        "charm": 6730,
+        "emblem": 506,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012200.png"
+      }
+    }
+  },
+  "101474994": {
+    "player_id": "101474994",
+    "names": [
+      "牛大力"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "30.53M",
+        "title": "課金",
+        "qualifier_rank": 34,
+        "normal": 166,
+        "hard": 142,
+        "tower": 3500,
+        "charm": 13375,
+        "emblem": 3397,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011640.png"
+      }
+    }
+  },
+  "101479246": {
+    "player_id": "101479246",
+    "names": [
+      "CoBe"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "13.34M",
+        "title": "逆天改命",
+        "qualifier_rank": 36,
+        "normal": 155,
+        "hard": 99,
+        "tower": 3500,
+        "charm": 7140,
+        "emblem": 954,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011701.png"
+      }
+    }
+  },
+  "101489384": {
+    "player_id": "101489384",
+    "names": [
+      "橙色楓葉"
+    ],
+    "guild": "楓葉之家",
+    "seasons": {
+      "2026-07-31": {
+        "power": "10.61M",
+        "title": "洞察先機",
+        "qualifier_rank": 58,
+        "normal": 155,
+        "hard": 77,
+        "tower": 3500,
+        "charm": 6010,
+        "emblem": 549,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012249.png"
+      }
+    }
+  },
+  "101504112": {
+    "player_id": "101504112",
+    "names": [
+      "仔仔團奧奧"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "14.82M",
+        "title": "洞察先機",
+        "qualifier_rank": 49,
+        "normal": 154,
+        "hard": 75,
+        "tower": 3471,
+        "charm": 8800,
+        "emblem": 944,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012058.png"
+      }
+    }
+  },
+  "101517893": {
+    "player_id": "101517893",
+    "names": [
+      "고른주부J"
+    ],
+    "guild": "고른햇살",
+    "seasons": {
+      "2026-07-31": {
+        "power": "17.46M",
+        "title": "고른햇살",
+        "qualifier_rank": 40,
+        "normal": 148,
+        "hard": 94,
+        "tower": 3315,
+        "charm": 8485,
+        "emblem": 1299,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011907.png"
+      }
+    }
+  },
+  "101523734": {
+    "player_id": "101523734",
+    "names": [
+      "Niff"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "13.71M",
+        "title": "洞察先機",
+        "qualifier_rank": 39,
+        "normal": 155,
+        "hard": 110,
+        "tower": 3500,
+        "charm": 7060,
+        "emblem": 741,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011829.png"
+      }
+    }
+  },
+  "101535841": {
+    "player_id": "101535841",
+    "names": [
+      "SuperAaron"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "18.60M",
+        "title": "洞察先機",
+        "qualifier_rank": 23,
+        "normal": 176,
+        "hard": 143,
+        "tower": 3500,
+        "charm": 9485,
+        "emblem": 1019,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011443.png"
+      }
+    }
+  },
+  "101536777": {
+    "player_id": "101536777",
+    "names": [
+      "FLEX2Rfx"
+    ],
+    "guild": "FLΞX",
+    "seasons": {
+      "2026-07-31": {
+        "power": "19.33M",
+        "title": "逆天改命",
+        "qualifier_rank": 32,
+        "normal": 175,
+        "hard": 143,
+        "tower": 3500,
+        "charm": 10145,
+        "emblem": 1230,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011619.png"
+      }
+    }
+  },
+  "101548138": {
+    "player_id": "101548138",
+    "names": [
+      "Cashasy"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "19.06M",
+        "title": "洞察先機",
+        "qualifier_rank": 13,
+        "normal": 177,
+        "hard": 151,
+        "tower": 3500,
+        "charm": 10665,
+        "emblem": 2361,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011257.png"
+      }
+    }
+  },
+  "101560949": {
+    "player_id": "101560949",
+    "names": [
+      "coco幻"
+    ],
+    "guild": "戰神殿",
+    "seasons": {
+      "2026-07-31": {
+        "power": "12.87M",
+        "title": "戰神殿",
+        "qualifier_rank": 56,
+        "normal": 150,
+        "hard": 73,
+        "tower": 3500,
+        "charm": 6200,
+        "emblem": 877,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012225.png"
+      }
+    }
+  },
+  "101565972": {
+    "player_id": "101565972",
+    "names": [
+      "AK연인"
+    ],
+    "guild": "ARKΛ",
+    "seasons": {
+      "2026-07-31": {
+        "power": "15.83M",
+        "title": "洞察先機",
+        "qualifier_rank": 22,
+        "normal": 154,
+        "hard": 77,
+        "tower": 3500,
+        "charm": 7915,
+        "emblem": 1406,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011432.png"
+      }
+    }
+  },
+  "101575904": {
+    "player_id": "101575904",
+    "names": [
+      "AK우연"
+    ],
+    "guild": "ARKΛ",
+    "seasons": {
+      "2026-07-31": {
+        "power": "14.17M",
+        "title": "洞察先機",
+        "qualifier_rank": 15,
+        "normal": 151,
+        "hard": 77,
+        "tower": 2840,
+        "charm": 7680,
+        "emblem": 1020,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011319.png"
+      }
+    }
+  },
+  "101579946": {
+    "player_id": "101579946",
+    "names": [
+      "단별ll헌쿈"
+    ],
+    "guild": "단별",
+    "seasons": {
+      "2026-07-31": {
+        "power": "15.68M",
+        "title": "洞察先機",
+        "qualifier_rank": 18,
+        "normal": 155,
+        "hard": 83,
+        "tower": 3255,
+        "charm": 6990,
+        "emblem": 916,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011350.png"
+      }
+    }
+  },
+  "101592430": {
+    "player_id": "101592430",
+    "names": [
+      "LD | 도하"
+    ],
+    "guild": "레전더리",
+    "seasons": {
+      "2026-07-31": {
+        "power": "13.97M",
+        "title": "레전더리",
+        "qualifier_rank": 19,
+        "normal": 141,
+        "hard": 71,
+        "tower": 3174,
+        "charm": 7240,
+        "emblem": 784,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011401.png"
+      }
+    }
+  },
+  "101594098": {
+    "player_id": "101594098",
+    "names": [
+      "LD | 팡대"
+    ],
+    "guild": "레전더리",
+    "seasons": {
+      "2026-07-31": {
+        "power": "15.84M",
+        "title": "레전더리",
+        "qualifier_rank": 4,
+        "normal": 191,
+        "hard": 155,
+        "tower": 3500,
+        "charm": 11920,
+        "emblem": 2200,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011123.png"
+      }
+    }
+  },
+  "101607272": {
+    "player_id": "101607272",
+    "names": [
+      "LD丨팡대ꕥ"
+    ],
+    "guild": "레전더리",
+    "seasons": {
+      "2026-07-31": {
+        "power": "13.15M",
+        "title": "레전더리",
+        "qualifier_rank": 50,
+        "normal": 153,
+        "hard": 81,
+        "tower": 3295,
+        "charm": 8380,
+        "emblem": 896,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012111.png"
+      }
+    }
+  },
+  "101629103": {
+    "player_id": "101629103",
+    "names": [
+      "放開隻牛仔"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.88M",
+        "title": "洞察先機",
+        "qualifier_rank": 16,
+        "normal": 141,
+        "hard": 70,
+        "tower": 3000,
+        "charm": 5505,
+        "emblem": 329,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011329.png"
+      }
+    }
+  },
+  "101634016": {
+    "player_id": "101634016",
+    "names": [
+      "LD丨삐얀코"
+    ],
+    "guild": "레전더리",
+    "seasons": {
+      "2026-07-31": {
+        "power": "13.26M",
+        "title": "洞察先機",
+        "qualifier_rank": 38,
+        "normal": 161,
+        "hard": 139,
+        "tower": 3500,
+        "charm": 7010,
+        "emblem": 784,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011808.png"
+      }
+    }
+  },
+  "101678554": {
+    "player_id": "101678554",
+    "names": [
+      "LD | 힘"
+    ],
+    "guild": "레전더리",
+    "seasons": {
+      "2026-07-31": {
+        "power": "27.41M",
+        "title": "洞察先機",
+        "qualifier_rank": 5,
+        "normal": 191,
+        "hard": 103,
+        "tower": 3500,
+        "charm": 13360,
+        "emblem": 4154,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011133.png"
+      }
+    }
+  },
+  "101706762": {
+    "player_id": "101706762",
+    "names": [
+      "Yööᶠˣ"
+    ],
+    "guild": "FLEX",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.05M",
+        "title": "FLΞX",
+        "qualifier_rank": 47,
+        "normal": 141,
+        "hard": 62,
+        "tower": 3171,
+        "charm": 9090,
+        "emblem": 1041,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012034.png"
+      }
+    }
+  },
+  "101707580": {
+    "player_id": "101707580",
+    "names": [
+      "LD | 짱구"
+    ],
+    "guild": "레전더리",
+    "seasons": {
+      "2026-07-31": {
+        "power": "28.82M",
+        "title": "洞察先機",
+        "qualifier_rank": 28,
+        "normal": 176,
+        "hard": 140,
+        "tower": 3500,
+        "charm": 10940,
+        "emblem": 3339,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011535.png"
+      }
+    }
+  },
+  "101713612": {
+    "player_id": "101713612",
+    "names": [
+      "藍寶基尼"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "21.20M",
+        "title": "課金",
+        "qualifier_rank": 61,
+        "normal": 176,
+        "hard": 133,
+        "tower": 3500,
+        "charm": 10405,
+        "emblem": 1498,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012340.png"
+      }
+    }
+  },
+  "101716965": {
+    "player_id": "101716965",
+    "names": [
+      "秘運行者Kai"
+    ],
+    "guild": "戰神殿",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.17M",
+        "title": "洞察先機",
+        "qualifier_rank": 63,
+        "normal": 154,
+        "hard": 87,
+        "tower": 3266,
+        "charm": 5760,
+        "emblem": 467,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012405.png"
+      }
+    }
+  },
+  "101735606": {
+    "player_id": "101735606",
+    "names": [
+      "紅桃A"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "14.96M",
+        "title": "逆天改命",
+        "qualifier_rank": 20,
+        "normal": 161,
+        "hard": 93,
+        "tower": 3239,
+        "charm": 8420,
+        "emblem": 825,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011411.png"
+      }
+    }
+  },
+  "101750016": {
+    "player_id": "101750016",
+    "names": [
+      "龍×똥꼬"
+    ],
+    "guild": "용기사",
+    "seasons": {
+      "2026-07-31": {
+        "power": "16.72M",
+        "title": "용기사",
+        "qualifier_rank": 12,
+        "normal": 151,
+        "hard": 75,
+        "tower": 3424,
+        "charm": 7920,
+        "emblem": 931,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011247.png"
+      }
+    }
+  },
+  "101769770": {
+    "player_id": "101769770",
+    "names": [
+      "阿武花豆"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "19.21M",
+        "title": "課金",
+        "qualifier_rank": 6,
+        "normal": 184,
+        "hard": 161,
+        "tower": 3500,
+        "charm": 8080,
+        "emblem": 1737,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011144.png"
+      }
+    }
+  },
+  "101776467": {
+    "player_id": "101776467",
+    "names": [
+      "ᴬᴷ나츠"
+    ],
+    "guild": "ARKΛ",
+    "seasons": {
+      "2026-07-31": {
+        "power": "16.11M",
+        "title": "洞察先機",
+        "qualifier_rank": 52,
+        "normal": 156,
+        "hard": 86,
+        "tower": 3500,
+        "charm": 8430,
+        "emblem": 1220,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012135.png"
+      }
+    }
+  },
+  "101782988": {
+    "player_id": "101782988",
+    "names": [
+      "욕정"
+    ],
+    "guild": "용기사",
+    "seasons": {
+      "2026-07-31": {
+        "power": "17.13M",
+        "title": "逆天改命",
+        "qualifier_rank": 14,
+        "normal": 151,
+        "hard": 77,
+        "tower": 3264,
+        "charm": 7920,
+        "emblem": 1446,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011308.png"
+      }
+    }
+  },
+  "101792517": {
+    "player_id": "101792517",
+    "names": [
+      "AK메투스"
+    ],
+    "guild": "ARKΛ",
+    "seasons": {
+      "2026-07-31": {
+        "power": "30.54M",
+        "title": "洞察先機",
+        "qualifier_rank": 2,
+        "normal": 191,
+        "hard": 173,
+        "tower": 3500,
+        "charm": 12975,
+        "emblem": 3259,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011039.png"
+      }
+    }
+  },
+  "101807642": {
+    "player_id": "101807642",
+    "names": [
+      "Uncle春一隻嵐"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.73M",
+        "title": "洞察先機",
+        "qualifier_rank": 45,
+        "normal": 141,
+        "hard": 65,
+        "tower": 2709,
+        "charm": 5585,
+        "emblem": 650,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012021.png"
+      }
+    }
+  },
+  "101830927": {
+    "player_id": "101830927",
+    "names": [
+      "荃雉瓏"
+    ],
+    "guild": "幸運轉向17",
+    "seasons": {
+      "2026-07-31": {
+        "power": "10.01M",
+        "title": "幸運轉向17",
+        "qualifier_rank": 62,
+        "normal": 141,
+        "hard": 65,
+        "tower": 2835,
+        "charm": 4565,
+        "emblem": 437,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012353.png"
+      }
+    }
+  },
+  "101831875": {
+    "player_id": "101831875",
+    "names": [
+      "賽博陀螺"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "21.55M",
+        "title": "洞察先機",
+        "qualifier_rank": 21,
+        "normal": 172,
+        "hard": 92,
+        "tower": 3500,
+        "charm": 8495,
+        "emblem": 1153,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011422.png"
+      }
+    }
+  },
+  "101833366": {
+    "player_id": "101833366",
+    "names": [
+      "AKFLEX3R"
+    ],
+    "guild": "ARKΛ",
+    "seasons": {
+      "2026-07-31": {
+        "power": "29.26M",
+        "title": "洞察先機",
+        "qualifier_rank": 7,
+        "normal": 183,
+        "hard": 157,
+        "tower": 3500,
+        "charm": 11110,
+        "emblem": 2761,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011154.png"
+      }
+    }
+  },
+  "101859768": {
+    "player_id": "101859768",
+    "names": [
+      "龍×이노40"
+    ],
+    "guild": "용기사",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.95M",
+        "title": "洞察先機",
+        "qualifier_rank": 44,
+        "normal": 138,
+        "hard": 71,
+        "tower": 3274,
+        "charm": 6965,
+        "emblem": 820,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012009.png"
+      }
+    }
+  },
+  "101862182": {
+    "player_id": "101862182",
+    "names": [
+      "丫丸仔"
+    ],
+    "guild": "幸運轉向17",
+    "seasons": {
+      "2026-07-31": {
+        "power": "10.05M",
+        "title": "逆天改命",
+        "qualifier_rank": 25,
+        "normal": 139,
+        "hard": 59,
+        "tower": 3141,
+        "charm": 5130,
+        "emblem": 504,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011504.png"
+      }
+    }
+  },
+  "101873331": {
+    "player_id": "101873331",
+    "names": [
+      "김미태"
+    ],
+    "guild": "빅보스",
+    "seasons": {
+      "2026-07-31": {
+        "power": "7.59M",
+        "title": "빅보스",
+        "qualifier_rank": 17,
+        "normal": 103,
+        "hard": 25,
+        "tower": 1225,
+        "charm": 3675,
+        "emblem": 372,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011340.png"
+      }
+    }
+  },
+  "101874870": {
+    "player_id": "101874870",
+    "names": [
+      "koeee"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "60.95M",
+        "title": "魅力之星",
+        "qualifier_rank": 1,
+        "normal": 191,
+        "hard": 176,
+        "tower": 3500,
+        "charm": 31580,
+        "emblem": 6310,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011011.png"
+      }
+    }
+  },
+  "101875463": {
+    "player_id": "101875463",
+    "names": [
+      "Leojian"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "25.01M",
+        "title": "洞察先機",
+        "qualifier_rank": 24,
+        "normal": 176,
+        "hard": 141,
+        "tower": 3500,
+        "charm": 12025,
+        "emblem": 1969,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011453.png"
+      }
+    }
+  },
+  "101875640": {
+    "player_id": "101875640",
+    "names": [
+      "龍×이뮤"
+    ],
+    "guild": "용기사",
+    "seasons": {
+      "2026-07-31": {
+        "power": "12.46M",
+        "title": "용기사",
+        "qualifier_rank": 43,
+        "normal": 157,
+        "hard": 85,
+        "tower": 3500,
+        "charm": 7545,
+        "emblem": 763,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011944.png"
+      }
+    }
+  },
+  "101884001": {
+    "player_id": "101884001",
+    "names": [
+      "某剩啊"
+    ],
+    "guild": "HABBY大股東",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.40M",
+        "title": "BY大股東",
+        "qualifier_rank": 3,
+        "normal": 155,
+        "hard": 75,
+        "tower": 3500,
+        "charm": 6070,
+        "emblem": 557,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011112.png"
+      }
+    }
+  },
+  "101885024": {
+    "player_id": "101885024",
+    "names": [
+      "杏仁露賞花"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "14.84M",
+        "title": "洞察先機",
+        "qualifier_rank": 55,
+        "normal": 141,
+        "hard": 71,
+        "tower": 3070,
+        "charm": 5820,
+        "emblem": 1063,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012212.png"
+      }
+    }
+  },
+  "101888455": {
+    "player_id": "101888455",
+    "names": [
+      "AK네이비"
+    ],
+    "guild": "ARKΛ",
+    "seasons": {
+      "2026-07-31": {
+        "power": "16.51M",
+        "title": "ARKΛ",
+        "qualifier_rank": 27,
+        "normal": 175,
+        "hard": 133,
+        "tower": 3500,
+        "charm": 7005,
+        "emblem": 846,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011525.png"
+      }
+    }
+  },
+  "101918694": {
+    "player_id": "101918694",
+    "names": [
+      "AK베라"
+    ],
+    "guild": "ARKΛ",
+    "seasons": {
+      "2026-07-31": {
+        "power": "19.03M",
+        "title": "洞察先機",
+        "qualifier_rank": 33,
+        "normal": 167,
+        "hard": 143,
+        "tower": 3500,
+        "charm": 7995,
+        "emblem": 999,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011630.png"
+      }
+    }
+  },
+  "101925334": {
+    "player_id": "101925334",
+    "names": [
+      "龍×식현"
+    ],
+    "guild": "용기사",
+    "seasons": {
+      "2026-07-31": {
+        "power": "3.60M",
+        "title": "용기사",
+        "qualifier_rank": 59,
+        "normal": 140,
+        "hard": 75,
+        "tower": 3150,
+        "charm": 7000,
+        "emblem": 522,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012314.png"
+      }
+    }
+  },
+  "101925569": {
+    "player_id": "101925569",
+    "names": [
+      "龍×조이"
+    ],
+    "guild": "용기사",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.94M",
+        "title": "洞察先機",
+        "qualifier_rank": 42,
+        "normal": 148,
+        "hard": 72,
+        "tower": 3080,
+        "charm": 6475,
+        "emblem": 637,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011932.png"
+      }
+    }
+  },
+  "101932706": {
+    "player_id": "101932706",
+    "names": [
+      "AK여행중"
+    ],
+    "guild": "ARKΛ",
+    "seasons": {
+      "2026-07-31": {
+        "power": "13.00M",
+        "title": "ARKΛ",
+        "qualifier_rank": 29,
+        "normal": 150,
+        "hard": 81,
+        "tower": 2165,
+        "charm": 7330,
+        "emblem": 1014,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011546.png"
+      }
+    }
+  },
+  "101957780": {
+    "player_id": "101957780",
+    "names": [
+      "Egø"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "19.57M",
+        "title": "課金",
+        "qualifier_rank": 9,
+        "normal": 176,
+        "hard": 112,
+        "tower": 3500,
+        "charm": 10005,
+        "emblem": 1594,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011215.png"
+      }
+    }
+  },
+  "101970866": {
+    "player_id": "101970866",
+    "names": [
+      "泰融"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "12.37M",
+        "title": "逆天改命",
+        "qualifier_rank": 35,
+        "normal": 139,
+        "hard": 73,
+        "tower": 3174,
+        "charm": 6315,
+        "emblem": 611,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011651.png"
+      }
+    }
+  },
+  "101988548": {
+    "player_id": "101988548",
+    "names": [
+      "紫薯芋泥c"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.76M",
+        "title": "逆天改命",
+        "qualifier_rank": 53,
+        "normal": 143,
+        "hard": 81,
+        "tower": 3261,
+        "charm": 6185,
+        "emblem": 504,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012148.png"
+      }
+    }
+  },
+  "101993264": {
+    "player_id": "101993264",
+    "names": [
+      "RV297"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "26.53M",
+        "title": "洞察先機",
+        "qualifier_rank": 11,
+        "normal": 179,
+        "hard": 96,
+        "tower": 3500,
+        "charm": 11575,
+        "emblem": 2615,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011236.png"
+      }
+    }
+  },
+  "102003128": {
+    "player_id": "102003128",
+    "names": [
+      "龍×콰트"
+    ],
+    "guild": "용기사",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.21M",
+        "title": "용기사",
+        "qualifier_rank": 51,
+        "normal": 148,
+        "hard": 72,
+        "tower": 3466,
+        "charm": 7015,
+        "emblem": 875,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-012123.png"
+      }
+    }
+  },
+  "102010250": {
+    "player_id": "102010250",
+    "names": [
+      "烏薩奇Usagi"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "11.90M",
+        "title": "課金",
+        "qualifier_rank": 41,
+        "normal": 161,
+        "hard": 84,
+        "tower": 3500,
+        "charm": 7500,
+        "emblem": 491,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011919.png"
+      }
+    }
+  },
+  "102033986": {
+    "player_id": "102033986",
+    "names": [
+      "派對孔明"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "12.24M",
+        "title": "逆天改命",
+        "qualifier_rank": 26,
+        "normal": 150,
+        "hard": 75,
+        "tower": 3500,
+        "charm": 7015,
+        "emblem": 474,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011514.png"
+      }
+    }
+  },
+  "102037229": {
+    "player_id": "102037229",
+    "names": [
+      "送你離開"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "41.08M",
+        "title": "課金",
+        "qualifier_rank": 8,
+        "normal": 177,
+        "hard": 126,
+        "tower": 3500,
+        "charm": 16830,
+        "emblem": 3911,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011205.png"
+      }
+    }
+  },
+  "102045250": {
+    "player_id": "102045250",
+    "names": [
+      "牛大力"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "42.72M",
+        "title": "超星亞軍",
+        "qualifier_rank": 10,
+        "normal": 181,
+        "hard": 126,
+        "tower": 3265,
+        "charm": 25470,
+        "emblem": 4675,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011226.png"
+      }
+    }
+  },
+  "102085885": {
+    "player_id": "102085885",
+    "names": [
+      "仔仔團宗宗"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "15.26M",
+        "title": "逆天改命",
+        "qualifier_rank": 37,
+        "normal": 168,
+        "hard": 71,
+        "tower": 3500,
+        "charm": 8295,
+        "emblem": 893,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011712.png"
+      }
+    }
+  },
+  "102117405": {
+    "player_id": "102117405",
+    "names": [
+      "瑪法里恩中風"
+    ],
+    "guild": "姒神",
+    "seasons": {
+      "2026-07-31": {
+        "power": "12.12M",
+        "title": "姒神",
+        "qualifier_rank": 30,
+        "normal": 146,
+        "hard": 55,
+        "tower": 1750,
+        "charm": 5560,
+        "emblem": 448,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-011558.png"
+      }
+    }
+  }
+}

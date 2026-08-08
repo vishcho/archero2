@@ -168,14 +168,21 @@ archero2/
       "name": "koeee",
       "spirit_awe": "紅",       // 紅 | 金 | 金1–金3 | 未知；省略=未取得
       "spirit_assist": "紅",
-      "enchants": [null, null, "精靈傷害+30%", "精靈暴擊傷害+30%"]
+      "enchants": [
+        null,                                          // 空槽佔位
+        null,
+        { "text": "精靈傷害+30%", "color": "紅" },     // color: 紅 | 黃
+        { "text": "精靈暴擊傷害+30%", "color": "紅" }
+      ]
     }
   ]
 }
 ```
 
 **`enchants` 索引即槽位**：中間空槽填 `null` 佔位不可壓縮，否則後段詞條會位移；
-尾端空槽直接省略。欄位語意與「空值 vs 未知」的區別見
+尾端空槽直接省略。`color` 是**詞條本身的品階**（紅 > 黃），與選手無關——
+驗證器會檢查同一詞條在各選手間顏色一致。完整對照表、欄位語意與
+「空值 vs 未知」的區別見
 [docs/super-star-cup/super-star-cup.md](docs/super-star-cup/super-star-cup.md)。
 
 ### `data/star-cup/{id}.json` — 明星盃單屆（schema: season）

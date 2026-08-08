@@ -16,6 +16,10 @@ import path from 'node:path';
 
 const DATA_DIR = 'data';
 const TIERS = ['紅', '金', '金1', '金2', '金3', '未知'];
+const ENCHANT_COLORS = ['紅', '黃'];
+
+// 附魔詞條 → 顏色，用於檢查同一詞條在各選手間顏色一致
+const enchantColorSeen = new Map();
 const STATUS_VALUES = ['in_progress', 'finished'];
 const ROUNDS = ['R1', 'R2', '決賽'];
 const SLOTS = ['A', 'B', 'C', 'D', 'upper', 'lower', 'final'];
@@ -187,12 +191,29 @@ function validateRoster(file, season) {
     }
     // enchants 的**索引即附魔槽位**，未取得的槽填 null 佔位，不可壓縮，
     // 否則後段詞條會位移到前面的槽，語意就變了。
+    // 每格為 { text, color }，color 為附魔品階（紅 > 黃）。
     if (p.enchants !== undefined) {
       if (!Array.isArray(p.enchants)) {
         err(where, 'enchants 應為陣列');
       } else {
         p.enchants.forEach((e, j) => {
-          if (e !== null && !isStr(e)) err(where, `enchants[${j}] 應為非空字串或 null`);
+          if (e === null) return;
+          if (typeof e !== 'object') {
+            return err(where, `enchants[${j}] 應為 { text, color } 物件或 null`);
+          }
+          if (!isStr(e.text)) err(where, `enchants[${j}].text 必填且須為非空字串`);
+          if (e.color !== null && !ENCHANT_COLORS.includes(e.color)) {
+            err(where, `enchants[${j}].color 只能是 ${ENCHANT_COLORS.join(' / ')} 或 null，得到 ${JSON.stringify(e.color)}`);
+          }
+          // 同一詞條在各選手間顏色必須一致——顏色是詞條本身的屬性，不因人而異。
+          if (isStr(e.text) && e.color) {
+            const seen = enchantColorSeen.get(e.text);
+            if (seen && seen.color !== e.color) {
+              err(where, `附魔「${e.text}」顏色為 ${e.color}，但 ${seen.where} 記為 ${seen.color}`);
+            } else if (!seen) {
+              enchantColorSeen.set(e.text, { color: e.color, where });
+            }
+          }
         });
         if (p.enchants.length && p.enchants.at(-1) === null) {
           err(where, 'enchants 尾端不應為 null（尾端空槽請直接省略）');

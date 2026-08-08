@@ -1,7 +1,15 @@
-# 弓箭傳說2 明星賽紀錄（archero2-web）
+# 弓箭傳說2 明星賽事紀錄（archero2-web）
 
-記錄《弓箭傳說2》（Archero 2）**明星杯**賽事的靜態網站與資料庫：
-歷屆資格賽排名、淘汰賽對陣、總決賽結果，以及相關活動的截圖與統計。
+記錄《弓箭傳說2》（Archero 2）明星賽事的靜態網站與資料庫。
+收錄**兩種賽事**，兩者制度不同、資料結構也不同，全站一律分開呈現：
+
+| 賽事           | 週期     | 賽制                                | 收錄資料                   |
+| -------------- | -------- | ----------------------------------- | -------------------------- |
+| **明星盃**     | 兩週一輪 | 資格賽 → 8 組 × 8 人淘汰賽 → 總決賽 | 排名、對陣、逐場戰報       |
+| **超級明星盃** | 四週一輪 | 受邀制（賽制待補）                  | 選手配置（精靈裝備與附魔） |
+
+> **用字統一**：一律寫「明星**盃**」，勿用「杯」；合稱時用「明星賽事」。
+> 兩者是不同賽事，**不要混稱「明星賽」**。
 
 純靜態網站，無建置流程、無相依套件（Tailwind 走 CDN）。
 
@@ -38,14 +46,23 @@ python -m http.server 8000
 
 ## 頁面
 
-| 頁面           | 說明                                                                | 資料來源              |
-| -------------- | ------------------------------------------------------------------- | --------------------- |
-| `index.html`   | 首頁：歷屆明星賽列表（日期、主題、狀態、冠軍）                      | 所有 `data/{id}.json` |
-| `season.html`  | 單屆詳情：資格賽排名 / 淘汰賽對陣 / 總決賽三個分頁，`?id=` 指定屆次 | `data/{id}.json`      |
-| `bracket.html` | 淘汰賽 SVG 對陣圖（8 組、每組 8 人），`?id=` 指定屆次，預設最新一屆 | `data/{id}.json`      |
+| 頁面           | 說明                                                                     | 資料來源                     |
+| -------------- | ------------------------------------------------------------------------ | ---------------------------- |
+| `index.html`   | 首頁：**依賽事分成兩區塊**，各自列出歷屆                                 | `data/cups.json` + 各賽事    |
+| `season.html`  | 單屆詳情，`?cup=` 指定賽事、`?id=` 指定屆次                              | `data/{cup}/{id}.json`       |
+| `bracket.html` | 淘汰賽 SVG 對陣圖（8 組、每組 8 人），`?id=` 指定屆次，預設最新一屆      | `data/star-cup/{id}.json`    |
 
-**單一資料來源**：三個頁面都只讀同一份 JSON，更新成績只需要改 JSON，不用動 HTML。
-共用的徽章色表與 fetch 工具在 [js/common.js](js/common.js)。
+`season.html` 依該賽事的 `schema` 切換呈現方式：
+
+- `schema: "season"`（明星盃）→ 資格賽 / 淘汰賽 / 總決賽三個分頁
+- `schema: "roster"`（超級明星盃）→ 單張選手配置表
+
+`bracket.html` 是明星盃專屬（對陣圖是明星盃才有的概念），不吃 `?cup=`。
+`?cup=` 省略時預設 `star-cup`，舊有 `season.html?id=` 連結仍可用。
+
+**兩種賽事怎麼分辨**：明星盃金色、超級明星盃紫色，色票由 `data/cups.json` 的
+`accent` 指定，經 `accentOf()` 套用，所有頁面一致。
+共用常數與 fetch 工具在 [js/common.js](js/common.js)。
 
 ## 目錄結構
 
@@ -59,19 +76,25 @@ archero2/
 ├── js/
 │   └── common.js       # 共用常數（DATA_BASE、徽章色表）與工具（statusBadge / prevBadge / fetch helpers）
 ├── data/               # 網站唯一結構化資料源（執行期依賴，勿搬動）
-│   ├── seasons.json    # 賽季 id 清單（依時間舊→新排序）
-│   └── 2026-06-19.json … # 單屆完整資料（見下方 schema）
+│   ├── cups.json       # 賽事系列登記表（名稱、週期、schema、色票）
+│   ├── star-cup/                        # 明星盃（schema: season）
+│   │   ├── seasons.json                 # 該賽事的屆次 id 清單（舊→新）
+│   │   └── 2026-06-19.json …            # 單屆完整資料（見下方 schema）
+│   └── super-star-cup/                  # 超級明星盃（schema: roster）
+│       ├── seasons.json
+│       └── 2026-08-06.json              # 選手配置
 ├── docs/               # 賽事文件（人讀）
 │   ├── README.md                        # 文件索引（由腳本生成，勿手改）
 │   ├── sources.md                       # 截圖批次索引（截圖本體不進 git）
 │   ├── activity-calendar.md             # 遊戲活動行事曆
-│   ├── star-cup/                        # 明星杯
+│   ├── star-cup/                        # 明星盃
 │   │   ├── star-cup.md                  # 賽制規則與競猜機制
 │   │   ├── {date}-round{N}-matchup.md       # 賽前對陣分析
 │   │   ├── {date}-round{N}-betting-guide.md # 競猜指南
 │   │   └── {date}-tournament-results.md     # 逐場戰報（由 data/ 渲染）
-│   └── super-star-cup/                  # 超級明星杯
-│       └── 2026-08-09-精靈季1.md
+│   └── super-star-cup/                  # 超級明星盃
+│       ├── super-star-cup.md            # 賽制規則與欄位定義
+│       └── {date}-{主題}-roster.md      # 選手配置表（由 data/ 渲染）
 ├── notes/              # 個人筆記（與賽事紀錄無關）
 │   ├── 弓箭傳說2-長期規劃.md            # 資源累積推估
 │   └── workflows/                       # 資料整理與自動化流程
@@ -100,16 +123,62 @@ archero2/
 
 ## 資料格式
 
-### `data/seasons.json` — 賽季 id 清單
+### `data/cups.json` — 賽事系列登記表
+
+新增一種賽事只需在這裡增列一筆，頁面骨架不用改：
+
+```json
+{
+  "slug": "super-star-cup",   // 同時是 data/ 與 docs/ 的目錄名
+  "name": "超級明星盃",
+  "cadence": "四週一輪",
+  "format": "選手配置紀錄（賽制資料尚未納入管線）",
+  "schema": "roster",          // season | roster — 決定套哪組驗證與哪種頁面
+  "accent": "violet",          // 全站強調色，見 js/common.js 的 CUP_ACCENT
+  "docs": "docs/super-star-cup/super-star-cup.md"
+}
+```
+
+**兩種賽事刻意不共用 schema**：明星盃有資格賽與對陣，超級明星盃只有選手配置，
+硬套同一組欄位會兩邊都是空欄。共用的只有 `cups.json` 這層外殼。
+
+### `data/{cup}/seasons.json` — 該賽事的屆次 id 清單
 
 ```json
 ["2026-06-19", "2026-07-03"]
 ```
 
-只是 id 陣列（舊→新）；日期、主題、狀態等都從各屆的 `data/{id}.json` 讀，
-避免同一欄位要改兩個檔。
+只是 id 陣列（舊→新），**每個賽事各一份**；日期、主題、狀態等都從
+各屆的 `data/{cup}/{id}.json` 讀，避免同一欄位要改兩個檔。
 
-### `data/{id}.json` — 單屆資料
+### `data/super-star-cup/{id}.json` — 超級明星盃單屆（schema: roster）
+
+```json
+{
+  "id": "2026-08-06",          // 該輪起始日，非紀錄日
+  "date": "2026/8/6",
+  "theme": "精靈季 1",
+  "status": "in_progress",
+  "recorded_at": "2026-08-09", // 資料抓取時間
+  "source": "好友 ID 查詢個人資訊 ＋ 超級明星盃介面",
+  "notes": ["…"],
+  "roster": [
+    {
+      "player_id": "101874870",
+      "name": "koeee",
+      "spirit_awe": "紅",       // 紅 | 金 | 金1–金3 | 未知；省略=未取得
+      "spirit_assist": "紅",
+      "enchants": [null, null, "精靈傷害+30%", "精靈暴擊傷害+30%"]
+    }
+  ]
+}
+```
+
+**`enchants` 索引即槽位**：中間空槽填 `null` 佔位不可壓縮，否則後段詞條會位移；
+尾端空槽直接省略。欄位語意與「空值 vs 未知」的區別見
+[docs/super-star-cup/super-star-cup.md](docs/super-star-cup/super-star-cup.md)。
+
+### `data/star-cup/{id}.json` — 明星盃單屆（schema: season）
 
 頂層欄位：
 
@@ -202,23 +271,41 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 
 ## 新增一屆賽事的流程
 
-1. 在 `data/` 新增 `{id}.json`（複製上一屆改內容，注意 players 要照對陣位置排序）
-2. 在 `data/seasons.json` 尾端加上新 id
+**先確認是哪一種賽事**——兩者的 id 慣例都是「該輪起始日」，但檔案放在不同目錄。
+
+### 明星盃
+
+1. 在 `data/star-cup/` 新增 `{id}.json`（複製上一屆改內容，注意 players 要照對陣位置排序）
+2. 在 `data/star-cup/seasons.json` 尾端加上新 id
 3. 截圖放進 `screenshots/star-cup/{YYYY-MM-DD-用途}/`，並在 `docs/sources.md` 登記
-4. 逐場戰報、考證註記寫進 `docs/`
+4. 逐場戰報、考證註記寫進 `docs/star-cup/`
 5. 賽事結束後把該屆 `status` 改為 `finished`、填入各組 `champion`/`runner_up`
-6. 執行驗證與索引生成：
+
+### 超級明星盃
+
+1. 在 `data/super-star-cup/` 新增 `{id}.json`（`roster` 陣列，注意 `enchants` 槽位）
+2. 在 `data/super-star-cup/seasons.json` 尾端加上新 id
+3. 截圖放進 `screenshots/super-star-cup/{YYYY-MM-DD-用途}/`，並在 `docs/sources.md` 登記
+4. 配置表寫進 `docs/super-star-cup/{date}-{主題}-roster.md`
+
+### 兩者共通：驗證與索引生成
 
 ```bash
-node tools/validate-season.mjs --all              # 結構：型別、值域、seasons.json 對應
-node tools/validate-tournament-results.mjs data/{id}.json  # 邏輯：晉級自洽
+node tools/validate-season.mjs --all              # 結構：依 cups.json 的 schema 分派驗證
+node tools/validate-tournament-results.mjs data/star-cup/{id}.json  # 邏輯：晉級自洽（僅明星盃）
 node tools/build-docs-index.mjs                   # 重生 docs/README.md
 ```
 
-## 明星杯賽制速覽
+`validate-season.mjs --all` 會走訪 `cups.json` 登記的每個賽事目錄，
+各自檢查 `seasons.json` 與該目錄檔案是否對應。
 
-資格賽（全員，前 64 名晉級）→ 淘汰賽（8 組 × 8 人，組冠軍晉級）→ 總決賽（8 人單淘汰）。
-完整規則與競猜機制見 [docs/star-cup/star-cup.md](docs/star-cup/star-cup.md)。
+## 賽制速覽
+
+- **明星盃**：資格賽（全員，前 64 名晉級）→ 淘汰賽（8 組 × 8 人，組冠軍晉級）
+  → 總決賽（8 人單淘汰）。完整規則與競猜機制見
+  [docs/star-cup/star-cup.md](docs/star-cup/star-cup.md)。
+- **超級明星盃**：四週一輪、受邀制，賽制細節待補；目前收錄選手配置。
+  見 [docs/super-star-cup/super-star-cup.md](docs/super-star-cup/super-star-cup.md)。
 
 ## 已知限制與後續方向
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="img/fire.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>明星賽詳情</title>
+  <title>賽事詳情</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { background-color: #0f172a; color: #e2e8f0; }
@@ -26,23 +26,26 @@
       <p id="title-theme" class="text-slate-400 text-sm mt-1"></p>
     </div>
 
-    <!-- Tabs -->
-    <div class="flex gap-2 mb-6 flex-wrap">
+    <!-- Tabs：僅明星盃（schema=season）使用；超級明星盃走 roster 單頁 -->
+    <div id="tabs" class="flex gap-2 mb-6 flex-wrap hidden">
       <button class="tab-btn active px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="qualifier">資格賽排名</button>
       <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="groups">淘汰賽對陣</button>
       <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="finals">總決賽</button>
     </div>
 
     <!-- Tab Content -->
-    <div id="tab-qualifier"></div>
+    <div id="tab-qualifier" class="hidden"></div>
     <div id="tab-groups" class="hidden"></div>
     <div id="tab-finals" class="hidden"></div>
+    <div id="roster" class="hidden"></div>
   </div>
 
   <script src="js/common.js"></script>
   <script>
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
+    // cup 省略時預設明星盃，維持舊有 season.html?id= 連結可用。
+    const cupSlug = params.get('cup') || DEFAULT_CUP;
 
     function renderQualifier(data) {
       const el = document.getElementById('tab-qualifier');
@@ -198,17 +201,90 @@
       `;
     }
 
-    async function load() {
-      const data = await fetchSeason(id);
+    // 超級明星盃：目前只收錄選手配置，沒有資格賽／對陣資料，故以單一表格呈現。
+    // 品階字串（紅／金1–3／未知）在此上色，空值一律顯示 —，與「未知」區分：
+    // 「未知」＝查過但看不到，空值＝根本沒查到。
+    const TIER_CLASS = { '紅': 'text-red-400', '未知': 'text-slate-500' };
 
-      document.title = `${data.date} 明星賽`;
-      document.getElementById('title-date').textContent = data.date + ' 明星賽';
+    function tierCell(v) {
+      if (!v) return '<span class="text-slate-600">—</span>';
+      const cls = TIER_CLASS[v] || (v.startsWith('金') ? 'text-amber-300' : 'text-slate-300');
+      return `<span class="${cls} font-medium">${v}</span>`;
+    }
+
+    function renderRoster(cup, data) {
+      const el = document.getElementById('roster');
+      const roster = data.roster || [];
+      if (!roster.length) {
+        el.innerHTML = '<div class="text-slate-500 text-center py-12">尚無選手配置資料</div>';
+        return;
+      }
+      const maxEnchants = Math.max(...roster.map(p => (p.enchants || []).length));
+
+      el.innerHTML = `
+        ${data.notes?.length ? `
+          <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4 mb-5 text-xs text-slate-400 space-y-1">
+            ${data.notes.map(n => `<div>• ${n}</div>`).join('')}
+            <div class="pt-1 text-slate-500">紀錄時間：${data.recorded_at || '—'}｜來源：${data.source || '—'}</div>
+          </div>` : ''}
+        <div class="bg-slate-800 rounded-xl overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-slate-700 text-slate-300 text-left">
+                  <th class="px-3 py-3">ID</th>
+                  <th class="px-3 py-3">角色名稱</th>
+                  <th class="px-3 py-3 text-center">精靈威攝</th>
+                  <th class="px-3 py-3 text-center">精靈協戰</th>
+                  ${Array.from({ length: maxEnchants }, (_, i) => `<th class="px-3 py-3">附魔${i + 1}</th>`).join('')}
+                </tr>
+              </thead>
+              <tbody>
+                ${roster.map((p, i) => `
+                  <tr class="${i % 2 === 0 ? '' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700/50">
+                    <td class="px-3 py-2.5 text-slate-500 font-mono text-xs">${p.player_id || '—'}</td>
+                    <td class="px-3 py-2.5 font-medium whitespace-nowrap">${p.name}</td>
+                    <td class="px-3 py-2.5 text-center">${tierCell(p.spirit_awe)}</td>
+                    <td class="px-3 py-2.5 text-center">${tierCell(p.spirit_assist)}</td>
+                    ${Array.from({ length: maxEnchants }, (_, j) =>
+                      `<td class="px-3 py-2.5 text-slate-400 text-xs">${(p.enchants || [])[j] || '<span class="text-slate-600">—</span>'}</td>`
+                    ).join('')}
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    function show(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    async function load() {
+      const cup = await fetchCup(cupSlug);
+      const data = await fetchSeason(id, cupSlug);
+      const accent = accentOf(cup);
+
+      document.title = `${data.date} ${cup.name}`;
+      const titleEl = document.getElementById('title-date');
+      titleEl.textContent = `${data.date} ${cup.name}`;
+      titleEl.className = `text-2xl font-bold ${accent.text}`;
       document.getElementById('title-theme').textContent = '主題：' + data.theme;
       document.getElementById('title-status').innerHTML = statusBadge(data.status);
 
-      renderQualifier(data);
-      renderGroups(data);
-      renderFinals(data);
+      // schema 決定呈現方式：season 走三分頁賽制，roster 走單張配置表。
+      if (cup.schema === 'season') {
+        show('tabs');
+        show('tab-qualifier');
+        renderQualifier(data);
+        renderGroups(data);
+        renderFinals(data);
+      } else {
+        show('roster');
+        renderRoster(cup, data);
+      }
     }
 
     // Tab switching

@@ -10,9 +10,11 @@
 - [活動行事曆](./activity-calendar.md)
 - [截圖批次索引](./sources.md)
 
-## 明星杯
+## 明星盃
 
-- [明星杯規則](./star-cup/star-cup.md)
+兩週一輪：資格賽 → 8 組淘汰賽 → 總決賽。
+
+- [明星盃規則](./star-cup/star-cup.md)
 - [第四輪淘汰賽成績（2026/8/6）](./star-cup/2026-08-06-tournament-results.md)
 - [2026/7/31 淘汰賽對陣表](./star-cup/2026-07-31-round4-matchup.md)
 - [2026/7/31 淘汰賽競猜下注 Guide](./star-cup/2026-07-31-round4-betting-guide.md)
@@ -24,9 +26,12 @@
 - [2026/7/3 淘汰賽下注 Guide](./star-cup/2026-07-03-round2-betting-guide.md)
 - [第一輪淘汰賽成績（2026/6/19）](./star-cup/2026-06-23-tournament-results.md)
 
-## 超級明星杯
+## 超級明星盃
 
-- [2026/8/9 超級明星賽－精靈季 1 選手精靈配置](./super-star-cup/2026-08-09-精靈季1.md)
+四週一輪：受邀制，目前收錄選手配置。
+
+- [超級明星盃規則](./super-star-cup/super-star-cup.md)
+- [2026/8/6 超級明星盃－精靈季 1 選手配置](./super-star-cup/2026-08-06-精靈季1-roster.md)
 
 ## 個人筆記
 
@@ -34,5 +39,5 @@
 
 ## 工作流
 
-- [明星杯賽前對陣與競猜 Guide 工作流](../notes/workflows/star-cup-pre-match-workflow.md)
+- [明星盃賽前對陣與競猜 Guide 工作流](../notes/workflows/star-cup-pre-match-workflow.md)
 - [淘汰賽結果全自動工作流](../notes/workflows/tournament-results-workflow.md)

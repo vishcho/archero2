@@ -47,10 +47,13 @@ const topLevel = await listMarkdown(DOCS_DIR);
 const notes = await listMarkdown(NOTES_DIR);
 const workflows = await listMarkdown(path.join(NOTES_DIR, 'workflows'));
 
-// 明星杯文件依日期新→舊，規則類（無日期前綴）置頂
-const dated = starCup.filter((f) => /\d{4}-\d{2}-\d{2}/.test(path.basename(f)));
-const undated = starCup.filter((f) => !/\d{4}-\d{2}-\d{2}/.test(path.basename(f)));
-dated.reverse();
+// 賽事文件依日期新→舊，規則類（無日期前綴）置頂。
+// 兩個賽事系列排序規則相同，抽成函式避免各寫一份而分岔。
+function rulesFirstNewestFirst(files) {
+  const dated = files.filter((f) => /\d{4}-\d{2}-\d{2}/.test(path.basename(f)));
+  const undated = files.filter((f) => !/\d{4}-\d{2}-\d{2}/.test(path.basename(f)));
+  return [...undated, ...dated.reverse()];
+}
 
 const out = [
   '<!-- 本檔由 tools/build-docs-index.mjs 生成，請勿手動編輯。 -->',
@@ -61,8 +64,8 @@ const out = [
   '個人筆記與工作流在 `notes/`。',
   '',
   await section('綜合', topLevel),
-  await section('明星杯', [...undated, ...dated]),
-  await section('超級明星杯', superStarCup),
+  await section('明星盃', rulesFirstNewestFirst(starCup), '兩週一輪：資格賽 → 8 組淘汰賽 → 總決賽。'),
+  await section('超級明星盃', rulesFirstNewestFirst(superStarCup), '四週一輪：受邀制，目前收錄選手配置。'),
   await section('個人筆記', notes),
   await section('工作流', workflows),
 ].join('\n');

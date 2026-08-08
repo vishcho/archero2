@@ -4,7 +4,7 @@ import path from 'node:path';
 const [, , dataPathArg, outputPathArg] = process.argv;
 
 if (!dataPathArg || !outputPathArg) {
-  console.error('Usage: node tools/render-tournament-results.mjs <data/{season}.json> <docs/round*-tournament-results.md>');
+  console.error('Usage: node tools/render-tournament-results.mjs <data/star-cup/{season}.json> <docs/round*-tournament-results.md>');
   process.exit(1);
 }
 

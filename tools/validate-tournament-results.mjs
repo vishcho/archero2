@@ -4,7 +4,7 @@ import path from 'node:path';
 const [, , dataPathArg] = process.argv;
 
 if (!dataPathArg) {
-  console.error('Usage: node tools/validate-tournament-results.mjs <data/{season}.json>');
+  console.error('Usage: node tools/validate-tournament-results.mjs <data/star-cup/{season}.json>');
   process.exit(1);
 }
 

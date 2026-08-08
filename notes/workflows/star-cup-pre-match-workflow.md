@@ -1,6 +1,6 @@
-# 明星杯賽前對陣與競猜 Guide 工作流
+# 明星盃賽前對陣與競猜 Guide 工作流
 
-本工作流用於從明星杯賽前截圖產生兩份正式文件：
+本工作流用於從明星盃賽前截圖產生兩份正式文件：
 
 1. `docs/star-cup/YYYY-MM-DD-roundN-matchup.md`：淘汰賽賽前對陣表，整合本屆對陣、本屆資格賽時間與上屆淘汰賽表現。
 2. `docs/star-cup/YYYY-MM-DD-roundN-betting-guide.md`：依對陣表產生的競猜下注建議。

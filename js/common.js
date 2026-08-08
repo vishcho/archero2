@@ -55,17 +55,49 @@ function displayName(p) {
 // 資料源位置只在這裡定義一次；搬動 data/ 時只需要改這一行。
 const DATA_BASE = 'data';
 
-async function fetchSeasonIds() {
-  const res = await fetch(`${DATA_BASE}/seasons.json`);
+// 賽事系列（明星盃 / 超級明星盃）各自一個目錄，各自一份 seasons.json。
+// 兩者 schema 不同（season vs roster），刻意不共用資料結構，只共用這層外殼；
+// 之後再多一種賽事只需在 data/cups.json 增列，頁面骨架不用動。
+const DEFAULT_CUP = 'star-cup';
+
+async function fetchCups() {
+  const res = await fetch(`${DATA_BASE}/cups.json`);
   return res.json();
 }
 
-async function fetchSeason(id) {
-  const res = await fetch(`${DATA_BASE}/${id}.json`);
+async function fetchCup(slug) {
+  const cups = await fetchCups();
+  const cup = cups.find((c) => c.slug === slug);
+  if (!cup) throw new Error(`data/cups.json 沒有 slug 為 ${slug} 的賽事`);
+  return cup;
+}
+
+// cup 參數省略時預設明星盃，維持舊有 ?id= 連結可用。
+async function fetchSeasonIds(cup = DEFAULT_CUP) {
+  const res = await fetch(`${DATA_BASE}/${cup}/seasons.json`);
   return res.json();
 }
 
-async function fetchAllSeasons() {
-  const ids = await fetchSeasonIds();
-  return Promise.all(ids.map(fetchSeason));
+async function fetchSeason(id, cup = DEFAULT_CUP) {
+  const res = await fetch(`${DATA_BASE}/${cup}/${id}.json`);
+  return res.json();
+}
+
+async function fetchAllSeasons(cup = DEFAULT_CUP) {
+  const ids = await fetchSeasonIds(cup);
+  return Promise.all(ids.map((id) => fetchSeason(id, cup)));
+}
+
+// 賽事強調色：明星盃金、超級明星盃紫，讓兩者在任何頁面都能一眼分辨。
+const CUP_ACCENT = {
+  yellow: { text: 'text-yellow-400', bg: 'bg-yellow-500', chip: 'bg-yellow-500/15 text-yellow-300 border-yellow-500/30' },
+  violet: { text: 'text-violet-400', bg: 'bg-violet-500', chip: 'bg-violet-500/15 text-violet-300 border-violet-500/30' },
+};
+
+function accentOf(cup) {
+  return CUP_ACCENT[cup?.accent] || CUP_ACCENT.yellow;
+}
+
+function cupChip(cup) {
+  return `<span class="text-xs px-2 py-0.5 rounded-full border ${accentOf(cup).chip}">${cup.name}</span>`;
 }

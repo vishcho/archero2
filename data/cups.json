@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "star-cup",
+    "name": "明星盃",
+    "short": "明星盃",
+    "cadence": "兩週一輪",
+    "format": "資格賽 → 8 組 × 8 人淘汰賽 → 總決賽",
+    "schema": "season",
+    "accent": "yellow",
+    "docs": "docs/star-cup/star-cup.md"
+  },
+  {
+    "slug": "super-star-cup",
+    "name": "超級明星盃",
+    "short": "超級盃",
+    "cadence": "四週一輪",
+    "format": "選手配置紀錄（賽制資料尚未納入管線）",
+    "schema": "roster",
+    "accent": "violet",
+    "docs": "docs/super-star-cup/super-star-cup.md"
+  }
+]

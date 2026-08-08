@@ -1,8 +1,11 @@
 // 賽季 JSON 的結構驗證：欄位型別、值域、必填。
 // 與 validate-tournament-results.mjs 分工：那支驗「淘汰賽邏輯自洽」，這支驗「結構正確」。
 //
+// 明星盃（schema=season）與超級明星盃（schema=roster）結構不同，
+// 依 data/cups.json 登記的 schema 分派到不同檢查函式。
+//
 // 用法：
-//   node tools/validate-season.mjs data/2026-07-31.json
+//   node tools/validate-season.mjs data/star-cup/2026-07-31.json
 //   node tools/validate-season.mjs --all
 //
 // 刻意不引入 JSON Schema 套件——本 repo 無相依套件、無建置流程，
@@ -12,6 +15,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const DATA_DIR = 'data';
+const TIERS = ['紅', '金', '金1', '金2', '金3', '未知'];
 const STATUS_VALUES = ['in_progress', 'finished'];
 const ROUNDS = ['R1', 'R2', '決賽'];
 const SLOTS = ['A', 'B', 'C', 'D', 'upper', 'lower', 'final'];
@@ -151,37 +155,112 @@ function validateSeason(file, season) {
   }
 }
 
+// 超級明星盃：選手配置表，無賽制欄位
+function validateRoster(file, season) {
+  const at = (suffix) => `${file}${suffix ? ' ' + suffix : ''}`;
+
+  if (!ID_RE.test(season.id ?? '')) err(at(), `id 應為 YYYY-MM-DD，得到 ${JSON.stringify(season.id)}`);
+  if (season.id && path.basename(file, '.json') !== season.id) {
+    err(at(), `id (${season.id}) 與檔名不符`);
+  }
+  if (!isStr(season.date)) err(at(), 'date 必填');
+  if (!isStr(season.theme)) err(at(), 'theme 必填');
+  if (!STATUS_VALUES.includes(season.status)) {
+    err(at(), `status 只能是 ${STATUS_VALUES.join(' | ')}，得到 ${JSON.stringify(season.status)}`);
+  }
+  if (season.notes !== undefined && !Array.isArray(season.notes)) err(at(), 'notes 應為字串陣列');
+
+  if (!Array.isArray(season.roster)) return err(at(), 'roster 應為陣列');
+
+  season.roster.forEach((p, i) => {
+    const where = at(`roster[${i}]`);
+    if (!isStr(p.name)) err(where, 'name 必填且須為非空字串');
+    if (p.player_id !== undefined && !/^\d+$/.test(p.player_id)) {
+      err(where, `player_id 應為數字字串，得到 ${JSON.stringify(p.player_id)}`);
+    }
+    // 品階留空 = 未取得資料；「未知」= 查過但介面未顯示。兩者語意不同，都合法。
+    for (const key of ['spirit_awe', 'spirit_assist']) {
+      const v = p[key];
+      if (v !== undefined && !TIERS.includes(v)) {
+        err(where, `${key} 不在允許值域（${TIERS.join(' / ')}），得到 ${JSON.stringify(v)}`);
+      }
+    }
+    // enchants 的**索引即附魔槽位**，未取得的槽填 null 佔位，不可壓縮，
+    // 否則後段詞條會位移到前面的槽，語意就變了。
+    if (p.enchants !== undefined) {
+      if (!Array.isArray(p.enchants)) {
+        err(where, 'enchants 應為陣列');
+      } else {
+        p.enchants.forEach((e, j) => {
+          if (e !== null && !isStr(e)) err(where, `enchants[${j}] 應為非空字串或 null`);
+        });
+        if (p.enchants.length && p.enchants.at(-1) === null) {
+          err(where, 'enchants 尾端不應為 null（尾端空槽請直接省略）');
+        }
+      }
+    }
+  });
+
+  const ids = season.roster.map((p) => p.player_id).filter(Boolean);
+  const dupes = ids.filter((v, i) => ids.indexOf(v) !== i);
+  if (dupes.length) err(at('roster'), `player_id 重複：${[...new Set(dupes)].join('、')}`);
+}
+
+const VALIDATORS = { season: validateSeason, roster: validateRoster };
+
 const args = process.argv.slice(2);
 if (args.length === 0) {
-  console.error('用法：node tools/validate-season.mjs <data/{season}.json> | --all');
+  console.error('用法：node tools/validate-season.mjs <data/{cup}/{season}.json> | --all');
   process.exit(1);
 }
 
-let files;
+const cups = JSON.parse(await readFile(path.join(DATA_DIR, 'cups.json'), 'utf8'));
+
+// 檔案路徑 data/{cup}/{id}.json → 用中間那段查 cups.json 決定套哪組檢查
+function cupOf(file) {
+  const slug = path.basename(path.dirname(file));
+  return cups.find((c) => c.slug === slug);
+}
+
+let files = [];
 if (args[0] === '--all') {
-  const entries = await readdir(DATA_DIR);
-  files = entries
-    .filter((f) => f.endsWith('.json') && f !== 'seasons.json')
-    .map((f) => path.join(DATA_DIR, f));
+  for (const cup of cups) {
+    const dir = path.join(DATA_DIR, cup.slug);
+    const entries = await readdir(dir);
+    const cupFiles = entries
+      .filter((f) => f.endsWith('.json') && f !== 'seasons.json')
+      .map((f) => path.join(dir, f));
+    files.push(...cupFiles);
+
+    // 每個賽事各自的 seasons.json 與該目錄下的檔案必須互相對應
+    const listedPath = path.join(dir, 'seasons.json');
+    const listed = JSON.parse(await readFile(listedPath, 'utf8'));
+    const onDisk = cupFiles.map((f) => path.basename(f, '.json'));
+    for (const id of listed) {
+      if (!onDisk.includes(id)) err(listedPath, `列出的 ${id} 沒有對應的 ${dir}/${id}.json`);
+    }
+    for (const id of onDisk) {
+      if (!listed.includes(id)) err(listedPath, `${id}.json 存在但未列入 seasons.json`);
+    }
+    const sorted = [...listed].sort();
+    if (listed.join() !== sorted.join()) err(listedPath, 'id 未依時間舊→新排序');
+  }
 } else {
   files = args;
 }
 
-// seasons.json 與各屆檔案必須互相對應
-if (args[0] === '--all') {
-  const listed = JSON.parse(await readFile(path.join(DATA_DIR, 'seasons.json'), 'utf8'));
-  const onDisk = files.map((f) => path.basename(f, '.json'));
-  for (const id of listed) {
-    if (!onDisk.includes(id)) err('seasons.json', `列出的 ${id} 沒有對應的 ${DATA_DIR}/${id}.json`);
-  }
-  for (const id of onDisk) {
-    if (!listed.includes(id)) err('seasons.json', `${id}.json 存在但未列入 seasons.json`);
-  }
-  const sorted = [...listed].sort();
-  if (listed.join() !== sorted.join()) err('seasons.json', 'id 未依時間舊→新排序');
-}
-
 for (const file of files) {
+  const cup = cupOf(file);
+  if (!cup) {
+    err(file, `無法從路徑判斷所屬賽事——檔案應放在 data/{cup}/ 之下，且 cup 已登記於 data/cups.json`);
+    continue;
+  }
+  const validate = VALIDATORS[cup.schema];
+  if (!validate) {
+    err(file, `cups.json 的 schema "${cup.schema}" 沒有對應的驗證函式`);
+    continue;
+  }
+
   let season;
   try {
     season = JSON.parse(await readFile(file, 'utf8'));
@@ -189,7 +268,7 @@ for (const file of files) {
     err(file, `JSON 解析失敗：${e.message}`);
     continue;
   }
-  validateSeason(file, season);
+  validate(file, season);
 }
 
 if (warnings.length) {

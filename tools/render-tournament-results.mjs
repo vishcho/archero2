@@ -37,20 +37,27 @@ function formatMatch(match) {
   return `  ${left} ${leftMark} vs ${rightMark}  ${right}${note}`;
 }
 
-const ROUND_INFO = {
-  '2026-06-19': { roundLabel: '第一輪', resultDate: '2026/6/19' },
-  '2026-07-03': { roundLabel: '第二輪', resultDate: '2026/7/4' },
-  '2026-07-17': { roundLabel: '第三輪', resultDate: '2026/7/23' },
-  '2026-07-31': { roundLabel: '第四輪', resultDate: '2026/8/6' },
+// 屆次序號改由 season.round 提供（見 docs/star-cup/star-cup.md「屆次定義」），
+// 不再維護 id → 序號的硬編碼表。
+// resultDate 是「戰報撰寫日」而非賽事日期，無法從賽事資料推導，因此保留對照表；
+// 未列出的屆次退回該屆淘汰賽首日。
+const RESULT_DATE = {
+  '2026-06-19': '2026/6/19',
+  '2026-07-03': '2026/7/4',
+  '2026-07-17': '2026/7/23',
+  '2026-07-31': '2026/8/6',
 };
-const { roundLabel, resultDate } = ROUND_INFO[season.id] ?? { roundLabel: '淘汰賽', resultDate: season.date };
+const roundLabel = season.round ? `第 ${season.round} 屆` : '淘汰賽';
+const resultDate = RESULT_DATE[season.id] ?? season.date;
 const hasCurrentPower = season.groups?.some((group) => group.champion_current_power);
+
+// theme（屆主題）與 season（季主題）皆可為 null；兩者都沒有時整行省略。
+const themeParts = [season.season, season.theme].filter(Boolean);
 
 const lines = [
   `# ${roundLabel}淘汰賽成績（${resultDate}）`,
   '',
-  `主題：${season.theme}`,
-  '',
+  ...(themeParts.length ? [`主題：${themeParts.join('｜')}`, ''] : []),
   '格式：`進度/10　時間　玩家（戰力）`',
 ];
 

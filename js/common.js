@@ -30,9 +30,12 @@ function prevBadge(val) {
   return `<span class="prev-best-badge ${cls}">${val}</span>`;
 }
 
-// status 值域固定為 in_progress | finished（由 tools/validate-season.mjs 強制檢查）。
+// status 值域固定為 upcoming | in_progress | finished（由 tools/validate-season.mjs 強制檢查）。
 // 未知值不靜默 fallback，顯示為「狀態不明」以便及早發現資料錯誤。
 function statusBadge(status) {
+  if (status === 'upcoming') {
+    return '<span class="text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full">未開賽</span>';
+  }
   if (status === 'in_progress') {
     return '<span class="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">進行中</span>';
   }
@@ -40,6 +43,32 @@ function statusBadge(status) {
     return '<span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded-full">已結束</span>';
   }
   return '<span class="text-xs bg-red-600 text-white px-2 py-0.5 rounded-full">狀態不明</span>';
+}
+
+// theme（該屆流派主題）與 season（跨屆季主題，如「精靈季」）是兩件事，
+// 任一可為 null。顯示時合併成一行，兩者皆缺時回 null 讓呼叫端整行隱藏。
+function themeLabel(data) {
+  const parts = [];
+  if (data.season) parts.push(data.season);
+  if (data.theme) parts.push(data.theme);
+  return parts.length ? parts.join('｜') : null;
+}
+
+// 一屆 = 預選賽 4 天 + 其後淘汰賽 8 天。id 取淘汰賽首日（識別碼），
+// 該屆真正的起始日在 qualifier_period[0]——勿從 id 推論。
+function periodLabel(data) {
+  const q = data.qualifier_period;
+  const k = data.knockout_period;
+  if (!q && !k) return null;
+  const fmt = (d) => d.replace(/^\d{4}-0?/, '').replace(/-0?/, '/');
+  const parts = [];
+  if (q) parts.push(`預選賽 ${fmt(q[0])} – ${fmt(q[1])}`);
+  if (k) parts.push(`淘汰賽 ${fmt(k[0])} – ${fmt(k[1])}`);
+  return parts.join('｜');
+}
+
+function roundLabel(data) {
+  return data.round ? `第 ${data.round} 屆` : null;
 }
 
 // groups[].players 依對陣位置排序，相鄰兩人為一場：0,1=A、2,3=B、4,5=C、6,7=D

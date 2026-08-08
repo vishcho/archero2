@@ -28,7 +28,9 @@
             ? `<div class="text-sm ${accent.text} mt-1">🏆 冠軍：${s.champion}</div>`
             : s.status === 'finished'
               ? '<div class="text-sm text-slate-500 mt-1">總決賽資料未收錄</div>'
-              : '<div class="text-sm text-slate-500 mt-1">總決賽待定</div>')
+              : s.status === 'upcoming'
+                ? '<div class="text-sm text-slate-500 mt-1">尚未開賽</div>'
+                : '<div class="text-sm text-slate-500 mt-1">總決賽待定</div>')
         : `<div class="text-sm text-slate-500 mt-1">已收錄 ${(s.roster || []).length} 位選手配置</div>`;
 
       return `
@@ -38,9 +40,11 @@
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-lg font-bold text-white">${s.date}</span>
+                ${roundLabel(s) ? `<span class="text-sm text-slate-400">${roundLabel(s)}</span>` : ''}
                 ${statusBadge(s.status)}
               </div>
-              <div class="text-sm text-slate-400">主題：${s.theme}</div>
+              ${themeLabel(s) ? `<div class="text-sm text-slate-400">主題：${themeLabel(s)}</div>` : ''}
+              ${periodLabel(s) ? `<div class="text-xs text-slate-500 mt-0.5">${periodLabel(s)}</div>` : ''}
               ${summary}
             </div>
             <span class="text-slate-500 text-xl">›</span>

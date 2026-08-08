@@ -1,7 +1,11 @@
 {
   "id": "2026-07-03",
+  "round": 2,
   "date": "2026/7/3",
   "theme": "獲得飛劍和流星流派技能",
+  "season": null,
+  "qualifier_period": ["2026-06-29", "2026-07-02"],
+  "knockout_period": ["2026-07-03", "2026-07-10"],
   "status": "finished",
   "champion": null,
   "qualifier": [

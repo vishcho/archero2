@@ -1,7 +1,11 @@
 {
   "id": "2026-07-17",
+  "round": 3,
   "date": "2026/7/17",
-  "theme": "明星盃-精靈季",
+  "theme": null,
+  "season": "精靈季",
+  "qualifier_period": ["2026-07-13", "2026-07-16"],
+  "knockout_period": ["2026-07-17", "2026-07-24"],
   "status": "finished",
   "champion": null,
   "qualifier": [

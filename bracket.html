@@ -173,8 +173,19 @@
     async function init() {
       const params = new URLSearchParams(location.search);
       const ids = await fetchSeasonIds();
-      const id = params.get('id') || ids[ids.length - 1];
-      const data = await fetchSeason(id);
+      // 預設顯示「最新一屆有分組資料的」而非單純最後一屆——尚未開賽的屆次
+      // （status: upcoming）groups 為空，直接顯示會是一片「尚無分組資料」。
+      let id = params.get('id');
+      let data;
+      if (id) {
+        data = await fetchSeason(id);
+      } else {
+        for (let i = ids.length - 1; i >= 0; i--) {
+          data = await fetchSeason(ids[i]);
+          id = ids[i];
+          if (data.groups?.length) break;
+        }
+      }
 
       document.title = `${data.date} 淘汰賽對陣 — 弓箭傳說2`;
       document.getElementById('title').textContent = `${data.date} 淘汰賽對陣`;

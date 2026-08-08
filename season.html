@@ -24,6 +24,7 @@
         <span id="title-status"></span>
       </div>
       <p id="title-theme" class="text-slate-400 text-sm mt-1"></p>
+      <p id="title-period" class="text-slate-500 text-xs mt-0.5"></p>
     </div>
 
     <!-- Tabs：僅明星盃（schema=season）使用；超級明星盃走 roster 單頁 -->
@@ -286,9 +287,14 @@
 
       document.title = `${data.date} ${cup.name}`;
       const titleEl = document.getElementById('title-date');
-      titleEl.textContent = `${data.date} ${cup.name}`;
+      const round = roundLabel(data);
+      titleEl.textContent = round ? `${cup.name} ${round}` : `${data.date} ${cup.name}`;
       titleEl.className = `text-2xl font-bold ${accent.text}`;
-      document.getElementById('title-theme').textContent = '主題：' + data.theme;
+      // theme / season 皆可為 null（該屆無主題或尚未公布），整行隱藏而非印出 null。
+      const theme = themeLabel(data);
+      document.getElementById('title-theme').textContent = theme ? '主題：' + theme : '';
+      // 一屆橫跨預選賽與淘汰賽兩段期間，兩段都列出；id 只是識別碼，不代表起始日。
+      document.getElementById('title-period').textContent = periodLabel(data) ?? '';
       document.getElementById('title-status').innerHTML = statusBadge(data.status);
 
       // schema 決定呈現方式：season 走三分頁賽制，roster 走單張配置表。

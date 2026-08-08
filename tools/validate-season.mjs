@@ -20,7 +20,7 @@ const ENCHANT_COLORS = ['紅', '黃'];
 
 // 附魔詞條 → 顏色，用於檢查同一詞條在各選手間顏色一致
 const enchantColorSeen = new Map();
-const STATUS_VALUES = ['in_progress', 'finished'];
+const STATUS_VALUES = ['upcoming', 'in_progress', 'finished'];
 const ROUNDS = ['R1', 'R2', '決賽'];
 const SLOTS = ['A', 'B', 'C', 'D', 'upper', 'lower', 'final'];
 const PREV_BEST = ['1強', '2強', '4強', '8強', '16強', '32強', '64強', '未入選'];
@@ -80,7 +80,46 @@ function validateSeason(file, season) {
     err(at(), `id (${season.id}) 與檔名不符`);
   }
   if (!isStr(season.date)) err(at(), 'date 必填');
-  if (!isStr(season.theme)) err(at(), 'theme 必填');
+
+  // theme（該屆流派主題）與 season（跨屆季主題，如「精靈季」）是兩個不同概念，
+  // 都允許為 null——該屆沒有主題、或主題尚未公布。必填的是「欄位存在」而非「有值」，
+  // 這樣「未公布」與「漏填」才能區分：漏掉欄位會報錯，明確寫 null 則合法。
+  for (const key of ['theme', 'season']) {
+    if (!(key in season)) err(at(), `${key} 欄位必須存在（無值請明確寫 null）`);
+    else if (season[key] !== null && !isStr(season[key])) {
+      err(at(), `${key} 應為非空字串或 null，得到 ${JSON.stringify(season[key])}`);
+    }
+  }
+
+  if (!Number.isInteger(season.round) || season.round < 1) {
+    err(at(), `round 應為正整數（屆次序號），得到 ${JSON.stringify(season.round)}`);
+  }
+
+  // 一屆 = 預選賽 4 天 + 其後淘汰賽 8 天，共 12 天跨兩個週期。
+  // id 取淘汰賽首日作為識別碼，因此 id 必須等於 knockout_period[0]——
+  // 這條檢查是「屆次定義」的守門員，避免 id 與期間再次漂移。
+  for (const key of ['qualifier_period', 'knockout_period']) {
+    const v = season[key];
+    if (!Array.isArray(v) || v.length !== 2) {
+      err(at(), `${key} 應為 [起日, 迄日] 兩元素陣列，得到 ${JSON.stringify(v)}`);
+      continue;
+    }
+    if (!v.every((d) => ID_RE.test(d))) {
+      err(at(), `${key} 的日期應為 YYYY-MM-DD，得到 ${JSON.stringify(v)}`);
+      continue;
+    }
+    if (v[0] > v[1]) err(at(), `${key} 的起日晚於迄日：${v[0]} > ${v[1]}`);
+  }
+
+  if (Array.isArray(season.knockout_period) && season.knockout_period[0] !== season.id) {
+    err(at(), `id (${season.id}) 應等於 knockout_period[0] (${season.knockout_period[0]})——id 取淘汰賽首日`);
+  }
+
+  // 預選賽必須早於淘汰賽，且兩段相鄰（預選賽迄日 < 淘汰賽起日）。
+  if (Array.isArray(season.qualifier_period) && Array.isArray(season.knockout_period)
+      && season.qualifier_period[1] >= season.knockout_period[0]) {
+    err(at(), `qualifier_period 應早於 knockout_period：${season.qualifier_period[1]} >= ${season.knockout_period[0]}`);
+  }
 
   if (!STATUS_VALUES.includes(season.status)) {
     err(at(), `status 只能是 ${STATUS_VALUES.join(' | ')}，得到 ${JSON.stringify(season.status)}`);
@@ -111,7 +150,12 @@ function validateSeason(file, season) {
   if (!Array.isArray(season.groups)) {
     err(at(), 'groups 應為陣列');
   } else {
-    if (season.groups.length !== 8) err(at('groups'), `應為 8 組，得到 ${season.groups.length}`);
+    // upcoming（尚未開賽）時 groups 還沒產生，空陣列合法；一旦有資料就必須是完整 8 組。
+    if (season.status === 'upcoming') {
+      if (season.groups.length) err(at('groups'), `status 為 upcoming 但已有 ${season.groups.length} 組分組資料`);
+    } else if (season.groups.length !== 8) {
+      err(at('groups'), `應為 8 組，得到 ${season.groups.length}`);
+    }
 
     for (const group of season.groups) {
       const where = at(`group ${group.id}`);
@@ -154,6 +198,9 @@ function validateSeason(file, season) {
   if (season.status === 'in_progress' && allGroupsDone) {
     warn(at(), '所有分組皆已產生冠軍，status 仍為 in_progress');
   }
+  if (season.status === 'upcoming' && season.qualifier?.length) {
+    warn(at(), `status 為 upcoming 但已有 ${season.qualifier.length} 筆資格賽資料，是否該改為 in_progress`);
+  }
   if (season.status === 'finished' && !season.champion) {
     warn(at(), 'status 為 finished 但 champion 為空（總決賽尚未納入資料管線）');
   }
@@ -168,6 +215,8 @@ function validateRoster(file, season) {
     err(at(), `id (${season.id}) 與檔名不符`);
   }
   if (!isStr(season.date)) err(at(), 'date 必填');
+  // 超級明星盃的 theme 就是季主題（如「精靈季 1」），沿用 theme 欄位不另設 season——
+  // 它一輪只有一個主題，沒有明星盃那種「屆主題 vs 跨屆季主題」的兩層結構。
   if (!isStr(season.theme)) err(at(), 'theme 必填');
   if (!STATUS_VALUES.includes(season.status)) {
     err(at(), `status 只能是 ${STATUS_VALUES.join(' | ')}，得到 ${JSON.stringify(season.status)}`);

@@ -191,16 +191,32 @@ archero2/
 
 ```json
 {
-  "id": "2026-07-03",
+  "id": "2026-07-03",        // = knockout_period[0]，屆次識別碼（非該屆起始日）
+  "round": 2,                // 屆次序號，2026 年起累計
   "date": "2026/7/3",
-  "theme": "獲得飛劍和流星流派技能",
-  "status": "in_progress",   // in_progress | finished
+  "theme": "獲得飛劍和流星流派技能",  // 該屆流派主題，可為 null
+  "season": null,            // 跨屆季主題（如「精靈季」），可為 null
+  "qualifier_period": ["2026-06-29", "2026-07-02"],  // 預選賽 4 天
+  "knockout_period": ["2026-07-03", "2026-07-10"],   // 淘汰賽 8 天
+  "status": "in_progress",   // upcoming | in_progress | finished
   "champion": null,          // 總決賽冠軍，未產生為 null
   "qualifier": [...],
   "groups": [...],
   "grand_finals": null
 }
 ```
+
+**一屆 = 預選賽 4 天 + 其後淘汰賽 8 天**（共 12 天跨兩個週期）。`id` 取淘汰賽
+首日當識別碼，所以 **`id` 不是該屆起始日**——該屆真正起始日在 `qualifier_period[0]`，
+勿從 `id` 推論。驗證器強制 `id === knockout_period[0]`。
+
+`theme`（該屆流派主題）與 `season`（跨屆季主題）是兩層不同概念，兩者皆可為
+`null`，但**欄位必須存在**——這樣「尚未公布」（明確寫 `null`）與「漏填」
+（欄位不存在，會報錯）才能區分。完整定義見
+[docs/star-cup/star-cup.md](docs/star-cup/star-cup.md) 的「屆次定義」。
+
+`status` 為 `upcoming` 時 `qualifier` 與 `groups` 皆為空陣列（賽事還沒開始），
+驗證器會放寬「groups 應為 8 組」的檢查，但反過來會擋下「upcoming 卻已有分組資料」。
 
 - `qualifier`：資格賽排名 `[{ rank, name, time, title? }]`（`title` = 流派/稱號，選填）
 - `groups`：淘汰賽分組 `[{ id, champion?, runner_up?, players: [...] }]`
@@ -278,11 +294,21 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 
 ## 新增一屆賽事的流程
 
-**先確認是哪一種賽事**——兩者的 id 慣例都是「該輪起始日」，但檔案放在不同目錄。
+**先確認是哪一種賽事**——兩者的 id 都是日期，但**取的日子不同**，檔案也放在不同目錄：
+
+| 賽事       | id 取哪一天     | 理由                                     |
+| ---------- | --------------- | ---------------------------------------- |
+| 明星盃     | **淘汰賽首日**  | 排名／對陣／戰報都產生自淘汰賽           |
+| 超級明星盃 | **該輪首日**    | 一輪只有一段期間，無預選賽／淘汰賽之分   |
+
+明星盃的一屆橫跨預選賽與淘汰賽，`id` 落在該屆中段而非開頭——這是刻意的，
+見上方 schema 說明與 [docs/star-cup/star-cup.md](docs/star-cup/star-cup.md)。
 
 ### 明星盃
 
 1. 在 `data/star-cup/` 新增 `{id}.json`（複製上一屆改內容，注意 players 要照對陣位置排序）
+   - `id` 必須等於 `knockout_period[0]`，`round` 為上一屆 +1
+   - 賽事還沒開始就先建檔時，`status` 用 `upcoming`、`qualifier` 與 `groups` 留空陣列
 2. 在 `data/star-cup/seasons.json` 尾端加上新 id
 3. 截圖放進 `screenshots/star-cup/{YYYY-MM-DD-用途}/`，並在 `docs/sources.md` 登記
 4. 逐場戰報、考證註記寫進 `docs/star-cup/`

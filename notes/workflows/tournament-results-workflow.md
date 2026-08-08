@@ -23,6 +23,10 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-results>/Screenshot_*.png
 
 若張數不是 64，流程必須中止並列出缺漏或多出的檔案，不得產生正式資料。
 
+目錄命名與四類批次（`matchup` / `rank` / `top64` / `results`）的規範見
+[`screenshots/README.md`](../../screenshots/README.md)；開跑前可先用
+`node tools/check-screenshots.mjs` 確認本輪批次齊全度。
+
 ## 自動化階段
 
 ### 1. 盤點與分組

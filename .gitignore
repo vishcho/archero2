@@ -1,3 +1,7 @@
 .DS_Store
 Thumbs.db
-screenshots/
+
+# 截圖本身不進 git（大檔、且只有本機分析需要），
+# 但保留目錄說明與批次索引，讓沒有截圖的 clone 知道規範與缺什麼。
+screenshots/*
+!screenshots/README.md

@@ -2,7 +2,7 @@
   "id": "2026-07-31",
   "date": "2026/7/31",
   "theme": "明星盃-精靈季",
-  "status": "completed",
+  "status": "finished",
   "champion": null,
   "qualifier": [
     {
@@ -404,7 +404,7 @@
         {
           "name": "牛大力",
           "power": "54.27M",
-          "flag": "⚠ 同名多筆",
+          "flag": "⚠",
           "prev_power": "52.65M",
           "prev_progress": "10/10",
           "prev_time": "00:38.55",
@@ -431,7 +431,7 @@
         {
           "name": "牛大力",
           "power": "31.19M",
-          "flag": "⚠ 同名多筆",
+          "flag": "⚠",
           "prev_power": "31.19M",
           "prev_progress": "10/10",
           "prev_time": "01:08.71"
@@ -660,7 +660,7 @@
         {
           "name": "龍×똥꼬",
           "power": "12.45M",
-          "flag": "⚠ 同名多筆"
+          "flag": "⚠"
         },
         {
           "name": "仔仔團宗宗",
@@ -1535,7 +1535,7 @@
         {
           "name": "龍×똥꼬",
           "power": "17.00M",
-          "flag": "⚠ 同名多筆",
+          "flag": "⚠",
           "prev_power": "16.23M",
           "prev_progress": "10/10",
           "prev_time": "01:09.48",

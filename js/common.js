@@ -30,10 +30,16 @@ function prevBadge(val) {
   return `<span class="prev-best-badge ${cls}">${val}</span>`;
 }
 
+// status 值域固定為 in_progress | finished（由 tools/validate-season.mjs 強制檢查）。
+// 未知值不靜默 fallback，顯示為「狀態不明」以便及早發現資料錯誤。
 function statusBadge(status) {
-  return status === 'in_progress'
-    ? '<span class="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">進行中</span>'
-    : '<span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded-full">已結束</span>';
+  if (status === 'in_progress') {
+    return '<span class="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">進行中</span>';
+  }
+  if (status === 'finished') {
+    return '<span class="text-xs bg-slate-600 text-slate-300 px-2 py-0.5 rounded-full">已結束</span>';
+  }
+  return '<span class="text-xs bg-red-600 text-white px-2 py-0.5 rounded-full">狀態不明</span>';
 }
 
 // groups[].players 依對陣位置排序，相鄰兩人為一場：0,1=A、2,3=B、4,5=C、6,7=D
@@ -46,13 +52,16 @@ function displayName(p) {
   return p.flag ? `${p.name} ${p.flag}` : p.name;
 }
 
+// 資料源位置只在這裡定義一次；搬動 data/ 時只需要改這一行。
+const DATA_BASE = 'data';
+
 async function fetchSeasonIds() {
-  const res = await fetch('data/seasons.json');
+  const res = await fetch(`${DATA_BASE}/seasons.json`);
   return res.json();
 }
 
 async function fetchSeason(id) {
-  const res = await fetch(`data/${id}.json`);
+  const res = await fetch(`${DATA_BASE}/${id}.json`);
   return res.json();
 }
 

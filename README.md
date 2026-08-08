@@ -5,6 +5,25 @@
 
 純靜態網站，無建置流程、無相依套件（Tailwind 走 CDN）。
 
+## 這個 repo 的用途
+
+遊戲內只看得到「當下」——賽事結束後對陣表就被下一屆洗掉，沒有歷史查詢。
+這個 repo 把每屆賽事從截圖固化成可查詢、可比對、可累積的紀錄。
+
+具體要解決的問題：
+
+1. **留存賽事歷史**：把手機截圖轉成結構化 JSON，讓歷屆成績不隨遊戲改版消失。
+2. **跨屆追蹤選手**：同一位選手在各屆的戰力、名次、通關時間變化；
+   並處理同名玩家的辨識問題（`flag` 欄位）。
+3. **賽前情報與競猜輔助**：用歷史資料產出對陣分析與競猜指南，
+   在下注前判斷各組勝算。
+4. **個人養成規劃**：資源累積推估與長期規劃筆記（`notes/`）。
+
+**運作模式是「截圖 → AI 抽取 → 驗證 → 產出」的資料管線**：
+截圖是原料（不進 git），JSON 是唯一真實來源，Markdown 戰報與網站頁面都是它的呈現層。
+`tools/` 的腳本負責讓 JSON 與 Markdown 保持一致、並在寫入前擋掉不完整的資料。
+完整規則見 [notes/workflows/](notes/workflows/)。
+
 ## 快速開始
 
 因為頁面用 `fetch` 讀取本地 JSON，直接雙擊 HTML 會被瀏覽器 CORS 擋下，
@@ -13,7 +32,6 @@
 ```bash
 # 專案根目錄執行（任選其一）
 python -m http.server 8000
-npx serve .
 ```
 
 然後開 <http://localhost:8000>。
@@ -26,10 +44,12 @@ npx serve .
 | `season.html`  | 單屆詳情：資格賽排名 / 淘汰賽對陣 / 總決賽三個分頁，`?id=` 指定屆次 | `data/{id}.json`      |
 | `bracket.html` | 淘汰賽 SVG 對陣圖（8 組、每組 8 人），`?id=` 指定屆次，預設最新一屆 | `data/{id}.json`      |
 
-**單一資料來源**：三個頁面都只讀 `data/`，更新成績只需要改 JSON，不用動 HTML。
+**單一資料來源**：三個頁面都只讀同一份 JSON，更新成績只需要改 JSON，不用動 HTML。
 共用的徽章色表與 fetch 工具在 [js/common.js](js/common.js)。
 
 ## 目錄結構
+
+頂層依「誰讀它」分成三類：`data/` 機器讀、`docs/` 賽事文件、`notes/` 個人筆記。
 
 ```
 archero2/
@@ -37,26 +57,42 @@ archero2/
 ├── season.html         # 賽季詳情頁（tabs：資格賽/淘汰賽/總決賽）
 ├── bracket.html        # 淘汰賽 SVG 對陣圖（?id= 指定屆次）
 ├── js/
-│   └── common.js       # 共用常數（徽章色表）與工具（statusBadge / prevBadge / fetch helpers）
-├── data/
+│   └── common.js       # 共用常數（DATA_BASE、徽章色表）與工具（statusBadge / prevBadge / fetch helpers）
+├── data/               # 網站唯一結構化資料源（執行期依賴，勿搬動）
 │   ├── seasons.json    # 賽季 id 清單（依時間舊→新排序）
-│   ├── 2026-06-19.json # 單屆完整資料（見下方 schema）
-│   └── 2026-07-03.json
-├── docs/               # 規則、詳細戰報與分析（非網站資料源）
-│   ├── README.md                    # 文件索引
-│   ├── sources.md                   # 截圖批次索引（截圖本體不進 git）
-│   ├── star-cup/                    # 明星杯規則、對陣、戰報與活動
-│   ├── analysis/                    # 符文、技能等分析
-│   └── workflows/                   # 資料整理與自動化流程
+│   └── 2026-06-19.json … # 單屆完整資料（見下方 schema）
+├── docs/               # 賽事文件（人讀）
+│   ├── README.md                        # 文件索引（由腳本生成，勿手改）
+│   ├── sources.md                       # 截圖批次索引（截圖本體不進 git）
+│   ├── activity-calendar.md             # 遊戲活動行事曆
+│   ├── star-cup/                        # 明星杯
+│   │   ├── star-cup.md                  # 賽制規則與競猜機制
+│   │   ├── {date}-round{N}-matchup.md       # 賽前對陣分析
+│   │   ├── {date}-round{N}-betting-guide.md # 競猜指南
+│   │   └── {date}-tournament-results.md     # 逐場戰報（由 data/ 渲染）
+│   └── super-star-cup/                  # 超級明星杯
+│       └── 2026-08-09-精靈季1.md
+├── notes/              # 個人筆記（與賽事紀錄無關）
+│   ├── 弓箭傳說2-長期規劃.md            # 資源累積推估
+│   └── workflows/                       # 資料整理與自動化流程
+│       ├── star-cup-pre-match-workflow.md
+│       └── tournament-results-workflow.md
+├── tools/              # Node.js 腳本（無相依套件，直接 node 執行）
+│   ├── validate-season.mjs                     # 結構驗證：欄位型別、值域、必填
+│   ├── validate-tournament-results.mjs         # 邏輯驗證：淘汰賽晉級自洽
+│   ├── render-tournament-results.mjs           # data JSON → 戰報 md
+│   ├── import-tournament-results-from-doc.mjs  # 戰報 md → data JSON（僅舊資料遷移）
+│   └── build-docs-index.mjs                    # 由目錄結構生成 docs/README.md
 ├── img/
 │   └── fire.png        # 網站 favicon（img/ 只放頁面會引用的資產）
+├── tmp/                # 中繼檔（對陣暫存 JSON 等）
 └── screenshots/        # 原始截圖 — gitignored，只留本地供 AI 分析
-    ├── star-cup/{YYYY-MM-DD-用途}/
-    └── rune-ruins/{YYYY-MM-DD}/
+    └── star-cup/{YYYY-MM-DD-用途}/
 ```
 
-**docs/ 與 data/ 的分工**：`data/` 是網站唯一的結構化資料來源；`docs/` 放
-JSON 裝不下的東西——規則、逐場戰報、同名玩家考證。同一筆成績以 `data/` 為準。
+**資料與文件的分工**：`data/` 是網站唯一的結構化資料來源，屬於執行期依賴，
+搬動它會直接讓網站讀不到資料；`docs/` 放 JSON 裝不下的東西——規則、逐場戰報、
+同名玩家考證。同一筆成績以 `data/` 的 JSON 為準。
 
 **截圖不進 git**：原始截圖放 `screenshots/`（已 gitignore），分析產出
 （`data/*.json`、`docs/*.md`）才 commit。每批截圖在 [docs/sources.md](docs/sources.md)
@@ -154,7 +190,15 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 - `champion_power`：該組冠軍賽時戰力
 - `champion_current_power`：樹狀圖目前戰力；無資料時省略
 
-完整自動化流程見 [docs/workflows/tournament-results-workflow.md](docs/workflows/tournament-results-workflow.md)。
+完整自動化流程見 [notes/workflows/tournament-results-workflow.md](notes/workflows/tournament-results-workflow.md)。
+
+## 總決賽資料
+
+`grand_finals` 與頂層 `champion` **目前尚未納入資料管線**——現行截圖流程只涵蓋到
+淘汰賽（`groups[].matches`），因此各屆這兩個欄位皆為 `null`。這是尚未實作，
+不是待填的空欄位。頁面在 `status` 為 `finished` 時會顯示「總決賽資料未收錄」以示區別。
+
+要補齊需新增一批總決賽截圖來源，並擴充抽取流程；schema 已預留欄位型別檢查。
 
 ## 新增一屆賽事的流程
 
@@ -162,9 +206,42 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 2. 在 `data/seasons.json` 尾端加上新 id
 3. 截圖放進 `screenshots/star-cup/{YYYY-MM-DD-用途}/`，並在 `docs/sources.md` 登記
 4. 逐場戰報、考證註記寫進 `docs/`
-5. 賽事結束後把該屆 `status` 改為 `finished`、填入 `champion` 與各組 `champion`/`runner_up`
+5. 賽事結束後把該屆 `status` 改為 `finished`、填入各組 `champion`/`runner_up`
+6. 執行驗證與索引生成：
+
+```bash
+node tools/validate-season.mjs --all              # 結構：型別、值域、seasons.json 對應
+node tools/validate-tournament-results.mjs data/{id}.json  # 邏輯：晉級自洽
+node tools/build-docs-index.mjs                   # 重生 docs/README.md
+```
 
 ## 明星杯賽制速覽
 
 資格賽（全員，前 64 名晉級）→ 淘汰賽（8 組 × 8 人，組冠軍晉級）→ 總決賽（8 人單淘汰）。
 完整規則與競猜機制見 [docs/star-cup/star-cup.md](docs/star-cup/star-cup.md)。
+
+## 已知限制與後續方向
+
+已完成的架構調整（2026-08-09）：頂層依讀者拆成 `data/` / `docs/` / `notes/`、
+資料源路徑收斂為 `DATA_BASE`、`status` 值域統一、新增結構驗證與索引生成腳本。
+
+尚未處理，屆數增加後才會真正變痛的：
+
+### 跨屆選手資料仍靠名稱字串比對
+
+`prev_best` / `prev_power` 等「上屆」欄位是**冗餘複製**——同一位選手的成績同時
+存在於本屆的 `prev_*` 與上屆的 `qualifier`/`matches`，兩邊可能不一致，且完全
+依賴玩家名稱比對（所以才需要 `⚠` / `≈` 兩種 flag 人工標註）。
+
+要真正做到「跨屆追蹤選手」，需要一份 `data/players.json` 給每位選手穩定 id，
+各屆只存 id 參照，`prev_*` 改由腳本從上屆資料推導而非手抄。
+屆數還少時現況可接受，但這是目前最大的資料模型債。
+
+### 總決賽尚未納入管線
+
+見上方「總決賽資料」一節。
+
+### 驗證未自動化
+
+`tools/` 的驗證需手動執行。若之後接 CI 或 git hook，可在 commit 前擋下
+結構錯誤的資料，避免像 `status` 值域分岔那樣累積數屆才被發現。

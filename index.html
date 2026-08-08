@@ -37,7 +37,9 @@
               <div class="text-sm text-slate-400">主題：${s.theme}</div>
               ${s.champion
                 ? `<div class="text-sm text-yellow-400 mt-1">🏆 冠軍：${s.champion}</div>`
-                : '<div class="text-sm text-slate-500 mt-1">總決賽待定</div>'}
+                : s.status === 'finished'
+                  ? '<div class="text-sm text-slate-500 mt-1">總決賽資料未收錄</div>'
+                  : '<div class="text-sm text-slate-500 mt-1">總決賽待定</div>'}
             </div>
             <span class="text-slate-500 text-xl">›</span>
           </div>

@@ -108,13 +108,22 @@ R2：upper、lower
 
 ### 5. 驗證
 
-正式寫入後必須執行：
+正式寫入後必須執行兩支驗證，兩支都通過才算過關：
 
 ```bash
-node tools/validate-tournament-results.mjs data/{season}.json
+node tools/validate-season.mjs data/{season}.json            # 結構：欄位型別、值域、必填
+node tools/validate-tournament-results.mjs data/{season}.json # 邏輯：晉級自洽
 ```
 
-驗證條件：
+`validate-season.mjs` 驗證條件：
+
+- `status` 只能是 `in_progress` / `finished`。
+- `flag` 只能是 `⚠` / `≈`；`prev_best` 須在允許值域內。
+- 時間格式須為 `MM:SS.mm`（或 `未通關`）。
+- `id` 須與檔名相符；`qualifier` 的 `rank` 須遞增。
+- 每屆 8 組、每組 8 人。
+
+`validate-tournament-results.mjs` 驗證條件：
 
 - 每組 7 場：R1 四場、R2 兩場、決賽一場。
 - 每場 `winner` / `loser` 必須是 `p1` 或 `p2`。
@@ -137,13 +146,23 @@ Markdown 只是呈現層；若和 JSON 不一致，以 JSON 為準並重新渲�
 
 ### 7. 更新來源索引
 
-最後更新 `docs/sources.md`：
+更新 `docs/sources.md`：
 
 - 批次路徑
 - 截圖日期
 - 張數
 - 內容
 - 產出檔案
+
+### 8. 重生文件索引
+
+`docs/README.md` 由腳本從目錄結構生成，新增戰報後執行：
+
+```bash
+node tools/build-docs-index.mjs
+```
+
+不要手動編輯 `docs/README.md`，改動會在下次生成時被覆蓋。
 
 ## 目前半自動遷移工具
 

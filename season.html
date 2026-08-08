@@ -137,8 +137,11 @@
 
     function renderFinals(data) {
       const el = document.getElementById('tab-finals');
+      // grand_finals 目前尚未納入截圖抽取管線，各屆皆為 null（見 README「總決賽資料」）。
       if (!data.grand_finals) {
-        el.innerHTML = '<div class="text-slate-500 text-center py-12">總決賽尚未開始</div>';
+        el.innerHTML = data.status === 'finished'
+          ? '<div class="text-slate-500 text-center py-12">本屆總決賽資料尚未收錄</div>'
+          : '<div class="text-slate-500 text-center py-12">總決賽尚未開始</div>';
         return;
       }
 

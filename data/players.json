@@ -314,6 +314,27 @@
       }
     }
   },
+  "101582242": {
+    "player_id": "101582242",
+    "names": [
+      "LD | 말랭"
+    ],
+    "guild": "레전더리",
+    "seasons": {
+      "2026-07-31": {
+        "power": "15.24M",
+        "title": "레전더리",
+        "qualifier_rank": 48,
+        "normal": 161,
+        "hard": 136,
+        "tower": 3500,
+        "charm": 9555,
+        "emblem": 724,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-021739.png"
+      }
+    }
+  },
   "101592430": {
     "player_id": "101592430",
     "names": [
@@ -671,6 +692,27 @@
       }
     }
   },
+  "101821232": {
+    "player_id": "101821232",
+    "names": [
+      "牛大刃"
+    ],
+    "guild": "課金",
+    "seasons": {
+      "2026-07-31": {
+        "power": "13.13M",
+        "title": "逆天改命",
+        "qualifier_rank": 64,
+        "normal": 143,
+        "hard": 94,
+        "tower": 3499,
+        "charm": 7390,
+        "emblem": 1420,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-021811.png"
+      }
+    }
+  },
   "101830927": {
     "player_id": "101830927",
     "names": [
@@ -923,6 +965,27 @@
       }
     }
   },
+  "101907704": {
+    "player_id": "101907704",
+    "names": [
+      "夜凜月"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "9.67M",
+        "title": "逆天改命",
+        "qualifier_rank": 60,
+        "normal": 141,
+        "hard": 83,
+        "tower": 3341,
+        "charm": 5655,
+        "emblem": 396,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-021803.png"
+      }
+    }
+  },
   "101918694": {
     "player_id": "101918694",
     "names": [
@@ -1025,6 +1088,27 @@
         "emblem": 1594,
         "captured": "2026-08-09",
         "source": "Screenshot_20260809-011215.png"
+      }
+    }
+  },
+  "101967893": {
+    "player_id": "101967893",
+    "names": [
+      "聖心"
+    ],
+    "guild": "超常解放戰線",
+    "seasons": {
+      "2026-07-31": {
+        "power": "12.07M",
+        "title": "洞察先機",
+        "qualifier_rank": 57,
+        "normal": 141,
+        "hard": 63,
+        "tower": 3059,
+        "charm": 5415,
+        "emblem": 438,
+        "captured": "2026-08-09",
+        "source": "Screenshot_20260809-021748.png"
       }
     }
   },

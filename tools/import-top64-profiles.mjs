@@ -41,19 +41,17 @@ const seasonFile = path.join(DATA_DIR, cupSlug, `${seasonId}.json`);
 const season = JSON.parse(await readFile(seasonFile, 'utf8'));
 
 // ── §2b 抽取完整性檢查點 ────────────────────────────────────────────
-const missing = [];   // 致命：沒有 ID 就無法入庫
-const dupes = [];     // 重複拍攝：可用 --allow-partial 放行（代價是涵蓋不到 64 位）
+const fatal = [];     // 致命：讀不出 player_id，任何情況都不得入庫
+const missing = [];   // 涵蓋不足 64 位：可用 --allow-partial 明示放行
+const dupes = [];     // 重複拍攝：僅供追溯，補拍回來就無害，不擋流程
 const unsure = [];    // 讀不確定：需人工確認
-
-if (cards.length !== 64) {
-  missing.push(`張數 ${cards.length}，應為 64`);
-}
+const notes = [];     // 純說明：不擋流程
 
 const byId = new Map();
 for (const c of cards) {
   const at = c.source ?? '(無 source)';
   if (!c.player_id || !/^\d+$/.test(c.player_id)) {
-    missing.push(`${at}: player_id 缺失或非數字字串——沒有 ID 這批就失去意義，必須重拍`);
+    fatal.push(`${at}: player_id 缺失或非數字字串——沒有 ID 這批就失去意義，必須重拍`);
     continue;
   }
   if (byId.has(c.player_id)) {
@@ -64,7 +62,9 @@ for (const c of cards) {
   for (const f of CARD_FIELDS) {
     if (c[f] === undefined || c[f] === null) unsure.push(`${at}: ${f} 未讀出`);
   }
-  if (c.note) unsure.push(`${at}: ${c.note}`);
+  // note 是說明，未必代表判讀有疑慮。只有標了 uncertain 的才進 [UNSURE]，
+  // 否則每加一句背景說明都會擋住流程。
+  if (c.note) (c.uncertain ? unsure : notes).push(`${at}: ${c.note}`);
 }
 
 // 與資格賽榜交叉比對：名片名稱應能對到 qualifier[]
@@ -93,12 +93,20 @@ for (const c of byId.values()) {
   else if (hits.length > 1) ambiguous.push({ card: c, hits });
 }
 
+// 判定「齊不齊」看的是**唯一 player_id 數**，不是張數。
+// 補拍會讓張數超過 64（重複的那幾張仍留在目錄裡供追溯），這是正常狀態。
+if (byId.size !== 64) {
+  missing.push(`只涵蓋 ${byId.size} 位選手，應為 64 位（共 ${cards.length} 張截圖）`);
+}
+
 console.log(`# top64 抽取檢查點（${input}）\n`);
-console.log(missing.length === 0 && dupes.length === 0 && unsure.length === 0
-  ? `[OK]      ${cards.length}/64 張、player_id 全數唯一、欄位齊全`
-  : `[  ]      ${cards.length}/64 張，${byId.size} 個唯一 player_id`);
+console.log(fatal.length === 0 && missing.length === 0 && unsure.length === 0
+  ? `[OK]      ${cards.length} 張涵蓋 64 位、player_id 全數唯一、欄位齊全`
+  : `[  ]      ${cards.length} 張，涵蓋 ${byId.size}/64 位`);
+if (fatal.length) console.log(`[FATAL]   ${fatal.length} 項：\n${fatal.map((m) => `  - ${m}`).join('\n')}`);
 if (missing.length) console.log(`[MISSING] ${missing.length} 項：\n${missing.map((m) => `  - ${m}`).join('\n')}`);
 if (dupes.length) console.log(`[DUPE]    ${dupes.length} 項：\n${dupes.map((m) => `  - ${m}`).join('\n')}`);
+if (notes.length) console.log(`[NOTE]    ${notes.length} 項：\n${notes.map((m) => `  - ${m}`).join('\n')}`);
 if (unsure.length) console.log(`[UNSURE]  ${unsure.length} 項：\n${unsure.map((m) => `  - ${m}`).join('\n')}`);
 
 console.log(`\n## 與資格賽榜交叉比對（${qualifier.length} 筆）`);
@@ -128,9 +136,11 @@ if (notShot.length) {
   }
 }
 
+// [DUPE] 本身不擋——重複拍攝只要補拍回來就無害，真正的問題是「涵蓋不足 64 位」，
+// 那已由 [MISSING] 表達。
 const blocked = [];
-if (missing.length) blocked.push('[MISSING]');
-if (dupes.length && !allowPartial) blocked.push('[DUPE]');
+if (fatal.length) blocked.push('[FATAL]');
+if (missing.length && !allowPartial) blocked.push('[MISSING]');
 if (unsure.length && !allowPartial) blocked.push('[UNSURE]');
 
 if (checkOnly) {
@@ -139,7 +149,7 @@ if (checkOnly) {
 }
 if (blocked.length) {
   console.error(`\n${blocked.join(' ')} 非空，依工作流 §2b 中止，不寫入 data/。`);
-  if (missing.length) console.error(`（[MISSING] 無法以 --allow-partial 放行：沒有 player_id 就無法入庫。）`);
+  if (fatal.length) console.error(`（[FATAL] 無法以 --allow-partial 放行：沒有 player_id 就無法入庫。）`);
   else console.error(`（這批確定補拍不到時，可用 --allow-partial 明示以 ${byId.size} 位入庫。）`);
   process.exit(1);
 }

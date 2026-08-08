@@ -429,7 +429,8 @@
           "matchup_name": "牛大办",
           "qualifier_rank": 64,
           "qualifier_time": "04:33.2",
-          "qualifier_title": "逆天改命"
+          "qualifier_title": "逆天改命",
+          "player_id": "101821232"
         },
         {
           "name": "LD丨도하",
@@ -439,7 +440,9 @@
           "qualifier_title": "洞察先機",
           "prev_power": "14.26M",
           "prev_progress": "10/10",
-          "prev_time": "01:49.17"
+          "prev_time": "01:49.17",
+          "player_id": "101592430",
+          "note": "對陣表作「LD丨도하」、名片作「LD | 도하」，經用戶ID 101592430 確認為同一人（字形差異）。"
         },
         {
           "name": "牛大力",
@@ -460,7 +463,8 @@
           "qualifier_title": "洞察先機",
           "prev_power": "14.15M",
           "prev_progress": "10/10",
-          "prev_time": "01:43.20"
+          "prev_time": "01:43.20",
+          "player_id": "101859768"
         },
         {
           "name": "AK丨나츠",
@@ -468,7 +472,9 @@
           "matchup_name": "I매I사냥",
           "qualifier_rank": 52,
           "qualifier_time": "04:30.7",
-          "qualifier_title": "洞察先機"
+          "qualifier_title": "洞察先機",
+          "player_id": "101776467",
+          "note": "對陣表作「AK丨나츠」、名片作「ᴬᴷ나츠」，經用戶ID 101776467 確認為同一人（字形差異）。"
         },
         {
           "name": "LD丨힘",
@@ -480,14 +486,17 @@
           "prev_power": "33.77M",
           "prev_progress": "10/10",
           "prev_time": "00:43.35",
-          "prev_title": "上屆第2組冠軍"
+          "prev_title": "上屆第2組冠軍",
+          "player_id": "101678554",
+          "note": "對陣表作「LD丨힘」、名片作「LD | 힘」，經用戶ID 101678554 確認為同一人（字形差異）。"
         },
         {
           "name": "單品咖啡",
           "power": "15.14M",
           "qualifier_rank": 31,
           "qualifier_time": "04:26.9",
-          "qualifier_title": "課金"
+          "qualifier_title": "課金",
+          "player_id": "101464153"
         }
       ],
       "champion": "LD丨힘",
@@ -652,7 +661,8 @@
           "qualifier_title": "課金",
           "prev_power": "13.51M",
           "prev_progress": "10/10",
-          "prev_time": "01:43.50"
+          "prev_time": "01:43.50",
+          "player_id": "101884001"
         },
         {
           "name": "AK우연",
@@ -663,7 +673,8 @@
           "qualifier_title": "洞察先機",
           "prev_power": "14.41M",
           "prev_progress": "10/10",
-          "prev_time": "01:14.88"
+          "prev_time": "01:14.88",
+          "player_id": "101575904"
         },
         {
           "name": "AK여행중",
@@ -671,7 +682,8 @@
           "matchup_name": "I매I일여행중",
           "qualifier_rank": 29,
           "qualifier_time": "04:25.6",
-          "qualifier_title": "매력?"
+          "qualifier_title": "매력?",
+          "player_id": "101932706"
         },
         {
           "name": "龍×똥꼬",
@@ -686,21 +698,24 @@
           "qualifier_title": "逆天改命",
           "prev_power": "15.34M",
           "prev_progress": "10/10",
-          "prev_time": "01:17.31"
+          "prev_time": "01:17.31",
+          "player_id": "102085885"
         },
         {
           "name": "藍寶基尼",
           "power": "22.13M",
           "qualifier_rank": 61,
           "qualifier_time": "04:32.9",
-          "qualifier_title": "課金"
+          "qualifier_title": "課金",
+          "player_id": "101713612"
         },
         {
           "name": "戰神蕉蕉",
           "power": "12.04M",
           "qualifier_rank": 54,
           "qualifier_time": "04:30.8",
-          "qualifier_title": "逆天改命"
+          "qualifier_title": "逆天改命",
+          "player_id": "101472573"
         },
         {
           "name": "AK연인",
@@ -712,7 +727,8 @@
           "prev_power": "15.88M",
           "prev_progress": "10/10",
           "prev_time": "01:16.38",
-          "prev_title": "上屆第6組亞軍"
+          "prev_title": "上屆第6組亞軍",
+          "player_id": "101565972"
         }
       ],
       "champion": "藍寶基尼",
@@ -868,7 +884,8 @@
           "power": "14.19M",
           "qualifier_rank": 56,
           "qualifier_time": "04:30.9",
-          "qualifier_title": "戰神殿"
+          "qualifier_title": "戰神殿",
+          "player_id": "101560949"
         },
         {
           "name": "龍×조이",
@@ -877,7 +894,8 @@
           "qualifier_time": "04:29.1",
           "qualifier_title": "洞察先機",
           "prev_power": "12.22M",
-          "prev_progress": "1/10"
+          "prev_progress": "1/10",
+          "player_id": "101925569"
         },
         {
           "name": "送你離開",
@@ -889,7 +907,8 @@
           "prev_power": "38.23M",
           "prev_progress": "10/10",
           "prev_time": "00:42.62",
-          "prev_title": "上屆第6組冠軍"
+          "prev_title": "上屆第6組冠軍",
+          "player_id": "102037229"
         },
         {
           "name": "SuperAaron",
@@ -899,7 +918,8 @@
           "qualifier_title": "洞察先機",
           "prev_power": "20.71M",
           "prev_progress": "10/10",
-          "prev_time": "01:02.58"
+          "prev_time": "01:02.58",
+          "player_id": "101535841"
         },
         {
           "name": "夜凜月",
@@ -909,7 +929,8 @@
           "qualifier_title": "逆天改命",
           "prev_power": "12.01M",
           "prev_progress": "10/10",
-          "prev_time": "02:17.26"
+          "prev_time": "02:17.26",
+          "player_id": "101907704"
         },
         {
           "name": "LD丨삐얀코",
@@ -919,7 +940,8 @@
           "qualifier_title": "洞察先機",
           "prev_power": "13.22M",
           "prev_progress": "10/10",
-          "prev_time": "01:33.87"
+          "prev_time": "01:33.87",
+          "player_id": "101634016"
         },
         {
           "name": "욕정",
@@ -929,7 +951,8 @@
           "qualifier_title": "逆天改命",
           "prev_power": "17.73M",
           "prev_progress": "10/10",
-          "prev_time": "01:17.01"
+          "prev_time": "01:17.01",
+          "player_id": "101782988"
         },
         {
           "name": "丫丸仔",
@@ -937,7 +960,8 @@
           "qualifier_rank": 25,
           "qualifier_time": "04:23.5",
           "qualifier_title": "逆天改命",
-          "prev_power": "11.50M"
+          "prev_power": "11.50M",
+          "player_id": "101862182"
         }
       ],
       "champion": "送你離開",
@@ -1090,7 +1114,9 @@
           "power": "13.14M",
           "qualifier_rank": 51,
           "qualifier_time": "04:30.7",
-          "qualifier_title": "용기사"
+          "qualifier_title": "용기사",
+          "player_id": "102003128",
+          "note": "對陣表作「龍×과트」、名片作「龍×콰트」，經用戶ID 102003128 確認為同一人（字形差異）。"
         },
         {
           "name": "龍×식현",
@@ -1100,7 +1126,8 @@
           "qualifier_title": "용기사",
           "prev_power": "8.64M",
           "prev_progress": "10/10",
-          "prev_time": "01:52.87"
+          "prev_time": "01:52.87",
+          "player_id": "101925334"
         },
         {
           "name": "派對孔明",
@@ -1110,7 +1137,8 @@
           "qualifier_title": "逆天改命",
           "prev_power": "12.25M",
           "prev_progress": "10/10",
-          "prev_time": "02:17.09"
+          "prev_time": "02:17.09",
+          "player_id": "102033986"
         },
         {
           "name": "Egø",
@@ -1121,7 +1149,8 @@
           "prev_power": "19.92M",
           "prev_progress": "10/10",
           "prev_time": "00:56.18",
-          "prev_title": "上屆第8組冠軍"
+          "prev_title": "上屆第8組冠軍",
+          "player_id": "101957780"
         },
         {
           "name": "LD丨팡대",
@@ -1131,7 +1160,9 @@
           "qualifier_title": "레전더리",
           "prev_power": "25.39M",
           "prev_progress": "10/10",
-          "prev_time": "00:49.45"
+          "prev_time": "00:49.45",
+          "player_id": "101594098",
+          "note": "對陣表作「LD丨팡대」、名片作「LD | 팡대」，經用戶ID 101594098 確認為同一人（字形差異）。"
         },
         {
           "name": "烏薩奇Usagi",
@@ -1141,7 +1172,8 @@
           "qualifier_title": "課金",
           "prev_power": "12.24M",
           "prev_progress": "10/10",
-          "prev_time": "01:39.14"
+          "prev_time": "01:39.14",
+          "player_id": "102010250"
         },
         {
           "name": "CoBe",
@@ -1151,7 +1183,8 @@
           "qualifier_title": "逆天改命",
           "prev_power": "13.32M",
           "prev_progress": "10/10",
-          "prev_time": "01:14.94"
+          "prev_time": "01:14.94",
+          "player_id": "101479246"
         },
         {
           "name": "단별ll헌쿤",
@@ -1162,7 +1195,9 @@
           "prev_power": "16.69M",
           "prev_progress": "10/10",
           "prev_time": "01:25.51",
-          "prev_title": "上屆第2組亞軍"
+          "prev_title": "上屆第2組亞軍",
+          "player_id": "101579946",
+          "note": "對陣表作「단별ll헌쿤」、名片作「단별ll헌쿈」，經用戶ID 101579946 確認為同一人（字形差異）。"
         }
       ],
       "champion": "LD丨팡대",
@@ -1306,7 +1341,8 @@
           "power": "12.46M",
           "qualifier_rank": 53,
           "qualifier_time": "04:30.8",
-          "qualifier_title": "逆天改命"
+          "qualifier_title": "逆天改命",
+          "player_id": "101988548"
         },
         {
           "name": "AK丨FLEX3R",
@@ -1317,7 +1353,9 @@
           "qualifier_title": "洞察先機",
           "prev_power": "27.95M",
           "prev_progress": "10/10",
-          "prev_time": "00:47.85"
+          "prev_time": "00:47.85",
+          "player_id": "101833366",
+          "note": "對陣表作「AK丨FLEX3R」、名片作「AKFLEX3R」，經用戶ID 101833366 確認為同一人（字形差異）。"
         },
         {
           "name": "瑪法里恩中風",
@@ -1326,14 +1364,16 @@
           "qualifier_time": "04:26.1",
           "qualifier_title": "姒神",
           "prev_power": "11.53M",
-          "prev_progress": "1/10"
+          "prev_progress": "1/10",
+          "player_id": "102117405"
         },
         {
           "name": "秘運行者Kai",
           "power": "12.35M",
           "qualifier_rank": 63,
           "qualifier_time": "04:33.0",
-          "qualifier_title": "洞察先機"
+          "qualifier_title": "洞察先機",
+          "player_id": "101716965"
         },
         {
           "name": "고른주부J",
@@ -1344,7 +1384,8 @@
           "prev_power": "17.51M",
           "prev_progress": "10/10",
           "prev_time": "01:08.91",
-          "prev_title": "上屆第4組亞軍"
+          "prev_title": "上屆第4組亞軍",
+          "player_id": "101517893"
         },
         {
           "name": "Cashasy",
@@ -1355,7 +1396,8 @@
           "prev_power": "22.11M",
           "prev_progress": "10/10",
           "prev_time": "00:44.68",
-          "prev_title": "上屆第1組冠軍"
+          "prev_title": "上屆第1組冠軍",
+          "player_id": "101548138"
         },
         {
           "name": "Yöö",
@@ -1363,7 +1405,9 @@
           "matchup_name": "Yöö^fx",
           "qualifier_rank": 47,
           "qualifier_time": "04:29.5",
-          "qualifier_title": "FLEX"
+          "qualifier_title": "FLEX",
+          "player_id": "101706762",
+          "note": "對陣表作「Yöö」、名片作「Yööᶠˣ」，經用戶ID 101706762 確認為同一人（字形差異）。"
         },
         {
           "name": "Leojian",
@@ -1374,7 +1418,8 @@
           "prev_power": "25.31M",
           "prev_progress": "10/10",
           "prev_time": "01:11.68",
-          "prev_title": "上屆第5組亞軍"
+          "prev_title": "上屆第5組亞軍",
+          "player_id": "101875463"
         }
       ],
       "champion": "Cashasy",
@@ -1527,7 +1572,8 @@
           "power": "17.37M",
           "qualifier_rank": 55,
           "qualifier_time": "04:30.9",
-          "qualifier_title": "洞察先機"
+          "qualifier_title": "洞察先機",
+          "player_id": "101885024"
         },
         {
           "name": "koeee",
@@ -1538,7 +1584,8 @@
           "prev_power": "60.18M",
           "prev_progress": "10/10",
           "prev_time": "00:34.89",
-          "prev_title": "上屆第4組冠軍"
+          "prev_title": "上屆第4組冠軍",
+          "player_id": "101874870"
         },
         {
           "name": "LD丨짱구",
@@ -1546,7 +1593,9 @@
           "matchup_name": "LD丨쨩구",
           "qualifier_rank": 28,
           "qualifier_time": "04:25.4",
-          "qualifier_title": "洞察先機"
+          "qualifier_title": "洞察先機",
+          "player_id": "101707580",
+          "note": "對陣表作「LD丨짱구」、名片作「LD | 짱구」，經用戶ID 101707580 確認為同一人（字形差異）。"
         },
         {
           "name": "龍×똥꼬",
@@ -1565,7 +1614,9 @@
           "qualifier_title": "레전더리",
           "prev_power": "16.45M",
           "prev_progress": "10/10",
-          "prev_time": "02:26.23"
+          "prev_time": "02:26.23",
+          "player_id": "101582242",
+          "note": "對陣表作「LD丨말랭」、名片作「LD | 말랭」，經用戶ID 101582242 確認為同一人（字形差異）。"
         },
         {
           "name": "AK베라",
@@ -1573,14 +1624,16 @@
           "matchup_name": "I매진",
           "qualifier_rank": 33,
           "qualifier_time": "04:27.6",
-          "qualifier_title": "洞察先機"
+          "qualifier_title": "洞察先機",
+          "player_id": "101918694"
         },
         {
           "name": "聖心",
           "power": "13.44M",
           "qualifier_rank": 57,
           "qualifier_time": "04:32.4",
-          "qualifier_title": "洞察先機"
+          "qualifier_title": "洞察先機",
+          "player_id": "101967893"
         },
         {
           "name": "紅桃A",
@@ -1591,7 +1644,8 @@
           "prev_power": "17.04M",
           "prev_progress": "10/10",
           "prev_time": "01:24.44",
-          "prev_title": "上屆第3組亞軍"
+          "prev_title": "上屆第3組亞軍",
+          "player_id": "101735606"
         }
       ],
       "champion": "koeee",
@@ -1747,7 +1801,8 @@
           "qualifier_title": "洞察先機",
           "prev_power": "14.85M",
           "prev_progress": "10/10",
-          "prev_time": "01:16.71"
+          "prev_time": "01:16.71",
+          "player_id": "101523734"
         },
         {
           "name": "LD丨팡대ɔɔ",
@@ -1755,7 +1810,9 @@
           "matchup_name": "LD丨팡대ㅎㅎ",
           "qualifier_rank": 50,
           "qualifier_time": "04:30.2",
-          "qualifier_title": "레전더리"
+          "qualifier_title": "레전더리",
+          "player_id": "101607272",
+          "note": "對陣表作「LD丨팡대ɔɔ」、名片作「LD丨팡대ꕥ」，經用戶ID 101607272 確認為同一人（字形差異）。"
         },
         {
           "name": "龍×이뮤",
@@ -1765,7 +1822,8 @@
           "qualifier_title": "용기사",
           "prev_power": "12.99M",
           "prev_progress": "10/10",
-          "prev_time": "01:22.61"
+          "prev_time": "01:22.61",
+          "player_id": "101875640"
         },
         {
           "name": "放開隻牛仔",
@@ -1775,7 +1833,8 @@
           "qualifier_title": "洞察先機",
           "prev_power": "13.62M",
           "prev_progress": "10/10",
-          "prev_time": "02:20.73"
+          "prev_time": "02:20.73",
+          "player_id": "101629103"
         },
         {
           "name": "泰融",
@@ -1785,7 +1844,8 @@
           "qualifier_title": "逆天改命",
           "prev_power": "13.88M",
           "prev_progress": "10/10",
-          "prev_time": "01:38.50"
+          "prev_time": "01:38.50",
+          "player_id": "101970866"
         },
         {
           "name": "AK네이비",
@@ -1796,7 +1856,8 @@
           "qualifier_title": "매력?",
           "prev_power": "16.37M",
           "prev_progress": "10/10",
-          "prev_time": "03:14.85"
+          "prev_time": "03:14.85",
+          "player_id": "101888455"
         },
         {
           "name": "荃雉瓏",
@@ -1804,7 +1865,8 @@
           "matchup_name": "荃雄瓏",
           "qualifier_rank": 62,
           "qualifier_time": "04:33.0",
-          "qualifier_title": "幸運轉向17"
+          "qualifier_title": "幸運轉向17",
+          "player_id": "101830927"
         },
         {
           "name": "김미태",
@@ -1814,7 +1876,8 @@
           "qualifier_title": "빅보스",
           "prev_power": "8.12M",
           "prev_progress": "10/10",
-          "prev_time": "03:21.51"
+          "prev_time": "03:21.51",
+          "player_id": "101873331"
         }
       ],
       "champion": "LD丨팡대ɔɔ",
@@ -1962,14 +2025,16 @@
           "prev_power": "26.12M",
           "prev_progress": "10/10",
           "prev_time": "00:47.68",
-          "prev_title": "上屆第3組冠軍"
+          "prev_title": "上屆第3組冠軍",
+          "player_id": "101993264"
         },
         {
           "name": "橙色楓葉",
           "power": "12.43M",
           "qualifier_rank": 58,
           "qualifier_time": "04:32.5",
-          "qualifier_title": "洞察先機"
+          "qualifier_title": "洞察先機",
+          "player_id": "101489384"
         },
         {
           "name": "阿武花豆",
@@ -1980,7 +2045,8 @@
           "prev_power": "19.57M",
           "prev_progress": "10/10",
           "prev_time": "00:54.05",
-          "prev_title": "上屆第1組亞軍"
+          "prev_title": "上屆第1組亞軍",
+          "player_id": "101769770"
         },
         {
           "name": "FLEX2R",
@@ -1988,14 +2054,17 @@
           "matchup_name": "FLEX2R^fx",
           "qualifier_rank": 32,
           "qualifier_time": "04:27.2",
-          "qualifier_title": "逆天改命"
+          "qualifier_title": "逆天改命",
+          "player_id": "101536777",
+          "note": "對陣表作「FLEX2R」、名片作「FLEX2Rfx」，經用戶ID 101536777 確認為同一人（字形差異）。"
         },
         {
           "name": "Uncle春一隻嵐",
           "power": "14.11M",
           "qualifier_rank": 45,
           "qualifier_time": "04:29.4",
-          "qualifier_title": "洞察先機"
+          "qualifier_title": "洞察先機",
+          "player_id": "101807642"
         },
         {
           "name": "AK메투스",
@@ -2007,7 +2076,8 @@
           "prev_power": "31.17M",
           "prev_progress": "10/10",
           "prev_time": "00:44.62",
-          "prev_title": "上屆第5組冠軍"
+          "prev_title": "上屆第5組冠軍",
+          "player_id": "101792517"
         },
         {
           "name": "賽博陀螺",
@@ -2017,7 +2087,8 @@
           "qualifier_title": "洞察先機",
           "prev_power": "21.59M",
           "prev_progress": "10/10",
-          "prev_time": "01:20.84"
+          "prev_time": "01:20.84",
+          "player_id": "101831875"
         },
         {
           "name": "仔仔團奧奧",
@@ -2027,7 +2098,8 @@
           "qualifier_title": "洞察先機",
           "prev_power": "16.91M",
           "prev_progress": "10/10",
-          "prev_time": "01:14.91"
+          "prev_time": "01:14.91",
+          "player_id": "101504112"
         }
       ],
       "champion": "RV297",

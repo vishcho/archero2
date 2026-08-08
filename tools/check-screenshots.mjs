@@ -22,7 +22,9 @@ const SHOTS = join(ROOT, 'screenshots');
 export const BATCH_TYPES = [
   { type: 'matchup', order: 1, label: '對陣圖', expect: 8,  tolerance: 0, desc: '8 組賽前對陣，每組 1 張' },
   { type: 'rank',    order: 2, label: '排行榜', expect: 10, tolerance: 4, desc: '資格賽排行榜連拍，需覆蓋前 64 名＋本期主題' },
-  { type: 'top64',   order: 3, label: '玩家資訊', expect: 64, tolerance: 0, desc: '64 位晉級選手的個人資訊名片，每人 1 張' },
+  // top64 只嫌少不嫌多：重複點開同一位時會補拍，重複的張仍留著供追溯。
+  // 真正的齊全度（涵蓋幾位選手）要看 import-top64-profiles.mjs --check。
+  { type: 'top64',   order: 3, label: '玩家資訊', expect: 64, tolerance: 0, overage: true, desc: '64 位晉級選手的個人資訊名片，每人 1 張' },
   { type: 'results', order: 4, label: '賽事結果', expect: 64, tolerance: 8, desc: '8 組 × (1 張樹狀圖 + 7 場對戰)；補件會超出 64' },
 ];
 
@@ -85,7 +87,8 @@ export function scanTopic(topicDir) {
         return { ...spec, present: true, status: 'pending', count: 0, dir: b.dir, date: b.date };
       }
       const delta = b.count - spec.expect;
-      const ok = Math.abs(delta) <= spec.tolerance;
+      // overage 的批次超量不算異常（補拍會讓張數超過預期），只有不足才是問題
+      const ok = spec.overage ? delta >= -spec.tolerance : Math.abs(delta) <= spec.tolerance;
       return {
         ...spec,
         present: true,

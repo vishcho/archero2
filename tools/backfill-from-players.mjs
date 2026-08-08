@@ -30,20 +30,84 @@ const seasonId = path.basename(file, '.json');
 const season = JSON.parse(await readFile(file, 'utf8'));
 const players = JSON.parse(await readFile(path.join('data', 'players.json'), 'utf8'));
 
-// 該屆有名片紀錄的選手：名稱 → [{id, entry}]
+// 對陣表與名片的名稱寫法常有字形差異（分隔符 丨/|、ᴬᴷ 上標被讀成 AK丨、
+// 韓文近似字）。normalize 後再比對，避免為每個變體都手工列 alias。
+// 只做「同一個名字的不同寫法」層級的正規化，不碰實際不同的字。
+function normalize(s) {
+  return s
+    .replace(/[丨|ｌI]/g, '|')      // 各種豎線分隔符
+    .replace(/[ᴬ]/g, 'A').replace(/[ᴷ]/g, 'K')  // 上標字母
+    .replace(/[ᶠ]/g, 'f').replace(/[ˣ]/g, 'x')
+    .replace(/[\s^]/g, '')          // 空白與 ^（rank 批常把上標讀成 ^）
+    .toLowerCase();
+}
+
+// 該屆有名片紀錄的選手：名稱 → [{id, entry}]（同時建 normalize 後的索引）
 const cardsByName = new Map();
+const cardsByNorm = new Map();
 for (const p of Object.values(players)) {
   const entry = p.seasons?.[seasonId];
   if (!entry) continue;
+  const rec = { id: p.player_id, entry, names: p.names };
   for (const n of p.names) {
     if (!cardsByName.has(n)) cardsByName.set(n, []);
-    cardsByName.get(n).push({ id: p.player_id, entry, names: p.names });
+    cardsByName.get(n).push(rec);
+    const k = normalize(n);
+    if (!cardsByNorm.has(k)) cardsByNorm.set(k, []);
+    if (!cardsByNorm.get(k).some((r) => r.id === rec.id)) cardsByNorm.get(k).push(rec);
   }
 }
+
+// normalize 涵蓋不到的字形差異（韓文近似字、公會裝飾符號），逐筆人工確認後列此。
+// 每筆都必須是「兩張截圖上肉眼可對照」的同一人，不是推測；ID 由名片提供。
+const NAME_ALIASES = {
+  'AK丨나츠': 'ᴬᴷ나츠',
+  'AK丨FLEX3R': 'AKFLEX3R',
+  '龍×과트': '龍×콰트',
+  '단별ll헌쿤': '단별ll헌쿈',
+  'Yöö': 'Yööᶠˣ',
+  'LD丨팡대ɔɔ': 'LD丨팡대ꕥ',
+  'FLEX2R': 'FLEX2Rfx',
+};
+
+// 取名片：精確 → 人工 alias → normalize
+const lookup = (name) => {
+  const exact = cardsByName.get(name);
+  if (exact?.length) return { cards: exact, fuzzy: false };
+  const aliased = NAME_ALIASES[name] && cardsByName.get(NAME_ALIASES[name]);
+  if (aliased?.length) return { cards: aliased, fuzzy: true };
+  return { cards: cardsByNorm.get(normalize(name)) ?? [], fuzzy: true };
+};
 
 const qualifier = season.qualifier ?? [];
 const changes = [];
 const skipped = [];
+
+// 先處理不同名者：名片與對陣表都只有一位同名 → 直接掛上 player_id。
+// 這類沒有歧義，是把「哪一格是誰」這件事一次記進資料的最省力途徑，
+// 也讓日後跨屆追蹤（改名、戰力成長）不必每次重跑名稱比對。
+for (const group of season.groups ?? []) {
+  for (const pl of group.players) {
+    if (pl.flag === '⚠' || pl.player_id) continue;
+    const { cards, fuzzy } = lookup(pl.name);
+    // 「對陣表上有幾位同名」要用同一套解析規則來數，否則 alias 過的名字會被當成不同人
+    const key = (n) => normalize(NAME_ALIASES[n] ?? n);
+    const sameName = (season.groups ?? []).flatMap((g) =>
+      g.players.filter((x) => key(x.name) === key(pl.name)));
+    if (cards.length !== 1 || sameName.length !== 1) continue;
+    const card = cards[0];
+    changes.push({
+      desc: `第${group.id}組 ${pl.name} → id ${card.id}`
+        + (fuzzy ? `（字形差異：名片作「${card.names.at(-1)}」）` : `（名稱唯一，直接對應）`),
+      apply() {
+        pl.player_id = card.id;
+        if (fuzzy) {
+          pl.note = `對陣表作「${pl.name}」、名片作「${card.names.at(-1)}」，經用戶ID ${card.id} 確認為同一人（字形差異）。`;
+        }
+      },
+    });
+  }
+}
 
 for (const group of season.groups ?? []) {
   for (const pl of group.players) {

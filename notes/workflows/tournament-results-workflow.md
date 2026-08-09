@@ -63,7 +63,7 @@ group 8 = files[56..63]
 - **每場欄位齊全**：`p1` / `p2` 各具 `name`、`progress`、`time`、`power`，且有明確 WIN/LOSE 標示可判定 `winner` / `loser`。任一欄位為空、模糊或無法辨識，均視為未齊全。
 - **每組樹狀圖齊全**：可讀出組冠軍；`champion_current_power` 若截圖有顯示則必須抽出，確實未顯示才可省略。
 - **選手集合自洽**：每組 8 位選手皆出現在 R1 四場中，無人重複、無人缺席；R2、決賽的選手皆來自上一輪勝者。
-- **與賽前對陣表交叉比對**：選手名稱與 `docs/star-cup/YYYY-MM-DD-roundN-matchup.md`（或 `tmp/` 對應 JSON）一致；不一致者逐筆列出，依 §異常處理規則判定是「截圖為準 + 註記」還是「抽取錯誤需重抽」。
+- **與賽前對陣表交叉比對**：選手名稱與 `docs/star-cup/YYYY-MM-DD-roundN-matchup.md`（或 `data/star-cup/YYYY-MM-DD.json` 的 `groups[]`）一致；不一致者逐筆列出，依 §異常處理規則判定是「截圖為準 + 註記」還是「抽取錯誤需重抽」。比對名稱前先查 `data/players.json` 的 `names[]` 與 `ocr_variants[]`——已知的 OCR 誤讀變體不算不一致，成因見 [top64-profile-workflow.md](./top64-profile-workflow.md) §OCR 誤讀通則。
 
 檢查點輸出一份清單，明確標示：
 

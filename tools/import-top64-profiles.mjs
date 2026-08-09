@@ -85,6 +85,15 @@ for (const q of qualifier) {
   qByName.get(q.matchName).push(q);
 }
 
+// 反查：名片名稱 -> 榜上的誤讀寫法（可能不只一種）。這些會存進 players.json
+// 的 ocr_variants[]，讓抽取檔刪掉後仍能用榜上的壞寫法反查到人。
+const variantsByCanonical = new Map();
+for (const [variant, canonical] of Object.entries(aliases)) {
+  if (!variantsByCanonical.has(canonical)) variantsByCanonical.set(canonical, []);
+  variantsByCanonical.get(canonical).push(variant);
+}
+const variantsFor = (name) => variantsByCanonical.get(name) ?? [];
+
 const unmatched = [];
 const ambiguous = [];
 for (const c of byId.values()) {
@@ -187,6 +196,7 @@ for (const c of byId.values()) {
     players[c.player_id] = {
       player_id: c.player_id,
       names: [c.name],
+      ...(variantsFor(c.name).length ? { ocr_variants: variantsFor(c.name) } : {}),
       guild: c.guild ?? null,
       seasons: { [seasonId]: entry },
     };
@@ -196,6 +206,13 @@ for (const c of byId.values()) {
   if (!existing.names.includes(c.name)) {
     existing.names.push(c.name); // 改名：保留歷史名，不刪舊名
     renamed.push({ id: c.player_id, from: existing.names[0], to: c.name });
+  }
+  // rank 批的誤讀變體另存 ocr_variants[]，不混進 names[]——後者只放真名。
+  // 少了這步，日後跨批比對會把 OCR 壞掉的寫法當成沒見過的選手。
+  for (const v of variantsFor(c.name)) {
+    if (existing.names.includes(v)) continue;
+    existing.ocr_variants ??= [];
+    if (!existing.ocr_variants.includes(v)) existing.ocr_variants.push(v);
   }
   existing.guild = c.guild ?? null; // 公會取最新
   existing.seasons[seasonId] = entry;

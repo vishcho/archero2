@@ -110,6 +110,27 @@ async function main() {
       }
     }
 
+    // ocr_variants[] 為選填，放 rank 批的 OCR 誤讀變體；真名一律留在 names[]。
+    if (p.ocr_variants !== undefined) {
+      if (!Array.isArray(p.ocr_variants) || p.ocr_variants.length === 0) {
+        err(where, 'ocr_variants 若存在應為非空陣列（沒有誤讀就省略此欄）');
+      } else {
+        p.ocr_variants.forEach((n, i) => {
+          if (!isStr(n)) err(where, `ocr_variants[${i}] 應為非空字串`);
+        });
+        const dupes = p.ocr_variants.filter((n, i) => p.ocr_variants.indexOf(n) !== i);
+        if (dupes.length) err(where, `ocr_variants 有重複：${[...new Set(dupes)].join('、')}`);
+        const overlap = p.ocr_variants.filter((n) => (p.names ?? []).includes(n));
+        if (overlap.length) {
+          err(where, `ocr_variants 與 names 重疊：${overlap.join('、')}——誤讀變體不得混入真名`);
+        }
+      }
+    }
+
+    if (p.names_note !== undefined && !isStr(p.names_note)) {
+      err(where, 'names_note 應為非空字串（記錄改名的判定依據）');
+    }
+
     if (p.guild !== undefined && p.guild !== null && !isStr(p.guild)) {
       err(where, 'guild 應為非空字串或 null');
     }

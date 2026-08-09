@@ -193,6 +193,9 @@
     "names": [
       "FLEX2Rfx"
     ],
+    "ocr_variants": [
+      "FLEX2R^fx"
+    ],
     "guild": "FLΞX",
     "seasons": {
       "2026-07-31": {
@@ -256,6 +259,9 @@
     "names": [
       "AK연인"
     ],
+    "ocr_variants": [
+      "I매I연인"
+    ],
     "guild": "ARKΛ",
     "seasons": {
       "2026-07-31": {
@@ -276,6 +282,9 @@
     "player_id": "101575904",
     "names": [
       "AK우연"
+    ],
+    "ocr_variants": [
+      "I매I우연"
     ],
     "guild": "ARKΛ",
     "seasons": {
@@ -298,6 +307,9 @@
     "names": [
       "단별ll헌쿈"
     ],
+    "ocr_variants": [
+      "단별ll헌쿤"
+    ],
     "guild": "단별",
     "seasons": {
       "2026-07-31": {
@@ -318,6 +330,9 @@
     "player_id": "101582242",
     "names": [
       "LD | 말랭"
+    ],
+    "ocr_variants": [
+      "LD丨말랭"
     ],
     "guild": "레전더리",
     "seasons": {
@@ -340,6 +355,9 @@
     "names": [
       "LD | 도하"
     ],
+    "ocr_variants": [
+      "LD丨도하"
+    ],
     "guild": "레전더리",
     "seasons": {
       "2026-07-31": {
@@ -361,6 +379,9 @@
     "names": [
       "LD | 팡대"
     ],
+    "ocr_variants": [
+      "LD丨팡대"
+    ],
     "guild": "레전더리",
     "seasons": {
       "2026-07-31": {
@@ -381,6 +402,9 @@
     "player_id": "101607272",
     "names": [
       "LD丨팡대ꕥ"
+    ],
+    "ocr_variants": [
+      "LD丨팡대ㅎㅎ"
     ],
     "guild": "레전더리",
     "seasons": {
@@ -445,6 +469,9 @@
     "names": [
       "LD | 힘"
     ],
+    "ocr_variants": [
+      "LD丨힝"
+    ],
     "guild": "레전더리",
     "seasons": {
       "2026-07-31": {
@@ -466,6 +493,9 @@
     "names": [
       "Yööᶠˣ"
     ],
+    "ocr_variants": [
+      "Yöö^fx"
+    ],
     "guild": "FLEX",
     "seasons": {
       "2026-07-31": {
@@ -486,6 +516,9 @@
     "player_id": "101707580",
     "names": [
       "LD | 짱구"
+    ],
+    "ocr_variants": [
+      "LD丨쨩구"
     ],
     "guild": "레전더리",
     "seasons": {
@@ -613,6 +646,9 @@
     "names": [
       "ᴬᴷ나츠"
     ],
+    "ocr_variants": [
+      "I매I사냥"
+    ],
     "guild": "ARKΛ",
     "seasons": {
       "2026-07-31": {
@@ -654,6 +690,9 @@
     "player_id": "101792517",
     "names": [
       "AK메투스"
+    ],
+    "ocr_variants": [
+      "메투스"
     ],
     "guild": "ARKΛ",
     "seasons": {
@@ -718,6 +757,9 @@
     "names": [
       "牛大刃"
     ],
+    "ocr_variants": [
+      "牛大办"
+    ],
     "guild": "課金",
     "seasons": {
       "2026-07-31": {
@@ -738,6 +780,9 @@
     "player_id": "101830927",
     "names": [
       "荃雉瓏"
+    ],
+    "ocr_variants": [
+      "荃雄瓏"
     ],
     "guild": "幸運轉向17",
     "seasons": {
@@ -780,6 +825,9 @@
     "player_id": "101833366",
     "names": [
       "AKFLEX3R"
+    ],
+    "ocr_variants": [
+      "I매IFLEX3R"
     ],
     "guild": "ARKΛ",
     "seasons": {
@@ -970,6 +1018,9 @@
     "names": [
       "AK네이비"
     ],
+    "ocr_variants": [
+      "I매I네이비"
+    ],
     "guild": "ARKΛ",
     "seasons": {
       "2026-07-31": {
@@ -1011,6 +1062,9 @@
     "player_id": "101918694",
     "names": [
       "AK베라"
+    ],
+    "ocr_variants": [
+      "I매진"
     ],
     "guild": "ARKΛ",
     "seasons": {
@@ -1074,6 +1128,9 @@
     "player_id": "101932706",
     "names": [
       "AK여행중"
+    ],
+    "ocr_variants": [
+      "I매I일여행중"
     ],
     "guild": "ARKΛ",
     "seasons": {
@@ -1201,6 +1258,9 @@
     "names": [
       "龍×콰트"
     ],
+    "ocr_variants": [
+      "龍×과트"
+    ],
     "guild": "용기사",
     "seasons": {
       "2026-07-31": {
@@ -1262,8 +1322,10 @@
   "102037229": {
     "player_id": "102037229",
     "names": [
-      "送你離開"
+      "送你離開",
+      "o月亮惹的禍o"
     ],
+    "names_note": "「o月亮惹的禍o」為 2026-07-31 對陣表時期舊名，非 OCR 誤讀；改名後為「送你離開」。戰力 39.77M（第3組）與名片 41.08M 相符。",
     "guild": "課金",
     "seasons": {
       "2026-07-31": {

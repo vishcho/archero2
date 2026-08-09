@@ -178,6 +178,7 @@ node tools/import-tournament-results-from-doc.mjs docs/star-cup/2026-07-07-tourn
 ```
 
 這個工具只用於舊資料遷移；新批次應從截圖抽取，經驗證後再渲染 Markdown。
+先加 `--dry-run` 預覽摘要；工具會先驗證完整候選資料，正式執行時採原子替換。
 
 ## 異常處理規則
 

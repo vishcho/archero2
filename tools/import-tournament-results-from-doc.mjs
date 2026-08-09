@@ -1,10 +1,15 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { atomicWriteJson } from './lib/json.mjs';
+import { assertSchema } from './lib/schema-validation.mjs';
+import { validateTournamentResults } from './lib/domain.mjs';
 
-const [, , docPathArg, dataPathArg] = process.argv;
+const args = process.argv.slice(2);
+const dryRun = args.includes('--dry-run');
+const [docPathArg, dataPathArg] = args.filter((arg) => !arg.startsWith('--'));
 
 if (!docPathArg || !dataPathArg) {
-  console.error('Usage: node tools/import-tournament-results-from-doc.mjs <docs/round*-tournament-results.md> <data/star-cup/{season}.json>');
+  console.error('Usage: node tools/import-tournament-results-from-doc.mjs <docs/round*-tournament-results.md> <data/star-cup/{season}.json> [--dry-run]');
   process.exit(1);
 }
 
@@ -175,4 +180,9 @@ for (const parsedGroup of parsedGroups) {
   group.matches = parsedGroup.matches;
 }
 
-await writeFile(dataPath, `${JSON.stringify(season, null, 2)}\n`, 'utf8');
+assertSchema('season', season, dataPath);
+const domainErrors = validateTournamentResults(season, dataPath);
+if (domainErrors.length) throw new Error(domainErrors.map((e) => `${e.file}${e.location}: ${e.message}`).join('\n'));
+console.log(`預計更新 ${parsedGroups.length} 組、${parsedGroups.reduce((n, g) => n + g.matches.length, 0)} 場賽果。`);
+if (dryRun) console.log('--dry-run：驗證通過，未寫入正式檔案。');
+else await atomicWriteJson(dataPath, season);

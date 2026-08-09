@@ -39,6 +39,10 @@ and other automated contributors working anywhere in the repository.
 fails. Existing warnings about uncollected historical finals, duplicate display names, or documented
 missing screenshot batches are not failures; do not hide or auto-fix them without new evidence.
 
+JSON shape is governed by `schemas/`; cross-file and tournament rules remain domain validation.
+Tools that change `data/` must support `--dry-run`, validate the complete candidate before writing,
+and use the atomic JSON writer in `tools/lib/`.
+
 ## Change boundaries
 
 - Prefer editing existing plain HTML, JavaScript, JSON, and Markdown. Do not introduce a framework,

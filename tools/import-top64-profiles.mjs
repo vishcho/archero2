@@ -7,9 +7,11 @@
 // 對應 notes/workflows/top64-profile-workflow.md 的 §2b（檢查點）與 §3（併入）。
 // --check 只做檢查不寫檔，供「先確認抽取品質再入庫」使用。
 
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { atomicWriteJson } from './lib/json.mjs';
+import { assertSchema } from './lib/schema-validation.mjs';
 
 const DATA_DIR = 'data';
 const PLAYERS_FILE = path.join(DATA_DIR, 'players.json');
@@ -18,6 +20,7 @@ const CARD_FIELDS = ['player_id', 'name', 'guild', 'power', 'title', ...CUMULATI
 
 const args = process.argv.slice(2);
 const checkOnly = args.includes('--check');
+const dryRun = args.includes('--dry-run');
 // 這批確定拍不齊（有人被重複點開、缺的人已無法回頭補拍）時的明示放行。
 // 不是「關掉檢查」——重複的張數仍會列出、缺誰仍會列出，只是允許以不足 64 位入庫，
 // 並在 players.json 之外由 docs/sources.md 記錄這批的涵蓋範圍。
@@ -220,7 +223,13 @@ for (const c of byId.values()) {
 
 // 依 player_id 排序輸出，讓 diff 穩定
 const sorted = Object.fromEntries(Object.keys(players).sort().map((k) => [k, players[k]]));
-await writeFile(PLAYERS_FILE, JSON.stringify(sorted, null, 2) + '\n');
+assertSchema('players', sorted, PLAYERS_FILE);
+
+if (dryRun) {
+  console.log(`\n--dry-run：候選資料驗證通過，未寫入 ${PLAYERS_FILE}。`);
+} else {
+  await atomicWriteJson(PLAYERS_FILE, sorted);
+}
 
 console.log(`\n## 併入 ${PLAYERS_FILE}`);
 console.log(`  新建 ${created.length} 位、更新 ${byId.size - created.length} 位，共 ${Object.keys(sorted).length} 位在案`);

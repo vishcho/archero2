@@ -36,6 +36,7 @@
 ## 個人筆記
 
 - [架構優化第二、三階段執行計畫](../notes/architecture-roadmap.md)
+- [`prev_*` 相容遷移計畫](../notes/prev-fields-migration-plan.md)
 - [弓箭傳說 2 長期規劃](../notes/弓箭傳說2-長期規劃.md)
 
 ## 工作流

@@ -345,6 +345,10 @@ npm run docs:build  # 文件增刪或標題變更後，重生 docs/README.md
 登記的每個賽事目錄、檢查 `seasons.json` 與實際檔案對應、驗證玩家登記簿、逐屆檢查
 明星盃晉級邏輯，並確認生成的 `docs/README.md` 沒有過期。GitHub Actions 也執行同一指令。
 
+基本欄位契約位於 `schemas/`；跨檔案 `player_id`、明星盃 id／期間、淘汰賽晉級與同詞條
+顏色等規則由 domain validator 負責。修改正式資料的 import/backfill 工具應先加
+`--dry-run` 預覽；候選資料通過驗證後才會以原子替換寫入，失敗不會截斷原檔。
+
 ## 賽制速覽
 
 - **明星盃**：資格賽（全員，前 64 名晉級）→ 淘汰賽（8 組 × 8 人，組冠軍晉級）
@@ -373,7 +377,7 @@ npm run docs:build  # 文件增刪或標題變更後，重生 docs/README.md
 
 見上方「總決賽資料」一節。
 
-### 驗證已自動化，但尚缺測試資料集
+### 驗證與 fixtures
 
-`npm run check` 已整合所有現有驗證器，GitHub Actions 會在 push 與 pull request 執行。
-下一步可為驗證器補上刻意損壞的 fixture，確認每項規則都會攔到預期錯誤。
+`npm run check` 已整合 JSON Schema、domain validator、合法／非法 fixtures 與既有驗證器。
+新增重要資料規則時，必須同步加入合法與非法測試案例。

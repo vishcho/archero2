@@ -35,6 +35,9 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
 前置需求：同屆的 `rank` 批次已處理完，`data/star-cup/{season}.json` 的 `qualifier[]` 已存在——
 本流程用它交叉驗證 64 人名單。
 
+匯入前先執行 `node tools/import-top64-profiles.mjs <extract.json> --dry-run`；`--check`
+保留為相容別名。正式寫入會先驗證完整 `players.json` 候選值並採原子替換。
+
 ## 可抽取欄位
 
 每張名片（名片 tab）可讀出：

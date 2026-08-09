@@ -3,15 +3,20 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "node --test",
+    "validate:contracts": "node tools/validate-contracts.mjs",
     "validate:data": "node tools/validate-season.mjs --all",
     "validate:players": "node tools/validate-players.mjs",
     "validate:results": "node tools/validate-all-tournament-results.mjs",
     "validate": "npm run validate:data && npm run validate:players && npm run validate:results",
     "docs:build": "node tools/build-docs-index.mjs",
     "docs:check": "node tools/build-docs-index.mjs --check",
-    "check": "npm run validate && npm run docs:check"
+    "check": "npm run test && npm run validate:contracts && npm run validate && npm run docs:check"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0"
   }
 }

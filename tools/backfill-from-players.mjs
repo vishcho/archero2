@@ -15,8 +15,10 @@
 //     （同批實測 47 位中 44 位名片較低），拿來配對會錯。
 // 因此同名者的身分由「該格選手在 matches 中的戰力」決定，再由戰力對到名片的 ID。
 
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { atomicWriteJson } from './lib/json.mjs';
+import { assertSchema } from './lib/schema-validation.mjs';
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
@@ -216,14 +218,15 @@ if (skipped.length) {
   for (const s of skipped) console.log(`  - ${s}`);
 }
 
-if (dryRun) {
-  console.log(`\n--dry-run：未寫入。`);
-  process.exit(0);
-}
 if (!changes.length) {
   console.log(`\n沒有可自動回填的項目，未寫入 ${file}。`);
   process.exit(0);
 }
 for (const c of changes) c.apply();
-await writeFile(file, JSON.stringify(season, null, 2) + '\n');
+assertSchema('season', season, file);
+if (dryRun) {
+  console.log(`\n--dry-run：候選資料驗證通過，未寫入。`);
+  process.exit(0);
+}
+await atomicWriteJson(file, season);
 console.log(`\n已寫入 ${file}（${changes.length} 筆）。請重跑 validate-season.mjs 與 validate-tournament-results.mjs。`);

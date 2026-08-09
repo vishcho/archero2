@@ -1,0 +1,15 @@
+// README 與 manifest 由 Git 管理，避免與 Syncthing 形成雙重同步來源。
+(?d)README.md
+(?d)manifest.json
+(?d)**/manifest.json
+
+// 作業系統與 Syncthing 本機狀態檔。
+(?d).DS_Store
+(?d)**/.DS_Store
+(?d)Thumbs.db
+(?d)**/Thumbs.db
+(?d).stfolder
+
+// 衝突副本留在產生它的電腦上，避免向其他裝置擴散。
+(?d)*.sync-conflict-*
+(?d)**/*.sync-conflict-*

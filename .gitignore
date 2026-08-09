@@ -2,10 +2,13 @@
 Thumbs.db
 node_modules/
 
-# 截圖本身不進 git（大檔、且只有本機分析需要），
-# 但保留目錄說明與批次索引，讓沒有截圖的 clone 知道規範與缺什麼。
-screenshots/*
+# 截圖本身不進 git（大檔、且只有本機分析需要），但追蹤每屆 manifest，
+# 讓沒有原圖的 clone 仍能讀取批次種類、證據狀態與拍攝來源資訊。
+screenshots/**/*
 !screenshots/README.md
+!screenshots/.stignore
+!screenshots/**/
+!screenshots/**/manifest.json
 
 # 抽取中繼檔：未經驗證的視覺抽取結果，只在分析當下有意義。
 # 正式資料一律進 data/，這裡的東西不該被引用。

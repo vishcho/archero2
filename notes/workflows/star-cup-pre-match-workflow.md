@@ -50,7 +50,7 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-rank>/Screenshot_*.png
 本屆資料來源：
 
 ```text
-data/{season}.json
+data/star-cup/{season}.json
 ```
 
 賽前階段至少需要：
@@ -65,7 +65,7 @@ data/{season}.json
 上屆參考資料來源：
 
 ```text
-data/{previous_season}.json
+data/star-cup/{previous_season}.json
 ```
 
 上屆資料至少需要：
@@ -75,9 +75,9 @@ data/{previous_season}.json
 - `groups[].champion`
 - `groups[].runner_up`
 
-如果本屆 `data/{season}.json` 尚未有完整 `groups[].players[]`，應由賽前截圖先抽取並寫入暫存 JSON，經人工核對後再合併到正式資料。
+如果本屆 `data/star-cup/{season}.json` 尚未有完整 `groups[].players[]`，應由賽前截圖先抽取並寫入暫存 JSON，經人工核對後再合併到正式資料。
 
-本屆 `data/{season}.json` 若不存在，由 rank 批次建立（`id`、`date`、`theme`、`status: "in_progress"`、`champion: null`、`qualifier[]`），並同步把 season id 加入 `data/seasons.json`。資格賽排行榜屬客觀資料，可直接入正式檔，不需等人工核對；`groups` 的併入才需要人工核可。
+本屆 `data/star-cup/{season}.json` 若不存在，由 rank 批次建立（`id`、`date`、`theme`、`status: "in_progress"`、`champion: null`、`qualifier[]`），並同步把 season id 加入 `data/star-cup/seasons.json`。資格賽排行榜屬客觀資料，可直接入正式檔，不需等人工核對；`groups` 的併入才需要人工核可。
 
 ## 自動化階段
 
@@ -152,7 +152,7 @@ players 一律依 `A,A,B,B,C,C,D,D` 排序，與 `js/common.js` 對 `groups[].pl
 
 ### 3. 合併資格賽排行榜
 
-使用 `data/{season}.json` 的 `qualifier[]` 比對玩家名稱，補上：
+使用 `data/star-cup/{season}.json` 的 `qualifier[]` 比對玩家名稱，補上：
 
 - 本屆資格賽通關時間
 - 流派/稱號，如果有 `title`
@@ -169,7 +169,7 @@ players 一律依 `A,A,B,B,C,C,D,D` 排序，與 `js/common.js` 對 `groups[].pl
 
 ### 4. 合併上屆淘汰賽表現
 
-從 `data/{previous_season}.json` 對每位本屆玩家建立上屆摘要：
+從 `data/star-cup/{previous_season}.json` 對每位本屆玩家建立上屆摘要：
 
 - 上屆賽時戰力：取上屆玩家資料或最佳場次中的戰力。
 - 上屆淘汰賽最佳進度：優先取達到的最高 `progress`。
@@ -200,7 +200,7 @@ players 一律依 `A,A,B,B,C,C,D,D` 排序，與 `js/common.js` 對 `groups[].pl
 
 ### 5b. 併入正式資料（需人工核可）
 
-groups 併入 `data/{season}.json` 時，轉成與 `data/2026-07-03.json` 一致的正式格式：
+groups 併入 `data/star-cup/{season}.json` 時，轉成與 `data/star-cup/2026-07-03.json` 一致的正式格式：
 
 ```json
 {
@@ -352,8 +352,8 @@ docs/star-cup/YYYY-MM-DD-roundN-betting-guide.md
 並更新：
 
 ```text
-data/YYYY-MM-DD.json（theme、qualifier；groups 經人工核可後）
-data/seasons.json
+data/star-cup/YYYY-MM-DD.json（theme、qualifier；groups 經人工核可後）
+data/star-cup/seasons.json
 docs/sources.md
 ```
 
@@ -362,7 +362,6 @@ docs/sources.md
 兩份文件與資料檔完成後，同步更新：
 
 - `docs/sources.md`：對陣批次與 rank 批次各登記一行（含產出檔案）。
-- `phi-repo/memory/active-context.md`：記錄本輪狀態與待辦（例如「賽後補淘汰賽結果」）。
 
 ## 異常處理規則
 
@@ -378,7 +377,7 @@ docs/sources.md
 未來可拆成三個工具：
 
 ```bash
-node tools/import-star-cup-matchup-from-screenshots.mjs screenshots/star-cup/YYYY-MM-DD-roundN-matchup/ data/YYYY-MM-DD.json --previous data/YYYY-MM-DD.json --out tmp/YYYY-MM-DD-roundN-matchup.json
+node tools/import-star-cup-matchup-from-screenshots.mjs screenshots/star-cup/YYYY-MM-DD-roundN-matchup/ data/star-cup/YYYY-MM-DD.json --previous data/star-cup/YYYY-MM-DD.json --out tmp/YYYY-MM-DD-roundN-matchup.json
 node tools/render-star-cup-matchup.mjs tmp/YYYY-MM-DD-roundN-matchup.json docs/star-cup/YYYY-MM-DD-roundN-matchup.md
 node tools/render-star-cup-betting-guide.mjs tmp/YYYY-MM-DD-roundN-matchup.json docs/star-cup/YYYY-MM-DD-roundN-betting-guide.md
 ```
@@ -393,5 +392,5 @@ node tools/render-star-cup-betting-guide.mjs tmp/YYYY-MM-DD-roundN-matchup.json 
   1b. 新增「步驟 0 前置確認」：**預設等對陣與 rank 兩批截圖都到齊才開跑**；「先出文件、後回填資格賽」降為需使用者同意的例外流程（第三輪實際經歷 rank 晚到、回填時四處判讀翻案，兩段式成本高）。
   2. 明確場次版面對應 A=左上、B=左下、C=右上、D=右下（初版誤以為左右欄各自合併，經上屆 R2 實際配對回推更正）。
   3. 新增「淘汰賽名單＝資格賽前 64 名」交叉驗證與 node 腳本驗證建議。
-  4. 明確資料入庫分工：qualifier 直接入 `data/{season}.json` 並登記 `seasons.json`；groups 需人工核可後依正式格式併入（5b 節）。
+  4. 明確資料入庫分工：qualifier 直接入 `data/star-cup/{season}.json` 並登記 `data/star-cup/seasons.json`；groups 需人工核可後依正式格式併入（5b 節）。
   5. 下注 Guide 在資格賽資料後補時必須逐場重審。

@@ -11,7 +11,8 @@
 > **用字統一**：一律寫「明星**盃**」，勿用「杯」；合稱時用「明星賽事」。
 > 兩者是不同賽事，**不要混稱「明星賽」**。
 
-純靜態網站，無建置流程、無相依套件（Tailwind 走 CDN）。
+純靜態網站，頁面無建置流程、無 runtime 相依套件（Tailwind 走 CDN）；Node.js 腳本與 CI
+負責資料驗證及文件索引生成。
 
 ## 這個 repo 的用途
 
@@ -44,6 +45,15 @@ python -m http.server 8000
 
 然後開 <http://localhost:8000>。
 
+資料或文件變更完成後，執行統一檢查：
+
+```bash
+npm run check
+```
+
+Codex、Claude Code 與其他 AI agents 的共用操作規範見 [AGENTS.md](AGENTS.md)；
+任務專屬的資料抽取規則仍以 [notes/workflows/](notes/workflows/) 為準。
+
 ## 頁面
 
 | 頁面           | 說明                                                                     | 資料來源                     |
@@ -70,6 +80,9 @@ python -m http.server 8000
 
 ```
 archero2/
+├── AGENTS.md          # 人與 AI agents 共用的操作契約與完成條件
+├── CLAUDE.md          # Claude Code 載入 AGENTS.md 的薄入口
+├── package.json       # 驗證、文件生成與統一 check 指令
 ├── index.html          # 賽季列表首頁
 ├── season.html         # 賽季詳情頁（tabs：資格賽/淘汰賽/總決賽）
 ├── bracket.html        # 淘汰賽 SVG 對陣圖（?id= 指定屆次）
@@ -100,7 +113,7 @@ archero2/
 │   └── workflows/                       # 資料整理與自動化流程
 │       ├── star-cup-pre-match-workflow.md
 │       └── tournament-results-workflow.md
-├── tools/              # Node.js 腳本（無相依套件，直接 node 執行）
+├── tools/              # Node.js 資料驗證、匯入與渲染腳本
 │   ├── validate-season.mjs                     # 結構驗證：欄位型別、值域、必填
 │   ├── validate-tournament-results.mjs         # 邏輯驗證：淘汰賽晉級自洽
 │   ├── render-tournament-results.mjs           # data JSON → 戰報 md
@@ -324,13 +337,13 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 ### 兩者共通：驗證與索引生成
 
 ```bash
-node tools/validate-season.mjs --all              # 結構：依 cups.json 的 schema 分派驗證
-node tools/validate-tournament-results.mjs data/star-cup/{id}.json  # 邏輯：晉級自洽（僅明星盃）
-node tools/build-docs-index.mjs                   # 重生 docs/README.md
+npm run check       # 所有 schema、players、淘汰賽邏輯與文件索引新鮮度
+npm run docs:build  # 文件增刪或標題變更後，重生 docs/README.md
 ```
 
-`validate-season.mjs --all` 會走訪 `cups.json` 登記的每個賽事目錄，
-各自檢查 `seasons.json` 與該目錄檔案是否對應。
+`npm run check` 是本 repo 對人與 AI agents 的統一完成門檻。它會走訪 `cups.json`
+登記的每個賽事目錄、檢查 `seasons.json` 與實際檔案對應、驗證玩家登記簿、逐屆檢查
+明星盃晉級邏輯，並確認生成的 `docs/README.md` 沒有過期。GitHub Actions 也執行同一指令。
 
 ## 賽制速覽
 
@@ -347,21 +360,20 @@ node tools/build-docs-index.mjs                   # 重生 docs/README.md
 
 尚未處理，屆數增加後才會真正變痛的：
 
-### 跨屆選手資料仍靠名稱字串比對
+### 跨屆選手資料正在轉換為穩定 ID
 
 `prev_best` / `prev_power` 等「上屆」欄位是**冗餘複製**——同一位選手的成績同時
-存在於本屆的 `prev_*` 與上屆的 `qualifier`/`matches`，兩邊可能不一致，且完全
-依賴玩家名稱比對（所以才需要 `⚠` / `≈` 兩種 flag 人工標註）。
+存在於本屆的 `prev_*` 與上屆的 `qualifier`/`matches`，兩邊仍可能不一致。
 
-要真正做到「跨屆追蹤選手」，需要一份 `data/players.json` 給每位選手穩定 id，
-各屆只存 id 參照，`prev_*` 改由腳本從上屆資料推導而非手抄。
-屆數還少時現況可接受，但這是目前最大的資料模型債。
+目前已有 `data/players.json` 以遊戲內 `player_id` 作為跨賽事主鍵，新取得的名片資料會由
+`import-top64-profiles.mjs` 入庫，再用 `backfill-from-players.mjs` 回填賽季檔。尚未完成的是：
+舊屆仍有部分資料只靠名稱與 `⚠` / `≈` 人工標註，且 `prev_*` 尚未全部改由前一屆推導。
 
 ### 總決賽尚未納入管線
 
 見上方「總決賽資料」一節。
 
-### 驗證未自動化
+### 驗證已自動化，但尚缺測試資料集
 
-`tools/` 的驗證需手動執行。若之後接 CI 或 git hook，可在 commit 前擋下
-結構錯誤的資料，避免像 `status` 值域分岔那樣累積數屆才被發現。
+`npm run check` 已整合所有現有驗證器，GitHub Actions 會在 push 與 pull request 執行。
+下一步可為驗證器補上刻意損壞的 fixture，確認每項規則都會攔到預期錯誤。

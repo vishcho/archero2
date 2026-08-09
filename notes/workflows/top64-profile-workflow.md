@@ -29,10 +29,10 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
 應為 64 張，每位晉級選手 1 張。張數不是 64 時中止並列出缺漏，不得產生正式資料。
 
 **檔名排序不保證等於排名順序**（拍攝時是逐一點開排行榜的列，可能跳著點、可能重拍）。
-排名要從名片背後透出的排行榜列、或與 `data/{season}.json` 的 `qualifier[]` 比對取得，
+排名要從名片背後透出的排行榜列、或與 `data/star-cup/{season}.json` 的 `qualifier[]` 比對取得，
 不得用檔名順序推定。
 
-前置需求：同屆的 `rank` 批次已處理完，`data/{season}.json` 的 `qualifier[]` 已存在——
+前置需求：同屆的 `rank` 批次已處理完，`data/star-cup/{season}.json` 的 `qualifier[]` 已存在——
 本流程用它交叉驗證 64 人名單。
 
 ## 可抽取欄位
@@ -94,7 +94,7 @@ screenshots/star-cup/<YYYY-MM-DD-roundN-top64>/Screenshot_*.png
 - **涵蓋 64 位**：判定齊不齊看的是**唯一 `player_id` 數**，不是張數。
   補拍會讓張數超過 64（重複的張仍留在目錄裡供追溯），那是正常狀態。
 - **欄位齊全**：上表十個欄位皆有值；模糊不清者標 `uncertain: true`，不得猜數字。
-- **與資格賽榜交叉比對**：64 個名稱應與 `data/{season}.json` 的 `qualifier[]` 前 64 名一一對應。
+- **與資格賽榜交叉比對**：64 個名稱應與 `data/star-cup/{season}.json` 的 `qualifier[]` 前 64 名一一對應。
   對不上者逐筆列出——這正是本批要解決的問題，差異要進入 §3 的對應決議，不是直接中止。
 
 輸出分五級：
@@ -169,7 +169,7 @@ node tools/backfill-from-players.mjs data/star-cup/{season}.json
 
 比對新的 `player_id` 對應後，回頭修正：
 
-- `data/{season}.json` 中 `flag: "⚠ 同名多筆"` 的選手 → 用 ID 確定是誰，補上正確的
+- `data/star-cup/{season}.json` 中 `flag: "⚠ 同名多筆"` 的選手 → 用 ID 確定是誰，補上正確的
   `qualifier_rank` / `qualifier_time`，移除 flag，並在 `note` 保留「經 top64 用戶ID 確認」。
 - 上屆對應標 `≈ 疑同一人` 者 → ID 相同即升級為確認；ID 不同則**刪除該對應**（是不同人）。
 - 稱號 OCR 存疑者 → 名片上的稱號未被頭像遮擋，可直接更正。
@@ -191,7 +191,7 @@ node tools/validate-tournament-results.mjs data/star-cup/{season}.json
 `validate-season.mjs` 另檢查賽季檔中回填的 `player_id` 必須存在於 `data/players.json`，
 避免憑空多出一個帳號。`data/players.json` 不存在時自動跳過此檢查。
 
-回填 `data/{season}.json` 後**必須重跑既有的兩支驗證**，確認沒有破壞既有結構與晉級自洽。
+回填 `data/star-cup/{season}.json` 後**必須執行 `npm run check`**，確認沒有破壞既有結構與晉級自洽。
 
 ### 6. 更新來源索引
 

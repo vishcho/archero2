@@ -70,5 +70,17 @@ const out = [
   await section('工作流', workflows),
 ].join('\n');
 
-await writeFile(path.join(DOCS_DIR, 'README.md'), out.replace(/\n{3,}/g, '\n\n'), 'utf8');
-console.log(`${DOCS_DIR}/README.md 已更新`);
+const outputPath = path.join(DOCS_DIR, 'README.md');
+const generated = out.replace(/\n{3,}/g, '\n\n');
+
+if (process.argv.includes('--check')) {
+  const current = await readFile(outputPath, 'utf8');
+  if (current !== generated) {
+    console.error(`${outputPath} 已過期；請執行 npm run docs:build 並提交結果`);
+    process.exit(1);
+  }
+  console.log(`${outputPath} 已是最新版本`);
+} else {
+  await writeFile(outputPath, generated, 'utf8');
+  console.log(`${outputPath} 已更新`);
+}

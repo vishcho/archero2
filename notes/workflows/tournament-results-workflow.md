@@ -2,7 +2,7 @@
 
 本工作流用於把明星盃淘汰賽截圖批次轉成兩份正式產物：
 
-1. `data/{season}.json`：網站唯一結構化資料來源，包含分組、冠亞軍與逐場結果。
+1. `data/star-cup/{season}.json`：網站唯一結構化資料來源，包含分組、冠亞軍與逐場結果。
 2. `docs/star-cup/YYYY-MM-DD-tournament-results.md`：由 JSON 渲染出的人工可讀戰報。
 
 ## 輸入
@@ -115,8 +115,8 @@ R2：upper、lower
 正式寫入後必須執行兩支驗證，兩支都通過才算過關：
 
 ```bash
-node tools/validate-season.mjs data/{season}.json            # 結構：欄位型別、值域、必填
-node tools/validate-tournament-results.mjs data/{season}.json # 邏輯：晉級自洽
+node tools/validate-season.mjs data/star-cup/{season}.json            # 結構：欄位型別、值域、必填
+node tools/validate-tournament-results.mjs data/star-cup/{season}.json # 邏輯：晉級自洽
 ```
 
 `validate-season.mjs` 驗證條件：
@@ -143,7 +143,7 @@ node tools/validate-tournament-results.mjs data/{season}.json # 邏輯：晉級�
 驗證通過後，由 JSON 產生 Markdown：
 
 ```bash
-node tools/render-tournament-results.mjs data/{season}.json docs/star-cup/YYYY-MM-DD-tournament-results.md
+node tools/render-tournament-results.mjs data/star-cup/{season}.json docs/star-cup/YYYY-MM-DD-tournament-results.md
 ```
 
 Markdown 只是呈現層；若和 JSON 不一致，以 JSON 為準並重新渲染。
@@ -173,8 +173,8 @@ node tools/build-docs-index.mjs
 既有戰報可用下列工具遷移成 `groups[].matches`：
 
 ```bash
-node tools/import-tournament-results-from-doc.mjs docs/star-cup/2026-06-23-tournament-results.md data/2026-06-19.json
-node tools/import-tournament-results-from-doc.mjs docs/star-cup/2026-07-07-tournament-results.md data/2026-07-03.json
+node tools/import-tournament-results-from-doc.mjs docs/star-cup/2026-06-23-tournament-results.md data/star-cup/2026-06-19.json
+node tools/import-tournament-results-from-doc.mjs docs/star-cup/2026-07-07-tournament-results.md data/star-cup/2026-07-03.json
 ```
 
 這個工具只用於舊資料遷移；新批次應從截圖抽取，經驗證後再渲染 Markdown。

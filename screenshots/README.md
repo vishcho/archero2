@@ -3,42 +3,49 @@
 > 這份 README 進 git，`screenshots/` 底下的圖不進（見 `.gitignore`）。
 > 沒有截圖的 clone 靠這份 README 知道規範、靠 [`docs/sources.md`](../docs/sources.md) 知道每批的實際內容。
 
-## 路徑格式
+## 路徑格式（新批次）
 
 ```text
-screenshots/<主題>/<YYYY-MM-DD>-<roundN>-<type>/Screenshot_*.png
+screenshots/star-cup/<淘汰賽首日>-<roundN>/
+├── manifest.json
+├── qualifier-rank/
+├── knockout-matchup/
+├── knockout-results/
+└── grand-finals-results/
 ```
 
-- `<主題>`：對應 `data/cups.json` 的 `slug`，例如 `star-cup`。
-- `<YYYY-MM-DD>`：**拍攝日**，不是賽事日。同一輪的賽前與賽後批次日期本來就不同。
-- `<roundN>`：賽事輪次，全小寫無補零（`round4`，不是 `Round04`）。這是把四類批次綁成同一輪的鍵。
-- `<type>`：**只能是下面四種**，見「四類批次」。
+- 日期是該屆 `id`，也就是淘汰賽首日，不是各批拍攝日。
+- `manifest.json` 記錄各批的拍攝時間與 `original` / `missing` / `placeholder` 證據狀態；範例見
+  [`screenshot-manifest.example.json`](../notes/workflows/screenshot-manifest.example.json)。
+- 舊式 `YYYY-MM-DD-roundN-{rank,matchup,results,top64}` 平面目錄仍可由盤點工具讀取，
+  但新一屆應使用 manifest。
 
 一批（同一次拍的一組圖）＝一個資料夾。分析完成後在 `docs/sources.md` 登記一行。
 
-## 四類批次
+## 四種賽事批次與玩家名片
 
-每輪賽事完整應有四批。順序即賽事時序：
+賽事資料分三個 checkpoint；玩家名片是獨立的跨賽事資料：
 
-| # | type | 內容 | 張數 | 拍攝時機 | 消費者 |
+| checkpoint | type | 內容 | 張數 | 拍攝時機 | 消費者 |
 | - | ---- | ---- | ---- | -------- | ------ |
-| 1 | `matchup` | 對陣圖：8 組賽前對陣樹 | 8 | 淘汰賽開打前（競猜期） | [賽前工作流](../notes/workflows/star-cup-pre-match-workflow.md) → matchup + betting guide |
-| 2 | `rank` | 排行榜：資格賽排行榜連拍 | ~10 | 同上，與 matchup 同時 | 同上（主題、`qualifier[]` 的唯一來源） |
-| 3 | `top64` | 玩家資訊：64 位晉級選手個人資訊名片 | 64 | 資格賽結束後、名單確定時 | [選手檔案工作流](../notes/workflows/top64-profile-workflow.md) |
-| 4 | `results` | 賽事結果：逐組樹狀圖＋逐場對戰彈窗 | 64 | 淘汰賽結束後 | [賽後工作流](../notes/workflows/tournament-results-workflow.md) → results 戰報 |
+| A | `qualifier-rank` | 資格賽排行榜連拍 | 以涵蓋 1–64 為準 | 淘汰賽首日 | `qualifier[]` |
+| A | `knockout-matchup` | 8 組賽前對陣樹 | 8 | 淘汰賽首日 | `groups[].players[]`、賽前文件 |
+| B | `knockout-results` | 8 組結果樹＋逐場彈窗 | 64 | 淘汰賽結束 | `groups[].matches`、戰報 |
+| C | `grand-finals-results` | 總決賽結果樹＋逐場彈窗 | 8 | 總決賽結束 | `grand_finals`、`champion` |
+| — | `top64-profile` | 64 位晉級者個人資訊名片 | ≥64 | 名單確定後 | `data/players.json` |
 
-張數不符時流程要中止，不得硬跑（各工作流有各自的檢查點）。合理的例外只有補件：
-`results` 常見 65 張（某張拍壞後補拍），此時在 `docs/sources.md` 額外登記補件那一行。
+完整契約見[三階段收集工作流](../notes/workflows/star-cup-collection-workflow.md)。代圖必須標成
+`placeholder`，只能測試版面，盤點不視為正式證據，也不得寫入 `data/`。
 
 ### 各批的細節
 
-**`matchup`** — 檔名排序後對應第 1 到第 8 組。場次版面：A＝左上、B＝左下、C＝右上、D＝右下。
+**`knockout-matchup`（舊名 `matchup`）** — 檔名排序後對應第 1 到第 8 組。場次版面：A＝左上、B＝左下、C＝右上、D＝右下。
 
-**`rank`** — 連拍捲動，相鄰截圖需有 1–2 列重疊。畫面底部固定釘著「自己的名次列」會遮住最下一列，
+**`qualifier-rank`（舊名 `rank`）** — 連拍捲動，相鄰截圖需有重疊。畫面底部固定釘著「自己的名次列」會遮住最下一列，
 靠重疊補回；被遮住的尾段名次（約 65 名以後）讀不到是正常的，只要覆蓋到前 64 名即可。
 **本期主題只出現在這批的頂部**，對陣圖上沒有。
 
-**`top64`** — 從資格賽排行榜逐一點開選手的「個人資訊」彈窗（名片 tab）。每張可讀出：
+**`top64-profile`（舊名 `top64`）** — 從資格賽排行榜逐一點開選手的「個人資訊」彈窗（名片 tab）。每張可讀出：
 用戶 ID、公會、普通/困難關卡進度、通天塔層數、戰力、魅力值、徽記、稱號。
 用戶 ID 是唯一穩定識別碼——這批的主要價值就是**解決同名與改名的對應問題**，
 其他批次只有名字可比對。檔名排序**不保證**等於排名順序，以圖中內容為準。
@@ -50,8 +57,10 @@ screenshots/<主題>/<YYYY-MM-DD>-<roundN>-<type>/Screenshot_*.png
   它會列出重複的張數與「榜上前 64 名未拍到」的補拍清單。
 - 畫面底部那列固定是**自己的名次**（非當前選手），任何一張都一樣，不是資料。
 
-**`results`** — 每組 8 張：第 1 張樹狀圖（讀組冠軍、目前戰力），第 2–8 張為 7 場對戰彈窗
+**`knockout-results`（舊名 `results`）** — 每組 8 張：第 1 張樹狀圖（讀組冠軍、目前戰力），第 2–8 張為 7 場對戰彈窗
 （R1 四場、R2 兩場、決賽）。拍攝順序不一定是 A/B/C/D，寫入 `data/` 前必須依對陣表歸位。
+
+**`grand-finals-results`** — 共 8 張：第 1 張結果樹、第 2–8 張為七場對戰彈窗。
 
 ## 盤點工具
 

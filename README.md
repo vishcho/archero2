@@ -299,11 +299,13 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 
 ## 總決賽資料
 
-`grand_finals` 與頂層 `champion` **目前尚未納入資料管線**——現行截圖流程只涵蓋到
-淘汰賽（`groups[].matches`），因此各屆這兩個欄位皆為 `null`。這是尚未實作，
-不是待填的空欄位。頁面在 `status` 為 `finished` 時會顯示「總決賽資料未收錄」以示區別。
+`grand_finals` 使用一張結果樹加七場詳細對戰，包含八名排名 `results` 與七場
+`bracket`。名次採可由單淘汰結果證明的並列排名 `1,2,3,3,5,5,5,5`。它與分組
+淘汰賽共用晉級驗證；八名參賽者必須是八組冠軍，決賽勝者必須等於頂層
+`champion`。尚未收錄的歷史屆次維持 `null`。
 
-要補齊需新增一批總決賽截圖來源，並擴充抽取流程；schema 已預留欄位型別檢查。
+四批截圖與三個取得時點見
+[明星盃三階段截圖收集工作流](notes/workflows/star-cup-collection-workflow.md)。
 
 ## 新增一屆賽事的流程
 
@@ -373,9 +375,9 @@ npm run docs:build  # 文件增刪或標題變更後，重生 docs/README.md
 `import-top64-profiles.mjs` 入庫，再用 `backfill-from-players.mjs` 回填賽季檔。尚未完成的是：
 舊屆仍有部分資料只靠名稱與 `⚠` / `≈` 人工標註，且 `prev_*` 尚未全部改由前一屆推導。
 
-### 總決賽尚未納入管線
+### 歷史總決賽可能尚未收錄
 
-見上方「總決賽資料」一節。
+舊屆次沒有總決賽原始截圖時，`grand_finals` 與 `champion` 維持 `null`，不得推測補值。
 
 ### 驗證與 fixtures
 

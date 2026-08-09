@@ -141,7 +141,6 @@
 
     function renderFinals(data) {
       const el = document.getElementById('tab-finals');
-      // grand_finals 目前尚未納入截圖抽取管線，各屆皆為 null（見 README「總決賽資料」）。
       if (!data.grand_finals) {
         el.innerHTML = data.status === 'finished'
           ? '<div class="text-slate-500 text-center py-12">本屆總決賽資料尚未收錄</div>'
@@ -150,7 +149,7 @@
       }
 
       const gf = data.grand_finals;
-      const roundOrder = ['8強', '4強', '決賽'];
+      const roundOrder = [['R1', '8強'], ['R2', '4強'], ['決賽', '決賽']];
 
       el.innerHTML = `
         <div class="bg-slate-800 rounded-xl mb-5 overflow-hidden">
@@ -170,7 +169,7 @@
                     ${p.rank === 1 ? '🏆 冠軍' : p.rank === 2 ? '🥈 亞軍' : p.rank <= 4 ? '🥉 4強' : '8強'}
                   </td>
                   <td class="px-4 py-2.5 font-medium ${p.rank === 1 ? 'text-yellow-400 font-bold' : ''}">${p.name}</td>
-                  <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.power}</td>
+                  <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.power ?? '—'}</td>
                 </tr>
               `).join('')}
             </tbody>
@@ -180,17 +179,17 @@
         <div class="bg-slate-800 rounded-xl overflow-hidden">
           <div class="bg-slate-700 px-4 py-2.5 font-bold text-yellow-300">對戰路徑</div>
           <div class="divide-y divide-slate-700">
-            ${roundOrder.map(round => {
+              ${roundOrder.map(([round, label]) => {
               const matches = gf.bracket.filter(m => m.round === round);
               if (!matches.length) return '';
               return `
                 <div class="px-4 py-3">
-                  <div class="text-xs text-slate-500 mb-2 font-semibold uppercase tracking-wider">${round}</div>
+                  <div class="text-xs text-slate-500 mb-2 font-semibold uppercase tracking-wider">${label}</div>
                   ${matches.map(m => `
                     <div class="flex items-center gap-2 text-sm mb-1.5">
-                      <span class="${m.winner === m.p1 ? 'text-white font-bold' : 'text-slate-500'}">${m.p1}</span>
+                      <span class="${m.winner === m.p1.name ? 'text-white font-bold' : 'text-slate-500'}">${m.p1.name}</span>
                       <span class="text-slate-600 text-xs">def</span>
-                      <span class="${m.winner === m.p2 ? 'text-white font-bold' : 'text-slate-500'}">${m.p2}</span>
+                      <span class="${m.winner === m.p2.name ? 'text-white font-bold' : 'text-slate-500'}">${m.p2.name}</span>
                       <span class="ml-auto text-yellow-400 text-xs font-semibold">▶ ${m.winner}</span>
                     </div>
                   `).join('')}

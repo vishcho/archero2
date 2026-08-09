@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "season_id": "2026-08-14",
+  "round": 5,
+  "batches": {
+    "qualifier-rank": {
+      "path": "qualifier-rank",
+      "evidence_status": "original",
+      "captured_at": "2026-08-14T10:00:00+08:00"
+    },
+    "knockout-matchup": {
+      "path": "knockout-matchup",
+      "evidence_status": "missing"
+    },
+    "knockout-results": {
+      "path": "knockout-results",
+      "evidence_status": "missing"
+    },
+    "grand-finals-results": {
+      "path": "grand-finals-results",
+      "evidence_status": "missing"
+    }
+  }
+}

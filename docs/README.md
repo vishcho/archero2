@@ -41,6 +41,7 @@
 
 ## 工作流
 
+- [明星盃三階段截圖收集工作流](../notes/workflows/star-cup-collection-workflow.md)
 - [明星盃賽前對陣與競猜 Guide 工作流](../notes/workflows/star-cup-pre-match-workflow.md)
 - [Top64 選手檔案工作流](../notes/workflows/top64-profile-workflow.md)
 - [淘汰賽結果全自動工作流](../notes/workflows/tournament-results-workflow.md)

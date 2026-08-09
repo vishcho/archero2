@@ -1,24 +1,50 @@
-export function validateTournamentResults(season, file = '<season>') {
+export function validateBracket(matches, { file = '<season>', location = '/bracket', champion, runnerUp } = {}) {
   const errors = [];
   const add = (location, message) => errors.push({ severity: 'error', file, location, message });
-  for (const group of season.groups ?? []) {
-    if (!group.matches) continue;
-    const loc = `/groups/${group.id}`; const matches = group.matches;
-    const rounds = Object.fromEntries(['R1', 'R2', '決賽'].map((r) => [r, matches.filter((m) => m.round === r)]));
-    for (const [round, count] of [['R1', 4], ['R2', 2], ['決賽', 1]]) if (rounds[round].length !== count) add(loc, `${round} 應有 ${count} 場，得到 ${rounds[round].length}`);
-    for (const [i, match] of matches.entries()) {
+  const rounds = Object.fromEntries(['R1', 'R2', '決賽'].map((r) => [r, matches.filter((m) => m.round === r)]));
+  for (const [round, count] of [['R1', 4], ['R2', 2], ['決賽', 1]]) if (rounds[round].length !== count) add(location, `${round} 應有 ${count} 場，得到 ${rounds[round].length}`);
+  for (const [i, match] of matches.entries()) {
       const names = [match.p1?.name, match.p2?.name];
-      if (!names.includes(match.winner)) add(`${loc}/matches/${i}/winner`, 'winner 必須是該場選手');
-      if (!names.includes(match.loser)) add(`${loc}/matches/${i}/loser`, 'loser 必須是該場選手');
-    }
-    const r2Names = rounds.R2.flatMap((m) => [m.p1?.name, m.p2?.name]);
-    for (const winner of rounds.R1.map((m) => m.winner)) if (!r2Names.includes(winner)) add(loc, `R1 勝者 ${winner} 未晉級 R2`);
-    const final = rounds['決賽'][0];
-    if (final) {
-      for (const winner of rounds.R2.map((m) => m.winner)) if (![final.p1?.name, final.p2?.name].includes(winner)) add(loc, `R2 勝者 ${winner} 未晉級決賽`);
-      if (group.champion !== final.winner) add(`${loc}/champion`, '分組冠軍與決賽勝者不符');
-      if (group.runner_up !== final.loser) add(`${loc}/runner_up`, '分組亞軍與決賽敗者不符');
-    }
+      if (!names.includes(match.winner)) add(`${location}/${i}/winner`, 'winner 必須是該場選手');
+      if (!names.includes(match.loser)) add(`${location}/${i}/loser`, 'loser 必須是該場選手');
+  }
+  const r2Names = rounds.R2.flatMap((m) => [m.p1?.name, m.p2?.name]);
+  for (const winner of rounds.R1.map((m) => m.winner)) if (!r2Names.includes(winner)) add(location, `R1 勝者 ${winner} 未晉級 R2`);
+  const final = rounds['決賽'][0];
+  if (final) {
+    for (const winner of rounds.R2.map((m) => m.winner)) if (![final.p1?.name, final.p2?.name].includes(winner)) add(location, `R2 勝者 ${winner} 未晉級決賽`);
+    if (champion !== undefined && champion !== final.winner) add(location, `冠軍 ${champion} 與決賽勝者 ${final.winner} 不符`);
+    if (runnerUp !== undefined && runnerUp !== final.loser) add(location, `亞軍 ${runnerUp} 與決賽敗者 ${final.loser} 不符`);
+  }
+  return errors;
+}
+
+export function validateTournamentResults(season, file = '<season>') {
+  const errors = [];
+  for (const group of (season.groups ?? [])) {
+    if (!group.matches) continue;
+    errors.push(...validateBracket(group.matches, {
+      file,
+      location: `/groups/${group.id}/matches`,
+      champion: group.champion,
+      runnerUp: group.runner_up,
+    }));
+  }
+
+  if (season.grand_finals) {
+    const ranked = [...season.grand_finals.results].sort((a, b) => a.rank - b.rank);
+    const ranks = ranked.map((result) => result.rank);
+    if (ranks.join() !== '1,2,3,3,5,5,5,5') errors.push({ severity: 'error', file, location: '/grand_finals/results', message: '總決賽名次必須為 1、2、並列 3、並列 5，不得猜測同輪淘汰者的內部順序' });
+    const names = season.grand_finals.results.map((result) => result.name);
+    if (new Set(names).size !== names.length) errors.push({ severity: 'error', file, location: '/grand_finals/results', message: '總決賽 results 不可有重複選手' });
+    const groupChampions = (season.groups ?? []).map((group) => group.champion).filter(Boolean);
+    for (const name of names) if (!groupChampions.includes(name)) errors.push({ severity: 'error', file, location: '/grand_finals/results', message: `總決賽選手 ${name} 不是任何分組冠軍` });
+    errors.push(...validateBracket(season.grand_finals.bracket, {
+      file,
+      location: '/grand_finals/bracket',
+      champion: season.champion,
+      runnerUp: ranked.find((result) => result.rank === 2)?.name,
+    }));
   }
   return errors;
 }

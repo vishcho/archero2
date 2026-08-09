@@ -1,198 +1,133 @@
 #!/usr/bin/env node
-// 盤點 screenshots/ 各輪賽事的四類批次是否齊全。
-//
-//   node tools/check-screenshots.mjs                 # 表格總覽
-//   node tools/check-screenshots.mjs --json          # 機器可讀
-//   node tools/check-screenshots.mjs --round 2026-08-14-round5
-//
-// 四類批次（每輪賽事應有）：
-//   matchup 對陣圖 / rank 排行榜 / top64 玩家資訊 / results 賽事結果
-//
-// 截圖本身是 gitignored 的，所以本工具只在本機有意義；
-// 沒有截圖的 clone 請看 docs/sources.md。
-
-import { readdirSync, statSync, existsSync } from 'node:fs';
-import { join, resolve, dirname } from 'node:path';
+// 盤點明星盃三個 checkpoint 的四種正式證據。Manifest 優先，舊式平面目錄仍相容。
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SHOTS = join(ROOT, 'screenshots');
+const EVIDENCE = new Set(['original', 'placeholder', 'missing']);
 
-/** 四類批次的規格。order 決定顯示與排序順序（照賽事時序）。 */
 export const BATCH_TYPES = [
-  { type: 'matchup', order: 1, label: '對陣圖', expect: 8,  tolerance: 0, desc: '8 組賽前對陣，每組 1 張' },
-  { type: 'rank',    order: 2, label: '排行榜', expect: 10, tolerance: 4, desc: '資格賽排行榜連拍，需覆蓋前 64 名＋本期主題' },
-  // top64 只嫌少不嫌多：重複點開同一位時會補拍，重複的張仍留著供追溯。
-  // 真正的齊全度（涵蓋幾位選手）要看 import-top64-profiles.mjs --check。
-  { type: 'top64',   order: 3, label: '玩家資訊', expect: 64, tolerance: 0, overage: true, desc: '64 位晉級選手的個人資訊名片，每人 1 張' },
-  { type: 'results', order: 4, label: '賽事結果', expect: 64, tolerance: 8, desc: '8 組 × (1 張樹狀圖 + 7 場對戰)；補件會超出 64' },
+  { type: 'qualifier-rank', aliases: ['rank'], checkpoint: 'A', order: 1, label: '資格賽排名', expect: 1, tolerance: 0, overage: true, desc: '排行榜連拍；張數僅驗非空，仍須確認實際覆蓋前 64 名' },
+  { type: 'knockout-matchup', aliases: ['matchup'], checkpoint: 'A', order: 2, label: '淘汰賽對陣', expect: 8, tolerance: 0, desc: '8 組賽前對陣，每組 1 張' },
+  { type: 'knockout-results', aliases: ['results'], checkpoint: 'B', order: 3, label: '淘汰賽結果', expect: 64, tolerance: 8, desc: '8 組 ×（1 張結果樹＋7 場）' },
+  { type: 'grand-finals-results', aliases: [], checkpoint: 'C', order: 4, label: '總決賽結果', expect: 8, tolerance: 0, desc: '1 張結果樹＋7 場' },
+  // 個人名片不是賽事 checkpoint，但保留歷史盤點能力。
+  { type: 'top64-profile', aliases: ['top64'], checkpoint: 'profile', order: 5, label: '玩家名片', expect: 64, tolerance: 0, overage: true, optional: true, desc: '64 位玩家個人資訊名片' },
 ];
 
-const TYPE_BY_NAME = new Map(BATCH_TYPES.map((t) => [t.type, t]));
+const TYPE_BY_NAME = new Map(BATCH_TYPES.flatMap((spec) => [spec.type, ...spec.aliases].map((name) => [name, spec])));
+const LEGACY_RE = /^(\d{4}-\d{2}-\d{2})-(round\d+)-([a-z0-9-]+)$/;
+const SEASON_RE = /^(\d{4}-\d{2}-\d{2})-(round\d+)$/;
 
-/** 目錄名格式：YYYY-MM-DD-roundN-<type> */
-const DIR_RE = /^(\d{4}-\d{2}-\d{2})-(round\d+)-([a-z0-9]+)$/;
-
-function isImage(name) {
-  return /\.(png|jpe?g|webp)$/i.test(name);
+function imageCount(dir) {
+  if (!existsSync(dir)) return 0;
+  return readdirSync(dir).filter((name) => /\.(png|jpe?g|webp)$/i.test(name)).length;
 }
 
-/** 掃描一個主題目錄（如 star-cup），回傳依 round 分組的批次盤點。 */
+function classify(spec, count, evidenceStatus, dir) {
+  if (evidenceStatus === 'placeholder') return { ...spec, dir, count, evidenceStatus, status: 'placeholder' };
+  if (evidenceStatus === 'missing') return { ...spec, dir, count: 0, evidenceStatus, status: 'missing' };
+  if (!count) return { ...spec, dir, count: 0, evidenceStatus, status: 'pending' };
+  const delta = count - spec.expect;
+  const ok = spec.overage ? delta >= -spec.tolerance : Math.abs(delta) <= spec.tolerance;
+  return { ...spec, dir, count, delta, evidenceStatus, status: ok ? 'ok' : 'count' };
+}
+
+function validateManifest(value, file) {
+  const errors = [];
+  if (value.version !== 1) errors.push(`${file}: version 必須為 1`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value.season_id ?? '')) errors.push(`${file}: season_id 應為淘汰賽首日 YYYY-MM-DD`);
+  if (!Number.isInteger(value.round) || value.round < 1) errors.push(`${file}: round 應為正整數`);
+  for (const type of BATCH_TYPES.filter((spec) => !spec.optional).map((spec) => spec.type)) {
+    if (!(type in (value.batches ?? {}))) errors.push(`${file}: batches 缺少 ${type}`);
+  }
+  for (const [type, batch] of Object.entries(value.batches ?? {})) {
+    if (!TYPE_BY_NAME.has(type)) errors.push(`${file}: 未知批次 ${type}`);
+    if (!EVIDENCE.has(batch?.evidence_status)) errors.push(`${file}: ${type}.evidence_status 應為 original / placeholder / missing`);
+    if (batch?.evidence_status === 'placeholder' && !batch.purpose) errors.push(`${file}: placeholder 批次 ${type} 必須說明 purpose`);
+  }
+  return errors;
+}
+
 export function scanTopic(topicDir) {
-  const batches = [];
+  const rounds = new Map();
   const malformed = [];
+  const ensure = (round) => {
+    if (!rounds.has(round)) rounds.set(round, { round, dates: [], batches: new Map() });
+    return rounds.get(round);
+  };
 
   for (const name of readdirSync(topicDir)) {
     const full = join(topicDir, name);
-    if (!statSync(full).isDirectory()) continue;
-    if (name.startsWith('.')) continue;
-
-    const m = DIR_RE.exec(name);
-    if (!m) {
-      malformed.push({ dir: name, reason: '目錄名不符 YYYY-MM-DD-roundN-<type>' });
-      continue;
-    }
-
-    const [, date, round, type] = m;
-    const spec = TYPE_BY_NAME.get(type);
-    if (!spec) {
-      malformed.push({ dir: name, reason: `未知批次類型 "${type}"，應為 ${BATCH_TYPES.map((t) => t.type).join(' / ')}` });
-      continue;
-    }
-
-    const files = readdirSync(full).filter(isImage);
-    batches.push({ dir: name, date, round, type, spec, count: files.length });
-  }
-
-  // 依 round 聚合。同一 round 可能跨多個日期（賽前 / 賽後分開拍）。
-  const rounds = new Map();
-  for (const b of batches) {
-    if (!rounds.has(b.round)) rounds.set(b.round, { round: b.round, batches: new Map() });
-    rounds.get(b.round).batches.set(b.type, b);
-  }
-
-  const sorted = [...rounds.values()].sort((a, b) => {
-    const na = Number(a.round.slice(5));
-    const nb = Number(b.round.slice(5));
-    return na - nb;
-  });
-
-  for (const r of sorted) {
-    r.dates = [...r.batches.values()].map((b) => b.date).sort();
-    r.slots = BATCH_TYPES.map((spec) => {
-      const b = r.batches.get(spec.type);
-      if (!b) return { ...spec, present: false, status: 'missing', count: 0 };
-      // 目錄已建但還沒圖 = 尚未拍攝，不是張數異常。開新一輪時四批會先建空目錄。
-      if (b.count === 0) {
-        return { ...spec, present: true, status: 'pending', count: 0, dir: b.dir, date: b.date };
+    if (!statSync(full).isDirectory() || name.startsWith('.')) continue;
+    const seasonMatch = SEASON_RE.exec(name);
+    const manifestFile = join(full, 'manifest.json');
+    if (seasonMatch && existsSync(manifestFile)) {
+      let manifest;
+      try { manifest = JSON.parse(readFileSync(manifestFile, 'utf8')); }
+      catch (error) { malformed.push({ dir: name, reason: `manifest.json 無法解析：${error.message}` }); continue; }
+      for (const reason of validateManifest(manifest, manifestFile)) malformed.push({ dir: name, reason });
+      const round = `round${manifest.round}`;
+      const record = ensure(round);
+      record.dates.push(manifest.season_id);
+      for (const [rawType, batch] of Object.entries(manifest.batches ?? {})) {
+        const spec = TYPE_BY_NAME.get(rawType);
+        if (!spec) continue;
+        const batchDir = join(full, batch.path ?? spec.type);
+        record.batches.set(spec.type, classify(spec, imageCount(batchDir), batch.evidence_status, batchDir));
       }
-      const delta = b.count - spec.expect;
-      // overage 的批次超量不算異常（補拍會讓張數超過預期），只有不足才是問題
-      const ok = spec.overage ? delta >= -spec.tolerance : Math.abs(delta) <= spec.tolerance;
-      return {
-        ...spec,
-        present: true,
-        status: ok ? 'ok' : 'count',
-        count: b.count,
-        dir: b.dir,
-        date: b.date,
-        delta,
-      };
-    });
-    r.complete = r.slots.every((s) => s.status === 'ok');
-    r.pending = r.slots.every((s) => s.status === 'pending');
+      continue;
+    }
+
+    const legacy = LEGACY_RE.exec(name);
+    if (!legacy) { malformed.push({ dir: name, reason: '目錄名不符舊式 YYYY-MM-DD-roundN-<type>，也不是含 manifest 的屆次目錄' }); continue; }
+    const [, date, round, rawType] = legacy;
+    const spec = TYPE_BY_NAME.get(rawType);
+    if (!spec) { malformed.push({ dir: name, reason: `未知批次類型 ${rawType}` }); continue; }
+    const record = ensure(round);
+    record.dates.push(date);
+    record.batches.set(spec.type, classify(spec, imageCount(full), 'original', full));
   }
 
-  return { rounds: sorted, malformed };
+  const result = [...rounds.values()].sort((a, b) => Number(a.round.slice(5)) - Number(b.round.slice(5)));
+  for (const record of result) {
+    record.dates = [...new Set(record.dates)].sort();
+    record.slots = BATCH_TYPES.map((spec) => record.batches.get(spec.type) ?? { ...spec, count: 0, evidenceStatus: 'missing', status: spec.optional ? 'optional' : 'missing' });
+    record.complete = record.slots.filter((slot) => !slot.optional).every((slot) => slot.status === 'ok');
+  }
+  return { rounds: result, malformed };
 }
 
-function icon(slot) {
-  if (slot.status === 'ok') return '✅';
-  if (slot.status === 'count') return '⚠️';
-  if (slot.status === 'pending') return '⏳';
-  return '❌';
+function icon(status) {
+  return ({ ok: '✅', count: '⚠️', pending: '⏳', placeholder: '🚫', optional: '—' })[status] ?? '❌';
 }
 
 function main() {
   const args = process.argv.slice(2);
   const asJson = args.includes('--json');
-  const roundFilter = args.includes('--round') ? args[args.indexOf('--round') + 1] : null;
-
-  if (!existsSync(SHOTS)) {
-    console.error(`找不到 ${SHOTS}（截圖是 gitignored 的，此 clone 可能沒有本機截圖）`);
-    process.exit(1);
-  }
-
-  const topics = readdirSync(SHOTS).filter((n) => {
-    if (n.startsWith('.')) return false;
-    return statSync(join(SHOTS, n)).isDirectory();
-  });
-
+  const filter = args.includes('--round') ? args[args.indexOf('--round') + 1] : null;
+  if (!existsSync(SHOTS)) { console.error(`找不到 ${SHOTS}`); process.exit(1); }
   const report = {};
-  let incomplete = 0;
-
-  for (const topic of topics) {
-    const { rounds, malformed } = scanTopic(join(SHOTS, topic));
-    const shown = roundFilter ? rounds.filter((r) => r.round === roundFilter || r.batches.has(roundFilter)) : rounds;
-    report[topic] = { rounds: shown, malformed };
-
-    if (asJson) continue;
-
+  for (const topic of readdirSync(SHOTS).filter((name) => !name.startsWith('.') && statSync(join(SHOTS, name)).isDirectory())) {
+    const scanned = scanTopic(join(SHOTS, topic));
+    const rounds = filter ? scanned.rounds.filter((record) => record.round === filter) : scanned.rounds;
+    report[topic] = { rounds, malformed: scanned.malformed };
+    if (asJson || (!rounds.length && !scanned.malformed.length)) continue;
     console.log(`\n## ${topic}\n`);
-    const head = ['輪次', '日期', ...BATCH_TYPES.map((t) => `${t.label}`), '狀態'];
-    console.log(`| ${head.join(' | ')} |`);
-    console.log(`| ${head.map(() => '---').join(' | ')} |`);
-
-    for (const r of shown) {
-      const cells = r.slots.map((s) => {
-        if (!s.present) return '❌ —';
-        if (s.status === 'pending') return '⏳ —';
-        return `${icon(s)} ${s.count}`;
-      });
-      const state = r.pending ? '未開始' : r.complete ? '完整' : '缺件';
-      if (!r.complete && !r.pending) incomplete++;
-      console.log(`| ${r.round} | ${r.dates[0] ?? '—'} | ${cells.join(' | ')} | ${state} |`);
+    console.log(`| 輪次 | 日期 | ${BATCH_TYPES.map((spec) => spec.label).join(' | ')} | 狀態 |`);
+    console.log(`| --- | --- | ${BATCH_TYPES.map(() => '---').join(' | ')} | --- |`);
+    for (const record of rounds) {
+      const cells = record.slots.map((slot) => `${icon(slot.status)} ${slot.status === 'placeholder' ? '代圖' : slot.count || '—'}`);
+      console.log(`| ${record.round} | ${record.dates.join('、') || '—'} | ${cells.join(' | ')} | ${record.complete ? '完整' : '未完整'} |`);
     }
-
-    for (const r of shown) {
-      if (r.pending) continue; // 整輪都還沒拍，不需逐項列出
-      const problems = r.slots.filter((s) => s.status !== 'ok');
-      if (!problems.length) continue;
-      console.log(`\n${r.round}:`);
-      for (const p of problems) {
-        if (!p.present) {
-          console.log(`  ❌ 缺 ${p.type}（${p.label}）— 預期 ${p.expect} 張：${p.desc}`);
-        } else if (p.status === 'pending') {
-          console.log(`  ⏳ ${p.dir}：目錄已建，尚未拍攝（預期 ${p.expect} 張）`);
-        } else {
-          const sign = p.delta > 0 ? `多 ${p.delta}` : `少 ${-p.delta}`;
-          console.log(`  ⚠️  ${p.dir}：${p.count} 張，預期 ${p.expect}±${p.tolerance}（${sign}）`);
-        }
-      }
-    }
-
-    if (malformed.length) {
-      console.log(`\n命名不符規範：`);
-      for (const m of malformed) console.log(`  ⚠️  ${m.dir} — ${m.reason}`);
-    }
+    for (const bad of scanned.malformed) console.log(`⚠️ ${bad.dir} — ${bad.reason}`);
   }
-
   if (asJson) {
-    // batches 是 Map，序列化會變成誤導性的 {}；slots 已涵蓋同樣資訊。
-    const plain = Object.fromEntries(
-      Object.entries(report).map(([topic, { rounds, malformed }]) => [
-        topic,
-        { rounds: rounds.map(({ batches, ...r }) => r), malformed },
-      ]),
-    );
+    const plain = Object.fromEntries(Object.entries(report).map(([topic, value]) => [topic, { ...value, rounds: value.rounds.map(({ batches, ...record }) => record) }]));
     console.log(JSON.stringify(plain, null, 2));
-    return;
-  }
-
-  console.log(`\n圖例：✅ 齊全　⚠️ 張數異常　⏳ 目錄已建未拍　❌ 缺整批`);
-  if (incomplete) console.log(`${incomplete} 輪有缺件。缺件不一定是問題——舊輪次可能當時就沒拍，詳見 docs/sources.md。`);
+  } else console.log('\n圖例：✅ 正式證據齊全　⚠️ 張數異常　⏳ 待拍　🚫 代圖（不算證據）　❌ 缺件');
 }
 
-if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('check-screenshots.mjs')) {
-  main();
-}
+if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('check-screenshots.mjs')) main();

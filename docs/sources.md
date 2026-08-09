@@ -10,8 +10,11 @@
 screenshots/<主題>/<YYYY-MM-DD>-<roundN>-<type>/Screenshot_*.png
 ```
 
-`<type>` 只能是 `matchup`（對陣圖）、`rank`（排行榜）、`top64`（玩家資訊）、`results`（賽事結果）四種。
-完整規範見 [`screenshots/README.md`](../screenshots/README.md)。
+舊式 `<type>` 為 `matchup`、`rank`、`top64`、`results`。新一屆改用屆次目錄與
+`manifest.json`，正式批次為 `qualifier-rank`、`knockout-matchup`、
+`knockout-results`、`grand-finals-results`；`top64-profile` 是選填的玩家身分批次。
+完整規範見 [`screenshots/README.md`](../screenshots/README.md) 與
+[三階段收集工作流](../notes/workflows/star-cup-collection-workflow.md)。
 
 一批（同一次拍的一組圖）＝一個資料夾。分析完成後在下表登記一行。
 

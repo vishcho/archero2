@@ -27,6 +27,7 @@ const PREV_BEST = ['1強', '2強', '4強', '8強', '16強', '32強', '64強', '�
 const FLAGS = ['⚠', '≈'];
 const TIME_RE = /^\d{2}:\d{2}\.\d{1,2}$/;
 const ID_RE = /^\d{4}-\d{2}-\d{2}$/;
+const COLLECTION_STATUS = ['pending', 'complete', 'missing'];
 
 const errors = [];
 const warnings = [];
@@ -142,6 +143,15 @@ function validateSeason(file, season) {
     err(at(), 'champion 應為字串或 null');
   }
 
+  if (season.collection !== undefined) {
+    const expected = ['qualifier', 'knockout_matchup', 'knockout_results', 'grand_finals'];
+    for (const key of expected) {
+      if (!COLLECTION_STATUS.includes(season.collection?.[key])) {
+        err(at(`collection.${key}`), `應為 ${COLLECTION_STATUS.join(' / ')}`);
+      }
+    }
+  }
+
   // 資格賽
   if (!Array.isArray(season.qualifier)) {
     err(at(), 'qualifier 應為陣列');
@@ -198,11 +208,31 @@ function validateSeason(file, season) {
     }
   }
 
-  // 總決賽：目前資料管線尚未涵蓋，只驗型別，不要求填值
+  // 總決賽：8 名分組冠軍、7 場單淘汰。晉級自洽由 domain validator 共用檢查。
   if (season.grand_finals !== null && season.grand_finals !== undefined) {
     const gf = season.grand_finals;
-    if (!Array.isArray(gf.results)) err(at('grand_finals'), 'results 應為陣列');
-    if (!Array.isArray(gf.bracket)) err(at('grand_finals'), 'bracket 應為陣列');
+    if (!Array.isArray(gf.results)) {
+      err(at('grand_finals'), 'results 應為陣列');
+    } else {
+      if (gf.results.length !== 8) err(at('grand_finals.results'), `應為 8 人，得到 ${gf.results.length}`);
+      gf.results.forEach((result, i) => {
+        if (!Number.isInteger(result.rank) || ![1, 2, 3, 5].includes(result.rank)) err(at(`grand_finals.results[${i}]`), 'rank 應為 1 / 2 / 3 / 5（同輪淘汰者並列）');
+        if (!isStr(result.name)) err(at(`grand_finals.results[${i}]`), 'name 必填');
+      });
+    }
+    if (!Array.isArray(gf.bracket)) {
+      err(at('grand_finals'), 'bracket 應為陣列');
+    } else {
+      gf.bracket.forEach((match, i) => {
+        const where = at(`grand_finals.bracket[${i}]`);
+        if (!ROUNDS.includes(match.round)) err(where, `round 只能是 ${ROUNDS.join(' / ')}`);
+        if (!SLOTS.includes(match.slot)) err(where, 'slot 不在允許值域');
+        checkMatchSide(where, match.p1, 'p1');
+        checkMatchSide(where, match.p2, 'p2');
+        if (!isStr(match.winner)) err(where, 'winner 必填');
+        if (!isStr(match.loser)) err(where, 'loser 必填');
+      });
+    }
   }
 
   // 跨欄位一致性
@@ -214,9 +244,9 @@ function validateSeason(file, season) {
   if (season.status === 'upcoming' && season.qualifier?.length) {
     warn(at(), `status 為 upcoming 但已有 ${season.qualifier.length} 筆資格賽資料，是否該改為 in_progress`);
   }
-  if (season.status === 'finished' && !season.champion) {
-    warn(at(), 'status 為 finished 但 champion 為空（總決賽尚未納入資料管線）');
-  }
+  if (season.status === 'finished' && !season.champion) warn(at(), 'status 為 finished 但 champion 為空（總決賽資料未收錄）');
+  if (season.grand_finals && season.status !== 'finished') err(at(), '已有 grand_finals 時 status 必須為 finished');
+  if (season.grand_finals && season.collection?.grand_finals !== undefined && season.collection.grand_finals !== 'complete') err(at('collection.grand_finals'), '已有 grand_finals 時必須為 complete');
 }
 
 // 超級明星盃：選手配置表，無賽制欄位

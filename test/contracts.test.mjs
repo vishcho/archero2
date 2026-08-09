@@ -29,6 +29,19 @@ test('bracket advancement accepts legal and rejects illegal cases', () => {
   const broken = structuredClone(validGroup); broken.matches[4].p1.name = 'B';
   assert.ok(validateTournamentResults({ groups: [broken] }).some((e) => e.location.includes('/groups/1')));
 });
+test('grand finals reuse bracket validation and require eight group champions', () => {
+  const groups = ['A','C','E','G','I','K','M','O'].map((champion, index) => ({ id: index + 1, champion }));
+  const bracket = [
+    match('R1','A','A','C','A'), match('R1','B','E','G','E'), match('R1','C','I','K','I'), match('R1','D','M','O','M'),
+    match('R2','upper','A','E','A'), match('R2','lower','I','M','I'), match('決賽','final','A','I','A'),
+  ];
+  const ranks = [1, 2, 3, 3, 5, 5, 5, 5];
+  const results = ['A','I','E','M','C','G','K','O'].map((name, index) => ({ rank: ranks[index], name }));
+  const season = { groups, champion: 'A', grand_finals: { results, bracket } };
+  assert.deepEqual(validateTournamentResults(season), []);
+  season.champion = 'I';
+  assert.ok(validateTournamentResults(season).some((error) => error.location === '/grand_finals/bracket'));
+});
 test('previous summary derives only from player_id and preserves legacy snapshots', () => {
   assert.deepEqual(derivePreviousSummary({ groups: [validGroup] }, '1'), { prev_best: '1強', prev_time: '01:02.3' });
   assert.equal(derivePreviousSummary({ groups: [validGroup] }, null), null);

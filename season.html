@@ -1,329 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="img/fire.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>賽事詳情</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { background-color: #0f172a; color: #e2e8f0; }
-    .tab-btn { transition: all 0.2s; }
-    .tab-btn.active { background-color: #eab308; color: #0f172a; }
-    .prev-best-badge { font-size: 0.7rem; padding: 1px 6px; border-radius: 9999px; font-weight: 600; }
-  </style>
-</head>
-<body class="min-h-screen p-4 md:p-6">
-  <div class="max-w-5xl mx-auto">
-
-    <!-- Header -->
-    <div class="mb-6">
-      <a href="index.html" class="text-slate-400 hover:text-white text-sm mb-3 inline-block">← 返回列表</a>
-      <div class="flex items-center gap-3 flex-wrap">
-        <h1 id="title-date" class="text-2xl font-bold text-yellow-400"></h1>
-        <span id="title-status"></span>
-      </div>
-      <p id="title-theme" class="text-slate-400 text-sm mt-1"></p>
-      <p id="title-period" class="text-slate-500 text-xs mt-0.5"></p>
-    </div>
-
-    <!-- Tabs：僅明星盃（schema=season）使用；超級明星盃走 roster 單頁 -->
-    <div id="tabs" class="flex gap-2 mb-6 flex-wrap hidden">
-      <button class="tab-btn active px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="qualifier">資格賽排名</button>
-      <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="groups">淘汰賽對陣</button>
-      <button class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold bg-slate-700" data-tab="finals">總決賽</button>
-    </div>
-
-    <!-- Tab Content -->
-    <div id="tab-qualifier" class="hidden"></div>
-    <div id="tab-groups" class="hidden"></div>
-    <div id="tab-finals" class="hidden"></div>
-    <div id="roster" class="hidden"></div>
-  </div>
-
-  <script src="js/common.js"></script>
-  <script src="js/bracket-view-model.js"></script>
-  <script>
-    const params = new URLSearchParams(location.search);
-    const id = params.get('id');
-    // cup 省略時預設明星盃，維持舊有 season.html?id= 連結可用。
-    const cupSlug = params.get('cup') || DEFAULT_CUP;
-
-    function renderQualifier(data) {
-      const el = document.getElementById('tab-qualifier');
-      if (!data.qualifier || !data.qualifier.length) {
-        el.innerHTML = '<div class="text-slate-500 text-center py-12">尚無資格賽資料</div>';
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="img/fire.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>賽事詳情</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #e2e8f0;
       }
-      const hasTitle = data.qualifier.some(p => p.title);
-      el.innerHTML = `
-        <div class="bg-slate-800 rounded-xl overflow-hidden">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="bg-slate-700 text-slate-300 text-left">
-                <th class="px-4 py-3 w-12">排名</th>
-                <th class="px-4 py-3">玩家</th>
-                ${hasTitle ? '<th class="px-4 py-3">流派/稱號</th>' : ''}
-                <th class="px-4 py-3 text-right">通關時間</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${data.qualifier.map((p, i) => `
-                <tr class="${i % 2 === 0 ? 'bg-slate-800' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700">
-                  <td class="px-4 py-2.5 text-slate-400 font-mono">#${p.rank}</td>
-                  <td class="px-4 py-2.5 font-medium">${p.name}</td>
-                  ${hasTitle ? `<td class="px-4 py-2.5 text-slate-400">${p.title || '—'}</td>` : ''}
-                  <td class="px-4 py-2.5 text-right font-mono text-yellow-300">${p.time}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        </div>
-      `;
-    }
-
-    function renderGroups(data) {
-      const el = document.getElementById('tab-groups');
-      if (!data.groups || !data.groups.length) {
-        el.innerHTML = '<div class="text-slate-500 text-center py-12">尚無分組資料</div>';
-        return;
+      .tab-btn.active {
+        background-color: #eab308;
+        color: #0f172a;
       }
-      const header = `
-        <div class="mb-4 flex justify-end">
-          <a href="bracket.html?id=${data.id}" class="text-sm text-yellow-400 hover:underline">查看對陣圖 →</a>
-        </div>`;
-      el.innerHTML = header + data.groups.map(g => {
-        // 場次（A/B/C/D）依 matches 判定，不從陣列索引推導——players 順序不代表對陣位置。
-        const slots = playerSlotMap(g);
-        const hasRank = g.players.some(p => p.qualifier_rank != null);
-        const hasPrevBest = g.players.some(p => p.prev_best);
-        const hasPrevDetail = g.players.some(p => p.prev_power || p.prev_progress);
-        return `
-        <div class="bg-slate-800 border border-slate-700 rounded-xl mb-5 overflow-hidden">
-          <div class="bg-slate-700 px-4 py-2.5 font-bold text-yellow-300">第 ${g.id} 組</div>
-          <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="text-slate-400 text-left border-b border-slate-700">
-                <th class="px-4 py-2">場次</th>
-                ${hasRank ? '<th class="px-4 py-2">排名</th>' : ''}
-                <th class="px-4 py-2">玩家</th>
-                <th class="px-4 py-2 text-right">戰力</th>
-                <th class="px-4 py-2 text-right">資格賽時間</th>
-                ${hasPrevBest ? '<th class="px-4 py-2 text-right">上屆</th>' : ''}
-                ${hasPrevDetail ? '<th class="px-4 py-2 text-right">上屆戰力</th><th class="px-4 py-2 text-right">上屆成績</th>' : ''}
-              </tr>
-            </thead>
-            <tbody>
-              ${g.players.map((p, i) => `
-                <tr class="${i % 2 === 0 ? '' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700/50">
-                  <td class="px-4 py-2.5 text-slate-400 font-mono">${slots.get(p) || '—'}</td>
-                  ${hasRank ? `<td class="px-4 py-2.5 text-slate-400 font-mono">${p.qualifier_rank != null ? '#' + p.qualifier_rank : '—'}</td>` : ''}
-                  <td class="px-4 py-2.5 font-medium">${displayName(p)}</td>
-                  <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.power || '—'}</td>
-                  <td class="px-4 py-2.5 text-right text-yellow-300 font-mono">${p.qualifier_time || '—'}</td>
-                  ${hasPrevBest ? `<td class="px-4 py-2.5 text-right">${prevBadge(p.prev_best || '')}</td>` : ''}
-                  ${hasPrevDetail ? `
-                    <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.prev_power || '—'}</td>
-                    <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.prev_progress ? `${p.prev_progress}｜${p.prev_time || '未通關'}` : '—'}</td>` : ''}
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-          </div>
-          ${g.champion ? `
-            <div class="px-4 py-2 bg-slate-900 text-xs text-slate-400 flex gap-4">
-              <span>🏆 冠軍：<strong class="text-yellow-400">${g.champion}</strong></span>
-              <span>亞軍：<strong class="text-slate-300">${g.runner_up}</strong></span>
-            </div>
-          ` : ''}
+    </style>
+  </head>
+  <body class="min-h-screen p-4 md:p-6">
+    <main class="max-w-5xl mx-auto">
+      <a href="index.html" class="text-slate-400 hover:text-white text-sm"
+        >← 返回列表</a
+      >
+      <header class="my-5">
+        <div class="flex items-center gap-3 flex-wrap">
+          <h1 id="title" class="text-2xl font-bold text-yellow-400"></h1>
+          <span id="status"></span>
         </div>
-      `;
-      }).join('');
-    }
-
-    function renderFinals(data) {
-      const el = document.getElementById('tab-finals');
-      if (!data.grand_finals) {
-        el.innerHTML = data.status === 'finished'
-          ? '<div class="text-slate-500 text-center py-12">本屆總決賽資料尚未收錄</div>'
-          : '<div class="text-slate-500 text-center py-12">總決賽尚未開始</div>';
-        return;
-      }
-
-      const gf = data.grand_finals;
-      const roundOrder = [['R1', '8強'], ['R2', '4強'], ['決賽', '決賽']];
-
-      el.innerHTML = `
-        <div class="bg-slate-800 rounded-xl mb-5 overflow-hidden">
-          <div class="bg-slate-700 px-4 py-2.5 font-bold text-yellow-300">最終排名</div>
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="text-slate-400 text-left border-b border-slate-700">
-                <th class="px-4 py-2">名次</th>
-                <th class="px-4 py-2">玩家</th>
-                <th class="px-4 py-2 text-right">戰力</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${gf.results.map((p, i) => `
-                <tr class="${i % 2 === 0 ? '' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700/50">
-                  <td class="px-4 py-2.5 font-mono text-slate-300">
-                    ${p.rank === 1 ? '🏆 冠軍' : p.rank === 2 ? '🥈 亞軍' : p.rank <= 4 ? '🥉 4強' : '8強'}
-                  </td>
-                  <td class="px-4 py-2.5 font-medium ${p.rank === 1 ? 'text-yellow-400 font-bold' : ''}">${p.name}</td>
-                  <td class="px-4 py-2.5 text-right text-slate-300 font-mono">${p.power ?? '—'}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        </div>
-
-        <div class="bg-slate-800 rounded-xl overflow-hidden">
-          <div class="bg-slate-700 px-4 py-2.5 font-bold text-yellow-300">對戰路徑</div>
-          <div class="divide-y divide-slate-700">
-              ${roundOrder.map(([round, label]) => {
-              const matches = gf.bracket.filter(m => m.round === round);
-              if (!matches.length) return '';
-              return `
-                <div class="px-4 py-3">
-                  <div class="text-xs text-slate-500 mb-2 font-semibold uppercase tracking-wider">${label}</div>
-                  ${matches.map(m => `
-                    <div class="flex items-center gap-2 text-sm mb-1.5">
-                      <span class="${m.winner === m.p1.name ? 'text-white font-bold' : 'text-slate-500'}">${m.p1.name}</span>
-                      <span class="text-slate-600 text-xs">def</span>
-                      <span class="${m.winner === m.p2.name ? 'text-white font-bold' : 'text-slate-500'}">${m.p2.name}</span>
-                      <span class="ml-auto text-yellow-400 text-xs font-semibold">▶ ${m.winner}</span>
-                    </div>
-                  `).join('')}
-                </div>
-              `;
-            }).join('')}
-          </div>
-        </div>
-      `;
-    }
-
-    // 超級明星盃：目前只收錄選手配置，沒有資格賽／對陣資料，故以單一表格呈現。
-    // 品階字串（紅／金1–3／未知）在此上色，空值一律顯示 —，與「未知」區分：
-    // 「未知」＝查過但看不到，空值＝根本沒查到。
-    const TIER_CLASS = { '紅': 'text-red-400', '未知': 'text-slate-500' };
-
-    function tierCell(v) {
-      if (!v) return '<span class="text-slate-600">—</span>';
-      const cls = TIER_CLASS[v] || (v.startsWith('金') ? 'text-amber-300' : 'text-slate-300');
-      return `<span class="${cls} font-medium">${v}</span>`;
-    }
-
-    // 附魔品階色：紅 > 黃。顏色是詞條本身的屬性，與選手無關。
-    const ENCHANT_CLASS = { '紅': 'text-red-400', '黃': 'text-amber-300' };
-
-    function enchantCell(e) {
-      if (!e) return '<span class="text-slate-600">—</span>';
-      const cls = ENCHANT_CLASS[e.color] || 'text-slate-400';
-      const dot = e.color
-        ? `<span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5 align-middle ${e.color === '紅' ? 'bg-red-500' : 'bg-amber-400'}"></span>`
-        : '';
-      return `${dot}<span class="${cls}">${e.text}</span>`;
-    }
-
-    function renderRoster(cup, data) {
-      const el = document.getElementById('roster');
-      const roster = data.roster || [];
-      if (!roster.length) {
-        el.innerHTML = '<div class="text-slate-500 text-center py-12">尚無選手配置資料</div>';
-        return;
-      }
-      const maxEnchants = Math.max(...roster.map(p => (p.enchants || []).length));
-
-      el.innerHTML = `
-        ${data.notes?.length ? `
-          <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4 mb-5 text-xs text-slate-400 space-y-1">
-            ${data.notes.map(n => `<div>• ${n}</div>`).join('')}
-            <div class="pt-1 flex items-center gap-4 text-slate-500">
-              <span>附魔品階：</span>
-              <span><span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5 align-middle bg-red-500"></span><span class="text-red-400">紅</span></span>
-              <span><span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5 align-middle bg-amber-400"></span><span class="text-amber-300">黃</span></span>
-            </div>
-            <div class="pt-1 text-slate-500">紀錄時間：${data.recorded_at || '—'}｜來源：${data.source || '—'}</div>
-          </div>` : ''}
-        <div class="bg-slate-800 rounded-xl overflow-hidden">
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead>
-                <tr class="bg-slate-700 text-slate-300 text-left">
-                  <th class="px-3 py-3">ID</th>
-                  <th class="px-3 py-3">角色名稱</th>
-                  <th class="px-3 py-3 text-center">精靈威攝</th>
-                  <th class="px-3 py-3 text-center">精靈協戰</th>
-                  ${Array.from({ length: maxEnchants }, (_, i) => `<th class="px-3 py-3">附魔${i + 1}</th>`).join('')}
-                </tr>
-              </thead>
-              <tbody>
-                ${roster.map((p, i) => `
-                  <tr class="${i % 2 === 0 ? '' : 'bg-slate-750'} hover:bg-slate-700 border-t border-slate-700/50">
-                    <td class="px-3 py-2.5 text-slate-500 font-mono text-xs">${p.player_id || '—'}</td>
-                    <td class="px-3 py-2.5 font-medium whitespace-nowrap">${p.name}</td>
-                    <td class="px-3 py-2.5 text-center">${tierCell(p.spirit_awe)}</td>
-                    <td class="px-3 py-2.5 text-center">${tierCell(p.spirit_assist)}</td>
-                    ${Array.from({ length: maxEnchants }, (_, j) =>
-                      `<td class="px-3 py-2.5 text-xs">${enchantCell((p.enchants || [])[j])}</td>`
-                    ).join('')}
-                  </tr>
-                `).join('')}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      `;
-    }
-
-    function show(id) {
-      document.getElementById(id).classList.remove('hidden');
-    }
-
-    async function load() {
-      const cup = await fetchCup(cupSlug);
-      const data = await fetchSeason(id, cupSlug);
-      const accent = accentOf(cup);
-
-      document.title = `${data.date} ${cup.name}`;
-      const titleEl = document.getElementById('title-date');
-      const round = roundLabel(data);
-      titleEl.textContent = round ? `${cup.name} ${round}` : `${data.date} ${cup.name}`;
-      titleEl.className = `text-2xl font-bold ${accent.text}`;
-      // theme / season 皆可為 null（該屆無主題或尚未公布），整行隱藏而非印出 null。
-      const theme = themeLabel(data);
-      document.getElementById('title-theme').textContent = theme ? '主題：' + theme : '';
-      // 一屆橫跨預選賽與淘汰賽兩段期間，兩段都列出；id 只是識別碼，不代表起始日。
-      document.getElementById('title-period').textContent = periodLabel(data) ?? '';
-      document.getElementById('title-status').innerHTML = statusBadge(data.status);
-
-      // schema 決定呈現方式：season 走三分頁賽制，roster 走單張配置表。
-      if (cup.schema === 'season') {
-        show('tabs');
-        show('tab-qualifier');
-        renderQualifier(data);
-        renderGroups(data);
-        renderFinals(data);
-      } else {
-        show('roster');
-        renderRoster(cup, data);
-      }
-    }
-
-    // Tab switching
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        ['qualifier', 'groups', 'finals'].forEach(t => {
-          document.getElementById('tab-' + t).classList.toggle('hidden', t !== btn.dataset.tab);
-        });
-      });
-    });
-
-    load();
-  </script>
-</body>
+        <p id="theme" class="text-slate-400 text-sm mt-1"></p>
+        <p id="period" class="text-slate-500 text-xs mt-0.5"></p>
+      </header>
+      <div id="page-state"></div>
+      <nav id="tabs" class="hidden flex gap-2 mb-6 flex-wrap"></nav>
+      <section id="content"></section>
+    </main>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/domain.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/pages/season.js"></script>
+  </body>
 </html>

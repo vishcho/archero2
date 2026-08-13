@@ -16,9 +16,9 @@
 // 本檔以傳統 script 載入（無建置流程），測試透過 test/helpers/load-browser-script.mjs 匯入。
 
 const BRACKET_SLOTS = {
-  R1: ['A', 'B', 'C', 'D'],
-  R2: ['upper', 'lower'],
-  決賽: ['final'],
+  R1: ["A", "B", "C", "D"],
+  R2: ["upper", "lower"],
+  決賽: ["final"],
 };
 
 // match side 與 group player 的關聯規則（見 tmp/architecture-review.md 共識方案）：
@@ -34,19 +34,28 @@ function matchSideToPlayer(side, players) {
   const list = players || [];
   if (side && side.player_id) {
     const byId = list.filter((p) => p.player_id === side.player_id);
-    if (byId.length === 1) return { player: byId[0], match: 'id', candidates: byId };
+    if (byId.length === 1)
+      return { player: byId[0], match: "id", candidates: byId };
     // 有 ID 但對不上：不得 fallback 到名稱，否則同名者會被錯接。
-    if (byId.length > 1) return { player: null, match: 'id-duplicate', candidates: byId };
-    return { player: null, match: 'id-mismatch', candidates: [] };
+    if (byId.length > 1)
+      return { player: null, match: "id-duplicate", candidates: byId };
+    return { player: null, match: "id-mismatch", candidates: [] };
   }
   const named = list.filter((p) => p.name === (side && side.name));
-  if (named.length === 1) return { player: named[0], match: 'unique', candidates: named };
-  if (named.length > 1) return { player: null, match: 'ambiguous', candidates: named };
-  return { player: null, match: 'unmatched', candidates: [] };
+  if (named.length === 1)
+    return { player: named[0], match: "unique", candidates: named };
+  if (named.length > 1)
+    return { player: null, match: "ambiguous", candidates: named };
+  return { player: null, match: "unmatched", candidates: [] };
 }
 
 // 身分無法唯一確定的關聯結果——這些一律走降級顯示路徑。
-const DEGRADED_IDENTITIES = ['ambiguous', 'unmatched', 'id-mismatch', 'id-duplicate'];
+const DEGRADED_IDENTITIES = [
+  "ambiguous",
+  "unmatched",
+  "id-mismatch",
+  "id-duplicate",
+];
 
 function isDegradedIdentity(identity) {
   return DEGRADED_IDENTITIES.indexOf(identity) !== -1;
@@ -62,17 +71,17 @@ function buildCard(side, players, context, diagnostics) {
     const messages = {
       ambiguous: `「${side.name}」在該組對應 ${candidates.length} 位選手，無法確定身分，改用該場資料顯示`,
       unmatched: `「${side.name}」不在該組 players 中，改用該場資料顯示`,
-      'id-mismatch': `「${side.name}」的 player_id ${side.player_id} 不在該組 players 中，不退回名稱比對`,
-      'id-duplicate': `player_id ${side.player_id} 在該組對應 ${candidates.length} 位選手，資料有誤`,
+      "id-mismatch": `「${side.name}」的 player_id ${side.player_id} 不在該組 players 中，不退回名稱比對`,
+      "id-duplicate": `player_id ${side.player_id} 在該組對應 ${candidates.length} 位選手，資料有誤`,
     };
     const kinds = {
-      ambiguous: 'ambiguous-identity',
-      unmatched: 'unmatched-name',
-      'id-mismatch': 'id-mismatch',
-      'id-duplicate': 'duplicate-player-id',
+      ambiguous: "ambiguous-identity",
+      unmatched: "unmatched-name",
+      "id-mismatch": "id-mismatch",
+      "id-duplicate": "duplicate-player-id",
     };
     diagnostics.push({
-      severity: match === 'id-duplicate' ? 'error' : 'warning',
+      severity: match === "id-duplicate" ? "error" : "warning",
       kind: kinds[match],
       round: context.round,
       slot: context.slot,
@@ -88,7 +97,8 @@ function buildCard(side, players, context, diagnostics) {
     time: side.time != null ? side.time : null,
     progress: side.progress != null ? side.progress : null,
     qualifier_time: (player && player.qualifier_time) || null,
-    qualifier_rank: player && player.qualifier_rank != null ? player.qualifier_rank : null,
+    qualifier_rank:
+      player && player.qualifier_rank != null ? player.qualifier_rank : null,
     prev_best: (player && (player.prev_best || player.prev_progress)) || null,
     flag: (player && player.flag) || null,
     player_id: (player && player.player_id) || (side && side.player_id) || null,
@@ -106,16 +116,16 @@ function buildMatch(match, players, diagnostics) {
   const sameName = p1 && p2 && p1.name === p2.name;
   let winnerSide = null;
   if (!sameName) {
-    if (p1 && match.winner === p1.name) winnerSide = 'p1';
-    else if (p2 && match.winner === p2.name) winnerSide = 'p2';
+    if (p1 && match.winner === p1.name) winnerSide = "p1";
+    else if (p2 && match.winner === p2.name) winnerSide = "p2";
   }
   // 同名對戰時 winner 字串無法區分是誰勝出——現行 schema 下無解，
   // 必須明確標記而非靜默選一邊（見 2026-07-31 第 1 組 R2/upper 兩位「牛大力」）。
   const unverifiable = sameName;
   if (unverifiable) {
     diagnostics.push({
-      severity: 'warning',
-      kind: 'unverifiable-identity',
+      severity: "warning",
+      kind: "unverifiable-identity",
       round: match.round,
       slot: match.slot,
       name: match.winner,
@@ -148,8 +158,8 @@ function buildBracketViewModel(group) {
     // 同 round 同 slot 重複時保留第一筆並記錄；validator 會另行攔截。
     if (bySlot[match.round][match.slot]) {
       diagnostics.push({
-        severity: 'warning',
-        kind: 'duplicate-slot',
+        severity: "warning",
+        kind: "duplicate-slot",
         round: match.round,
         slot: match.slot,
         message: `${match.round}/${match.slot} 有多筆比賽，僅顯示第一筆`,
@@ -163,43 +173,73 @@ function buildBracketViewModel(group) {
     const built = buildMatch(bySlot.R1[slot], players, diagnostics);
     if (!built) {
       diagnostics.push({
-        severity: 'warning',
-        kind: 'missing-slot',
-        round: 'R1',
+        severity: "warning",
+        kind: "missing-slot",
+        round: "R1",
         slot,
         message: `缺少 R1/${slot}`,
       });
     }
-    return built || { round: 'R1', slot, p1: null, p2: null, winner: null, loser: null, winnerSide: null, unverifiableIdentity: false };
+    return (
+      built || {
+        round: "R1",
+        slot,
+        p1: null,
+        p2: null,
+        winner: null,
+        loser: null,
+        winnerSide: null,
+        unverifiableIdentity: false,
+      }
+    );
   });
 
   const r2 = BRACKET_SLOTS.R2.map((slot) => {
     const built = buildMatch(bySlot.R2[slot], players, diagnostics);
     if (!built) {
       diagnostics.push({
-        severity: 'warning',
-        kind: 'missing-slot',
-        round: 'R2',
+        severity: "warning",
+        kind: "missing-slot",
+        round: "R2",
         slot,
         message: `缺少 R2/${slot}`,
       });
     }
-    return built || { round: 'R2', slot, p1: null, p2: null, winner: null, loser: null, winnerSide: null, unverifiableIdentity: false };
+    return (
+      built || {
+        round: "R2",
+        slot,
+        p1: null,
+        p2: null,
+        winner: null,
+        loser: null,
+        winnerSide: null,
+        unverifiableIdentity: false,
+      }
+    );
   });
 
-  const final = buildMatch(bySlot['決賽'].final, players, diagnostics);
+  const final = buildMatch(bySlot["決賽"].final, players, diagnostics);
   if (!final) {
-    diagnostics.push({ severity: 'warning', kind: 'missing-slot', round: '決賽', slot: 'final', message: '缺少決賽' });
+    diagnostics.push({
+      severity: "warning",
+      kind: "missing-slot",
+      round: "決賽",
+      slot: "final",
+      message: "缺少決賽",
+    });
   }
 
   // 未出現在任何 R1 的 group player——通常代表該屆 players 與 matches 尚未對齊。
-  const r1Names = r1.flatMap((m) => [m.p1 && m.p1.name, m.p2 && m.p2.name]).filter(Boolean);
+  const r1Names = r1
+    .flatMap((m) => [m.p1 && m.p1.name, m.p2 && m.p2.name])
+    .filter(Boolean);
   for (const player of players) {
     if (r1Names.indexOf(player.name) === -1) {
       diagnostics.push({
-        severity: 'warning',
-        kind: 'player-not-in-r1',
-        round: 'R1',
+        severity: "warning",
+        kind: "player-not-in-r1",
+        round: "R1",
         slot: null,
         name: player.name,
         candidates: [player.player_id || null],
@@ -243,12 +283,12 @@ function deriveR2Sources(r1, r2, diagnostics) {
         assigned.push(from[0].slot);
       } else if (from.length > 1) {
         diagnostics.push({
-          severity: 'warning',
-          kind: 'ambiguous-advancement',
+          severity: "warning",
+          kind: "ambiguous-advancement",
           round: r2Match.round,
           slot: r2Match.slot,
           name: card.name,
-          message: `「${card.name}」同時是 ${from.map((m) => m.slot).join('、')} 的勝者，無法確定晉級來源`,
+          message: `「${card.name}」同時是 ${from.map((m) => m.slot).join("、")} 的勝者，無法確定晉級來源`,
         });
       }
     }
@@ -256,7 +296,8 @@ function deriveR2Sources(r1, r2, diagnostics) {
   // 補上無法反推的 slot，維持版面完整（缺 R2 資料的進行中屆次會走到這裡）。
   for (const slot of BRACKET_SLOTS.R1) {
     if (assigned.indexOf(slot) !== -1) continue;
-    const target = sources.upper.length <= sources.lower.length ? 'upper' : 'lower';
+    const target =
+      sources.upper.length <= sources.lower.length ? "upper" : "lower";
     sources[target].push(slot);
   }
   return sources;
@@ -305,11 +346,18 @@ function playerSlotMap(group) {
 // 這裡只檢查可驗證的部分：勝者必須晉級到某場 R2，且每場 R2 的參賽者都要有 R1 來源。
 function bracketAdvancementIssues(model) {
   const issues = [];
-  const r2Names = model.r2.flatMap((m) => [m.p1 && m.p1.name, m.p2 && m.p2.name]).filter(Boolean);
+  const r2Names = model.r2
+    .flatMap((m) => [m.p1 && m.p1.name, m.p2 && m.p2.name])
+    .filter(Boolean);
   for (const r1 of model.r1) {
     if (!r1.winner) continue;
     if (r2Names.indexOf(r1.winner) === -1) {
-      issues.push({ round: 'R1', slot: r1.slot, name: r1.winner, message: `R1/${r1.slot} 勝者 ${r1.winner} 未晉級任何 R2` });
+      issues.push({
+        round: "R1",
+        slot: r1.slot,
+        name: r1.winner,
+        message: `R1/${r1.slot} 勝者 ${r1.winner} 未晉級任何 R2`,
+      });
     }
   }
   const r1Winners = model.r1.map((m) => m.winner).filter(Boolean);
@@ -317,7 +365,12 @@ function bracketAdvancementIssues(model) {
     for (const card of [r2.p1, r2.p2]) {
       if (!card) continue;
       if (r1Winners.indexOf(card.name) === -1) {
-        issues.push({ round: 'R2', slot: r2.slot, name: card.name, message: `R2/${r2.slot} 的 ${card.name} 不是任何 R1 勝者` });
+        issues.push({
+          round: "R2",
+          slot: r2.slot,
+          name: card.name,
+          message: `R2/${r2.slot} 的 ${card.name} 不是任何 R1 勝者`,
+        });
       }
     }
   }

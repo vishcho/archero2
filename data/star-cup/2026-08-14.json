@@ -4,9 +4,21 @@
   "date": "2026/8/14",
   "theme": null,
   "season": null,
-  "qualifier_period": ["2026-08-10", "2026-08-13"],
-  "knockout_period": ["2026-08-14", "2026-08-21"],
+  "qualifier_period": [
+    "2026-08-10",
+    "2026-08-13"
+  ],
+  "knockout_period": [
+    "2026-08-14",
+    "2026-08-21"
+  ],
   "status": "upcoming",
+  "collection": {
+    "qualifier": "pending",
+    "knockout_matchup": "pending",
+    "knockout_results": "pending",
+    "grand_finals": "pending"
+  },
   "champion": null,
   "qualifier": [],
   "groups": [],

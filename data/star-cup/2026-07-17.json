@@ -4,9 +4,21 @@
   "date": "2026/7/17",
   "theme": null,
   "season": "精靈季",
-  "qualifier_period": ["2026-07-13", "2026-07-16"],
-  "knockout_period": ["2026-07-17", "2026-07-24"],
+  "qualifier_period": [
+    "2026-07-13",
+    "2026-07-16"
+  ],
+  "knockout_period": [
+    "2026-07-17",
+    "2026-07-24"
+  ],
   "status": "finished",
+  "collection": {
+    "qualifier": "complete",
+    "knockout_matchup": "complete",
+    "knockout_results": "complete",
+    "grand_finals": "missing"
+  },
   "champion": null,
   "qualifier": [
     {

@@ -8,8 +8,12 @@
 //   node tools/validate-season.mjs data/star-cup/2026-07-31.json
 //   node tools/validate-season.mjs --all
 //
-// 刻意不引入 JSON Schema 套件——本 repo 無相依套件、無建置流程，
-// 手寫檢查換來零安裝成本與更好的中文錯誤訊息。
+// 本檔負責 JSON Schema 表達不了的規則：seasons.json 與目錄的雙向對應、每組恰 8 人、
+// qualifier 排名遞增、status/champion/collection 的跨欄位關係、enchants 尾端不得為 null。
+//
+// 欄位型別與 enum 由 schemas/season.schema.json（ajv）驗，入口是 validate-contracts.mjs。
+// 本檔仍有一部分手寫檢查與 schema 重疊（TIME_RE、STATUS_VALUES 等），屬歷史遺留：
+// 這些常數早於 schemas/ 存在，尚未整併，重複驗證只會讓同一錯誤被報兩次，不影響正確性。
 
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';

@@ -5,19 +5,26 @@
   "batches": {
     "qualifier-rank": {
       "path": "qualifier-rank",
-      "evidence_status": "original"
+      "evidence_status": "original",
+      "captured_at": "2026-08-09T21:58:00+08:00"
     },
     "knockout-matchup": {
       "path": "knockout-matchup",
-      "evidence_status": "original"
+      "evidence_status": "original",
+      "captured_at": "2026-07-31T10:21:55+08:00"
     },
     "knockout-results": {
       "path": "knockout-results",
-      "evidence_status": "original"
+      "evidence_status": "missing"
     },
     "grand-finals-results": {
       "path": "grand-finals-results",
-      "evidence_status": "original"
+      "evidence_status": "missing"
+    },
+    "top64-profile": {
+      "path": "top64-profile",
+      "evidence_status": "original",
+      "captured_at": "2026-08-09T21:58:00+08:00"
     }
   }
 }

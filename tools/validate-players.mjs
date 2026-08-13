@@ -8,7 +8,12 @@
 //   node tools/validate-players.mjs                       # 預設驗 data/players.json
 //   node tools/validate-players.mjs data/players.json
 //
-// 與 validate-season.mjs 一樣刻意不引入 JSON Schema 套件（本 repo 無相依套件）。
+// 本檔負責 JSON Schema 表達不了的規則：物件 key 必須等於該筆的 player_id、
+// seasons[] 的每個屆次都要有對應的 data/{cup}/{id}.json、累積型欄位跨屆不得倒退、
+// ocr_variants 不得與 names 重疊、顯示名稱重複偵測（warning）。
+//
+// 欄位型別由 schemas/players.schema.json（ajv）驗，入口是 validate-contracts.mjs。
+// 與 validate-season.mjs 同樣有部分手寫檢查與 schema 重疊，屬未整併的歷史遺留。
 
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';

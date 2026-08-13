@@ -90,7 +90,7 @@ mkdir -p screenshots/star-cup/2026-08-14-round5-{matchup,rank,top64,results}
 | round1 | matchup / rank / top64 | 當時流程只拍賽後結果，賽前批次不存在 |
 | round2 | rank / top64 | `rank` 批次當時未納入流程；`top64` 尚未發明 |
 | round3 | top64 | `top64` 尚未發明 |
-| round4 | matchup / rank | **圖已遺失**：原為 Telegram 轉存的 `photo_*.jpg`，未落到本目錄。資料已完整抽取進 `data/star-cup/2026-07-31.json`，僅損失重驗能力 |
+| round4 | knockout-results / grand-finals-results | 本機無這兩批原圖（`data/` 的逐場結果來自 2026-08-06 的 `2026-08-06-round4-results` 舊式目錄）。matchup/rank/top64 已於 2026-08-13 自 Syncthing 來源找回 |
 
 `top64` 自 round4（2026-08-09）起納入流程，之前的輪次沒有這批是預期內的。
 

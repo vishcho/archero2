@@ -12,19 +12,34 @@ const match = (round, slot, a, b, winner) => ({
   round, slot, p1: side(a), p2: side(b), winner, loser: winner === a ? b : a,
 });
 
-// 一組結構完整、無歧義的對陣，作為多數測試的基準。
-const cleanGroup = {
-  id: 1,
-  players: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].map((name, i) => ({
-    name, player_id: String(100 + i), prev_best: '8強', qualifier_rank: i + 1,
-  })),
-  matches: [
-    match('R1', 'A', 'A', 'B', 'A'), match('R1', 'B', 'C', 'D', 'C'),
-    match('R1', 'C', 'E', 'F', 'E'), match('R1', 'D', 'G', 'H', 'G'),
+const eightPlayers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].map((name, i) => ({
+  name, player_id: String(100 + i), prev_best: '8強', qualifier_rank: i + 1,
+}));
+
+const R1_MATCHES = [
+  match('R1', 'A', 'A', 'B', 'A'), match('R1', 'B', 'C', 'D', 'C'),
+  match('R1', 'C', 'E', 'F', 'E'), match('R1', 'D', 'G', 'H', 'G'),
+];
+
+// 實測資料存在兩套晉級路徑，各佔 16/32 組。兩者都必須被支援，
+// 不可假設任一套是全域規則——這正是 PR 1 首版遺漏的缺陷。
+// A/B → upper、C/D → lower（2026-06-19、2026-07-17）
+const groupAB = {
+  id: 1, players: eightPlayers,
+  matches: [...R1_MATCHES,
     match('R2', 'upper', 'A', 'C', 'A'), match('R2', 'lower', 'E', 'G', 'E'),
-    match('決賽', 'final', 'A', 'E', 'A'),
-  ],
+    match('決賽', 'final', 'A', 'E', 'A')],
 };
+
+// A/C → upper、B/D → lower（2026-07-03、2026-07-31）
+const groupAC = {
+  id: 1, players: eightPlayers,
+  matches: [...R1_MATCHES,
+    match('R2', 'upper', 'A', 'E', 'A'), match('R2', 'lower', 'C', 'G', 'C'),
+    match('決賽', 'final', 'A', 'C', 'A')],
+};
+
+const cleanGroup = groupAB;
 
 test('bracket 結構完全由 matches 的 round/slot 決定，與 players 順序無關', () => {
   const model = buildBracketViewModel(cleanGroup);
@@ -65,6 +80,31 @@ test('player_id 存在時優先以 id 關聯，不受同名影響', () => {
   const hit = matchSideToPlayer({ name: '同名', player_id: '2' }, players);
   assert.equal(hit.match, 'id');
   assert.equal(hit.player.prev_best, '64強');
+});
+
+test('side 有 player_id 但找不到時不得退回名稱關聯', () => {
+  // 名稱相同、ID 不同——若 fallback 到名稱就會錯接成另一位玩家。
+  const players = [{ name: '牛大力', player_id: '101474994', prev_best: '1強', qualifier_rank: 3 }];
+  const result = matchSideToPlayer({ name: '牛大力', player_id: '102045250' }, players);
+  assert.equal(result.match, 'id-mismatch');
+  assert.equal(result.player, null, '有 player_id 時只能以 ID 判定身分');
+
+  const group = { id: 1, players, matches: [match('R1', 'A', '牛大力', '對手', '牛大力')] };
+  group.matches[0].p1.player_id = '102045250';
+  const model = buildBracketViewModel(group);
+  const card = model.r1[0].p1;
+  assert.equal(card.identity, 'id-mismatch');
+  assert.equal(card.prev_best, null, '不得沿用同名玩家的屬性');
+  assert.equal(card.qualifier_rank, null);
+  assert.equal(card.player_id, '102045250', 'side 自身的 ID 仍須保留');
+  assert.ok(model.diagnostics.some((d) => d.kind === 'id-mismatch'));
+});
+
+test('同一 player_id 在組內重複時視為資料錯誤', () => {
+  const players = [{ name: 'X', player_id: '1' }, { name: 'Y', player_id: '1' }];
+  const result = matchSideToPlayer({ name: 'X', player_id: '1' }, players);
+  assert.equal(result.match, 'id-duplicate');
+  assert.equal(result.player, null);
 });
 
 test('名稱歧義時降級顯示且不猜測身分（共識規則 3、7）', () => {
@@ -142,12 +182,40 @@ test('空 groups 與缺 matches 不丟例外', () => {
   }
 });
 
-test('晉級路徑檢查可偵測 R1 勝者未進入對應 R2', () => {
-  assert.deepEqual(bracketAdvancementIssues(buildBracketViewModel(cleanGroup)), []);
-  const broken = structuredClone(cleanGroup);
-  broken.matches[4].p1 = side('B'); // A 勝出卻由 B 進入 R2/upper
+test('晉級路徑檢查可偵測 R1 勝者未進入任何 R2', () => {
+  assert.deepEqual(bracketAdvancementIssues(buildBracketViewModel(groupAB)), []);
+  assert.deepEqual(bracketAdvancementIssues(buildBracketViewModel(groupAC)), [],
+    'A/C 路徑是合法資料，不得被誤報');
+  const broken = structuredClone(groupAB);
+  broken.matches[4].p1 = side('B'); // A 勝出卻由 B 進入 R2
   const issues = bracketAdvancementIssues(buildBracketViewModel(broken));
-  assert.ok(issues.some((i) => i.slot === 'upper' && i.name === 'A'));
+  assert.ok(issues.some((i) => i.name === 'A'), 'A 未晉級任何 R2');
+  assert.ok(issues.some((i) => i.name === 'B'), 'B 不是任何 R1 勝者');
+});
+
+test('R2 晉級來源逐組反推：A/B → upper', () => {
+  const model = buildBracketViewModel(groupAB);
+  assert.deepEqual(model.r2Sources.upper.slice().sort(), ['A', 'B']);
+  assert.deepEqual(model.r2Sources.lower.slice().sort(), ['C', 'D']);
+  // 版面：接 upper 的兩對畫在上半（左上 / 右上）
+  assert.deepEqual([model.layout.leftTop, model.layout.rightTop].sort(), ['A', 'B']);
+  assert.deepEqual([model.layout.leftBottom, model.layout.rightBottom].sort(), ['C', 'D']);
+});
+
+test('R2 晉級來源逐組反推：A/C → upper', () => {
+  const model = buildBracketViewModel(groupAC);
+  assert.deepEqual(model.r2Sources.upper.slice().sort(), ['A', 'C']);
+  assert.deepEqual(model.r2Sources.lower.slice().sort(), ['B', 'D']);
+  assert.deepEqual([model.layout.leftTop, model.layout.rightTop].sort(), ['A', 'C'],
+    '接 R2 upper 的必須畫在版面上半');
+  assert.deepEqual([model.layout.leftBottom, model.layout.rightBottom].sort(), ['B', 'D']);
+});
+
+test('缺 R2 資料時 layout 仍完整，不留空位', () => {
+  const noR2 = { id: 1, players: eightPlayers, matches: R1_MATCHES };
+  const model = buildBracketViewModel(noR2);
+  const slots = [model.layout.leftTop, model.layout.leftBottom, model.layout.rightTop, model.layout.rightBottom];
+  assert.deepEqual(slots.slice().sort(), ['A', 'B', 'C', 'D'], '四個 R1 slot 都必須有位置');
 });
 
 // ── 以真實資料回歸驗證：view model 必須重現 matches，而非索引規則 ──
@@ -187,6 +255,50 @@ test('2026-07-31 第 1 組：修正前用索引規則會畫錯，view model 必�
   assert.equal(upper.unverifiableIdentity, true);
   assert.equal(model.championUnverifiable, false, '決賽對手不同名，冠軍身分可判定');
   assert.equal(model.champion, 'LD丨힘');
+});
+
+test('四屆真實資料：R2 對戰與 matches 完全一致', async () => {
+  for (const id of SEASONS) {
+    const season = await readJson(dataPath('star-cup', `${id}.json`));
+    for (const group of season.groups) {
+      const model = buildBracketViewModel(group);
+      const expected = group.matches
+        .filter((m) => m.round === 'R2')
+        .map((m) => [m.slot, m.p1.name, m.p2.name])
+        .sort();
+      const actual = model.r2
+        .filter((m) => m.p1 || m.p2)
+        .map((m) => [m.slot, m.p1 && m.p1.name, m.p2 && m.p2.name])
+        .sort();
+      assert.deepEqual(actual, expected, `${id} 第 ${group.id} 組的 R2 必須完全來自 matches`);
+    }
+  }
+});
+
+test('四屆真實資料：版面上半必須接 R2 upper（兩套晉級路徑都要正確）', async () => {
+  const seen = new Set();
+  for (const id of SEASONS) {
+    const season = await readJson(dataPath('star-cup', `${id}.json`));
+    for (const group of season.groups) {
+      const model = buildBracketViewModel(group);
+      const upperMatch = model.r2.find((m) => m.slot === 'upper');
+      if (!upperMatch || !upperMatch.p1 || !upperMatch.p2) continue;
+      const topSlots = [model.layout.leftTop, model.layout.rightTop];
+      const topWinners = topSlots
+        .map((slot) => model.r1.find((m) => m.slot === slot))
+        .filter(Boolean)
+        .map((m) => m.winner);
+      const upperNames = [upperMatch.p1.name, upperMatch.p2.name];
+      for (const winner of topWinners) {
+        assert.ok(upperNames.indexOf(winner) !== -1,
+          `${id} 第 ${group.id} 組：畫在上半的 ${winner} 必須是 R2/upper 的參賽者`);
+      }
+      seen.add(topSlots.slice().sort().join('/'));
+    }
+  }
+  // 確認兩套路徑都真的出現在資料中，否則這個測試等於沒驗到分歧。
+  assert.ok(seen.has('A/B'), '資料中應存在 A/B → upper 的組');
+  assert.ok(seen.has('A/C'), '資料中應存在 A/C → upper 的組');
 });
 
 test('season 場次欄依 matches 判定，歧義時留白不猜測', async () => {

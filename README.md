@@ -344,7 +344,8 @@ player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 
 ### 明星盃
 
-1. 在 `data/star-cup/` 新增 `{id}.json`（複製上一屆改內容，注意 players 要照對陣位置排序）
+1. 在 `data/star-cup/` 新增 `{id}.json`（複製上一屆改內容；`players` 保留截圖中的籤位順序，
+   對陣關係一律填入 `groups[].matches`，不得由 `players` 陣列位置推導）
    - `id` 必須等於 `knockout_period[0]`，`round` 為上一屆 +1
    - 賽事還沒開始就先建檔時，`status` 用 `upcoming`、`qualifier` 與 `groups` 留空陣列
 2. 在 `data/star-cup/seasons.json` 尾端加上新 id

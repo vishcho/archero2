@@ -23,17 +23,18 @@
   <script src="js/common.js"></script>
   <script src="js/bracket-view-model.js"></script>
   <script>
-    // 對陣結構一律由 groups[].matches 的 round/slot 決定，不從 players 陣列位置推導——
-    // 各屆的 players 排列規則並不一致，索引推導必然畫錯某些屆次。
-    // 版面配置（左右各四張卡）維持原樣，只是資料來源換成 view model：
-    //   左側 = R1 slot A、C 的雙方；右側 = R1 slot B、D 的雙方
-    //   準決賽（上半）= R2 upper、（下半）= R2 lower、中央 = 決賽勝者
+    // 對陣結構一律由 groups[].matches 的 round/slot 決定，不從 players 陣列位置推導，
+    // 也不假設固定的 R1→R2 晉級路徑——實測四屆存在兩套路徑（A/B→upper 與 A/C→upper），
+    // 任何硬編碼排列都會畫錯其中一半。版面順序由 view model 的 layout 決定：
+    //   左上、右上 → 接 R2 upper；左下、右下 → 接 R2 lower；中央 = 決賽勝者
     function renderBracket(group) {
       const vm = buildBracketViewModel(group);
-      const slot = (list, name) => list.find((m) => m.slot === name);
-      // 左上、左下、右上、右下四組配對，對應 R1 的 A/C/B/D。
-      const pairs = [slot(vm.r1, 'A'), slot(vm.r1, 'C'), slot(vm.r1, 'B'), slot(vm.r1, 'D')];
-      // 卡片順序：左側 0..3（A 雙方、C 雙方）、右側 4..7（B 雙方、D 雙方）
+      const slot = (name) => (name ? vm.r1.find((m) => m.slot === name) : null);
+      const pairs = [
+        slot(vm.layout.leftTop), slot(vm.layout.leftBottom),
+        slot(vm.layout.rightTop), slot(vm.layout.rightBottom),
+      ];
+      // 卡片順序：左側 0..3（左上配對雙方、左下配對雙方）、右側 4..7（右上、右下）
       const p = [
         pairs[0] && pairs[0].p1, pairs[0] && pairs[0].p2,
         pairs[1] && pairs[1].p1, pairs[1] && pairs[1].p2,
@@ -87,7 +88,7 @@
         const bs = PREV_BADGE_STYLE[badgeVal] || 'background:#374151;color:#9ca3af';
         const rank = pl.qualifier_rank != null ? `#${pl.qualifier_rank} ` : '';
         // 身分無法確定時加註記號，讓畫面與稽核結果一致，不假裝資料完整。
-        const mark = (pl.identity === 'ambiguous' || pl.identity === 'unmatched')
+        const mark = isDegradedIdentity(pl.identity)
           ? `<span title="無法唯一對應選手名單" style="color:#64748b;font-size:9px;margin-left:3px;">◦</span>`
           : '';
         return `

@@ -89,14 +89,19 @@ test("ambiguous same-name winners are explicitly unverifiable", () => {
 });
 test("R1 diagnostics use real match indexes and avoid duplicate-name count noise", () => {
   const shuffled = structuredClone(validGroup);
-  shuffled.players = [{ name: "同名" }, { name: "同名" }, ...shuffled.players];
+  shuffled.players = [
+    { name: "同名", player_id: "same-1" },
+    { name: "同名", player_id: "same-2" },
+    ...shuffled.players,
+  ];
   shuffled.matches = [
     match("R2", "upper", "A", "C", "A"),
     match("R1", "A", "A", "缺少名冊", "A"),
+    match("R1", "B", "同名", "同名", "同名"),
     ...shuffled.matches.filter(
       (item) =>
         !(item.round === "R2" && item.slot === "upper") &&
-        !(item.round === "R1" && item.slot === "A"),
+        !(item.round === "R1" && (item.slot === "A" || item.slot === "B")),
     ),
   ];
   const diagnostics = validateTournamentResults({ groups: [shuffled] });

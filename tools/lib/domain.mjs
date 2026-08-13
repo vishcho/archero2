@@ -92,9 +92,16 @@ export function validateBracket(
     }
   }
   for (const player of players) {
+    const sameNamePlayers = players.filter(
+      (candidate) => candidate.name === player.name,
+    );
+    const hasUnidentifiedSameNameSide = r1Sides.some(
+      (side) => !side?.player_id && side?.name === player.name,
+    );
+    if (sameNamePlayers.length > 1 && hasUnidentifiedSameNameSide) continue;
     const identityCandidates = player.player_id
       ? players.filter((candidate) => candidate.player_id === player.player_id)
-      : players.filter((candidate) => candidate.name === player.name);
+      : sameNamePlayers;
     if (identityCandidates.length > 1) continue;
     const appearances = r1Sides.filter((side) =>
       player.player_id && side?.player_id

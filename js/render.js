@@ -46,6 +46,17 @@ function statusBadgeNode(status) {
   });
 }
 
+function tableCell(value) {
+  if (value instanceof Node) return value;
+  if (value && typeof value === "object" && "content" in value) {
+    const cell = element("td", { className: value.className || "px-3 py-2.5" });
+    if (value.content instanceof Node) cell.append(value.content);
+    else cell.textContent = value.content ?? "—";
+    return cell;
+  }
+  return element("td", { className: "px-3 py-2.5", text: value ?? "—" });
+}
+
 function createTable(headers, rows) {
   const table = element("table", { className: "w-full text-sm" });
   const head = element("thead");
@@ -66,9 +77,7 @@ function createTable(headers, rows) {
         {
           className: `${index % 2 ? "bg-slate-750" : ""} border-t border-slate-700/50`,
         },
-        cells.map((cell) =>
-          element("td", { className: "px-3 py-2.5", text: cell ?? "—" }),
-        ),
+        cells.map(tableCell),
       ),
     );
   });

@@ -194,7 +194,8 @@
       "FLEX2Rfx"
     ],
     "ocr_variants": [
-      "FLEX2R^fx"
+      "FLEX2R^fx",
+      "FLEX2Rᶠˣ"
     ],
     "guild": "FLΞX",
     "seasons": {
@@ -308,6 +309,7 @@
       "단별ll헌쿈"
     ],
     "ocr_variants": [
+      "단벌ll헌쿈",
       "단별ll헌쿤"
     ],
     "guild": "단별",
@@ -404,7 +406,8 @@
       "LD丨팡대ꕥ"
     ],
     "ocr_variants": [
-      "LD丨팡대ㅎㅎ"
+      "LD丨팡대ㅎㅎ",
+      "LD｜팡대ᴰᴳ"
     ],
     "guild": "레전더리",
     "seasons": {
@@ -470,7 +473,8 @@
       "LD | 힘"
     ],
     "ocr_variants": [
-      "LD丨힝"
+      "LD丨힝",
+      "LD｜항"
     ],
     "guild": "레전더리",
     "seasons": {
@@ -647,7 +651,8 @@
       "ᴬᴷ나츠"
     ],
     "ocr_variants": [
-      "I매I사냥"
+      "I매I사냥",
+      "I매I사랑"
     ],
     "guild": "ARKΛ",
     "seasons": {
@@ -684,7 +689,10 @@
         "captured": "2026-08-09",
         "source": "Screenshot_20260809-011308.png"
       }
-    }
+    },
+    "ocr_variants": [
+      "옥정"
+    ]
   },
   "101792517": {
     "player_id": "101792517",
@@ -782,7 +790,8 @@
       "荃雉瓏"
     ],
     "ocr_variants": [
-      "荃雄瓏"
+      "荃雄瓏",
+      "荃雄矓"
     ],
     "guild": "幸運轉向17",
     "seasons": {
@@ -1011,7 +1020,10 @@
         "captured": "2026-08-09",
         "source": "Screenshot_20260809-012212.png"
       }
-    }
+    },
+    "ocr_variants": [
+      "杏仁露貴花"
+    ]
   },
   "101888455": {
     "player_id": "101888455",
@@ -1064,6 +1076,7 @@
       "AK베라"
     ],
     "ocr_variants": [
+      "I매I진",
       "I매진"
     ],
     "guild": "ARKΛ",
@@ -1209,7 +1222,10 @@
         "captured": "2026-08-09",
         "source": "Screenshot_20260809-011651.png"
       }
-    }
+    },
+    "ocr_variants": [
+      "秦融"
+    ]
   },
   "101988548": {
     "player_id": "101988548",
@@ -1259,7 +1275,8 @@
       "龍×콰트"
     ],
     "ocr_variants": [
-      "龍×과트"
+      "龍×과트",
+      "龍×라트"
     ],
     "guild": "용기사",
     "seasons": {
@@ -1403,6 +1420,9 @@
         "captured": "2026-08-09",
         "source": "Screenshot_20260809-011558.png"
       }
-    }
+    },
+    "ocr_variants": [
+      "瑪法里恩中鳳"
+    ]
   }
 }

@@ -7,6 +7,9 @@ import { loadBrowserScript } from "../test/helpers/load-browser-script.mjs";
 const { buildBracketViewModel } = await loadBrowserScript("js/domain.js");
 const json = process.argv.includes("--json");
 const dataDir = path.join("data", "star-cup");
+const baseline = JSON.parse(
+  await readFile(path.join("tools", "bracket-audit-baseline.json"), "utf8"),
+);
 const ids = JSON.parse(
   await readFile(path.join(dataDir, "seasons.json"), "utf8"),
 );
@@ -84,6 +87,9 @@ const report = {
   diagnostics,
   indexRules,
 };
+const baselineDrift = Object.entries(baseline.counts).filter(
+  ([key, expected]) => report.counts[key] !== expected,
+);
 
 if (json) {
   console.log(JSON.stringify(report, null, 2));
@@ -111,4 +117,16 @@ if (json) {
         `${item.differingGroups} differ`,
     );
   }
+}
+
+if (baselineDrift.length) {
+  console.error(
+    `Bracket audit baseline drift: ${baselineDrift
+      .map(
+        ([key, expected]) =>
+          `${key} expected ${expected}, got ${report.counts[key]}`,
+      )
+      .join("; ")}`,
+  );
+  process.exitCode = 1;
 }

@@ -1,0 +1,8 @@
+{
+  "description": "Legacy identity gaps pending player_id migration. Update only with reviewed evidence.",
+  "counts": {
+    "unique": 400,
+    "ambiguous": 5,
+    "unmatched": 43
+  }
+}

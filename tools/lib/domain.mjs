@@ -65,15 +65,25 @@ export function validateBracket(
       );
     }
   }
-  const r1Sides = rounds.R1.flatMap((match) => [match.p1, match.p2]);
-  for (const [index, side] of players.length ? r1Sides.entries() : []) {
+  const r1Entries = matches.flatMap((match, matchIndex) =>
+    match.round === "R1"
+      ? [
+          { side: match.p1, matchIndex, sideName: "p1" },
+          { side: match.p2, matchIndex, sideName: "p2" },
+        ]
+      : [],
+  );
+  const r1Sides = r1Entries.map((entry) => entry.side);
+  for (const { side, matchIndex, sideName } of players.length
+    ? r1Entries
+    : []) {
     const candidates = side?.player_id
       ? players.filter((player) => player.player_id === side.player_id)
       : players.filter((player) => player.name === side?.name);
     if (candidates.length !== 1) {
       add(
         "warning",
-        `${location}/R1/${index}`,
+        `${location}/${matchIndex}/${sideName}`,
         candidates.length
           ? `R1 選手「${side?.name}」對應 ${candidates.length} 筆 player，身分無法驗證`
           : `R1 選手「${side?.name}」未對應 group player`,
@@ -82,6 +92,10 @@ export function validateBracket(
     }
   }
   for (const player of players) {
+    const identityCandidates = player.player_id
+      ? players.filter((candidate) => candidate.player_id === player.player_id)
+      : players.filter((candidate) => candidate.name === player.name);
+    if (identityCandidates.length > 1) continue;
     const appearances = r1Sides.filter((side) =>
       player.player_id && side?.player_id
         ? player.player_id === side.player_id
@@ -135,12 +149,12 @@ export function validateBracket(
 
 export function validateTournamentResults(season, file = "<season>") {
   const errors = [];
-  for (const group of season.groups ?? []) {
+  for (const [groupIndex, group] of (season.groups ?? []).entries()) {
     if (!group.matches) continue;
     errors.push(
       ...validateBracket(group.matches, {
         file,
-        location: `/groups/${group.id}/matches`,
+        location: `/groups/${groupIndex}/matches`,
         champion: group.champion,
         runnerUp: group.runner_up,
         players: group.players,

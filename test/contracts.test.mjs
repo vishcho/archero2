@@ -70,7 +70,7 @@ test("bracket advancement accepts legal and rejects illegal cases", () => {
   broken.matches[4].p1.name = "B";
   assert.ok(
     validateTournamentResults({ groups: [broken] }).some((e) =>
-      e.location.includes("/groups/1"),
+      e.location.includes("/groups/0"),
     ),
   );
 });
@@ -86,6 +86,34 @@ test("ambiguous same-name winners are explicitly unverifiable", () => {
   group.matches[4] = match("R2", "upper", "牛大力", "牛大力", "牛大力");
   const diagnostics = validateTournamentResults({ groups: [group] });
   assert.ok(diagnostics.some((item) => item.kind === "unverifiable-identity"));
+});
+test("R1 diagnostics use real match indexes and avoid duplicate-name count noise", () => {
+  const shuffled = structuredClone(validGroup);
+  shuffled.players = [{ name: "同名" }, { name: "同名" }, ...shuffled.players];
+  shuffled.matches = [
+    match("R2", "upper", "A", "C", "A"),
+    match("R1", "A", "A", "缺少名冊", "A"),
+    ...shuffled.matches.filter(
+      (item) =>
+        !(item.round === "R2" && item.slot === "upper") &&
+        !(item.round === "R1" && item.slot === "A"),
+    ),
+  ];
+  const diagnostics = validateTournamentResults({ groups: [shuffled] });
+  assert.ok(
+    diagnostics.some(
+      (item) =>
+        item.kind === "unmatched-name" &&
+        item.location === "/groups/0/matches/1/p2",
+    ),
+  );
+  assert.equal(
+    diagnostics.filter(
+      (item) =>
+        item.kind === "player-r1-count" && item.message.includes("同名"),
+    ).length,
+    0,
+  );
 });
 test("season schema accepts player_id and rejects side or match drift", async () => {
   const valid = await readJson(path.join(fixtures, "season.valid.json"));

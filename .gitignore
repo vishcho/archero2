@@ -1,6 +1,8 @@
 .DS_Store
 Thumbs.db
 node_modules/
+playwright-report/
+test-results/
 
 # 截圖本身不進 git（大檔、且只有本機分析需要），但追蹤每屆 manifest，
 # 讓沒有原圖的 clone 仍能讀取批次種類、證據狀態與拍攝來源資訊。

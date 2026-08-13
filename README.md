@@ -237,7 +237,13 @@ archero2/
 
 #### `groups[].players` 的排序約定（重要）
 
-**陣列順序 = 對陣位置**，`bracket.html` 和 `season.html` 的場次標籤都依此推導：
+**對陣關係的唯一真實來源是 `groups[].matches`**，不是 `players` 的陣列位置。
+`bracket.html` 自 2026-08-13 起改由 `js/bracket-view-model.js` 依 `matches[].round` /
+`matches[].slot` 決定對陣結構，`players` 只用來補顯示屬性（`prev_best`、`qualifier_rank`、`flag`）。
+
+`groups[].players` 的順序仍**不可排序**（它是籤位，不是名次），但不要用它推導「哪兩格對打」。
+
+歷史上曾假設下列索引約定，**該假設已被證明不成立**，僅保留供理解舊資料：
 
 ```
 players[0..3] = 對陣圖左側（上→下）、players[4..7] = 右側（上→下）
@@ -257,9 +263,10 @@ players[0..3] = 對陣圖左側（上→下）、players[4..7] = 右側（上→
 
 沒有任何一種對應能同時解釋四屆——2026-07-31 是交錯索引，其餘三屆偏向循序但都有例外。
 成因未確認（可能是不同屆抽取時採用不同判讀，或截圖版面本身有變）。
-**這代表 `bracket.html` 對早期屆次畫出的 R1 配對，與 `matches` 的實際對戰未必一致。**
-`groups[].players` 的順序仍不可排序（它是籤位而非名次），但「哪兩格對打」目前只有
-`matches` 是可信的。驗證器不檢查位置語意，此不一致不會被 `npm run check` 攔下。
+
+**此問題已於 2026-08-13 修正**：`bracket.html` 不再依索引推導對戰，改讀 `matches`，
+因此上表的差異不再影響畫面。`test/bracket-view-model.test.mjs` 對四屆實際資料回歸驗證
+R1 配對與 `matches` 完全一致。歷史 `players` 順序本身尚未修正（需截圖佐證，見 PR 2 規劃）。
 
 player 欄位（除 `name` 外皆選填，缺值頁面顯示 `—`）：
 

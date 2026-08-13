@@ -21,14 +21,25 @@
   </div>
 
   <script src="js/common.js"></script>
+  <script src="js/bracket-view-model.js"></script>
   <script>
-    // groups[].players 依對陣位置排序（見 README「資料格式」）：
-    //   players[0..3] = 左側（上→下）、players[4..7] = 右側（上→下）
-    //   準決賽（上半）：[0]v[1] 勝者 vs [4]v[5] 勝者
-    //   準決賽（下半）：[2]v[3] 勝者 vs [6]v[7] 勝者
-    //   組決賽：上半勝者 vs 下半勝者
-    function renderBracket(g) {
-      const p = g.players;
+    // 對陣結構一律由 groups[].matches 的 round/slot 決定，不從 players 陣列位置推導——
+    // 各屆的 players 排列規則並不一致，索引推導必然畫錯某些屆次。
+    // 版面配置（左右各四張卡）維持原樣，只是資料來源換成 view model：
+    //   左側 = R1 slot A、C 的雙方；右側 = R1 slot B、D 的雙方
+    //   準決賽（上半）= R2 upper、（下半）= R2 lower、中央 = 決賽勝者
+    function renderBracket(group) {
+      const vm = buildBracketViewModel(group);
+      const slot = (list, name) => list.find((m) => m.slot === name);
+      // 左上、左下、右上、右下四組配對，對應 R1 的 A/C/B/D。
+      const pairs = [slot(vm.r1, 'A'), slot(vm.r1, 'C'), slot(vm.r1, 'B'), slot(vm.r1, 'D')];
+      // 卡片順序：左側 0..3（A 雙方、C 雙方）、右側 4..7（B 雙方、D 雙方）
+      const p = [
+        pairs[0] && pairs[0].p1, pairs[0] && pairs[0].p2,
+        pairs[1] && pairs[1].p1, pairs[1] && pairs[1].p2,
+        pairs[2] && pairs[2].p1, pairs[2] && pairs[2].p2,
+        pairs[3] && pairs[3].p1, pairs[3] && pairs[3].p2,
+      ];
 
       // Layout constants
       const PW = 190, PH = 52, GAP = 8, VGAP = 56;
@@ -59,10 +70,26 @@
       const lc = '#475569';         // line color
       const lw = 2;
 
+      // pl 是 view model 的卡片，可能為 null（該 slot 缺資料）。
+      // 無法唯一對應 player 時（identity 為 ambiguous / unmatched），
+      // prev_best 與 qualifier_rank 會是 null——刻意留白而非猜測身分。
       function playerFO(pl, x, y) {
-        const badgeVal = pl.prev_best || pl.prev_progress || '';
+        if (!pl) {
+          return `
+          <foreignObject x="${x}" y="${y}" width="${PW}" height="${PH}">
+            <div xmlns="http://www.w3.org/1999/xhtml"
+                 style="background:#0f172a;border:1px dashed #334155;border-radius:6px;
+                        padding:5px 10px;height:${PH}px;box-sizing:border-box;
+                        font-size:11px;color:#475569;">尚無資料</div>
+          </foreignObject>`;
+        }
+        const badgeVal = pl.prev_best || '';
         const bs = PREV_BADGE_STYLE[badgeVal] || 'background:#374151;color:#9ca3af';
         const rank = pl.qualifier_rank != null ? `#${pl.qualifier_rank} ` : '';
+        // 身分無法確定時加註記號，讓畫面與稽核結果一致，不假裝資料完整。
+        const mark = (pl.identity === 'ambiguous' || pl.identity === 'unmatched')
+          ? `<span title="無法唯一對應選手名單" style="color:#64748b;font-size:9px;margin-left:3px;">◦</span>`
+          : '';
         return `
           <foreignObject x="${x}" y="${y}" width="${PW}" height="${PH}">
             <div xmlns="http://www.w3.org/1999/xhtml"
@@ -70,14 +97,14 @@
                         padding:5px 10px;height:${PH}px;box-sizing:border-box;">
               <div style="font-size:12px;font-weight:600;color:#f1f5f9;
                           white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                ${rank}${displayName(pl)}
+                ${rank}${displayName(pl)}${mark}
                 ${badgeVal ? `<span style="${bs};font-size:9px;padding:1px 5px;border-radius:999px;
                               font-weight:600;margin-left:3px;">${badgeVal}</span>` : ''}
               </div>
               <div style="font-size:11px;color:#64748b;font-family:monospace;
                           display:flex;gap:8px;margin-top:3px;">
                 <span>${pl.power || '—'}</span>
-                <span style="color:#eab308;">${pl.qualifier_time || '—'}</span>
+                <span style="color:#eab308;">${pl.time || pl.qualifier_time || '—'}</span>
               </div>
             </div>
           </foreignObject>`;
@@ -166,7 +193,7 @@
         <text x="${midX}" y="${champY + 16}" text-anchor="middle"
               fill="#eab308" font-size="11" font-weight="bold">🏆 組冠軍</text>
         <text x="${midX}" y="${champY + 31}" text-anchor="middle"
-              fill="${g.champion ? '#f1f5f9' : '#94a3b8'}" font-size="11">${g.champion || '待定'}</text>
+              fill="${vm.champion ? '#f1f5f9' : '#94a3b8'}" font-size="11">${vm.champion || '待定'}${vm.championUnverifiable ? ' ◦' : ''}</text>
       </svg>`;
     }
 

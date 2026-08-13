@@ -71,10 +71,9 @@ function roundLabel(data) {
   return data.round ? `第 ${data.round} 屆` : null;
 }
 
-// groups[].players 依對陣位置排序，相鄰兩人為一場：0,1=A、2,3=B、4,5=C、6,7=D
-function matchLabel(i) {
-  return 'ABCD'[i >> 1] || '';
-}
+// 場次（A/B/C/D）請用 js/bracket-view-model.js 的 playerSlotMap()。
+// 舊的 matchLabel(i) 由陣列索引推導，已於 2026-08-13 移除——各屆 players 排列規則
+// 並不一致（見 README「groups[].players 的排序約定」），索引推導會標錯場次。
 
 // flag：⚠=同名多人（上屆對應僅供參考）、≈=疑為同一人（名稱微異）
 function displayName(p) {

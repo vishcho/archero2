@@ -161,15 +161,17 @@ screenshots/star-cup/<淘汰賽首日>-round<N>/
 分類完寫 `manifest.json`（範例：`notes/workflows/screenshot-manifest.example.json`）。
 `evidence_status` 只能是：
 
-- `original` — 本屆原始截圖，可作正式證據
-- `missing` — 未取得，資料維持缺失
+- `original` — 本屆原始截圖，可作正式證據；**必須同時有圖與 `captured_at`**
+- `missing` — 未取得，資料維持缺失。顯示分兩種：批次目錄不存在＝`⏳ 待拍`（還沒到拍攝時機），
+  目錄存在卻空＝`❌ 缺件`（該拍而未取得）。**新屆次一律從這個值起**
 - `placeholder` — 別屆代圖，**只能測版面，不得寫入 `data/`**，必須填 `purpose`
 
 **manifest 必須反映磁碟實況，而且工具只抓得到其中一個方向。**
 
-- 標 `original` 但目錄是空的 → 假宣告，`check-screenshots.mjs` 會報 `⏳ 待拍`，**工具抓得到**。
-- 標 `missing` 但目錄有圖 → **工具抓不到**。`classify()` 一遇 `missing` 就直接回 `count: 0`，
-  磁碟上的真實張數會被丟棄，表格顯示 `❌ —`，看起來與「真的沒圖」完全一樣。
+- 標 `original` 但目錄是空的（或缺 `captured_at`）→ 假宣告，2026-08-13 起 `check-screenshots.mjs`
+  會列為 `⚠️` 並指名該改成 `missing`，**工具抓得到**。
+- 標 `missing` 但目錄有圖 → **工具仍抓不到**。`classify()` 一遇 `missing` 就直接回 `count: 0`，
+  磁碟上的真實張數會被丟棄，看起來與「真的沒圖」完全一樣。
 
 所以 `missing` 這個值只有在**磁碟確實是空的**時候才成立。落地任何檔案後，
 必須同步把該批次改成 `original` 並補 `captured_at`，否則證據會被自己的宣告藏起來。
@@ -329,6 +331,7 @@ diff docs/star-cup/<戰報>.md /tmp/r.md   # 只有預期的新增段落才可�
 - 不要手改 `docs/README.md`（由 `build-docs-index.mjs` 生成）。
 - 不要 commit 截圖本體（`screenshots/**` 已 gitignore，只有 `manifest.json` 與 README 進 git）。
 - 不要為了讓某屆「看起來完整」而用別屆代圖寫入 `data/`。
-- 不要在還沒拍的屆次先把 manifest 標成 `original`。round5／round6 目前就是這樣（五批全標
-  `original` 但目錄全空），`check-screenshots.mjs` 會顯示 `⏳ 待拍` 而非報錯——**預先宣告等於假宣告**，
-  新屆次的 manifest 應從 `missing` 起，落地後再改。
+- 不要在還沒拍的屆次先把 manifest 標成 `original`——**預先宣告等於假宣告**（斷言一份不存在的證據）。
+  新屆次一律從 `missing` 起、批次目錄先不要建，落地後才改 `original` 並補 `captured_at`。
+  2026-08-13 起 `check-screenshots.mjs` 會把「標 `original` 但目錄無圖」與「標 `original` 但缺
+  `captured_at`」列為 `⚠️`，不必再靠人注意。

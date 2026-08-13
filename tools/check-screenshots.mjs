@@ -28,14 +28,19 @@ function imageCount(dir) {
 
 function classify(spec, count, evidenceStatus, dir) {
   if (evidenceStatus === 'placeholder') return { ...spec, dir, count, evidenceStatus, status: 'placeholder' };
-  if (evidenceStatus === 'missing') return { ...spec, dir, count: 0, evidenceStatus, status: 'missing' };
+  // missing 分兩種：目錄不存在＝還沒到拍攝時機（待拍）；目錄存在卻空＝該拍而未取得（缺件）。
+  // 新屆次的 manifest 從 missing 起、批次目錄尚未建立，因此顯示為待拍而非缺件。
+  if (evidenceStatus === 'missing') {
+    const status = existsSync(dir) ? 'missing' : 'pending';
+    return { ...spec, dir, count: 0, evidenceStatus, status };
+  }
   if (!count) return { ...spec, dir, count: 0, evidenceStatus, status: 'pending' };
   const delta = count - spec.expect;
   const ok = spec.overage ? delta >= -spec.tolerance : Math.abs(delta) <= spec.tolerance;
   return { ...spec, dir, count, delta, evidenceStatus, status: ok ? 'ok' : 'count' };
 }
 
-function validateManifest(value, file) {
+function validateManifest(value, file, seasonDir) {
   const errors = [];
   if (value.version !== 1) errors.push(`${file}: version 必須為 1`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value.season_id ?? '')) errors.push(`${file}: season_id 應為淘汰賽首日 YYYY-MM-DD`);
@@ -47,6 +52,13 @@ function validateManifest(value, file) {
     if (!TYPE_BY_NAME.has(type)) errors.push(`${file}: 未知批次 ${type}`);
     if (!EVIDENCE.has(batch?.evidence_status)) errors.push(`${file}: ${type}.evidence_status 應為 original / placeholder / missing`);
     if (batch?.evidence_status === 'placeholder' && !batch.purpose) errors.push(`${file}: placeholder 批次 ${type} 必須說明 purpose`);
+    // 假宣告：宣稱有正式證據但磁碟上沒有。新屆次的 manifest 應從 missing 起，落地後才改 original。
+    if (batch?.evidence_status === 'original' && seasonDir) {
+      const spec = TYPE_BY_NAME.get(type);
+      const batchDir = join(seasonDir, batch.path ?? spec?.type ?? type);
+      if (!imageCount(batchDir)) errors.push(`${file}: ${type} 標 original 但目錄無圖（假宣告；未取得應標 missing）`);
+      else if (!batch.captured_at) errors.push(`${file}: ${type} 標 original 但缺 captured_at`);
+    }
   }
   return errors;
 }
@@ -68,7 +80,7 @@ export function scanTopic(topicDir) {
       let manifest;
       try { manifest = JSON.parse(readFileSync(manifestFile, 'utf8')); }
       catch (error) { malformed.push({ dir: name, reason: `manifest.json 無法解析：${error.message}` }); continue; }
-      for (const reason of validateManifest(manifest, manifestFile)) malformed.push({ dir: name, reason });
+      for (const reason of validateManifest(manifest, manifestFile, full)) malformed.push({ dir: name, reason });
       const round = `round${manifest.round}`;
       const record = ensure(round);
       record.dates.push(manifest.season_id);

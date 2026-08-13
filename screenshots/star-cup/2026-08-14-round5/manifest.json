@@ -5,19 +5,19 @@
   "batches": {
     "qualifier-rank": {
       "path": "qualifier-rank",
-      "evidence_status": "original"
+      "evidence_status": "missing"
     },
     "knockout-matchup": {
       "path": "knockout-matchup",
-      "evidence_status": "original"
+      "evidence_status": "missing"
     },
     "knockout-results": {
       "path": "knockout-results",
-      "evidence_status": "original"
+      "evidence_status": "missing"
     },
     "grand-finals-results": {
       "path": "grand-finals-results",
-      "evidence_status": "original"
+      "evidence_status": "missing"
     }
   }
 }

@@ -17,6 +17,11 @@ screenshots/star-cup/<淘汰賽首日>-<roundN>/
 - 日期是該屆 `id`，也就是淘汰賽首日，不是各批拍攝日。
 - `manifest.json` 記錄各批的拍攝時間與 `original` / `missing` / `placeholder` 證據狀態；範例見
   [`screenshot-manifest.example.json`](../notes/workflows/screenshot-manifest.example.json)。
+- **新屆次的 manifest 一律從 `missing` 起**，批次目錄先不要建；落地後才改 `original`
+  並補該批實際檔名時間戳的 `captured_at`。預先標 `original` 是**假宣告**——斷言一份
+  不存在的證據，`check-screenshots.mjs` 會列為 `⚠️`。
+- `missing` 的顯示分兩種，依批次目錄是否存在判定：目錄不存在＝`⏳ 待拍`（還沒到拍攝時機），
+  目錄存在卻空＝`❌ 缺件`（該拍而未取得）。
 - 舊式 `YYYY-MM-DD-roundN-{rank,matchup,results,top64}` 平面目錄仍可由盤點工具讀取，
   但新一屆應使用 manifest。
 

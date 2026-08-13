@@ -94,6 +94,27 @@ for (const group of season.groups) {
   lines.push('');
 }
 
+// 總決賽：八名分組冠軍單淘汰。名次並列 3／並列 5 是刻意的，
+// 同輪淘汰者不從結果樹猜測內部順序（見 tools/lib/domain.mjs）。
+if (season.grand_finals) {
+  const { results, bracket } = season.grand_finals;
+  lines.push('---', '', '## 總決賽', '');
+  lines.push('| 名次 | 玩家 | 賽時戰力 |', '|------|------|----------|');
+  for (const result of results) {
+    lines.push(`| ${result.rank} | ${result.name} | ${result.power ?? '—'} |`);
+  }
+  lines.push('', '並列名次表示同輪淘汰，不另判內部順序。', '', '```');
+  for (const round of ['R1', 'R2', '決賽']) {
+    lines.push(round);
+    for (const match of bracket.filter((candidate) => candidate.round === round)) {
+      lines.push(formatMatch(match));
+    }
+    lines.push('');
+  }
+  lines[lines.length - 1] = '```';
+  lines.push('');
+}
+
 lines.push(
   '---',
   '',

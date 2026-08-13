@@ -15,11 +15,13 @@
     },
     "knockout-results": {
       "path": "knockout-results",
-      "evidence_status": "missing"
+      "evidence_status": "original",
+      "captured_at": "2026-08-09T22:13:22+08:00"
     },
     "grand-finals-results": {
       "path": "grand-finals-results",
-      "evidence_status": "missing"
+      "evidence_status": "original",
+      "captured_at": "2026-08-09T22:30:56+08:00"
     },
     "top64-profile": {
       "path": "top64-profile",

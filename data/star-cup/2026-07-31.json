@@ -13,7 +13,13 @@
     "2026-08-07"
   ],
   "status": "finished",
-  "champion": null,
+  "collection": {
+    "qualifier": "complete",
+    "knockout_matchup": "complete",
+    "knockout_results": "complete",
+    "grand_finals": "complete"
+  },
+  "champion": "koeee",
   "qualifier": [
     {
       "rank": 1,
@@ -2252,5 +2258,176 @@
     }
   ],
   "groups_note": "淘汰賽結果由 2026/8/6 截圖批次 `screenshots/star-cup/2026-08-06-round4-results/`（8 組 × 8 張）抽取，通過工作流 §2b 抽取完整性檢查點與 `tools/validate-tournament-results.mjs` 驗證。場次位置（R1 A/B/C/D、R2 upper/lower、決賽）依各組樹狀圖歸位。選手名稱一律以結果截圖為準；與賽前對陣表不同者保留 `matchup_name`，並於各場 `notes` 註記。",
-  "grand_finals": null
+  "grand_finals": {
+    "results": [
+      {
+        "rank": 1,
+        "name": "koeee",
+        "power": "60.95M"
+      },
+      {
+        "rank": 2,
+        "name": "LD丨힘",
+        "power": "27.41M"
+      },
+      {
+        "rank": 3,
+        "name": "RV297",
+        "power": "26.53M"
+      },
+      {
+        "rank": 3,
+        "name": "送你離開",
+        "power": "41.08M"
+      },
+      {
+        "rank": 5,
+        "name": "藍寶基尼",
+        "power": "21.20M"
+      },
+      {
+        "rank": 5,
+        "name": "LD丨팡대ɔɔ",
+        "power": "13.15M"
+      },
+      {
+        "rank": 5,
+        "name": "LD丨팡대",
+        "power": "15.84M"
+      },
+      {
+        "rank": 5,
+        "name": "Cashasy",
+        "power": "19.06M"
+      }
+    ],
+    "bracket": [
+      {
+        "round": "R1",
+        "slot": "A",
+        "p1": {
+          "name": "LD丨힘",
+          "progress": 10,
+          "time": "01:03.95",
+          "power": "27.41M"
+        },
+        "p2": {
+          "name": "藍寶基尼",
+          "progress": 10,
+          "time": "02:13.76",
+          "power": "21.20M"
+        },
+        "winner": "LD丨힘",
+        "loser": "藍寶基尼"
+      },
+      {
+        "round": "R1",
+        "slot": "B",
+        "p1": {
+          "name": "送你離開",
+          "progress": 10,
+          "time": "01:15.41",
+          "power": "41.08M"
+        },
+        "p2": {
+          "name": "LD丨팡대ɔɔ",
+          "progress": 10,
+          "time": "06:09.70",
+          "power": "13.15M"
+        },
+        "winner": "送你離開",
+        "loser": "LD丨팡대ɔɔ"
+      },
+      {
+        "round": "R1",
+        "slot": "C",
+        "p1": {
+          "name": "RV297",
+          "progress": 10,
+          "time": "01:00.91",
+          "power": "26.53M"
+        },
+        "p2": {
+          "name": "LD丨팡대",
+          "progress": 10,
+          "time": "01:33.31",
+          "power": "15.84M"
+        },
+        "winner": "RV297",
+        "loser": "LD丨팡대"
+      },
+      {
+        "round": "R1",
+        "slot": "D",
+        "p1": {
+          "name": "koeee",
+          "progress": 10,
+          "time": "00:34.82",
+          "power": "60.95M"
+        },
+        "p2": {
+          "name": "Cashasy",
+          "progress": 10,
+          "time": "01:22.41",
+          "power": "19.06M"
+        },
+        "winner": "koeee",
+        "loser": "Cashasy"
+      },
+      {
+        "round": "R2",
+        "slot": "upper",
+        "p1": {
+          "name": "LD丨힘",
+          "progress": 10,
+          "time": "00:46.78",
+          "power": "27.41M"
+        },
+        "p2": {
+          "name": "RV297",
+          "progress": 10,
+          "time": "00:53.85",
+          "power": "26.53M"
+        },
+        "winner": "LD丨힘",
+        "loser": "RV297"
+      },
+      {
+        "round": "R2",
+        "slot": "lower",
+        "p1": {
+          "name": "送你離開",
+          "progress": 10,
+          "time": "01:07.08",
+          "power": "41.08M"
+        },
+        "p2": {
+          "name": "koeee",
+          "progress": 10,
+          "time": "00:34.12",
+          "power": "60.95M"
+        },
+        "winner": "koeee",
+        "loser": "送你離開"
+      },
+      {
+        "round": "決賽",
+        "slot": "final",
+        "p1": {
+          "name": "LD丨힘",
+          "progress": 10,
+          "time": "01:04.35",
+          "power": "27.41M"
+        },
+        "p2": {
+          "name": "koeee",
+          "progress": 10,
+          "time": "00:35.02",
+          "power": "60.95M"
+        },
+        "winner": "koeee",
+        "loser": "LD丨힘"
+      }
+    ]
+  }
 }

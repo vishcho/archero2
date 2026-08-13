@@ -4,9 +4,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { loadBrowserScript } from "../test/helpers/load-browser-script.mjs";
 
-const { buildBracketViewModel } = await loadBrowserScript(
-  "js/bracket-view-model.js",
-);
+const { buildBracketViewModel } = await loadBrowserScript("js/domain.js");
 const json = process.argv.includes("--json");
 const dataDir = path.join("data", "star-cup");
 const ids = JSON.parse(

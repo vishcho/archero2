@@ -238,7 +238,7 @@ archero2/
 #### `groups[].players` 的排序約定（重要）
 
 **對陣關係的唯一真實來源是 `groups[].matches`**，不是 `players` 的陣列位置。
-`bracket.html` 自 2026-08-13 起改由 `js/bracket-view-model.js` 依 `matches[].round` /
+`bracket.html` 自 2026-08-13 起改由 `js/domain.js` 依 `matches[].round` /
 `matches[].slot` 決定對陣結構，`players` 只用來補顯示屬性（`prev_best`、`qualifier_rank`、`flag`）。
 
 `groups[].players` 的順序仍**不可排序**（它是籤位，不是名次），但不要用它推導「哪兩格對打」。

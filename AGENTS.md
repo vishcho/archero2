@@ -20,7 +20,9 @@ and other automated contributors working anywhere in the repository.
   season's actual first day.
 - Tournament series have deliberately different schemas. Dispatch through `data/cups.json`; do not
   force `season` and `roster` records into one shape.
-- `groups[].players` order is bracket position. Never sort it alphabetically or by rank.
+- `groups[].players` order is draw position, not display order. Never sort it alphabetically or by
+  rank. It is **not** a reliable source for who plays whom: `groups[].matches` (`round` + `slot`) is
+  the only authority for bracket structure, and `players` only supplies display attributes.
 - `roster[].enchants` array indexes are equipment slots. Preserve interior `null` placeholders.
 - Use `player_id` as player identity. Names and aliases are display data and may be duplicated or
   change over time. Never merge players solely because their names match.

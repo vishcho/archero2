@@ -11,7 +11,8 @@
     "validate": "npm run validate:data && npm run validate:players && npm run validate:results",
     "docs:build": "node tools/build-docs-index.mjs",
     "docs:check": "node tools/build-docs-index.mjs --check",
-    "check": "npm run test && npm run validate:contracts && npm run validate && npm run docs:check"
+    "audit:brackets": "node tools/audit-bracket-refs.mjs",
+    "check": "npm run test && npm run validate:contracts && npm run validate && npm run audit:brackets && npm run docs:check"
   },
   "engines": {
     "node": ">=20"

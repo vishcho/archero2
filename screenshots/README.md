@@ -22,6 +22,24 @@ screenshots/star-cup/<淘汰賽首日>-<roundN>/
 
 一批（同一次拍的一組圖）＝一個資料夾。分析完成後在 `docs/sources.md` 登記一行。
 
+## 手機端來源：一屆兩個目錄
+
+Syncthing 來源 `shared/archero2/` 的目錄**一屆兩個**，依賽程階段切分，落地時併成一個屆次目錄：
+
+```text
+shared/archero2/<淘汰賽首日>/    淘汰賽對陣圖/(8)、資排賽排名/(排行榜＋名片混裝)   → checkpoint A ＋名片
+shared/archero2/<賽後回收日>/    淘汰賽結果/(64)、總決賽結果/(8)                  → checkpoint B、C
+                                          ↓ 併入
+                    screenshots/star-cup/<淘汰賽首日>-<roundN>/
+```
+
+round4 實例：`2026-07-31/`（8＋80）＋ `2026-08-07/`（64＋8）→ `2026-07-31-round4/`。
+
+**目錄名是賽程階段，不是拍攝日**：round4 的三批 `Screenshot_*` 全部拍於 2026-08-09
+同一次連拍（21:58–22:31），卻分屬兩個目錄名；只有 matchup 那批（Telegram 轉存的
+`photo_*.jpg`）真的來自 07-31。`manifest.json` 的 `captured_at` 依**各批實際檔名時間戳**填，
+不要照抄來源目錄名。拿到其中一個目錄時，先 `ls` 母目錄確認同屆另一半在不在。
+
 ## 四種賽事批次與玩家名片
 
 賽事資料分三個 checkpoint；玩家名片是獨立的跨賽事資料：
@@ -87,12 +105,17 @@ mkdir -p screenshots/star-cup/2026-08-14-round5-{matchup,rank,top64,results}
 
 | 輪次 | 缺 | 說明 |
 | ---- | -- | ---- |
-| round1 | matchup / rank / top64 | 當時流程只拍賽後結果，賽前批次不存在 |
-| round2 | rank / top64 | `rank` 批次當時未納入流程；`top64` 尚未發明 |
-| round3 | top64 | `top64` 尚未發明 |
-| round4 | knockout-results / grand-finals-results | 本機無這兩批原圖（`data/` 的逐場結果來自 2026-08-06 的 `2026-08-06-round4-results` 舊式目錄）。matchup/rank/top64 已於 2026-08-13 自 Syncthing 來源找回 |
+| round1 | matchup / rank / top64 / **grand-finals** | 當時流程只拍賽後結果，賽前批次不存在 |
+| round2 | rank / top64 / **grand-finals** | `rank` 批次當時未納入流程；`top64` 尚未發明 |
+| round3 | top64 / **grand-finals** | `top64` 尚未發明 |
+| round4 | （已補齊） | 五批皆有原圖。matchup/rank/top64 於 2026-08-13 自 Syncthing 找回；knockout-results（64）與 grand-finals-results（8）於 2026-08-13 自 Syncthing 來源 `2026-08-07/` 補齊，為 2026-08-09 的第二次拍攝（`data/` 逐場結果原抽自 2026-08-06 的 `2026-08-06-round4-results` 舊式目錄，兩批已比對一致） |
 
 `top64` 自 round4（2026-08-09）起納入流程，之前的輪次沒有這批是預期內的。
+
+**round1–3 的總決賽截圖已確認取不到**（2026-08-13 使用者確認），三屆的
+`collection.grand_finals` 記為 `missing` 而非 `pending`。因此 `npm run check` 會固定出現三條
+`status 為 finished 但 champion 為空` 警告——**這是永久狀態，不是待辦，不得為了消警告而補值**。
+`grand-finals-results` 自 round4 起才納入流程。
 
 ## 備份
 

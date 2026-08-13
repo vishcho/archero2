@@ -18,6 +18,21 @@ screenshots/<主題>/<YYYY-MM-DD>-<roundN>-<type>/Screenshot_*.png
 
 一批（同一次拍的一組圖）＝一個資料夾。分析完成後在下表登記一行。
 
+## Syncthing 來源：一屆兩個目錄
+
+手機端來源 `shared/archero2/` **一個屆次會產生兩個目錄**，依賽程階段切分：
+
+| 來源目錄 | 內容 | Checkpoint |
+| --- | --- | --- |
+| `<淘汰賽首日>/` | `淘汰賽對陣圖/`（8）、`資排賽排名/`（排行榜＋名片**混裝**） | A ＋名片 |
+| `<賽後回收日>/` | `淘汰賽結果/`（64）、`總決賽結果/`（8） | B、C |
+
+round4 實例：`2026-07-31/`（8＋80）與 `2026-08-07/`（64＋8），兩者併入同一個
+`screenshots/star-cup/2026-07-31-round4/`。**目錄名是賽程階段而非拍攝日**——
+round4 的三批 `Screenshot_*` 全部拍於 2026-08-09 同一次連拍（21:58–22:31），
+卻分屬兩個目錄名；只有 matchup 那批（`photo_*.jpg`）真的來自 07-31。
+拿到其中一個目錄時，先 `ls` 母目錄確認同屆的另一半在不在。
+
 ## 每輪齊全度
 
 每輪賽事應有四批。本表為**手動維護**，缺件原因見下方批次清單；
@@ -47,7 +62,9 @@ screenshots/<主題>/<YYYY-MM-DD>-<roundN>-<type>/Screenshot_*.png
 | `screenshots/star-cup/2026-07-31-round4/knockout-matchup/` | 2026-07-31 | 8 | 7/31 明星盃淘汰賽賽前對陣（10-21-55＝第1組，10-21-57–10-22-11＝第2–8組）。原為 Telegram 轉存的 `photo_*.jpg`，2026-08-13 自 Syncthing 來源找回並落入本目錄 | [2026-07-31-round4-matchup.md](./star-cup/2026-07-31-round4-matchup.md)、[2026-07-31-round4-betting-guide.md](./star-cup/2026-07-31-round4-betting-guide.md)、`data/star-cup/2026-07-31.json`（groups 已於 2026-08-06 連同結果併入）。2026-08-13 二次盲抽比對：64 格戰力 **0 個不符**；本屆 slot↔籤位為**交錯索引**（`A`=[0],[2]、`B`=[4],[6]、`C`=[1],[3]、`D`=[5],[7]），與其他三屆不同，見 README「排序約定」 |
 | `screenshots/star-cup/2026-07-31-round4/qualifier-rank/` | 2026-08-09 | 16 | 7/31 明星盃資格賽排行榜連拍（21:58–22:08 補拍，涵蓋 1–67 名；第 68 名起被自己名次列遮擋）＋本期主題（明星盃-精靈季） | `data/2026-07-31.json`（主題、qualifier 已於 2026-08-06 併入，本批為事後補拍證據）、[2026-07-31-round4-matchup.md](./star-cup/2026-07-31-round4-matchup.md) 資格賽欄 |
 | `screenshots/star-cup/2026-07-31-round4/top64-profile/` | 2026-08-09 | 64 | 7/31 前 64 名個人資訊名片**第二輪**拍攝（21:58–22:08）。與凌晨 01:10–02:33 那批為獨立兩次拍攝，時間戳無重疊 | 數值未入庫（同屆同 key 無法並存）。2026-08-13 雙盲比對：504 次欄位比對 27 個差異，**全部為累積型欄位單向增長**（相隔約 20 小時的真實進度），非抽取誤差；`player_id` 63/63 一致。本批的字形判讀差異已作為 **12 筆 `ocr_variants`** 寫入 `data/players.json`（`names` 未動——既有真名有名片 ID 佐證，第二次判讀僅列為變體） |
-| `screenshots/star-cup/2026-08-06-round4-results/` | 2026-08-06 | 64 | 8/6 明星盃淘汰賽逐場成績（8 組 R1/R2/決賽）；資料夾原名 `2026-08-06-round3-results`，實為第四輪 | [2026-08-06-tournament-results.md](./star-cup/2026-08-06-tournament-results.md)、`data/2026-07-31.json`（逐場結果、各組冠亞軍已併入） |
+| `screenshots/star-cup/2026-07-31-round4/knockout-results/` | 2026-08-09 | 64 | 7/31 明星盃淘汰賽逐場成績**第二次拍攝**（22:13–22:20）。2026-08-13 自 Syncthing 來源 `2026-08-07/淘汰賽結果/` 補齊落地；`data/` 的逐場結果原抽自 2026-08-06 舊式目錄（見下列） | 數值未重新入庫（已入庫且抽樣比對一致）。抽樣核對第 1 組：結果樹冠亞軍（LD丨힘／牛大力）、R1-A 全欄位（牛大力 42.72M/10/01:02.48 vs LD丨도하 13.97M/1/00:03.36）與既有 `data/` 完全相符。唯一差異：`champion_current_power` 本批顯示 **36.76M**、既有值 36.65M——樹狀圖「目前戰力」為累積型欄位，相隔 3 天的正常增長，**不是抽取誤差，未覆蓋既有值** |
+| `screenshots/star-cup/2026-07-31-round4/grand-finals-results/` | 2026-08-09 | 8 | 7/31 明星盃**總決賽**結果（22:30–22:31）：1 張結果樹＋7 場對戰彈窗。2026-08-13 自 Syncthing 來源 `2026-08-07/總決賽結果/` 補齊落地。本屆首度取得總決賽原圖 | 已入庫 `data/star-cup/2026-07-31.json` 的 `grand_finals`（`results` 8 筆＋`bracket` 7 場）、`champion: koeee`、`collection.grand_finals: complete`，並渲染進 [2026-08-06-tournament-results.md](./star-cup/2026-08-06-tournament-results.md)「總決賽」節。冠軍 **koeee**、亞軍 **LD丨힘**、並列 3 RV297／送你離開、並列 5 藍寶基尼／LD丨팡대ɔɔ／LD丨팡대／Cashasy。交叉驗證：總決賽 8 人與 8 組冠軍**完全一致**；賽時戰力跨場快照一致。結果樹最下排 RV297 勝 送你離開 為三四名戰，依 `domain.mjs` 規則**不用於拆分並列 3**（不猜測同輪淘汰者內部順序） |
+| `screenshots/star-cup/2026-08-06-round4-results/` | 2026-08-06 | 64 | 8/6 明星盃淘汰賽逐場成績（8 組 R1/R2/決賽）；資料夾原名 `2026-08-06-round3-results`，實為第四輪。**本機已無此目錄**（另一台機器的舊式平面目錄），同批內容的第二次拍攝見上列 `2026-07-31-round4/knockout-results/` | [2026-08-06-tournament-results.md](./star-cup/2026-08-06-tournament-results.md)、`data/2026-07-31.json`（逐場結果、各組冠亞軍已併入） |
 | `screenshots/star-cup/2026-08-06-round4-results/Screenshot_20260806-175247.png` | 2026-08-06 | 1 | 補件：第2組 R1-B（仔仔團宗宗 vs 戰神蕉蕉）對戰彈窗，原批次該張為連線載入畫面（`Screenshot_20260806-154744.png`，未納入抽取） | 回填 `data/2026-07-31.json`、[2026-08-06-tournament-results.md](./star-cup/2026-08-06-tournament-results.md) |
 | `screenshots/star-cup/2026-08-09-round4-top64/` | 2026-08-09 | 69（涵蓋 **64 位**） | 8/9 明星盃資格賽前 64 名的個人資訊名片（用戶ID、公會、普通/困難關卡、通天塔、戰力、魅力值、徽記、稱號）；本專案**首批 `top64`**。01:10–01:24 拍 64 張但 5 位被重複點開（龍×이뮤、Yööᶠˣ、coco幻、橙色楓葉、秘運行者Kai）；**02:17 補拍 4 張**（第 48、57、60、64 名）、**02:33 補拍 1 張**（第 46 名）。合計涵蓋全部 64 位 | `data/players.json`（新建，64 位跨賽事選手登記簿）、回填 `data/star-cup/2026-07-31.json`（**64/64 位掛上 `player_id`，`⚠` flag 清零**：兩位「牛大力」、兩位「龍×똥꼬」皆以用戶ID 區分並補齊資格賽名次）。確認改名 `o月亮惹的禍o`→`送你離開`；確認第 64 名「牛大办」實為**牛大刃**（`101821232`）。見 [top64-profile-workflow.md](../notes/workflows/top64-profile-workflow.md) |
 | `screenshots/rune-ruins/2026-06-24/` | 2026-06-24 | 22 | 符文廢墟符文一覽（顏色×形狀） | ⚠️ 產出檔 `analysis/rune-ruins-stats.md` 已不存在（截圖仍在本機，可重新分析） |

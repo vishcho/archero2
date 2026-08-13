@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test test/*.test.mjs",
+    "test": "node tools/run-node-tests.mjs",
     "test:browser": "playwright test",
     "validate:contracts": "node tools/validate-contracts.mjs",
     "validate:data": "node tools/validate-season.mjs --all",
@@ -13,7 +13,7 @@
     "docs:build": "node tools/build-docs-index.mjs",
     "docs:check": "node tools/build-docs-index.mjs --check",
     "audit:brackets": "node tools/audit-bracket-refs.mjs",
-    "check": "npm run test && npm run test:browser && npm run validate:contracts && npm run validate && npm run audit:brackets && npm run docs:check"
+    "check": "npm run test && npm run validate:contracts && npm run validate && npm run audit:brackets && npm run docs:check"
   },
   "engines": {
     "node": ">=20"

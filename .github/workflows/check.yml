@@ -17,5 +17,6 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci --ignore-scripts
-      - run: npx playwright install --with-deps chromium
       - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser

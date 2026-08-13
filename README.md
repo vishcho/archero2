@@ -40,10 +40,12 @@
 
 ```bash
 # 專案根目錄執行（任選其一）
-python -m http.server 8000
+npm run dev                   # 建議：與 npm run check 同一套工具鏈，只需 Node
+python -m http.server 8000    # 備援：手邊沒有 Node 時
 ```
 
-然後開 <http://localhost:8000>。
+然後開 <http://localhost:8000>。連接埠被占用時用
+`npm run dev -- --port 8001`。
 
 資料或文件變更完成後，執行統一檢查：
 

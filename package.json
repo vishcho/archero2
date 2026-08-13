@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "node tools/dev-server.mjs",
     "test": "node --test",
     "validate:contracts": "node tools/validate-contracts.mjs",
     "validate:data": "node tools/validate-season.mjs --all",

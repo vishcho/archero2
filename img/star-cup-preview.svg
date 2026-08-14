@@ -15,5 +15,5 @@
 
   <text x="600" y="328" text-anchor="middle" fill="#d6b568" stroke="#d6b568" stroke-width="1.8" paint-order="stroke" font-family="Noto Sans TC" font-size="72" font-weight="800">明星盃助手</text>
   <line x1="435" y1="370" x2="765" y2="370" stroke="url(#gold)" stroke-opacity=".7" stroke-width="2"/>
-  <text x="600" y="448" text-anchor="middle" fill="#f1eee7" font-family="Noto Sans TC" font-size="48" font-weight="500"><tspan fill="#d6b568">精靈季</tspan><tspan fill="#706d67">  |  </tspan><tspan fill="#f1eee7">獲得精靈和飛劍流派技能</tspan></text>
+  <text x="600" y="448" text-anchor="middle" fill="#f1eee7" font-family="Noto Sans TC" font-size="48" font-weight="500"><tspan fill="#d6b568">精靈季</tspan><tspan fill="#706d67">  |  </tspan><tspan fill="#f1eee7">精靈x飛劍</tspan></text>
 </svg>

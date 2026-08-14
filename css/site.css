@@ -137,6 +137,14 @@ h2 {
   max-width: 720px;
   font-size: 17px;
 }
+/* 標題下方的狀態註記（如「當初建議與賽果」）：語意上不是章節標題，
+   但要比 .muted 醒目，故單獨給金色與較大字級。 */
+.title-note {
+  color: var(--gold-bright);
+  font-size: clamp(18px, 2.1vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
 .panel {
   background: rgba(18, 21, 26, 0.96);
   border: 1px solid var(--line);

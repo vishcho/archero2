@@ -26,7 +26,7 @@ async function loadArchive() {
     results.innerHTML = cups.map((cup) => {
       const items = filtered.filter((record) => record.cup.slug === cup.slug);
       if (!items.length) return "";
-      return `<section class="section" id="${escapeHtml(cup.slug)}"><h2>${escapeHtml(cup.name)}</h2><p class="muted">${escapeHtml(cup.format)}</p><div class="list">${items.map(({ season }) => `<a class="panel list-row card-link" href="season.html?cup=${encodeURIComponent(cup.slug)}&id=${encodeURIComponent(season.id)}"><div><strong>${escapeHtml(season.date)}</strong><div class="muted">${escapeHtml(season.theme || season.season || "無主題資料")}</div></div><span class="status" data-status="${escapeHtml(season.status)}">${escapeHtml(statusLabel(season.status))}</span></a>`).join("")}</div></section>`;
+      return `<section class="section" id="${escapeHtml(cup.slug)}"><h2>${escapeHtml(cup.name)}</h2><p class="muted">${escapeHtml(cup.format)}</p><div class="list">${items.map(({ season }) => `<a class="panel list-row card-link" href="season?cup=${encodeURIComponent(cup.slug)}&id=${encodeURIComponent(season.id)}"><div><strong>${escapeHtml(season.date)}</strong><div class="muted">${escapeHtml(season.theme || season.season || "無主題資料")}</div></div><span class="status" data-status="${escapeHtml(season.status)}">${escapeHtml(statusLabel(season.status))}</span></a>`).join("")}</div></section>`;
     }).join("");
   };
   app.querySelector("#archive-filters").addEventListener("input", render);

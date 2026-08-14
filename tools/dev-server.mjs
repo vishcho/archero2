@@ -4,6 +4,12 @@
 //
 // 刻意不引入依賴（見 AGENTS.md 的 Change boundaries）：只服務本 repo 的靜態檔，
 // 不做 SPA fallback、不做快取、不處理 range request。
+//
+// 站內連結不帶 .html（見 AGENTS.md 的 URL 慣例），因此 /bracket 需解析到 bracket.html，
+// 比照 GitHub Pages 的 extensionless 行為，避免本機與線上不一致。
+//
+// 只服務會部署的內容：BLOCKED 擋掉工作用目錄與本機證據。這同時是正確性措施——
+// screenshots/、tmp/ 不進 git，線上根本不存在，本機若能載到就會漏掉「線上 404」的錯誤。
 
 import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
@@ -12,6 +18,29 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
+
+// 不對外服務的根層項目。css/ js/ img/ data/ assets/ docs/ 是網站內容，不在此列
+// （assets/ 供 css 的 @font-face 使用，docs/ 在 GitHub Pages 上也是線上內容）。
+const BLOCKED = new Set([
+  'node_modules',
+  'screenshots',
+  'tmp',
+  'notes',
+  'tools',
+  'test',
+  'schemas',
+  'package.json',
+  'package-lock.json',
+]);
+
+// 任何 dotfile / dot 目錄（.git、.env、.github、.claude…）與秘密檔一律拒絕。
+function isBlocked(relative) {
+  const segments = relative.split(path.sep).filter(Boolean);
+  if (!segments.length) return false;
+  if (segments.some((segment) => segment.startsWith('.'))) return true;
+  if (BLOCKED.has(segments[0])) return true;
+  return /^\.env/i.test(segments.at(-1));
+}
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -41,8 +70,9 @@ function parseArgs(argv) {
       process.exit(1);
     }
   }
-  if (!Number.isInteger(opts.port) || opts.port < 1 || opts.port > 65535) {
-    console.error(`--port 需為 1–65535 的整數，收到：${opts.port}`);
+  // 0 = 交給 OS 挑一個空閒埠（測試用，避免固定埠互撞）。
+  if (!Number.isInteger(opts.port) || opts.port < 0 || opts.port > 65535) {
+    console.error(`--port 需為 0–65535 的整數，收到：${opts.port}`);
     process.exit(1);
   }
   return opts;
@@ -59,18 +89,27 @@ async function resolveTarget(urlPath) {
 
   const resolved = path.resolve(ROOT, `.${path.posix.normalize(decoded)}`);
   if (resolved !== ROOT && !resolved.startsWith(ROOT + path.sep)) return null;
+  if (isBlocked(path.relative(ROOT, resolved))) return null;
 
-  try {
-    const info = await stat(resolved);
-    if (info.isDirectory()) {
-      const index = path.join(resolved, 'index.html');
-      const indexInfo = await stat(index);
-      return indexInfo.isFile() ? { file: index, size: indexInfo.size } : null;
+  const asFile = async (candidate) => {
+    try {
+      const info = await stat(candidate);
+      return info.isFile() ? { file: candidate, size: info.size } : null;
+    } catch {
+      return null;
     }
-    return { file: resolved, size: info.size };
+  };
+
+  let info;
+  try {
+    info = await stat(resolved);
   } catch {
-    return null;
+    // 不存在時試 extensionless：/bracket → bracket.html
+    return path.extname(resolved) ? null : asFile(`${resolved}.html`);
   }
+
+  if (info.isDirectory()) return asFile(path.join(resolved, 'index.html'));
+  return { file: resolved, size: info.size };
 }
 
 function send(res, status, body) {
@@ -123,5 +162,6 @@ server.on('error', (err) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`archero2-web → http://${host}:${port}  (Ctrl+C 結束)`);
+  // --port 0 時要印實際取得的埠，否則看不出該連哪裡。
+  console.log(`archero2-web → http://${host}:${server.address().port}  (Ctrl+C 結束)`);
 });

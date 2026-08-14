@@ -249,5 +249,5 @@ function scorePrediction(prediction, season) {
 
 function showError(error, target = document.body) {
   const message = error instanceof Error ? error.message : String(error);
-  target.innerHTML = `<main class="shell error-state"><p class="eyebrow">資料載入失敗</p><h1>目前無法顯示這個頁面</h1><p>${escapeHtml(message)}</p><nav class="actions"><a class="button primary" href="index.html">返回首頁</a><a class="button" href="archive.html">完整賽事資料</a><a class="button" href="history.html">歷屆下注成效</a></nav></main>`;
+  target.innerHTML = `<main class="shell error-state"><p class="eyebrow">資料載入失敗</p><h1>目前無法顯示這個頁面</h1><p>${escapeHtml(message)}</p><nav class="actions"><a class="button primary" href="/">返回首頁</a><a class="button" href="archive">完整賽事資料</a><a class="button" href="history">歷屆下注成效</a></nav></main>`;
 }

@@ -3,7 +3,7 @@ import path from "node:path";
 import { atomicWriteJson, readJson } from "./lib/json.mjs";
 import { dataPath, repoRoot } from "./lib/repo.mjs";
 import { assertSchema } from "./lib/schema-validation.mjs";
-import { validatePrediction } from "./lib/domain.mjs";
+import { derivePreviousSummary, validatePrediction } from "./lib/domain.mjs";
 import { generatePrediction } from "./lib/prediction.mjs";
 
 const args = process.argv.slice(2);
@@ -31,7 +31,24 @@ const [season, matchup, seasonIds] = await Promise.all([
   readJson(dataPath("star-cup", "seasons.json")),
 ]);
 assertSchema("matchup", matchup, matchupFile);
-const prediction = generatePrediction(season, matchup, {
+const seasonIndex = seasonIds.indexOf(seasonId);
+const previousSeasonId = seasonIndex > 0 ? seasonIds[seasonIndex - 1] : null;
+const previousSeason = previousSeasonId
+  ? await readJson(dataPath("star-cup", `${previousSeasonId}.json`))
+  : null;
+const predictionSeason = previousSeason
+  ? {
+      ...season,
+      groups: season.groups.map((group) => ({
+        ...group,
+        players: group.players.map((player) => ({
+          ...(derivePreviousSummary(previousSeason, player.player_id) ?? {}),
+          ...player,
+        })),
+      })),
+    }
+  : season;
+const prediction = generatePrediction(predictionSeason, matchup, {
   source: publish ? "snapshot" : "preview",
   status: publish ? "published" : "preview",
 });
@@ -52,6 +69,7 @@ console.log(`${seasonId}：${prediction.groups.length} 組、${picks.length} 場
 console.log(
   `覆蓋：戰力 ${prediction.coverage.power.available}/64、資格賽 ${prediction.coverage.qualifier.available}/64、歷史 ${prediction.coverage.history.available}/64`,
 );
+console.log(`歷史基準：${previousSeasonId ?? "無上一屆"}`);
 console.log(`強制選擇：${picks.filter((pick) => pick.forced).length}/56`);
 for (const group of prediction.groups)
   console.log(

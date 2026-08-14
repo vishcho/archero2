@@ -55,8 +55,7 @@ function bracketMatchCard(pick, position) {
   const players = [
     bracketPlayerCard(pick, "p1"),
     bracketPlayerCard(pick, "p2"),
-  ]
-    .join("");
+  ].join("");
   const slotLabel = ["A", "B", "C", "D"].includes(pick.slot)
     ? ""
     : `<div class="game-slot">${escapeHtml(SLOT_LABEL[pick.slot])}</div>`;
@@ -77,14 +76,14 @@ function gameBracket(scoredGroup) {
       <path class="${branchClass("C", "p2")}" d="M700 193 H600 V158"/>
       <path class="${branchClass("upper", "p1")}" d="M400 158 H500"/>
       <path class="${branchClass("upper", "p2")}" d="M600 158 H500"/>
-      <path class="${routeClass("upper")}" d="M500 158 V310"/>
+      <path class="${branchClass("final", "p1")}" d="M500 158 V310"/>
       <path class="${branchClass("B", "p1")}" d="M300 449 H400 V485"/>
       <path class="${branchClass("B", "p2")}" d="M300 520 H400 V485"/>
       <path class="${branchClass("D", "p1")}" d="M700 449 H600 V485"/>
       <path class="${branchClass("D", "p2")}" d="M700 520 H600 V485"/>
       <path class="${branchClass("lower", "p1")}" d="M400 485 H500"/>
       <path class="${branchClass("lower", "p2")}" d="M600 485 H500"/>
-      <path class="${routeClass("lower")}" d="M500 485 V310"/>
+      <path class="${branchClass("final", "p2")}" d="M500 485 V310"/>
     </svg>
     <div class="game-junction-label game-label-a">A</div>
     <div class="game-junction-label game-label-c">C</div>

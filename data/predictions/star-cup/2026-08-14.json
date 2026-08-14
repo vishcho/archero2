@@ -1,0 +1,2584 @@
+{
+  "season_id": "2026-08-14",
+  "status": "published",
+  "source": "snapshot",
+  "published_at": "2026-08-14T04:46:26.731Z",
+  "ruleset": "star-cup-v1",
+  "source_document": null,
+  "coverage": {
+    "power": {
+      "available": 64,
+      "total": 64
+    },
+    "qualifier": {
+      "available": 64,
+      "total": 64
+    },
+    "history": {
+      "available": 53,
+      "total": 64
+    }
+  },
+  "groups": [
+    {
+      "id": 1,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "龍×교슘",
+            "player_id": "101899339"
+          },
+          "p2": {
+            "name": "욕정",
+            "player_id": "101782988"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 욕정",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": null,
+                "time": null
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:19.4"
+              }
+            },
+            "power": {
+              "p1": "13.08M",
+              "p2": "20.21M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 43,
+                "time": "04:36.0"
+              },
+              "p2": {
+                "rank": 33,
+                "time": "04:34.5"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "ZᶻZ",
+            "player_id": "101678554"
+          },
+          "p2": {
+            "name": "南天門乂殺神",
+            "player_id": "101857898"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 ZᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "04:10.4"
+              },
+              "p2": {
+                "progress": null,
+                "time": null
+              }
+            },
+            "power": {
+              "p1": "36.76M",
+              "p2": "10.25M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 2,
+                "time": "04:07.3"
+              },
+              "p2": {
+                "rank": 49,
+                "time": "04:36.9"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "coco幻",
+            "player_id": "101560949"
+          },
+          "p2": {
+            "name": "夜凜月",
+            "player_id": "101907704"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 coco幻；資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:30.9"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:32.9"
+              }
+            },
+            "power": {
+              "p1": "14.55M",
+              "p2": "12.66M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 63,
+                "time": "04:39.6"
+              },
+              "p2": {
+                "rank": 42,
+                "time": "04:36.0"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "紅桃A",
+            "player_id": "101735606"
+          },
+          "p2": {
+            "name": "AK연인",
+            "player_id": "101565972"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 紅桃A",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:21.8"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:22.1"
+              }
+            },
+            "power": {
+              "p1": "18.77M",
+              "p2": "17.09M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 10,
+                "time": "04:22.7"
+              },
+              "p2": {
+                "rank": 11,
+                "time": "04:23.2"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "욕정",
+            "player_id": "101782988"
+          },
+          "p2": {
+            "name": "coco幻",
+            "player_id": "101560949"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 욕정",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:19.4"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:30.9"
+              }
+            },
+            "power": {
+              "p1": "20.21M",
+              "p2": "14.55M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 33,
+                "time": "04:34.5"
+              },
+              "p2": {
+                "rank": 63,
+                "time": "04:39.6"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["A", "C"]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "ZᶻZ",
+            "player_id": "101678554"
+          },
+          "p2": {
+            "name": "紅桃A",
+            "player_id": "101735606"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 ZᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "04:10.4"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:21.8"
+              }
+            },
+            "power": {
+              "p1": "36.76M",
+              "p2": "18.77M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 2,
+                "time": "04:07.3"
+              },
+              "p2": {
+                "rank": 10,
+                "time": "04:22.7"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["B", "D"]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "욕정",
+            "player_id": "101782988"
+          },
+          "p2": {
+            "name": "ZᶻZ",
+            "player_id": "101678554"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 ZᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:19.4"
+              },
+              "p2": {
+                "progress": "1強",
+                "time": "04:10.4"
+              }
+            },
+            "power": {
+              "p1": "20.21M",
+              "p2": "36.76M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 33,
+                "time": "04:34.5"
+              },
+              "p2": {
+                "rank": 2,
+                "time": "04:07.3"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["upper", "lower"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "龍×똥꼬",
+            "player_id": "101751766"
+          },
+          "p2": {
+            "name": "한잔ᶻZ",
+            "player_id": "101634016"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 한잔ᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": null,
+                "time": null
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:28.8"
+              }
+            },
+            "power": {
+              "p1": "9.97M",
+              "p2": "14.45M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 54,
+                "time": "04:37.7"
+              },
+              "p2": {
+                "rank": 23,
+                "time": "04:31.3"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "戰神蕉蕉",
+            "player_id": "101472573"
+          },
+          "p2": {
+            "name": "賽博陀螺",
+            "player_id": "101831875"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 賽博陀螺",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:30.8"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:22.1"
+              }
+            },
+            "power": {
+              "p1": "12.88M",
+              "p2": "23.05M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 55,
+                "time": "04:37.7"
+              },
+              "p2": {
+                "rank": 29,
+                "time": "04:33.1"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "RV297",
+            "player_id": "101993264"
+          },
+          "p2": {
+            "name": "Yööᶠˣ",
+            "player_id": "101706762"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 RV297",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "04:16.1"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:29.5"
+              }
+            },
+            "power": {
+              "p1": "27.52M",
+              "p2": "16.10M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 4,
+                "time": "04:13.2"
+              },
+              "p2": {
+                "rank": 13,
+                "time": "04:25.0"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "烏薩奇Usagi",
+            "player_id": "102010250"
+          },
+          "p2": {
+            "name": "龍×똥꼬",
+            "player_id": "101750016"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 龍×똥꼬",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:29.0"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:16.1"
+              }
+            },
+            "power": {
+              "p1": "13.75M",
+              "p2": "17.77M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 22,
+                "time": "04:30.8"
+              },
+              "p2": {
+                "rank": 16,
+                "time": "04:27.1"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "한잔ᶻZ",
+            "player_id": "101634016"
+          },
+          "p2": {
+            "name": "RV297",
+            "player_id": "101993264"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 RV297",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:28.8"
+              },
+              "p2": {
+                "progress": "1強",
+                "time": "04:16.1"
+              }
+            },
+            "power": {
+              "p1": "14.45M",
+              "p2": "27.52M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 23,
+                "time": "04:31.3"
+              },
+              "p2": {
+                "rank": 4,
+                "time": "04:13.2"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["A", "C"]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "賽博陀螺",
+            "player_id": "101831875"
+          },
+          "p2": {
+            "name": "龍×똥꼬",
+            "player_id": "101750016"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 賽博陀螺；上屆時間、資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:22.1"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:16.1"
+              }
+            },
+            "power": {
+              "p1": "23.05M",
+              "p2": "17.77M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 29,
+                "time": "04:33.1"
+              },
+              "p2": {
+                "rank": 16,
+                "time": "04:27.1"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["B", "D"]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "RV297",
+            "player_id": "101993264"
+          },
+          "p2": {
+            "name": "賽博陀螺",
+            "player_id": "101831875"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 RV297",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "04:16.1"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:22.1"
+              }
+            },
+            "power": {
+              "p1": "27.52M",
+              "p2": "23.05M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 4,
+                "time": "04:13.2"
+              },
+              "p2": {
+                "rank": 29,
+                "time": "04:33.1"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["upper", "lower"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "koeee",
+            "player_id": "101874870"
+          },
+          "p2": {
+            "name": "紫薯芋泥c",
+            "player_id": "101988548"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 koeee",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "03:59.0"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:30.8"
+              }
+            },
+            "power": {
+              "p1": "62.93M",
+              "p2": "12.54M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 1,
+                "time": "04:01.9"
+              },
+              "p2": {
+                "rank": 37,
+                "time": "04:35.4"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "泰融",
+            "player_id": "101970866"
+          },
+          "p2": {
+            "name": "龍×콰트",
+            "player_id": "102003128"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 泰融",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:27.9"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:30.7"
+              }
+            },
+            "power": {
+              "p1": "15.27M",
+              "p2": "13.75M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 44,
+                "time": "04:36.3"
+              },
+              "p2": {
+                "rank": 48,
+                "time": "04:36.9"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "김미태",
+            "player_id": "101873331"
+          },
+          "p2": {
+            "name": "阿武花豆",
+            "player_id": "101769770"
+          },
+          "selected_side": "p1",
+          "confidence": "low",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 김미태；上屆時間、本屆戰力、資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:20.6"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:11.3"
+              }
+            },
+            "power": {
+              "p1": "8.72M",
+              "p2": "21.52M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 9,
+                "time": "04:21.1"
+              },
+              "p2": {
+                "rank": 6,
+                "time": "04:18.2"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "단별ll헌쿤",
+            "player_id": "101579946"
+          },
+          "p2": {
+            "name": "吐司夾蛋",
+            "player_id": "101667953"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 단별ll헌쿤",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:20.8"
+              },
+              "p2": {
+                "progress": null,
+                "time": null
+              }
+            },
+            "power": {
+              "p1": "17.68M",
+              "p2": "15.51M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 60,
+                "time": "04:38.5"
+              },
+              "p2": {
+                "rank": 62,
+                "time": "04:39.0"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "koeee",
+            "player_id": "101874870"
+          },
+          "p2": {
+            "name": "김미태",
+            "player_id": "101873331"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 koeee",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "03:59.0"
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:20.6"
+              }
+            },
+            "power": {
+              "p1": "62.93M",
+              "p2": "8.72M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 1,
+                "time": "04:01.9"
+              },
+              "p2": {
+                "rank": 9,
+                "time": "04:21.1"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["A", "C"]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "泰融",
+            "player_id": "101970866"
+          },
+          "p2": {
+            "name": "단별ll헌쿤",
+            "player_id": "101579946"
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 단별ll헌쿤；資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:27.9"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:20.8"
+              }
+            },
+            "power": {
+              "p1": "15.27M",
+              "p2": "17.68M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 44,
+                "time": "04:36.3"
+              },
+              "p2": {
+                "rank": 60,
+                "time": "04:38.5"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["B", "D"]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "koeee",
+            "player_id": "101874870"
+          },
+          "p2": {
+            "name": "단별ll헌쿤",
+            "player_id": "101579946"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 koeee",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "03:59.0"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:20.8"
+              }
+            },
+            "power": {
+              "p1": "62.93M",
+              "p2": "17.68M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 1,
+                "time": "04:01.9"
+              },
+              "p2": {
+                "rank": 60,
+                "time": "04:38.5"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["upper", "lower"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "劍人海拉",
+            "player_id": "101470142"
+          },
+          "p2": {
+            "name": "ᴬᴷFLEX3R",
+            "player_id": "101833366"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 ᴬᴷFLEX3R",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": null,
+                "time": null
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:12.6"
+              }
+            },
+            "power": {
+              "p1": "14.58M",
+              "p2": "30.43M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 50,
+                "time": "04:36.9"
+              },
+              "p2": {
+                "rank": 14,
+                "time": "04:25.9"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "말랭ᶻZ",
+            "player_id": "101582242"
+          },
+          "p2": {
+            "name": "ᴬᴷ인써하니",
+            "player_id": "101533959"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 말랭ᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:29.9"
+              },
+              "p2": {
+                "progress": null,
+                "time": null
+              }
+            },
+            "power": {
+              "p1": "17.94M",
+              "p2": "10.55M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 24,
+                "time": "04:31.4"
+              },
+              "p2": {
+                "rank": 58,
+                "time": "04:37.9"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "龍×조이",
+            "player_id": "101925569"
+          },
+          "p2": {
+            "name": "Cashasy",
+            "player_id": "101548138"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 Cashasy",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:29.1"
+              },
+              "p2": {
+                "progress": "1強",
+                "time": "04:18.1"
+              }
+            },
+            "power": {
+              "p1": "13.59M",
+              "p2": "24.29M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 25,
+                "time": "04:31.6"
+              },
+              "p2": {
+                "rank": 7,
+                "time": "04:20.0"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "Niff",
+            "player_id": "101523734"
+          },
+          "p2": {
+            "name": "秘運行者Kai",
+            "player_id": "101716965"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 Niff；資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:28.8"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:33.0"
+              }
+            },
+            "power": {
+              "p1": "16.54M",
+              "p2": "12.98M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 61,
+                "time": "04:38.7"
+              },
+              "p2": {
+                "rank": 40,
+                "time": "04:35.7"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "ᴬᴷFLEX3R",
+            "player_id": "101833366"
+          },
+          "p2": {
+            "name": "Cashasy",
+            "player_id": "101548138"
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 Cashasy；上屆時間、本屆戰力方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:12.6"
+              },
+              "p2": {
+                "progress": "1強",
+                "time": "04:18.1"
+              }
+            },
+            "power": {
+              "p1": "30.43M",
+              "p2": "24.29M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 14,
+                "time": "04:25.9"
+              },
+              "p2": {
+                "rank": 7,
+                "time": "04:20.0"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["A", "C"]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "말랭ᶻZ",
+            "player_id": "101582242"
+          },
+          "p2": {
+            "name": "Niff",
+            "player_id": "101523734"
+          },
+          "selected_side": "p2",
+          "confidence": "low",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 Niff；本屆戰力、資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:29.9"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:28.8"
+              }
+            },
+            "power": {
+              "p1": "17.94M",
+              "p2": "16.54M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 24,
+                "time": "04:31.4"
+              },
+              "p2": {
+                "rank": 61,
+                "time": "04:38.7"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["B", "D"]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "Cashasy",
+            "player_id": "101548138"
+          },
+          "p2": {
+            "name": "Niff",
+            "player_id": "101523734"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 Cashasy",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "04:18.1"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:28.8"
+              }
+            },
+            "power": {
+              "p1": "24.29M",
+              "p2": "16.54M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 7,
+                "time": "04:20.0"
+              },
+              "p2": {
+                "rank": 61,
+                "time": "04:38.7"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["upper", "lower"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "짱구ᶻZ",
+            "player_id": "101707580"
+          },
+          "p2": {
+            "name": "龍×이노40",
+            "player_id": "101859768"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 짱구ᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:25.4"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:29.1"
+              }
+            },
+            "power": {
+              "p1": "30.60M",
+              "p2": "15.70M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 21,
+                "time": "04:29.6"
+              },
+              "p2": {
+                "rank": 41,
+                "time": "04:35.8"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "戰神冥海龍靈",
+            "player_id": "101527960"
+          },
+          "p2": {
+            "name": "쿨쿨ᶻZ",
+            "player_id": "101607272"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 쿨쿨ᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": null,
+                "time": null
+              },
+              "p2": {
+                "progress": "1強",
+                "time": "04:30.2"
+              }
+            },
+            "power": {
+              "p1": "13.02M",
+              "p2": "17.76M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 31,
+                "time": "04:33.5"
+              },
+              "p2": {
+                "rank": 18,
+                "time": "04:28.9"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "FLEX2Rᶠˣ",
+            "player_id": "101536777"
+          },
+          "p2": {
+            "name": "派對孔明",
+            "player_id": "102033986"
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 派對孔明；本屆戰力方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:27.2"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:24.9"
+              }
+            },
+            "power": {
+              "p1": "20.23M",
+              "p2": "13.40M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 59,
+                "time": "04:38.1"
+              },
+              "p2": {
+                "rank": 26,
+                "time": "04:32.0"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "龍×이뮤",
+            "player_id": "101875640"
+          },
+          "p2": {
+            "name": "小舜舜",
+            "player_id": "101677001"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 龍×이뮤",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:29.1"
+              },
+              "p2": {
+                "progress": null,
+                "time": null
+              }
+            },
+            "power": {
+              "p1": "14.47M",
+              "p2": "7.74M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 17,
+                "time": "04:28.5"
+              },
+              "p2": {
+                "rank": 51,
+                "time": "04:37.0"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "짱구ᶻZ",
+            "player_id": "101707580"
+          },
+          "p2": {
+            "name": "派對孔明",
+            "player_id": "102033986"
+          },
+          "selected_side": "p2",
+          "confidence": "low",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 派對孔明；本屆戰力、資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:25.4"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:24.9"
+              }
+            },
+            "power": {
+              "p1": "30.60M",
+              "p2": "13.40M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 21,
+                "time": "04:29.6"
+              },
+              "p2": {
+                "rank": 26,
+                "time": "04:32.0"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["A", "C"]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "쿨쿨ᶻZ",
+            "player_id": "101607272"
+          },
+          "p2": {
+            "name": "龍×이뮤",
+            "player_id": "101875640"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 쿨쿨ᶻZ；上屆時間、資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "04:30.2"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:29.1"
+              }
+            },
+            "power": {
+              "p1": "17.76M",
+              "p2": "14.47M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 18,
+                "time": "04:28.9"
+              },
+              "p2": {
+                "rank": 17,
+                "time": "04:28.5"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["B", "D"]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "派對孔明",
+            "player_id": "102033986"
+          },
+          "p2": {
+            "name": "쿨쿨ᶻZ",
+            "player_id": "101607272"
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 쿨쿨ᶻZ；上屆時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:24.9"
+              },
+              "p2": {
+                "progress": "1強",
+                "time": "04:30.2"
+              }
+            },
+            "power": {
+              "p1": "13.40M",
+              "p2": "17.76M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 26,
+                "time": "04:32.0"
+              },
+              "p2": {
+                "rank": 18,
+                "time": "04:28.9"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["upper", "lower"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "瑪法里恩中風",
+            "player_id": "102117405"
+          },
+          "p2": {
+            "name": "Egø",
+            "player_id": "101957780"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 Egø",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:26.1"
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:14.1"
+              }
+            },
+            "power": {
+              "p1": "12.96M",
+              "p2": "21.73M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 36,
+                "time": "04:35.4"
+              },
+              "p2": {
+                "rank": 12,
+                "time": "04:24.8"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "仔仔團宗宗",
+            "player_id": "102085885"
+          },
+          "p2": {
+            "name": "牛大力",
+            "player_id": "102045250"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 牛大力",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:28.7"
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:15.4"
+              }
+            },
+            "power": {
+              "p1": "17.06M",
+              "p2": "55.06M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 56,
+                "time": "04:37.8"
+              },
+              "p2": {
+                "rank": 46,
+                "time": "04:36.6"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "LCFFKU",
+            "player_id": "101884001"
+          },
+          "p2": {
+            "name": "ᴬᴷ베라",
+            "player_id": "101918694"
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 ᴬᴷ베라；上屆時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "4強",
+                "time": "04:06.9"
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:27.6"
+              }
+            },
+            "power": {
+              "p1": "14.46M",
+              "p2": "19.91M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 32,
+                "time": "04:34.2"
+              },
+              "p2": {
+                "rank": 27,
+                "time": "04:32.2"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "荃雉瓏",
+            "player_id": "101830927"
+          },
+          "p2": {
+            "name": "CoBe",
+            "player_id": "101479246"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 CoBe",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:33.0"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:28.1"
+              }
+            },
+            "power": {
+              "p1": "10.98M",
+              "p2": "14.09M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 57,
+                "time": "04:37.8"
+              },
+              "p2": {
+                "rank": 39,
+                "time": "04:35.6"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "Egø",
+            "player_id": "101957780"
+          },
+          "p2": {
+            "name": "ᴬᴷ베라",
+            "player_id": "101918694"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 Egø",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:14.1"
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:27.6"
+              }
+            },
+            "power": {
+              "p1": "21.73M",
+              "p2": "19.91M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 12,
+                "time": "04:24.8"
+              },
+              "p2": {
+                "rank": 27,
+                "time": "04:32.2"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["A", "C"]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "牛大力",
+            "player_id": "102045250"
+          },
+          "p2": {
+            "name": "CoBe",
+            "player_id": "101479246"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 牛大力；資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:15.4"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:28.1"
+              }
+            },
+            "power": {
+              "p1": "55.06M",
+              "p2": "14.09M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 46,
+                "time": "04:36.6"
+              },
+              "p2": {
+                "rank": 39,
+                "time": "04:35.6"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["B", "D"]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "Egø",
+            "player_id": "101957780"
+          },
+          "p2": {
+            "name": "牛大力",
+            "player_id": "102045250"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 Egø；本屆戰力方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:14.1"
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:15.4"
+              }
+            },
+            "power": {
+              "p1": "21.73M",
+              "p2": "55.06M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 12,
+                "time": "04:24.8"
+              },
+              "p2": {
+                "rank": 46,
+                "time": "04:36.6"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["upper", "lower"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "ᴬᴷ우연",
+            "player_id": "101575904"
+          },
+          "p2": {
+            "name": "고른주부J",
+            "player_id": "101517893"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 ᴬᴷ우연；本屆戰力、資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:20.0"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:28.9"
+              }
+            },
+            "power": {
+              "p1": "15.35M",
+              "p2": "19.18M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 19,
+                "time": "04:29.2"
+              },
+              "p2": {
+                "rank": 15,
+                "time": "04:26.6"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "丫丸仔",
+            "player_id": "101862182"
+          },
+          "p2": {
+            "name": "放開隻牛仔",
+            "player_id": "101629103"
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 放開隻牛仔；資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:23.5"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:20.5"
+              }
+            },
+            "power": {
+              "p1": "12.56M",
+              "p2": "14.45M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 20,
+                "time": "04:29.3"
+              },
+              "p2": {
+                "rank": 38,
+                "time": "04:35.4"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "팡대ᶻZ",
+            "player_id": "101594098"
+          },
+          "p2": {
+            "name": "送你離開",
+            "player_id": "102037229"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 팡대ᶻZ；本屆戰力方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "04:07.2"
+              },
+              "p2": {
+                "progress": "1強",
+                "time": "04:13.8"
+              }
+            },
+            "power": {
+              "p1": "26.84M",
+              "p2": "42.23M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 5,
+                "time": "04:13.4"
+              },
+              "p2": {
+                "rank": 8,
+                "time": "04:20.8"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "戰神SAKE",
+            "player_id": "101771950"
+          },
+          "p2": {
+            "name": "SuperAaron",
+            "player_id": "101535841"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 SuperAaron",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": null,
+                "time": null
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:22.9"
+              }
+            },
+            "power": {
+              "p1": "15.01M",
+              "p2": "22.92M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 45,
+                "time": "04:36.3"
+              },
+              "p2": {
+                "rank": 30,
+                "time": "04:33.4"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "ᴬᴷ우연",
+            "player_id": "101575904"
+          },
+          "p2": {
+            "name": "팡대ᶻZ",
+            "player_id": "101594098"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 팡대ᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:20.0"
+              },
+              "p2": {
+                "progress": "1強",
+                "time": "04:07.2"
+              }
+            },
+            "power": {
+              "p1": "15.35M",
+              "p2": "26.84M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 19,
+                "time": "04:29.2"
+              },
+              "p2": {
+                "rank": 5,
+                "time": "04:13.4"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["A", "C"]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "放開隻牛仔",
+            "player_id": "101629103"
+          },
+          "p2": {
+            "name": "SuperAaron",
+            "player_id": "101535841"
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 SuperAaron；上屆時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:20.5"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:22.9"
+              }
+            },
+            "power": {
+              "p1": "14.45M",
+              "p2": "22.92M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 38,
+                "time": "04:35.4"
+              },
+              "p2": {
+                "rank": 30,
+                "time": "04:33.4"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["B", "D"]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "팡대ᶻZ",
+            "player_id": "101594098"
+          },
+          "p2": {
+            "name": "SuperAaron",
+            "player_id": "101535841"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 팡대ᶻZ",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "1強",
+                "time": "04:07.2"
+              },
+              "p2": {
+                "progress": "4強",
+                "time": "04:22.9"
+              }
+            },
+            "power": {
+              "p1": "26.84M",
+              "p2": "22.92M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 5,
+                "time": "04:13.4"
+              },
+              "p2": {
+                "rank": 30,
+                "time": "04:33.4"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["upper", "lower"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "디킨비",
+            "player_id": "101722608"
+          },
+          "p2": {
+            "name": "仔仔團奧奧",
+            "player_id": "101504112"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 仔仔團奧奧",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": null,
+                "time": null
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:30.0"
+              }
+            },
+            "power": {
+              "p1": "11.02M",
+              "p2": "17.69M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 35,
+                "time": "04:35.2"
+              },
+              "p2": {
+                "rank": 34,
+                "time": "04:34.6"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "龍×똥꼬",
+            "player_id": "101804999"
+          },
+          "p2": {
+            "name": "龍×식현",
+            "player_id": "101925334"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 龍×똥꼬",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:29.5"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:32.8"
+              }
+            },
+            "power": {
+              "p1": "13.21M",
+              "p2": "8.90M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 47,
+                "time": "04:36.6"
+              },
+              "p2": {
+                "rank": 53,
+                "time": "04:37.5"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "차단ᶻZ",
+            "player_id": "101592430"
+          },
+          "p2": {
+            "name": "AK메투스",
+            "player_id": "101792517"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 AK메투스",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:21.0"
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:06.1"
+              }
+            },
+            "power": {
+              "p1": "15.58M",
+              "p2": "33.56M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 28,
+                "time": "04:32.6"
+              },
+              "p2": {
+                "rank": 3,
+                "time": "04:10.1"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "단별ll에이스",
+            "player_id": "101623252"
+          },
+          "p2": {
+            "name": "橙色楓葉",
+            "player_id": "101489384"
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 橙色楓葉；資格賽排名、資格賽時間方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": null,
+                "time": null
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:32.5"
+              }
+            },
+            "power": {
+              "p1": "8.97M",
+              "p2": "13.27M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 52,
+                "time": "04:37.2"
+              },
+              "p2": {
+                "rank": 64,
+                "time": "04:39.7"
+              }
+            }
+          },
+          "missing": ["history"],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "仔仔團奧奧",
+            "player_id": "101504112"
+          },
+          "p2": {
+            "name": "AK메투스",
+            "player_id": "101792517"
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 AK메투스",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:30.0"
+              },
+              "p2": {
+                "progress": "2強",
+                "time": "04:06.1"
+              }
+            },
+            "power": {
+              "p1": "17.69M",
+              "p2": "33.56M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 34,
+                "time": "04:34.6"
+              },
+              "p2": {
+                "rank": 3,
+                "time": "04:10.1"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["A", "C"]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "龍×똥꼬",
+            "player_id": "101804999"
+          },
+          "p2": {
+            "name": "橙色楓葉",
+            "player_id": "101489384"
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "previous_performance",
+          "reason": "上屆時間選擇 龍×똥꼬；本屆戰力方向相反",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "8強",
+                "time": "04:29.5"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:32.5"
+              }
+            },
+            "power": {
+              "p1": "13.21M",
+              "p2": "13.27M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 47,
+                "time": "04:36.6"
+              },
+              "p2": {
+                "rank": 64,
+                "time": "04:39.7"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["B", "D"]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "AK메투스",
+            "player_id": "101792517"
+          },
+          "p2": {
+            "name": "龍×똥꼬",
+            "player_id": "101804999"
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "previous_performance",
+          "reason": "上屆進度選擇 AK메투스",
+          "evidence": {
+            "previous_performance": {
+              "p1": {
+                "progress": "2強",
+                "time": "04:06.1"
+              },
+              "p2": {
+                "progress": "8強",
+                "time": "04:29.5"
+              }
+            },
+            "power": {
+              "p1": "33.56M",
+              "p2": "13.21M"
+            },
+            "qualifier": {
+              "p1": {
+                "rank": 3,
+                "time": "04:10.1"
+              },
+              "p2": {
+                "rank": 47,
+                "time": "04:36.6"
+              }
+            }
+          },
+          "missing": [],
+          "forced": false,
+          "depends_on": ["upper", "lower"]
+        }
+      ]
+    }
+  ]
+}

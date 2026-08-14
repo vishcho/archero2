@@ -42,6 +42,20 @@ screenshots/star-cup/<season-id>-round<N>/
 
 先落地再分析。`captured_at` 取圖片實際時間，不照抄資料夾日期。
 
+來源目錄與落地目錄**不是一對一**：一個來源目錄可能同時含多種批次
+（round4 的 `1.top64` 實為 16 張 `qualifier-rank` ＋ 64 張 `top64-profile`），
+因此不可用張數相符就判定已完整落地。核對既有批次時，逐檔比 md5 並列出
+每個來源檔實際落在哪個批次目錄，才能同時驗證完整性與分類正確性：
+
+```bash
+for f in "$SRC"/*; do
+  b=$(basename "$f")
+  hit=$(find screenshots/star-cup/<season>-round<N> -name "$b" | head -1)
+  [ -n "$hit" ] && cmp -s "$f" "$hit" && echo "OK $b -> $(dirname "$hit")" \
+    || echo "DIFF/MISSING $b"
+done
+```
+
 同時比較 manifest、磁碟與 `data/`：
 
 - `original`：有本屆原圖及 `captured_at`。

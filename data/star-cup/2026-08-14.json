@@ -4,14 +4,8 @@
   "date": "2026/8/14",
   "theme": "獲得精靈和飛劍流派技能",
   "season": "精靈季",
-  "qualifier_period": [
-    "2026-08-10",
-    "2026-08-13"
-  ],
-  "knockout_period": [
-    "2026-08-14",
-    "2026-08-21"
-  ],
+  "qualifier_period": ["2026-08-10", "2026-08-13"],
+  "knockout_period": ["2026-08-14", "2026-08-21"],
   "status": "in_progress",
   "collection": {
     "qualifier": "complete",
@@ -390,7 +384,7 @@
     {
       "rank": 62,
       "name": "吐司夾蛋",
-      "title": "超常角",
+      "title": "超常解放戰線",
       "time": "04:39.0"
     },
     {
@@ -414,49 +408,57 @@
           "name": "龍×교슘",
           "power": "13.08M",
           "qualifier_rank": 43,
-          "qualifier_time": "04:36.0"
+          "qualifier_time": "04:36.0",
+          "player_id": "101899339"
         },
         {
           "name": "욕정",
           "power": "20.21M",
           "qualifier_rank": 33,
-          "qualifier_time": "04:34.5"
+          "qualifier_time": "04:34.5",
+          "player_id": "101782988"
         },
         {
           "name": "ZᶻZ",
           "power": "36.76M",
           "qualifier_rank": 2,
-          "qualifier_time": "04:07.3"
+          "qualifier_time": "04:07.3",
+          "player_id": "101678554"
         },
         {
           "name": "南天門乂殺神",
           "power": "10.25M",
           "qualifier_rank": 49,
-          "qualifier_time": "04:36.9"
+          "qualifier_time": "04:36.9",
+          "player_id": "101857898"
         },
         {
           "name": "coco幻",
           "power": "14.55M",
           "qualifier_rank": 63,
-          "qualifier_time": "04:39.6"
+          "qualifier_time": "04:39.6",
+          "player_id": "101560949"
         },
         {
           "name": "夜凜月",
           "power": "12.66M",
           "qualifier_rank": 42,
-          "qualifier_time": "04:36.0"
+          "qualifier_time": "04:36.0",
+          "player_id": "101907704"
         },
         {
           "name": "紅桃A",
           "power": "18.77M",
           "qualifier_rank": 10,
-          "qualifier_time": "04:22.7"
+          "qualifier_time": "04:22.7",
+          "player_id": "101735606"
         },
         {
           "name": "AK연인",
           "power": "17.09M",
           "qualifier_rank": 11,
-          "qualifier_time": "04:23.2"
+          "qualifier_time": "04:23.2",
+          "player_id": "101565972"
         }
       ]
     },
@@ -466,50 +468,60 @@
         {
           "name": "龍×똥꼬",
           "power": "9.97M",
-          "flag": "⚠",
-          "note": "顯示名稱「龍×똥꼬」在資格賽榜上有 3 筆（名次 16／47／54），本屆 top64 名片尚未抽取，無法以 player_id 區分，故資格賽對應留空。"
+          "qualifier_rank": 54,
+          "qualifier_time": "04:37.7",
+          "player_id": "101751766",
+          "note": "三位同名選手依戰力高低順序定位：本格賽時戰力 9.97M 對應名片戰力 7.27M（用戶ID 101751766），為資格賽第 54 名。"
         },
         {
           "name": "한잔ᶻZ",
           "power": "14.45M",
           "qualifier_rank": 23,
-          "qualifier_time": "04:31.3"
+          "qualifier_time": "04:31.3",
+          "player_id": "101634016"
         },
         {
           "name": "戰神蕉蕉",
           "power": "12.88M",
           "qualifier_rank": 55,
-          "qualifier_time": "04:37.7"
+          "qualifier_time": "04:37.7",
+          "player_id": "101472573"
         },
         {
           "name": "賽博陀螺",
           "power": "23.05M",
           "qualifier_rank": 29,
-          "qualifier_time": "04:33.1"
+          "qualifier_time": "04:33.1",
+          "player_id": "101831875"
         },
         {
           "name": "RV297",
           "power": "27.52M",
           "qualifier_rank": 4,
-          "qualifier_time": "04:13.2"
+          "qualifier_time": "04:13.2",
+          "player_id": "101993264"
         },
         {
           "name": "Yööᶠˣ",
           "power": "16.10M",
           "qualifier_rank": 13,
-          "qualifier_time": "04:25.0"
+          "qualifier_time": "04:25.0",
+          "player_id": "101706762"
         },
         {
           "name": "烏薩奇Usagi",
           "power": "13.75M",
           "qualifier_rank": 22,
-          "qualifier_time": "04:30.8"
+          "qualifier_time": "04:30.8",
+          "player_id": "102010250"
         },
         {
           "name": "龍×똥꼬",
           "power": "17.77M",
-          "flag": "⚠",
-          "note": "顯示名稱「龍×똥꼬」在資格賽榜上有 3 筆（名次 16／47／54），本屆 top64 名片尚未抽取，無法以 player_id 區分，故資格賽對應留空。"
+          "qualifier_rank": 16,
+          "qualifier_time": "04:27.1",
+          "player_id": "101750016",
+          "note": "三位同名選手依戰力高低順序定位：本格賽時戰力 17.77M 對應名片戰力 17.09M（用戶ID 101750016），為資格賽第 16 名。"
         }
       ]
     },
@@ -520,49 +532,57 @@
           "name": "koeee",
           "power": "62.93M",
           "qualifier_rank": 1,
-          "qualifier_time": "04:01.9"
+          "qualifier_time": "04:01.9",
+          "player_id": "101874870"
         },
         {
           "name": "紫薯芋泥c",
           "power": "12.54M",
           "qualifier_rank": 37,
-          "qualifier_time": "04:35.4"
+          "qualifier_time": "04:35.4",
+          "player_id": "101988548"
         },
         {
           "name": "泰融",
           "power": "15.27M",
           "qualifier_rank": 44,
-          "qualifier_time": "04:36.3"
+          "qualifier_time": "04:36.3",
+          "player_id": "101970866"
         },
         {
           "name": "龍×콰트",
           "power": "13.75M",
           "qualifier_rank": 48,
-          "qualifier_time": "04:36.9"
+          "qualifier_time": "04:36.9",
+          "player_id": "102003128"
         },
         {
           "name": "김미태",
           "power": "8.72M",
           "qualifier_rank": 9,
-          "qualifier_time": "04:21.1"
+          "qualifier_time": "04:21.1",
+          "player_id": "101873331"
         },
         {
           "name": "阿武花豆",
           "power": "21.52M",
           "qualifier_rank": 6,
-          "qualifier_time": "04:18.2"
+          "qualifier_time": "04:18.2",
+          "player_id": "101769770"
         },
         {
           "name": "단별ll헌쿤",
           "power": "17.68M",
           "qualifier_rank": 60,
-          "qualifier_time": "04:38.5"
+          "qualifier_time": "04:38.5",
+          "player_id": "101579946"
         },
         {
           "name": "吐司夾蛋",
           "power": "15.51M",
           "qualifier_rank": 62,
-          "qualifier_time": "04:39.0"
+          "qualifier_time": "04:39.0",
+          "player_id": "101667953"
         }
       ]
     },
@@ -573,49 +593,57 @@
           "name": "劍人海拉",
           "power": "14.58M",
           "qualifier_rank": 50,
-          "qualifier_time": "04:36.9"
+          "qualifier_time": "04:36.9",
+          "player_id": "101470142"
         },
         {
           "name": "ᴬᴷFLEX3R",
           "power": "30.43M",
           "qualifier_rank": 14,
-          "qualifier_time": "04:25.9"
+          "qualifier_time": "04:25.9",
+          "player_id": "101833366"
         },
         {
           "name": "말랭ᶻZ",
           "power": "17.94M",
           "qualifier_rank": 24,
-          "qualifier_time": "04:31.4"
+          "qualifier_time": "04:31.4",
+          "player_id": "101582242"
         },
         {
           "name": "ᴬᴷ인써하니",
           "power": "10.55M",
           "qualifier_rank": 58,
-          "qualifier_time": "04:37.9"
+          "qualifier_time": "04:37.9",
+          "player_id": "101533959"
         },
         {
           "name": "龍×조이",
           "power": "13.59M",
           "qualifier_rank": 25,
-          "qualifier_time": "04:31.6"
+          "qualifier_time": "04:31.6",
+          "player_id": "101925569"
         },
         {
           "name": "Cashasy",
           "power": "24.29M",
           "qualifier_rank": 7,
-          "qualifier_time": "04:20.0"
+          "qualifier_time": "04:20.0",
+          "player_id": "101548138"
         },
         {
           "name": "Niff",
           "power": "16.54M",
           "qualifier_rank": 61,
-          "qualifier_time": "04:38.7"
+          "qualifier_time": "04:38.7",
+          "player_id": "101523734"
         },
         {
           "name": "秘運行者Kai",
           "power": "12.98M",
           "qualifier_rank": 40,
-          "qualifier_time": "04:35.7"
+          "qualifier_time": "04:35.7",
+          "player_id": "101716965"
         }
       ]
     },
@@ -626,49 +654,57 @@
           "name": "짱구ᶻZ",
           "power": "30.60M",
           "qualifier_rank": 21,
-          "qualifier_time": "04:29.6"
+          "qualifier_time": "04:29.6",
+          "player_id": "101707580"
         },
         {
           "name": "龍×이노40",
           "power": "15.70M",
           "qualifier_rank": 41,
-          "qualifier_time": "04:35.8"
+          "qualifier_time": "04:35.8",
+          "player_id": "101859768"
         },
         {
           "name": "戰神冥海龍靈",
           "power": "13.02M",
           "qualifier_rank": 31,
-          "qualifier_time": "04:33.5"
+          "qualifier_time": "04:33.5",
+          "player_id": "101527960"
         },
         {
           "name": "쿨쿨ᶻZ",
           "power": "17.76M",
           "qualifier_rank": 18,
-          "qualifier_time": "04:28.9"
+          "qualifier_time": "04:28.9",
+          "player_id": "101607272"
         },
         {
           "name": "FLEX2Rᶠˣ",
           "power": "20.23M",
           "qualifier_rank": 59,
-          "qualifier_time": "04:38.1"
+          "qualifier_time": "04:38.1",
+          "player_id": "101536777"
         },
         {
           "name": "派對孔明",
           "power": "13.40M",
           "qualifier_rank": 26,
-          "qualifier_time": "04:32.0"
+          "qualifier_time": "04:32.0",
+          "player_id": "102033986"
         },
         {
           "name": "龍×이뮤",
           "power": "14.47M",
           "qualifier_rank": 17,
-          "qualifier_time": "04:28.5"
+          "qualifier_time": "04:28.5",
+          "player_id": "101875640"
         },
         {
           "name": "小舜舜",
           "power": "7.74M",
           "qualifier_rank": 51,
-          "qualifier_time": "04:37.0"
+          "qualifier_time": "04:37.0",
+          "player_id": "101677001"
         }
       ]
     },
@@ -679,49 +715,57 @@
           "name": "瑪法里恩中風",
           "power": "12.96M",
           "qualifier_rank": 36,
-          "qualifier_time": "04:35.4"
+          "qualifier_time": "04:35.4",
+          "player_id": "102117405"
         },
         {
           "name": "Egø",
           "power": "21.73M",
           "qualifier_rank": 12,
-          "qualifier_time": "04:24.8"
+          "qualifier_time": "04:24.8",
+          "player_id": "101957780"
         },
         {
           "name": "仔仔團宗宗",
           "power": "17.06M",
           "qualifier_rank": 56,
-          "qualifier_time": "04:37.8"
+          "qualifier_time": "04:37.8",
+          "player_id": "102085885"
         },
         {
           "name": "牛大力",
           "power": "55.06M",
           "qualifier_rank": 46,
-          "qualifier_time": "04:36.6"
+          "qualifier_time": "04:36.6",
+          "player_id": "102045250"
         },
         {
           "name": "LCFFKU",
           "power": "14.46M",
           "qualifier_rank": 32,
-          "qualifier_time": "04:34.2"
+          "qualifier_time": "04:34.2",
+          "player_id": "101884001"
         },
         {
           "name": "ᴬᴷ베라",
           "power": "19.91M",
           "qualifier_rank": 27,
-          "qualifier_time": "04:32.2"
+          "qualifier_time": "04:32.2",
+          "player_id": "101918694"
         },
         {
           "name": "荃雉瓏",
           "power": "10.98M",
           "qualifier_rank": 57,
-          "qualifier_time": "04:37.8"
+          "qualifier_time": "04:37.8",
+          "player_id": "101830927"
         },
         {
           "name": "CoBe",
           "power": "14.09M",
           "qualifier_rank": 39,
-          "qualifier_time": "04:35.6"
+          "qualifier_time": "04:35.6",
+          "player_id": "101479246"
         }
       ]
     },
@@ -732,49 +776,57 @@
           "name": "ᴬᴷ우연",
           "power": "15.35M",
           "qualifier_rank": 19,
-          "qualifier_time": "04:29.2"
+          "qualifier_time": "04:29.2",
+          "player_id": "101575904"
         },
         {
           "name": "고른주부J",
           "power": "19.18M",
           "qualifier_rank": 15,
-          "qualifier_time": "04:26.6"
+          "qualifier_time": "04:26.6",
+          "player_id": "101517893"
         },
         {
           "name": "丫丸仔",
           "power": "12.56M",
           "qualifier_rank": 20,
-          "qualifier_time": "04:29.3"
+          "qualifier_time": "04:29.3",
+          "player_id": "101862182"
         },
         {
           "name": "放開隻牛仔",
           "power": "14.45M",
           "qualifier_rank": 38,
-          "qualifier_time": "04:35.4"
+          "qualifier_time": "04:35.4",
+          "player_id": "101629103"
         },
         {
           "name": "팡대ᶻZ",
           "power": "26.84M",
           "qualifier_rank": 5,
-          "qualifier_time": "04:13.4"
+          "qualifier_time": "04:13.4",
+          "player_id": "101594098"
         },
         {
           "name": "送你離開",
           "power": "42.23M",
           "qualifier_rank": 8,
-          "qualifier_time": "04:20.8"
+          "qualifier_time": "04:20.8",
+          "player_id": "102037229"
         },
         {
           "name": "戰神SAKE",
           "power": "15.01M",
           "qualifier_rank": 45,
-          "qualifier_time": "04:36.3"
+          "qualifier_time": "04:36.3",
+          "player_id": "101771950"
         },
         {
           "name": "SuperAaron",
           "power": "22.92M",
           "qualifier_rank": 30,
-          "qualifier_time": "04:33.4"
+          "qualifier_time": "04:33.4",
+          "player_id": "101535841"
         }
       ]
     },
@@ -785,54 +837,63 @@
           "name": "디킨비",
           "power": "11.02M",
           "qualifier_rank": 35,
-          "qualifier_time": "04:35.2"
+          "qualifier_time": "04:35.2",
+          "player_id": "101722608"
         },
         {
           "name": "仔仔團奧奧",
           "power": "17.69M",
           "qualifier_rank": 34,
-          "qualifier_time": "04:34.6"
+          "qualifier_time": "04:34.6",
+          "player_id": "101504112"
         },
         {
           "name": "龍×똥꼬",
           "power": "13.21M",
-          "flag": "⚠",
-          "note": "顯示名稱「龍×똥꼬」在資格賽榜上有 3 筆（名次 16／47／54），本屆 top64 名片尚未抽取，無法以 player_id 區分，故資格賽對應留空。"
+          "qualifier_rank": 47,
+          "qualifier_time": "04:36.6",
+          "player_id": "101804999",
+          "note": "三位同名選手依戰力高低順序定位：本格賽時戰力 13.21M 對應名片戰力 12.15M（用戶ID 101804999），為資格賽第 47 名。"
         },
         {
           "name": "龍×식현",
           "power": "8.90M",
           "qualifier_rank": 53,
-          "qualifier_time": "04:37.5"
+          "qualifier_time": "04:37.5",
+          "player_id": "101925334"
         },
         {
           "name": "차단ᶻZ",
           "power": "15.58M",
           "qualifier_rank": 28,
-          "qualifier_time": "04:32.6"
+          "qualifier_time": "04:32.6",
+          "player_id": "101592430"
         },
         {
           "name": "AK메투스",
           "power": "33.56M",
           "qualifier_rank": 3,
-          "qualifier_time": "04:10.1"
+          "qualifier_time": "04:10.1",
+          "player_id": "101792517"
         },
         {
           "name": "단별ll에이스",
           "power": "8.97M",
           "qualifier_rank": 52,
-          "qualifier_time": "04:37.2"
+          "qualifier_time": "04:37.2",
+          "player_id": "101623252"
         },
         {
           "name": "橙色楓葉",
           "power": "13.27M",
           "qualifier_rank": 64,
-          "qualifier_time": "04:39.7"
+          "qualifier_time": "04:39.7",
+          "player_id": "101489384"
         }
       ]
     }
   ],
   "grand_finals": null,
   "qualifier_note": "資格賽排行榜由 screenshots/star-cup/2026-08-14-round5/qualifier-rank/（16 張連拍）抽取，涵蓋名次 1–68，此處收錄前 64 名。第 32 名 LCFFKU 畫面上無公會／稱號標籤（名片顯示「公會:無」），title 記 null。",
-  "groups_note": "賽前對陣由 screenshots/star-cup/2026-08-14-round5/knockout-matchup/（8 張）抽取。players 陣列順序＝對陣圖籤位，**不可排序**；但依 README「排序約定」，對陣關係的唯一真實來源是 groups[].matches，不得由 players 陣列位置推導——本屆賽前尚無賽果故 matches 省略，待淘汰賽結果批次入庫時一併填入。名單完整性已交叉驗證：對陣 64 人與資格賽前 64 名完全一致。顯示名稱「龍×똥꼬」本屆有 3 位不同選手（資格賽第 16／47／54 名）：第 2 組 2 位（9.97M、17.77M）、第 8 組 1 位（13.21M），待 top64 名片抽取後以 player_id 區分。"
+  "groups_note": "賽前對陣由 screenshots/star-cup/2026-08-14-round5/knockout-matchup/（8 張）抽取。players 陣列順序＝對陣圖籤位，**不可排序**；但依 README「排序約定」，對陣關係的唯一真實來源是 groups[].matches，不得由 players 陣列位置推導——本屆賽前尚無賽果故 matches 省略，待淘汰賽結果批次入庫時一併填入。名單完整性已交叉驗證：對陣 64 人與資格賽前 64 名完全一致。原始 top64-profile 批次誤將第 41 名「龍×이노40」重複拍攝；第 42 名「夜凜月」已由 Screenshot_20260814-120711.png 補拍，現已取得前 64 名全部 player_id。顯示名稱「龍×똥꼬」本屆有 3 位不同選手（資格賽第 16／47／54 名），依三張名片戰力 17.09M／12.15M／7.27M 與三個賽時戰力 17.77M／13.21M／9.97M 的高低順序定位 player_id；各筆 note 保留對應依據。"
 }

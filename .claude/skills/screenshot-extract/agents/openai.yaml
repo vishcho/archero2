@@ -1,0 +1,4 @@
+interface:
+  display_name: "Archero 2 截圖抽取"
+  short_description: "從賽事手機截圖抽取、交叉核對並安全匯入結構化資料流程"
+  default_prompt: "Use $screenshot-extract to extract or verify this Archero 2 screenshot batch."

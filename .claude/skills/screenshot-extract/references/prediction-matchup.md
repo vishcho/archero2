@@ -67,3 +67,21 @@ npm run dev
 ```
 
 正式發布必須在人工核對四場 R1、56 個建議、覆蓋率與強制選擇後另行執行；不得由截圖抽取流程自動發布。
+
+## 正式發布與社群預覽
+
+使用者明確核准正式發布後，依序執行：
+
+```bash
+npm run predictions:publish -- <season> --matchup tmp/<season>-matchup.json
+npm run social-preview
+npm run check
+```
+
+不要在 `predictions:preview` 或 `predictions:web-preview` 後產生社群預覽。正式快照寫入成功後才更新，
+避免 LINE 卡片先曝光未核准內容。`social-preview` 只處理 `data/star-cup/seasons.json` 的最後一屆；
+若本次發布或回填的是歷史屆次，確認它不是最後一屆後跳過此步。
+
+完成報告除圖片、R1 與玩家涵蓋率外，正式發布時另列：prediction 快照路徑、社群 PNG 路徑、
+首頁 `og:image` URL、`npm run check` 結果。不要以社群平台即時顯示為完成條件，因 LINE 與
+GitHub Pages 皆可能暫存舊內容；日期版圖片 URL 才是避免跨屆快取的依據。

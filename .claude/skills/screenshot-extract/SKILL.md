@@ -1,6 +1,6 @@
 ---
 name: screenshot-extract
-description: 從 Archero 2 明星盃／超級明星盃手機截圖建立、核對或修正結構化資料。適用於新截圖入庫、混裝批次分類、既有 JSON 抽樣或完整複核、OCR 差異裁決、名片身分回填、賽前 R1 配對與下注預覽、淘汰賽與總決賽結果抽取，以及重新產生來源紀錄或戰報；涵蓋證據歸屬、視覺抽取、交叉驗證、dry-run 匯入與完成門檻。
+description: 從 Archero 2 明星盃／超級明星盃手機截圖建立、核對、修正及發布結構化資料。適用於新截圖入庫、混裝批次分類、既有 JSON 抽樣或完整複核、OCR 差異裁決、名片身分回填、賽前 R1 配對與下注預覽／正式發布、LINE 社群預覽更新、淘汰賽與總決賽結果抽取，以及重新產生來源紀錄或戰報；涵蓋證據歸屬、視覺抽取、交叉驗證、dry-run 匯入與完成門檻。
 ---
 
 # 截圖抽取與核對
@@ -101,13 +101,27 @@ Validator 能抓結構錯誤，抓不到看錯的字或數字。每次都要加�
 
 ## Step 5：dry-run、寫入與驗收
 
-優先使用既有 importer 並先跑 `--dry-run`。只有來源、欄位語意與關聯均成立才寫入正式資料。完成後依影響執行：
+優先使用既有 importer 並先跑 `--dry-run`。只有來源、欄位語意與關聯均成立才寫入正式資料。完成後依影響執行。文件 membership 或標題改變時先重建文件索引，再跑完整檢查：
 
 ```bash
 node tools/check-screenshots.mjs --round roundN
-npm run check
 npm run docs:build   # 只有文件 membership 或標題改變時
+npm run check
 ```
+
+最新一屆下注建議經人工核對並獲准正式發布時，使用固定順序：
+
+```bash
+npm run predictions:publish -- <season> --matchup tmp/<season>-matchup.json
+npm run social-preview
+npm run check
+```
+
+`social-preview` 必須在正式發布完成後、`npm run check` 前執行；它會從
+`data/star-cup/seasons.json` 的最後一屆讀取 `round`、`season`、`theme`，產生日期版
+1200 × 630 PNG 並同步更新首頁 Open Graph 資訊。只做抽樣核對、dry-run、下注預覽或回填
+非最新屆歷史資料時，不要因此重新產生社群預覽。若最新一屆的上述欄位或屆次索引有變，
+即使未重發下注快照，也要執行 `npm run social-preview`；`npm run check` 會阻擋過期產物。
 
 更新 `docs/sources.md` 的證據路徑、日期、張數、產出與不確定性。不要 commit 截圖。
 

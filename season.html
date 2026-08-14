@@ -2,12 +2,19 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="img/fire.png">
+  <link rel="icon" type="image/png" href="img/game/events/dice.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>賽事詳情</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background-color: #0f172a; color: #e2e8f0; }
+    @font-face {
+      font-family: "Noto Sans TC";
+      src: url("assets/fonts/NotoSansTC-VF.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    body { background-color: #0f172a; color: #e2e8f0; font-family: "Noto Sans TC", system-ui, sans-serif; }
     .tab-btn { transition: all 0.2s; }
     .tab-btn.active { background-color: #eab308; color: #0f172a; }
     .prev-best-badge { font-size: 0.7rem; padding: 1px 6px; border-radius: 9999px; font-weight: 600; }

@@ -35,11 +35,9 @@
 
 ## 個人筆記
 
-- [架構優化第二、三階段執行計畫](../notes/architecture-roadmap.md)
 - [明星盃下注建議工具規格](../notes/betting-assistant-spec.md)
-- [`prev_*` 相容遷移計畫](../notes/prev-fields-migration-plan.md)
 - [待辦事項](../notes/todo.md)
-- [弓箭傳說 2 長期規劃](../notes/弓箭傳說2-長期規劃.md)
+- [Archero 2「塔塔的寶藏」UI/UX 設計評論與改善建議](../notes/uiux-design-review.md)
 
 ## 工作流
 

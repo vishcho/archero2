@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+set -eu
+
+echo "Running the same repository checks as GitHub Actions..."
+npm run check

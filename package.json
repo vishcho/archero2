@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "node tools/dev-server.mjs",
+    "hooks:install": "git config core.hooksPath .githooks",
     "test": "node --test",
     "validate:contracts": "node tools/validate-contracts.mjs",
     "validate:data": "node tools/validate-season.mjs --all",

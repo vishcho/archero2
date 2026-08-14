@@ -128,26 +128,33 @@ async function loadAdvice() {
     : prediction.source === "snapshot"
       ? "正式快照"
       : "賽前文件還原";
-  app.innerHTML = `${previewNotice}<section class="summary"><div><p class="eyebrow">${escapeHtml(heading)}</p><h1>${escapeHtml(season.date)} ${season.status === "finished" ? "當初建議與賽果" : "下注建議"}</h1><p class="lede">操作順序：A → B → C → D → A × C → B × D → 冠軍賽</p>${legend}</div><div><strong>${previewId ? "不計 KPI" : formatRate(score.correct, score.settled)}</strong><div class="muted">${previewId ? "預覽模式" : "目前命中率"}</div></div></section><div class="coverage"><span class="chip">戰力 ${prediction.coverage.power.available}/64</span><span class="chip">資格賽 ${prediction.coverage.qualifier.available}/64</span><span class="chip">歷史 ${prediction.coverage.history.available}/64</span><span class="chip">${previewId ? "產生" : "發布"} ${escapeHtml(new Date(prediction.published_at).toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }))}</span></div><div class="actions"><button id="copy-all" class="button">複製全部 56 場</button><a class="button" href="season.html?id=${encodeURIComponent(id)}">完整賽事資料</a></div><div id="tabs" class="tabs"></div><div id="group"></div>`;
+  app.innerHTML = `${previewNotice}<section class="summary"><div><p class="eyebrow">${escapeHtml(heading)}</p><h1>${escapeHtml(season.date)} ${season.status === "finished" ? "當初建議與賽果" : "下注建議"}</h1><p class="lede">操作順序：A → B → C → D → A × C → B × D → 冠軍賽</p>${legend}</div><div><strong>${previewId ? "不計 KPI" : formatRate(score.correct, score.settled)}</strong><div class="muted">${previewId ? "預覽模式" : "目前命中率"}</div></div></section><div class="coverage" aria-label="資料涵蓋率"><span class="chip">戰力資料 ${prediction.coverage.power.available}/64 人</span><span class="chip">資格賽資料 ${prediction.coverage.qualifier.available}/64 人</span><span class="chip">歷史資料 ${prediction.coverage.history.available}/64 人</span><span class="chip">${previewId ? "產生" : "發布"} ${escapeHtml(new Date(prediction.published_at).toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }))}</span></div><div class="actions"><button id="copy-all" class="button">複製全部 56 場</button><a class="button" href="season.html?id=${encodeURIComponent(id)}">完整賽事資料</a></div><div id="tabs" class="tabs" role="tablist" aria-label="賽事分組"></div><div id="group" role="tabpanel"></div>`;
   const tabs = app.querySelector("#tabs");
   const groupEl = app.querySelector("#group");
   function showGroup(group) {
     tabs
       .querySelectorAll("button")
       .forEach((button) =>
-        button.classList.toggle(
-          "active",
-          Number(button.dataset.id) === group.id,
-        ),
+        {
+          const active = Number(button.dataset.id) === group.id;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-selected", String(active));
+        },
       );
     const scoredGroup = score.groups.find((item) => item.id === group.id);
-    groupEl.innerHTML = `<div class="group-sections"><section class="panel bracket-panel"><div><p class="eyebrow">第 ${group.id} 組 · 淘汰賽競猜期</p><h2>對陣圖</h2><p class="muted">上半區 A × C｜下半區 B × D；金色選手與路徑代表預測晉級。</p></div><div class="bracket-scroll">${gameBracket(scoredGroup)}</div><p class="bracket-hint muted">對陣圖已依螢幕寬度自動調整</p></section><section class="panel"><div class="summary"><div><p class="eyebrow">遊戲操作順序</p><h2>下注建議</h2><p class="muted">A → B → C → D → A × C → B × D → 冠軍賽</p></div><strong>${formatRate(scoredGroup.correct, scoredGroup.settled)}</strong></div><div class="advice-grid">${scoredGroup.picks.map(pickCard).join("")}</div><div class="actions"><button class="button" id="copy-group">複製本組 7 場</button></div></section></div>`;
+    groupEl.innerHTML = `<div class="view-switch" aria-label="手機檢視模式"><button class="button primary" data-view="list">列表</button><button class="button" data-view="diagram">賽程圖</button></div><div class="group-sections"><section class="panel bracket-panel" data-mobile-view="list"><div><p class="eyebrow">第 ${group.id} 組 · 淘汰賽競猜期</p><h2>對陣圖</h2><p class="muted">金色＝建議晉級；橘色＝風險較高；深色＝未建議路徑。</p></div><div class="bracket-scroll">${gameBracket(scoredGroup)}</div></section><section class="panel advice-panel"><div class="summary"><div><p class="eyebrow">遊戲操作順序</p><h2>下注建議列表</h2><p class="muted">A → B → C → D → A × C → B × D → 冠軍賽</p></div><strong>${formatRate(scoredGroup.correct, scoredGroup.settled)}</strong></div><div class="advice-grid">${scoredGroup.picks.map(pickCard).join("")}</div><div class="actions"><button class="button" id="copy-group">複製本組 7 場</button></div></section></div>`;
+    groupEl.querySelectorAll("[data-view]").forEach((button) => button.onclick = () => {
+      groupEl.querySelector(".bracket-panel").dataset.mobileView = button.dataset.view;
+      groupEl.querySelectorAll("[data-view]").forEach((item) => item.classList.toggle("primary", item === button));
+    });
     groupEl.querySelector("#copy-group").onclick = () =>
       navigator.clipboard.writeText(predictionText([group]));
   }
   prediction.groups.forEach((group) => {
     const button = document.createElement("button");
     button.className = "tab";
+    button.setAttribute("role", "tab");
+    button.setAttribute("aria-selected", "false");
     button.dataset.id = group.id;
     button.textContent = `第 ${group.id} 組`;
     button.onclick = () => showGroup(group);

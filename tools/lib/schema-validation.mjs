@@ -2,8 +2,8 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import { readJson } from './json.mjs';
 import { schemaPath } from './repo.mjs';
 
-const names = ['cups', 'season', 'roster', 'players'];
-const ajv = new Ajv2020({ allErrors: true, strict: true });
+const names = ['cups', 'season', 'roster', 'players', 'prediction'];
+const ajv = new Ajv2020({ allErrors: true, strict: true, formats: { 'date-time': true } });
 const validators = new Map();
 for (const name of names) validators.set(name, ajv.compile(await readJson(schemaPath(`${name}.schema.json`))));
 

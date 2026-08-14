@@ -1,0 +1,1200 @@
+{
+  "season_id": "2026-07-17",
+  "status": "published",
+  "source": "document_reconstruction",
+  "published_at": "2026-07-17T23:59:00+08:00",
+  "ruleset": "legacy-guide-v1",
+  "source_document": "docs/star-cup/2026-07-17-round3-betting-guide.md",
+  "coverage": {
+    "power": {
+      "available": 64,
+      "total": 64
+    },
+    "qualifier": {
+      "available": 60,
+      "total": 64
+    },
+    "history": {
+      "available": 47,
+      "total": 64
+    }
+  },
+  "groups": [
+    {
+      "id": 1,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "夜凜月",
+            "player_id": null
+          },
+          "p2": {
+            "name": "I매I인써하",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 10/10（滿時）vs I매I인써하僅 2/10，第一順位直接分出；戰力（12.01 vs 9.38）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "Cashasy",
+            "player_id": null
+          },
+          "p2": {
+            "name": "LD丨팡대",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "**上屆兩位組冠軍內戰**：上屆時間 01:27.01 vs Cashasy 01:27.64 視同打平 → 遞補比戰力，25.39M vs 22.11M 팡대勝出",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "吐司夾蛋",
+            "player_id": null
+          },
+          "p2": {
+            "name": "阿武花豆",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆亞軍、10/10 04:20.83 vs 吐司夾蛋無上屆紀錄；戰力 19.57M vs 13.90M 同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "龍×이뮤",
+            "player_id": null
+          },
+          "p2": {
+            "name": "CoBe",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆同 10/10，07:39.58 vs 龍×이뮤 07:48.28 小勝；戰力（13.32 vs 12.99）同向但差距皆小",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "夜凜月",
+            "player_id": null
+          },
+          "p2": {
+            "name": "阿武花豆",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 04:20.83 vs 夜凜月滿時通關，紀錄斷層；戰力亦大勝",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "LD丨팡대",
+            "player_id": null
+          },
+          "p2": {
+            "name": "CoBe",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 01:27 級 vs CoBe 7 分台，紀錄斷層；戰力亦高一截",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "B",
+            "D"
+          ]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "阿武花豆",
+            "player_id": null
+          },
+          "p2": {
+            "name": "LD丨팡대",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 01:27.01 vs 阿武花豆 04:20.83；戰力 25.39M vs 19.57M 同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "upper",
+            "lower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "단별ll헌큔",
+            "player_id": null
+          },
+          "p2": {
+            "name": "김미태",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "雙方皆無上屆紀錄 → 遞補比戰力：16.69M vs 김미태 8.12M 翻倍優勢；缺第一順位資料，信心上限 ⚖",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "SuperAaron",
+            "player_id": null
+          },
+          "p2": {
+            "name": "仔仔團奧奧",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆 10/10 04:55.26 vs 仔仔團奧奧 05:10.15 小勝，戰力（20.71 vs 16.91）同向；扣分項：上屆 R2 曾秒退",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "I매I똥꼬",
+            "player_id": null
+          },
+          "p2": {
+            "name": "LD丨말랭",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "唯一有上屆紀錄者（10/10 滿時）；I매I똥꼬 ⚠ 身分不明、各欄無資料，戰力亦말랭領先",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "LD丨힝",
+            "player_id": null
+          },
+          "p2": {
+            "name": "劍人海拉",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "**依標準押上屆冠軍**：劍人海拉＝上屆第3組冠軍、10/10 01:57.30，第一順位一面倒；LD丨힝 零上屆紀錄，戰力 2.5 倍（33.77M）與資格賽 #1（04:06.1）皆屬低順位，不得推翻冠軍紀錄——但反向訊號極強，僅 ⚖ 並列入風險",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "단별ll헌큔",
+            "player_id": null
+          },
+          "p2": {
+            "name": "LD丨말랭",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "low",
+          "basis": "legacy_guide",
+          "reason": "말랭有（滿時）通關紀錄、헌큔無紀錄，第一順位微弱領先；戰力打平（16.45 vs 16.69），依據薄弱",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "SuperAaron",
+            "player_id": null
+          },
+          "p2": {
+            "name": "劍人海拉",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆 01:57.30 vs SuperAaron 04:55.26，紀錄大勝；戰力落後（13.54 vs 20.71）衝突，依第一順位押海拉",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "B",
+            "D"
+          ]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "LD丨말랭",
+            "player_id": null
+          },
+          "p2": {
+            "name": "劍人海拉",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 01:57 vs 말랭滿時通關，紀錄斷層；戰力小幅落後不足以翻案",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "upper",
+            "lower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "紅桃A",
+            "player_id": null
+          },
+          "p2": {
+            "name": "戰神冥海龍靈",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 10/10 02:11.36 vs 戰神冥海龍靈無紀錄；戰力（17.04 vs 11.97）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "RV297",
+            "player_id": null
+          },
+          "p2": {
+            "name": "龍×냥코",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 10/10 03:12.98 vs 龍×냥코僅 4/10；戰力 26.12M vs 11.45M 斷層",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "龍×콰트",
+            "player_id": null
+          },
+          "p2": {
+            "name": "戰營養腦七拍",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "有 10/10 紀錄（滿時）vs 戰營養腦七拍無紀錄；戰力（12.98 vs 11.31）同向但都不強",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "LD丨짱구",
+            "player_id": null
+          },
+          "p2": {
+            "name": "I매IFLEX3R",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "**依標準押짱구**：上屆 03:24.48 vs I매IFLEX3R 03:39.91 紀錄小勝，戰力（29.24 vs 27.95）同向；FLEX3R 僅在資格賽（#3 vs #33）大勝，屬最低順位，不足以翻案",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "紅桃A",
+            "player_id": null
+          },
+          "p2": {
+            "name": "龍×콰트",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 02:11.36 vs 콰트滿時通關，紀錄斷層；戰力亦優",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "RV297",
+            "player_id": null
+          },
+          "p2": {
+            "name": "LD丨짱구",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆 03:12.98 vs 짱구 03:24.48 紀錄小勝；戰力落後（26.12 vs 29.24）衝突，依第一順位押 RV297",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "B",
+            "D"
+          ]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "紅桃A",
+            "player_id": null
+          },
+          "p2": {
+            "name": "RV297",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆 02:11.36 全組最快，比 RV297 03:12.98 快整整一分鐘；戰力大幅落後（17.04 vs 26.12）衝突，依第一順位押紅桃A",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "upper",
+            "lower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "koeee",
+            "player_id": null
+          },
+          "p2": {
+            "name": "Yöö",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "兩屆蟬聯冠軍、上屆 00:42.68 全場最快；60.18M 全場最高戰力同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "고른주부J",
+            "player_id": null
+          },
+          "p2": {
+            "name": "LD丨삐얀코",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆 8/10 vs LD丨삐얀코無紀錄；戰力（17.51 vs 13.22）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "LD丨저축왕",
+            "player_id": null
+          },
+          "p2": {
+            "name": "I매I우연",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "唯一 10/10 紀錄（07:51.88）vs LD丨저축왕上屆僅入圍資格賽；戰力（14.41 vs 10.89）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "龍×조이",
+            "player_id": null
+          },
+          "p2": {
+            "name": "욕정",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 8/10 vs 龍×조이 1/10 秒退，第一順位分出；戰力（17.73 vs 12.22）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "koeee",
+            "player_id": null
+          },
+          "p2": {
+            "name": "I매I우연",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "無懸念",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "고른주부J",
+            "player_id": null
+          },
+          "p2": {
+            "name": "욕정",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "low",
+          "basis": "legacy_guide",
+          "reason": "上屆同為 8/10 未通關（第一順位打平）、戰力 17.73 vs 17.51 打平 → 落到第三順位才分出（資格賽 #10 vs #39）；依標準此類場次只能輕注",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "B",
+            "D"
+          ]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "koeee",
+            "player_id": null
+          },
+          "p2": {
+            "name": "욕정",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "00:42.68 對任何人都是斷層",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "upper",
+            "lower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "메투스",
+            "player_id": null
+          },
+          "p2": {
+            "name": "瑪法里恩中風",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆第6組亞軍（03:28.24，僅敗 koeee）vs 瑪法里恩中風上屆 1/10 秒退；戰力 31.17M vs 11.53M 斷層",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "MrKevin",
+            "player_id": null
+          },
+          "p2": {
+            "name": "龍×교수",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "有 10/10 紀錄（滿時）vs MrKevin 無紀錄；戰力（12.18 vs 10.65）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "I매I똥꼬",
+            "player_id": null
+          },
+          "p2": {
+            "name": "FLEX2R",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 10/10 07:11.72 vs I매I똥꼬 ⚠ 身分不明無資料；戰力翻倍（18.32 vs 9.30）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "Leojian",
+            "player_id": null
+          },
+          "p2": {
+            "name": "LD丨팡대ㅇ③",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 04:54.99 vs LD丨팡대ㅇ③滿時通關，紀錄明顯領先；戰力（25.31 vs 15.67）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "메투스",
+            "player_id": null
+          },
+          "p2": {
+            "name": "FLEX2R",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "紀錄（03:28 vs 07:11）與戰力（31 vs 18）雙優",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "龍×교수",
+            "player_id": null
+          },
+          "p2": {
+            "name": "Leojian",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "紀錄（04:54 vs 滿時）與戰力（25.31 vs 12.18）雙優",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "B",
+            "D"
+          ]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "메투스",
+            "player_id": null
+          },
+          "p2": {
+            "name": "Leojian",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "紀錄 03:28.24 vs 04:54.99、戰力 31.17M vs 25.31M，前兩順位全優",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "upper",
+            "lower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "龍×이노40",
+            "player_id": null
+          },
+          "p2": {
+            "name": "LD丨도하",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "有 10/10 紀錄（08:29.37）vs 龍×이노40 無紀錄；戰力打平（14.26 vs 14.15）",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "I매I진",
+            "player_id": null
+          },
+          "p2": {
+            "name": "牛大力",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "**依標準押上屆冠軍**：I매I진＝上屆第4組冠軍、10/10 05:15.98 vs 牛大力 06:05.27（且決賽 0 進度疑棄賽），第一順位在紀錄與頭銜都領先；牛大力戰力 31.19M vs 18.99M 大勝屬第二順位，不足以翻案。反向訊號（진資格賽 #64＝參賽者中最慢、牛大力 ⚠ 身分推測）列入風險",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "I매I연인",
+            "player_id": null
+          },
+          "p2": {
+            "name": "Niff",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆 05:12.85 vs I매I연인 08:09.48，紀錄明顯領先；戰力小幅落後（14.85 vs 15.88）不足以翻案",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "o月亮惹的禍o",
+            "player_id": null
+          },
+          "p2": {
+            "name": "放開隻牛仔",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆第8組亞軍（01:38.94）vs 放開隻牛仔 8/10 未通關；戰力 38.23M vs 13.62M 斷層",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "LD丨도하",
+            "player_id": null
+          },
+          "p2": {
+            "name": "Niff",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "紀錄 05:12.85 vs 도하 08:29.37 明顯領先；戰力相當",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "I매I진",
+            "player_id": null
+          },
+          "p2": {
+            "name": "o月亮惹的禍o",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "紀錄 01:38.94 vs I매I진 05:15.98 斷層；戰力 2 倍同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "B",
+            "D"
+          ]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "Niff",
+            "player_id": null
+          },
+          "p2": {
+            "name": "o月亮惹的禍o",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "對 Niff（或任何 A/C 線）紀錄與戰力皆斷層",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "upper",
+            "lower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "龍×령녀",
+            "player_id": null
+          },
+          "p2": {
+            "name": "派對孔明",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "low",
+          "basis": "legacy_guide",
+          "reason": "령녀唯一上屆資料是 1/10 秒退（負面紀錄），孔明無紀錄；戰力打平（12.25 vs 12.01）——純博",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "某剩啊",
+            "player_id": null
+          },
+          "p2": {
+            "name": "단별ll에이스",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "雙方皆無上屆紀錄 → 遞補比戰力：13.51M vs 단별ll에이스 7.72M 近翻倍",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "仔仔團宗宗",
+            "player_id": null
+          },
+          "p2": {
+            "name": "牛大力",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "疑＝上屆第8組冠軍（01:09.94），52.65M 全組斷層；仔仔團宗宗僅 07:58 級紀錄",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "丫丸仔",
+            "player_id": null
+          },
+          "p2": {
+            "name": "디킨비",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆 9/10 vs 디킨비無紀錄，第一順位領先；戰力（11.50 vs 10.59）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "派對孔明",
+            "player_id": null
+          },
+          "p2": {
+            "name": "牛大力",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "對 A 場勝者紀錄與戰力（4 倍以上）皆斷層",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "某剩啊",
+            "player_id": null
+          },
+          "p2": {
+            "name": "丫丸仔",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "low",
+          "basis": "legacy_guide",
+          "reason": "上屆 9/10（未通關）vs 某剩啊無紀錄，第一順位微弱領先；戰力落後（11.50 vs 13.51）衝突，輕注",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "B",
+            "D"
+          ]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "牛大力",
+            "player_id": null
+          },
+          "p2": {
+            "name": "丫丸仔",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆冠軍級紀錄＋52.65M，無人能擋",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "upper",
+            "lower"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "picks": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "犇魔王",
+            "player_id": null
+          },
+          "p2": {
+            "name": "烏薩奇Usagi",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "有 10/10 紀錄（08:15.27）vs 犇魔王無紀錄；戰力（12.24 vs 9.97）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "龍×식현",
+            "player_id": null
+          },
+          "p2": {
+            "name": "賽博陀螺",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "medium",
+          "basis": "legacy_guide",
+          "reason": "上屆同 10/10，06:12.60 vs 賽博陀螺 08:14.87 快兩分鐘，第一順位明顯領先；戰力大幅落後（8.64 vs 21.59）衝突，依標準押식현",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "泰融",
+            "player_id": null
+          },
+          "p2": {
+            "name": "龍×똥꼬",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 10/10 06:23.50 vs 泰融 9/10 未通關，第一順位分出；戰力（16.23 vs 13.88）同向。泰融資格賽 #8 屬最低順位，不降信心、列入風險",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "Egø",
+            "player_id": null
+          },
+          "p2": {
+            "name": "I매I네이비",
+            "player_id": null
+          },
+          "selected_side": "p1",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "上屆 03:42.47 vs I매I네이비 0/10（疑未出賽）；戰力（19.92 vs 16.37）同向",
+          "missing": [],
+          "forced": false,
+          "depends_on": []
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "烏薩奇Usagi",
+            "player_id": null
+          },
+          "p2": {
+            "name": "龍×똥꼬",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "紀錄（06:23 vs 08:15）與戰力（16.23 vs 12.24）雙優",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "A",
+            "C"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "龍×식현",
+            "player_id": null
+          },
+          "p2": {
+            "name": "Egø",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "紀錄（03:42 vs 06:12）與戰力（19.92 vs 8.64）雙優",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "B",
+            "D"
+          ]
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "龍×똥꼬",
+            "player_id": null
+          },
+          "p2": {
+            "name": "Egø",
+            "player_id": null
+          },
+          "selected_side": "p2",
+          "confidence": "high",
+          "basis": "legacy_guide",
+          "reason": "紀錄（03:42 vs 06:23）與戰力（19.92 vs 16.23）雙優",
+          "missing": [],
+          "forced": false,
+          "depends_on": [
+            "upper",
+            "lower"
+          ]
+        }
+      ]
+    }
+  ]
+}

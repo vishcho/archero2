@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { readJson } from '../tools/lib/json.mjs';
 import { validateSchema } from '../tools/lib/schema-validation.mjs';
-import { derivePreviousSummary, validateEnchantColors, validatePlayerReferences, validateSeasonRelations, validateTournamentResults } from '../tools/lib/domain.mjs';
+import { derivePreviousSummary, predictionScore, validateEnchantColors, validatePlayerReferences, validatePrediction, validateSeasonRelations, validateTournamentResults } from '../tools/lib/domain.mjs';
 import { dataPath } from '../tools/lib/repo.mjs';
 import path from 'node:path';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
@@ -17,6 +17,29 @@ for (const name of ['cups', 'season', 'roster', 'players']) {
     assert.ok(errors.length > 0); assert.ok(errors.every((e) => e.file && e.location));
   });
 }
+
+test('published predictions have 56 coherent picks and fully settled historical scores', async () => {
+  const seasonIds = new Set(await readJson(dataPath('star-cup', 'seasons.json')));
+  const expected = new Map([['2026-07-03', 39], ['2026-07-17', 40], ['2026-07-31', 41]]);
+  for (const [id, correct] of expected) {
+    const prediction = await readJson(dataPath('predictions', 'star-cup', `${id}.json`));
+    const season = await readJson(dataPath('star-cup', `${id}.json`));
+    assert.deepEqual(validateSchema('prediction', prediction), []);
+    assert.deepEqual(validatePrediction(prediction, seasonIds), []);
+    assert.deepEqual({ correct: predictionScore(prediction, season).correct, settled: predictionScore(prediction, season).settled }, { correct, settled: 56 });
+  }
+});
+
+test('prediction validation rejects duplicate slots and broken advancement', async () => {
+  const value = await readJson(dataPath('predictions', 'star-cup', '2026-07-31.json'));
+  const seasonIds = new Set(['2026-07-31']);
+  const duplicate = structuredClone(value);
+  duplicate.groups[0].picks[1].slot = 'A';
+  assert.ok(validatePrediction(duplicate, seasonIds).some((error) => error.location.includes('/groups/0/picks')));
+  const broken = structuredClone(value);
+  broken.groups[0].picks[4].p1.name = '不存在的晉級者';
+  assert.ok(validatePrediction(broken, seasonIds).some((error) => error.message.includes('上游預測晉級者')));
+});
 
 const side = (name) => ({ name });
 const match = (round, slot, a, b, winner) => ({ round, slot, p1: side(a), p2: side(b), winner, loser: winner === a ? b : a });

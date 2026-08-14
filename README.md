@@ -60,17 +60,19 @@ Codex、Claude Code 與其他 AI agents 的共用操作規範見 [AGENTS.md](AGE
 
 | 頁面           | 說明                                                                     | 資料來源                     |
 | -------------- | ------------------------------------------------------------------------ | ---------------------------- |
-| `index.html`   | 首頁：**依賽事分成兩區塊**，各自列出歷屆                                 | `data/cups.json` + 各賽事    |
-| `season.html`  | 單屆詳情，`?cup=` 指定賽事、`?id=` 指定屆次                              | `data/{cup}/{id}.json`       |
-| `bracket.html` | 淘汰賽 SVG 對陣圖（8 組、每組 8 人），`?id=` 指定屆次，預設最新一屆      | `data/star-cup/{id}.json`    |
+| `index.html`   | 最新一屆下注狀態、資料覆蓋與歷史命中率                                  | 賽事 + 正式預測              |
+| `bracket.html` | 8 組共 56 場的正式下注建議；賽後比較實際結果                             | `data/predictions/` + 賽果   |
+| `history.html` | 歷屆正式下注成效                                                         | 正式預測 + 賽果              |
+| `archive.html` | 明星盃與超級明星盃完整屆次入口                                           | `data/cups.json` + 各賽事    |
+| `season.html`  | 單屆完整資料，`?cup=` 指定賽事、`?id=` 指定屆次                          | `data/{cup}/{id}.json`       |
 
 `season.html` 依該賽事的 `schema` 切換呈現方式：
 
 - `schema: "season"`（明星盃）→ 資格賽 / 淘汰賽 / 總決賽三個分頁
 - `schema: "roster"`（超級明星盃）→ 單張選手配置表
 
-`bracket.html` 是明星盃專屬（對陣圖是明星盃才有的概念），不吃 `?cup=`。
-`?cup=` 省略時預設 `star-cup`，舊有 `season.html?id=` 連結仍可用。
+`bracket.html` 是明星盃正式下注快照專屬，不吃 `?cup=`；沒有正式快照時會顯示明確錯誤。
+`season.html` 的 `?cup=` 省略時預設 `star-cup`，舊連結仍可用。
 
 **兩種賽事怎麼分辨**：明星盃金色、超級明星盃紫色，色票由 `data/cups.json` 的
 `accent` 指定，經 `accentOf()` 套用，所有頁面一致。
@@ -149,7 +151,7 @@ archero2/
   "cadence": "四週一輪",
   "format": "選手配置紀錄（賽制資料尚未納入管線）",
   "schema": "roster",          // season | roster — 決定套哪組驗證與哪種頁面
-  "accent": "violet",          // 全站強調色，見 js/common.js 的 CUP_ACCENT
+  "accent": "violet",          // 全站強調色
   "docs": "docs/super-star-cup/super-star-cup.md"
 }
 ```

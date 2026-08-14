@@ -197,25 +197,28 @@ for d in screenshots/star-cup/<季別>-round<N>/*/; do echo "$(ls "$d" | wc -l) 
 | `top64-profile` | [top64-profile-workflow.md](../../../notes/workflows/top64-profile-workflow.md) |
 | 三個 checkpoint 的批次契約 | [star-cup-collection-workflow.md](../../../notes/workflows/star-cup-collection-workflow.md) |
 
-### 籤位順序：以本屆截圖為準，不要照文件推斷
+### 籤位順序：照畫面記錄，但**不要推導對戰關係**
 
 `groups[].players` 的**陣列順序＝對陣圖籤位**（不是名次，永遠不可排序）。
-但「哪兩格對打」**各屆並不一致**——2026-08-13 以 `matches` 反推四屆：
+照該屆畫面由上而下、先左欄後右欄記錄即可。
 
-| 屆次 | `A`=0,1（README 寫的） | `A`=0,1 `B`=4,5 | `A`=0,2 `B`=4,6（交錯） |
-| --- | --- | --- | --- |
-| 2026-06-19 | 8/32 | 17/32 | 0/32 |
-| 2026-07-03 | **31/32** | 15/32 | 0/32 |
-| 2026-07-17 | 14/32 | **29/32** | 0/32 |
-| 2026-07-31 | 0/32 | 0/32 | **32/32** |
+⚠️ **不要從 `players` 索引推導「哪兩格對打」，也不要記錄 slot↔索引對應。**
+2026-08-13（commit `5c33e77`、`d9c7ada`）已確認：四屆各用不同排列，
+沒有任何索引規則能解釋全部，該假設**已被證明不成立並作廢**。渲染層
+（`js/bracket-view-model.js`）改由 `matches[].round` / `matches[].slot` 決定對陣結構，
+`players` 只供顯示屬性（`qualifier_rank`、`prev_best`、`flag`）。
 
-沒有一種對應能解釋全部四屆，成因未確認。所以：
+所以：
 
-- **抽取新一屆時，籤位順序一律照該屆對陣圖畫面記錄**，不要套用任何「約定」
-- 抽完寫下該屆的 slot↔索引對應（放 `groups_note` 或 `docs/sources.md`），下次才有依據
-- **驗證器完全不檢查位置語意**，抽錯不會被 `npm run check` 攔下，也不會被 domain validator 攔下
+- **對陣關係的唯一真實來源是 `groups[].matches`**，由**結果批次**的樹狀圖與對戰彈窗填入
+- **賽前批次（matchup）不填 `matches`**——schema 允許省略，不要寫成空陣列（會觸發
+  「R1 應有 4 場，得到 0」錯誤）
+- 賽前只需記錄 `players`（籤位順序）與各人戰力；**不必、也不該**在 `groups_note` 或
+  `docs/sources.md` 宣告 A/B/C/D 落在哪些索引，那是在復活已作廢的約定並製造假待辦
+- 同理，**不要留下「賽果到位後回頭核對索引對應」這類待辦**——沒有人會用索引推導配對，
+  該核對工作不存在
 
-自我檢查：若該屆已有 `matches`，用它反推 A/B/C/D 各場兩人落在哪兩個索引，確認與你讀的畫面一致。
+自我檢查：寫完 `groups_note` 後確認裡面**沒有**出現 `A`=[0,1] 這類索引對應宣告。
 
 ### 總決賽結果樹：讀法與名次規則
 

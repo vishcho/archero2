@@ -113,19 +113,20 @@ group 8 = files[7]
 - 對陣順序中的 8 位玩家
 - 玩家名稱
 - 本屆戰力
-- 場次位置：A/B/C/D，每場兩人
 - 競猜期資訊，例如「距淘汰賽開始約 21 小時」與每組下注狀態
 
-**場次位置與版面對應（已由上屆實際 R2 配對驗證，2026-07-17 確認）**：
+⚠️ **賽前批次不抽場次位置（A/B/C/D），也不記錄 slot↔索引對應。**
+2026-08-13（commit `5c33e77`、`d9c7ada`）已確認四屆各用不同排列，沒有任何索引規則能解釋全部，
+下列曾經的約定**已被證明不成立並作廢**，僅保留供理解舊資料：
 
 ```text
-A ＝ 左上配對（左欄第 1、2 人）
-B ＝ 左下配對（左欄第 3、4 人）
-C ＝ 右上配對（右欄第 1、2 人）
-D ＝ 右下配對（右欄第 3、4 人）
+（已作廢）A ＝ 左上配對、B ＝ 左下、C ＝ 右上、D ＝ 右下
+（已作廢）R2 為 A勝×C勝（上半）、B勝×D勝（下半）
 ```
 
-注意：R2 是 **A勝×C勝（上半）、B勝×D勝（下半）**，即左上配左右「跨欄」相接，不是視覺上左欄兩場自行合併。判讀新一輪版面時，若對版面有疑慮，用上屆 results 的實際 R2 配對回推驗證，不要憑樹狀線目測。
+對陣關係的唯一真實來源是 `groups[].matches`，由**結果批次**填入；賽前階段
+`matches` 一律**省略**（不可寫成空陣列，會觸發 domain 驗證的「R1 應有 4 場，得到 0」）。
+`players` 只記錄籤位順序與戰力，供顯示屬性用。
 
 抽取結果先寫入暫存 JSON，不直接覆蓋正式資料。暫存放在 `projects/archero2/tmp/`（已被 `.gitignore` 的 `tmp/` 規則排除，安全）。
 
@@ -140,15 +141,16 @@ D ＝ 右下配對（右欄第 3、4 人）
       "id": 1,
       "source": "Screenshot_102237.png",
       "players": [
-        { "slot": "A", "name": "玩家A", "power": "12.25M" },
-        { "slot": "A", "name": "玩家B", "power": "11.73M" }
+        { "name": "玩家A", "power": "12.25M" },
+        { "name": "玩家B", "power": "11.73M" }
       ]
     }
   ]
 }
 ```
 
-players 一律依 `A,A,B,B,C,C,D,D` 排序，與 `js/common.js` 對 `groups[].players` 的約定（0,1=A、2,3=B、4,5=C、6,7=D）一致，之後可原序併入正式資料。
+players 依**對陣圖畫面上的籤位順序**記錄（由上而下、先左欄後右欄），原序併入正式資料後
+**不可排序**。不要加 `slot` 欄位——場次歸屬由結果批次的 `matches` 決定，賽前推導不出來。
 
 ### 3. 合併資格賽排行榜
 
@@ -210,12 +212,14 @@ groups 併入 `data/star-cup/{season}.json` 時，轉成與 `data/star-cup/2026-
       "prev_power": "8.38M", "prev_progress": "10/10", "prev_time": "10:00.02" }
   ],
   "champion": null,
-  "runner_up": null,
-  "matches": []
+  "runner_up": null
 }
 ```
 
-- `players` 保持 `A,A,B,B,C,C,D,D` 順序（網站依索引推場次）。
+- `players` 保持**截圖籤位順序**，不可排序。網站**不依索引推場次**——
+  `js/bracket-view-model.js` 讀 `matches[].round`/`slot` 決定對陣，`players` 只補顯示屬性。
+- 賽前**省略 `matches`**（連同 `champion`/`runner_up` 一併省略）。寫成 `matches: []`
+  會被 domain 驗證擋下（「R1 應有 4 場，得到 0」）。
 - `prev_progress` 是 `"10/10"` 字串，不是數字；未通關者省略 `prev_time`（網站顯示「未通關」）。
 - 同名無法對應者省略 `qualifier_rank`/`qualifier_time`，保留 `flag: "⚠"` 與 `note`。
 - 頂層補 `grand_finals: null`；賽後 results 流程再回填 `champion`、`matches`。

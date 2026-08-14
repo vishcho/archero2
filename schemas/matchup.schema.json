@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matchup.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["season_id", "groups"],
+  "properties": {
+    "season_id": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "groups": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "matches"],
+        "properties": {
+          "id": { "type": "integer", "minimum": 1, "maximum": 8 },
+          "matches": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["slot", "p1", "p2"],
+              "properties": {
+                "slot": { "enum": ["A", "B", "C", "D"] },
+                "p1": { "$ref": "#/$defs/player" },
+                "p2": { "$ref": "#/$defs/player" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "player": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "player_id": { "type": "string", "pattern": "^\\d+$" },
+        "draw_index": { "type": "integer", "minimum": 0, "maximum": 7 }
+      }
+    }
+  }
+}

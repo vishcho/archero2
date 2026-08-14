@@ -90,7 +90,7 @@
       }
       const header = `
         <div class="mb-4 flex justify-end">
-          <a href="bracket.html?id=${data.id}" class="text-sm text-yellow-400 hover:underline">查看對陣圖 →</a>
+          <a href="bracket.html?id=${data.id}" class="text-sm text-yellow-400 hover:underline">查看當時下注建議與結果 →</a>
         </div>`;
       el.innerHTML = header + data.groups.map(g => {
         // 場次（A/B/C/D）依 matches 判定，不從陣列索引推導——players 順序不代表對陣位置。
@@ -323,7 +323,7 @@
       });
     });
 
-    load();
+    load().catch(error => showError(error));
   </script>
 </body>
 </html>

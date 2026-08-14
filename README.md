@@ -53,6 +53,40 @@ python -m http.server 8000    # 備援：手邊沒有 Node 時
 npm run check
 ```
 
+## 發布正式下注建議
+
+正式預測需要已完成的賽事 `groups[].players`，以及經人工核對的 R1 對陣 JSON。對陣檔只描述
+8 組的 A、B、C、D，不用也不得預填賽果：
+
+```json
+{
+  "season_id": "2026-08-14",
+  "groups": [
+    {
+      "id": 1,
+      "matches": [
+        { "slot": "A", "p1": { "name": "玩家 A" }, "p2": { "name": "玩家 B" } }
+      ]
+    }
+  ]
+}
+```
+
+先預覽，不寫入任何檔案：
+
+```bash
+npm run predictions:preview -- 2026-08-14 --matchup tmp/2026-08-14-matchup.json
+```
+
+人工核對 8 組、56 場、覆蓋率及強制選擇數量後正式發布：
+
+```bash
+npm run predictions:publish -- 2026-08-14 --matchup tmp/2026-08-14-matchup.json
+```
+
+發布會同時驗證 schema、8 × 7 場與晉級依賴，並拒絕覆寫既有正式快照。判斷規則、信心降級、
+資料修正及 KPI 定義見 [下注建議工具規格](notes/betting-assistant-spec.md)。
+
 Codex、Claude Code 與其他 AI agents 的共用操作規範見 [AGENTS.md](AGENTS.md)；
 任務專屬的資料抽取規則仍以 [notes/workflows/](notes/workflows/) 為準。
 
@@ -60,17 +94,19 @@ Codex、Claude Code 與其他 AI agents 的共用操作規範見 [AGENTS.md](AGE
 
 | 頁面           | 說明                                                                     | 資料來源                     |
 | -------------- | ------------------------------------------------------------------------ | ---------------------------- |
-| `index.html`   | 首頁：**依賽事分成兩區塊**，各自列出歷屆                                 | `data/cups.json` + 各賽事    |
-| `season.html`  | 單屆詳情，`?cup=` 指定賽事、`?id=` 指定屆次                              | `data/{cup}/{id}.json`       |
-| `bracket.html` | 淘汰賽 SVG 對陣圖（8 組、每組 8 人），`?id=` 指定屆次，預設最新一屆      | `data/star-cup/{id}.json`    |
+| `index.html`   | 最新一屆下注狀態、資料覆蓋與歷史命中率                                  | 賽事 + 正式預測              |
+| `bracket.html` | 8 組共 56 場的正式下注建議；賽後比較實際結果                             | `data/predictions/` + 賽果   |
+| `history.html` | 歷屆正式下注成效                                                         | 正式預測 + 賽果              |
+| `archive.html` | 明星盃與超級明星盃完整屆次入口                                           | `data/cups.json` + 各賽事    |
+| `season.html`  | 單屆完整資料，`?cup=` 指定賽事、`?id=` 指定屆次                          | `data/{cup}/{id}.json`       |
 
 `season.html` 依該賽事的 `schema` 切換呈現方式：
 
 - `schema: "season"`（明星盃）→ 資格賽 / 淘汰賽 / 總決賽三個分頁
 - `schema: "roster"`（超級明星盃）→ 單張選手配置表
 
-`bracket.html` 是明星盃專屬（對陣圖是明星盃才有的概念），不吃 `?cup=`。
-`?cup=` 省略時預設 `star-cup`，舊有 `season.html?id=` 連結仍可用。
+`bracket.html` 是明星盃正式下注快照專屬，不吃 `?cup=`；沒有正式快照時會顯示明確錯誤。
+`season.html` 的 `?cup=` 省略時預設 `star-cup`，舊連結仍可用。
 
 **兩種賽事怎麼分辨**：明星盃金色、超級明星盃紫色，色票由 `data/cups.json` 的
 `accent` 指定，經 `accentOf()` 套用，所有頁面一致。
@@ -149,7 +185,7 @@ archero2/
   "cadence": "四週一輪",
   "format": "選手配置紀錄（賽制資料尚未納入管線）",
   "schema": "roster",          // season | roster — 決定套哪組驗證與哪種頁面
-  "accent": "violet",          // 全站強調色，見 js/common.js 的 CUP_ACCENT
+  "accent": "violet",          // 全站強調色
   "docs": "docs/super-star-cup/super-star-cup.md"
 }
 ```

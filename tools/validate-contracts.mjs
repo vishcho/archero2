@@ -3,7 +3,7 @@ import path from 'node:path';
 import { readJson } from './lib/json.mjs';
 import { dataPath } from './lib/repo.mjs';
 import { validateSchema } from './lib/schema-validation.mjs';
-import { validateEnchantColors, validatePlayerReferences, validateSeasonRelations, validateTournamentResults } from './lib/domain.mjs';
+import { validateEnchantColors, validatePlayerReferences, validatePrediction, validateSeasonRelations, validateTournamentResults } from './lib/domain.mjs';
 import { printDiagnostics } from './lib/diagnostics.mjs';
 
 const diagnostics = [];
@@ -33,6 +33,14 @@ for (const cup of cups) {
       diagnostics.push(...validateEnchantColors(value.roster ?? [], file));
     }
   }
+}
+
+const predictionIds = await readJson(dataPath('predictions', 'star-cup', 'seasons.json'));
+const seasonIds = new Set(await readJson(dataPath('star-cup', 'seasons.json')));
+for (const id of predictionIds) {
+  const file = dataPath('predictions', 'star-cup', `${id}.json`);
+  const value = await readJson(file);
+  diagnostics.push(...validateSchema('prediction', value, file), ...validatePrediction(value, seasonIds, file));
 }
 
 printDiagnostics(diagnostics);

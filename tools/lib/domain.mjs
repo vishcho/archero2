@@ -90,3 +90,92 @@ export function validateEnchantColors(roster, file = '<roster>') {
   }));
   return errors;
 }
+
+const PREDICTION_SLOTS = ['A', 'B', 'C', 'D', 'upper', 'lower', 'final'];
+
+export function selectedPlayer(pick) {
+  return pick?.[pick.selected_side] ?? null;
+}
+
+function nameDistance(a, b) {
+  const rows = Array.from({ length: a.length + 1 }, (_, index) => [index]);
+  for (let j = 1; j <= b.length; j += 1) rows[0][j] = j;
+  for (let i = 1; i <= a.length; i += 1) for (let j = 1; j <= b.length; j += 1) rows[i][j] = Math.min(rows[i - 1][j] + 1, rows[i][j - 1] + 1, rows[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return rows[a.length][b.length];
+}
+
+function alignFirstRound(group, actualMatches) {
+  const predicted = group.picks.filter((pick) => pick.round === 'R1');
+  const actual = actualMatches.filter((match) => match.round === 'R1');
+  let best = null;
+  function visit(index, remaining, pairs, cost) {
+    if (index === predicted.length) {
+      if (!best || cost < best.cost) best = { cost, pairs };
+      return;
+    }
+    const pick = predicted[index];
+    for (const match of remaining) {
+      const direct = nameDistance(pick.p1.name, match.p1.name) + nameDistance(pick.p2.name, match.p2.name);
+      const reverse = nameDistance(pick.p1.name, match.p2.name) + nameDistance(pick.p2.name, match.p1.name);
+      const mapped = direct <= reverse
+        ? [[pick.p1.name, match.p1.name], [pick.p2.name, match.p2.name]]
+        : [[pick.p1.name, match.p2.name], [pick.p2.name, match.p1.name]];
+      visit(index + 1, remaining.filter((item) => item !== match), [...pairs, { pick, match, mapped }], cost + Math.min(direct, reverse));
+    }
+  }
+  visit(0, actual, [], 0);
+  return best?.pairs ?? [];
+}
+
+export function validatePrediction(prediction, seasonIds, file = '<prediction>') {
+  const errors = [];
+  const add = (location, message) => errors.push({ severity: 'error', file, location, message });
+  if (!seasonIds.has(prediction.season_id)) add('/season_id', `不存在的明星盃屆次 ${prediction.season_id}`);
+  const groupIds = prediction.groups.map((group) => group.id);
+  if (new Set(groupIds).size !== 8 || ![1,2,3,4,5,6,7,8].every((id) => groupIds.includes(id))) add('/groups', '預測必須包含第 1–8 組且不得重複');
+  for (const [groupIndex, group] of prediction.groups.entries()) {
+    const bySlot = new Map(group.picks.map((pick) => [pick.slot, pick]));
+    if (new Set(group.picks.map((pick) => pick.slot)).size !== 7 || !PREDICTION_SLOTS.every((slot) => bySlot.has(slot))) add(`/groups/${groupIndex}/picks`, '每組必須各有 A、B、C、D、upper、lower、final');
+    for (const [pickIndex, pick] of group.picks.entries()) {
+      if (!selectedPlayer(pick)) add(`/groups/${groupIndex}/picks/${pickIndex}/selected_side`, 'selected_side 必須指向該場選手');
+    }
+    const expected = { upper: ['A', 'C'], lower: ['B', 'D'], final: ['upper', 'lower'] };
+    for (const [slot, sources] of Object.entries(expected)) {
+      const pick = bySlot.get(slot);
+      if (!pick) continue;
+      const expectedNames = sources.map((source) => selectedPlayer(bySlot.get(source))?.name);
+      const actualNames = [pick.p1.name, pick.p2.name];
+      if (expectedNames.some((name) => !actualNames.includes(name))) add(`/groups/${groupIndex}/picks`, `${slot} 參賽者與上游預測晉級者不一致`);
+    }
+  }
+  return errors;
+}
+
+export function predictionScore(prediction, season) {
+  let correct = 0;
+  let settled = 0;
+  const groups = prediction.groups.map((group) => {
+    const matches = season.groups.find((candidate) => candidate.id === group.id)?.matches ?? [];
+    const bySlot = new Map(group.picks.map((pick) => [pick.slot, pick]));
+    const aligned = alignFirstRound(group, matches);
+    const r1Results = new Map(aligned.map((entry) => [entry.pick.slot, entry.match]));
+    const identities = new Map(aligned.flatMap((entry) => entry.mapped));
+    const resultFor = (pick) => {
+      if (pick.round === '決賽') return matches.find((match) => match.round === '決賽');
+      if (pick.round === 'R1') return r1Results.get(pick.slot);
+      const winners = pick.depends_on.map((slot) => r1Results.get(slot)?.winner);
+      return matches.find((match) => match.round === 'R2' && winners.every((name) => [match.p1.name, match.p2.name].includes(name)));
+    };
+    const picks = group.picks.map((pick) => {
+      const result = resultFor(pick);
+      if (!result) return { ...pick, outcome: 'pending' };
+      settled += 1;
+      const selectedName = identities.get(selectedPlayer(pick)?.name) ?? selectedPlayer(pick)?.name;
+      const hit = selectedName === result.winner;
+      if (hit) correct += 1;
+      return { ...pick, outcome: hit ? 'correct' : 'wrong', actual_winner: result.winner };
+    });
+    return { id: group.id, picks, correct: picks.filter((pick) => pick.outcome === 'correct').length, settled: picks.filter((pick) => pick.outcome !== 'pending').length };
+  });
+  return { correct, settled, groups };
+}

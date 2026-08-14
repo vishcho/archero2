@@ -1,0 +1,162 @@
+const SLOT_LABEL = {
+  A: "A",
+  B: "B",
+  C: "C",
+  D: "D",
+  upper: "A × C",
+  lower: "B × D",
+  final: "冠軍賽",
+};
+const CONFIDENCE_LABEL = {
+  high: "優勢明確",
+  medium: "可考慮",
+  low: "風險較高",
+};
+
+function pickCard(pick) {
+  const selected = selectedPlayer(pick);
+  const outcomeClass =
+    pick.outcome === "correct"
+      ? "correct"
+      : pick.outcome === "wrong"
+        ? "wrong"
+        : "selected";
+  const result =
+    pick.outcome === "correct"
+      ? '<div class="result correct">✓ 命中</div>'
+      : pick.outcome === "wrong"
+        ? `<div class="result wrong">✕ 未命中 · 實際 ${escapeHtml(pick.actual_winner)}</div>`
+        : "";
+  const players = [
+    ["p1", pick.p1],
+    ["p2", pick.p2],
+  ]
+    .map(
+      ([side, player]) =>
+        `<div class="pick-player${side === pick.selected_side ? " recommended" : ""}"><span>${escapeHtml(player.name)}</span>${side === pick.selected_side ? "<strong>建議</strong>" : ""}</div>`,
+    )
+    .join("");
+  return `<article class="pick ${outcomeClass}"><div class="pick-head"><span>${escapeHtml(SLOT_LABEL[pick.slot])}</span><span class="confidence">${escapeHtml(CONFIDENCE_LABEL[pick.confidence])}</span></div><div class="pick-players">${players}</div><div class="pick-reason">${escapeHtml(pick.reason)}</div>${pick.depends_on.length ? `<div class="pick-reason">依賴：${pick.depends_on.join("、")} 勝者</div>` : ""}${result}</article>`;
+}
+
+function formatBracketPower(power) {
+  if (typeof power === "number") return `${power.toFixed(2)}M`;
+  return typeof power === "string" && power ? power : "—";
+}
+
+function bracketPlayerCard(pick, side) {
+  const player = pick[side];
+  const power = pick.evidence?.power?.[side];
+  const advancing = side === pick.selected_side;
+  return `<div class="game-player${advancing ? " advancing" : ""}"><span class="game-avatar" aria-hidden="true">${escapeHtml(player.name.slice(0, 1))}</span><span class="game-player-copy"><strong>${escapeHtml(player.name)}</strong><small><span aria-hidden="true">◆</span> ${escapeHtml(formatBracketPower(power))}</small></span></div>`;
+}
+
+function bracketMatchCard(pick, position) {
+  const players = [
+    bracketPlayerCard(pick, "p1"),
+    bracketPlayerCard(pick, "p2"),
+  ]
+    .join("");
+  const slotLabel = ["A", "B", "C", "D"].includes(pick.slot)
+    ? ""
+    : `<div class="game-slot">${escapeHtml(SLOT_LABEL[pick.slot])}</div>`;
+  return `<article class="game-match ${position}">${slotLabel}${players}</article>`;
+}
+
+function gameBracket(scoredGroup) {
+  const bySlot = new Map(scoredGroup.picks.map((pick) => [pick.slot, pick]));
+  const routeClass = (slot) =>
+    bySlot.get(slot).confidence === "low" ? "route-low" : "route-default";
+  const branchClass = (slot, side) =>
+    bySlot.get(slot).selected_side === side ? routeClass(slot) : "route-loser";
+  return `<div class="game-bracket" aria-label="第 ${scoredGroup.id} 組預測對陣圖">
+    <svg class="game-bracket-lines" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true">
+      <path class="${branchClass("A", "p1")}" d="M300 122 H400 V158"/>
+      <path class="${branchClass("A", "p2")}" d="M300 193 H400 V158"/>
+      <path class="${branchClass("C", "p1")}" d="M700 122 H600 V158"/>
+      <path class="${branchClass("C", "p2")}" d="M700 193 H600 V158"/>
+      <path class="${branchClass("upper", "p1")}" d="M400 158 H500"/>
+      <path class="${branchClass("upper", "p2")}" d="M600 158 H500"/>
+      <path class="${routeClass("upper")}" d="M500 158 V310"/>
+      <path class="${branchClass("B", "p1")}" d="M300 449 H400 V485"/>
+      <path class="${branchClass("B", "p2")}" d="M300 520 H400 V485"/>
+      <path class="${branchClass("D", "p1")}" d="M700 449 H600 V485"/>
+      <path class="${branchClass("D", "p2")}" d="M700 520 H600 V485"/>
+      <path class="${branchClass("lower", "p1")}" d="M400 485 H500"/>
+      <path class="${branchClass("lower", "p2")}" d="M600 485 H500"/>
+      <path class="${routeClass("lower")}" d="M500 485 V310"/>
+    </svg>
+    <div class="game-junction-label game-label-a">A</div>
+    <div class="game-junction-label game-label-c">C</div>
+    <div class="game-junction-label game-label-b">B</div>
+    <div class="game-junction-label game-label-d">D</div>
+    <div class="game-matchup-label game-label-ac">A × C</div>
+    <div class="game-matchup-label game-label-bd">B × D</div>
+    ${bracketMatchCard(bySlot.get("A"), "game-r1 game-a")}
+    ${bracketMatchCard(bySlot.get("C"), "game-r1 game-c")}
+    ${bracketMatchCard(bySlot.get("B"), "game-r1 game-b")}
+    ${bracketMatchCard(bySlot.get("D"), "game-r1 game-d")}
+    <article class="game-champion ${routeClass("final")}">
+      <div class="game-final-node">${escapeHtml(SLOT_LABEL.final)}</div>
+    </article>
+  </div>`;
+}
+
+async function loadAdvice() {
+  const params = new URLSearchParams(location.search);
+  const previewId = params.get("preview");
+  const id = previewId || params.get("id");
+  if (!id) throw new Error("網址缺少屆次 id");
+  if (!previewId) {
+    const ids = await fetchPredictionIds();
+    if (!ids.includes(id)) throw new Error(`屆次 ${id} 尚未發布正式下注建議`);
+  }
+  const [prediction, season] = await Promise.all([
+    previewId ? fetchPreview(id) : fetchPrediction(id),
+    fetchSeason(id),
+  ]);
+  const score = scorePrediction(prediction, season);
+  const app = document.getElementById("app");
+  const legend =
+    season.status === "finished"
+      ? '<p class="muted">綠色＝命中，紅色＝未命中；卡片保留當時的預測理由。</p>'
+      : "";
+  const previewNotice = previewId
+    ? '<div class="notice">這是非正式前端預覽，不代表已發布建議，也不會進入歷史命中率。</div>'
+    : "";
+  const heading = previewId
+    ? "非正式預覽"
+    : prediction.source === "snapshot"
+      ? "正式快照"
+      : "賽前文件還原";
+  app.innerHTML = `${previewNotice}<section class="summary"><div><p class="eyebrow">${escapeHtml(heading)}</p><h1>${escapeHtml(season.date)} ${season.status === "finished" ? "當初建議與賽果" : "下注建議"}</h1><p class="lede">操作順序：A → B → C → D → A × C → B × D → 冠軍賽</p>${legend}</div><div><strong>${previewId ? "不計 KPI" : formatRate(score.correct, score.settled)}</strong><div class="muted">${previewId ? "預覽模式" : "目前命中率"}</div></div></section><div class="coverage"><span class="chip">戰力 ${prediction.coverage.power.available}/64</span><span class="chip">資格賽 ${prediction.coverage.qualifier.available}/64</span><span class="chip">歷史 ${prediction.coverage.history.available}/64</span><span class="chip">${previewId ? "產生" : "發布"} ${escapeHtml(new Date(prediction.published_at).toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }))}</span></div><div class="actions"><button id="copy-all" class="button">複製全部 56 場</button><a class="button" href="season.html?id=${encodeURIComponent(id)}">完整賽事資料</a></div><div id="tabs" class="tabs"></div><div id="group"></div>`;
+  const tabs = app.querySelector("#tabs");
+  const groupEl = app.querySelector("#group");
+  function showGroup(group) {
+    tabs
+      .querySelectorAll("button")
+      .forEach((button) =>
+        button.classList.toggle(
+          "active",
+          Number(button.dataset.id) === group.id,
+        ),
+      );
+    const scoredGroup = score.groups.find((item) => item.id === group.id);
+    groupEl.innerHTML = `<div class="group-sections"><section class="panel bracket-panel"><div><p class="eyebrow">第 ${group.id} 組 · 淘汰賽競猜期</p><h2>對陣圖</h2><p class="muted">上半區 A × C｜下半區 B × D；金色選手與路徑代表預測晉級。</p></div><div class="bracket-scroll">${gameBracket(scoredGroup)}</div><p class="bracket-hint muted">對陣圖已依螢幕寬度自動調整</p></section><section class="panel"><div class="summary"><div><p class="eyebrow">遊戲操作順序</p><h2>下注建議</h2><p class="muted">A → B → C → D → A × C → B × D → 冠軍賽</p></div><strong>${formatRate(scoredGroup.correct, scoredGroup.settled)}</strong></div><div class="advice-grid">${scoredGroup.picks.map(pickCard).join("")}</div><div class="actions"><button class="button" id="copy-group">複製本組 7 場</button></div></section></div>`;
+    groupEl.querySelector("#copy-group").onclick = () =>
+      navigator.clipboard.writeText(predictionText([group]));
+  }
+  prediction.groups.forEach((group) => {
+    const button = document.createElement("button");
+    button.className = "tab";
+    button.dataset.id = group.id;
+    button.textContent = `第 ${group.id} 組`;
+    button.onclick = () => showGroup(group);
+    tabs.append(button);
+  });
+  app.querySelector("#copy-all").onclick = () =>
+    navigator.clipboard.writeText(predictionText(prediction.groups));
+  showGroup(prediction.groups[0]);
+}
+
+loadAdvice().catch((error) => showError(error, document.getElementById("app")));

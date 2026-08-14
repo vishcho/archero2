@@ -61,7 +61,7 @@ async function loadHome() {
       <div class="focus-copy">
         <div class="section-label"><span class="live-dot"></span>本期焦點</div>
         <p class="eyebrow">${escapeHtml(state.label)}</p>
-        <h2>${escapeHtml(latest.date)} 明星盃</h2>
+        <h2>${escapeHtml(latest.date)} 明星盃${latest.theme ? ` ${escapeHtml(latest.theme)}` : ""}</h2>
         <p class="focus-value">8 組共 56 場完整預測路徑</p><p class="muted">${escapeHtml(latest.season || latest.theme || "最新一屆")}</p>
         <div class="actions">${action}<a class="button" href="season?id=${encodeURIComponent(latestId)}">查看賽事資料</a></div>
       </div>

@@ -7,6 +7,9 @@
 //
 // 站內連結不帶 .html（見 AGENTS.md 的 URL 慣例），因此 /bracket 需解析到 bracket.html，
 // 比照 GitHub Pages 的 extensionless 行為，避免本機與線上不一致。
+//
+// 只服務會部署的內容：BLOCKED 擋掉工作用目錄與本機證據。這同時是正確性措施——
+// screenshots/、tmp/ 不進 git，線上根本不存在，本機若能載到就會漏掉「線上 404」的錯誤。
 
 import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
@@ -16,6 +19,28 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 
+// 不對外服務的根層項目。css/ js/ img/ data/ assets/ docs/ 是網站內容，不在此列
+// （assets/ 供 css 的 @font-face 使用，docs/ 在 GitHub Pages 上也是線上內容）。
+const BLOCKED = new Set([
+  'node_modules',
+  'screenshots',
+  'tmp',
+  'notes',
+  'tools',
+  'test',
+  'schemas',
+  'package.json',
+  'package-lock.json',
+]);
+
+// 任何 dotfile / dot 目錄（.git、.env、.github、.claude…）與秘密檔一律拒絕。
+function isBlocked(relative) {
+  const segments = relative.split(path.sep).filter(Boolean);
+  if (!segments.length) return false;
+  if (segments.some((segment) => segment.startsWith('.'))) return true;
+  if (BLOCKED.has(segments[0])) return true;
+  return /^\.env/i.test(segments.at(-1));
+}
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -64,6 +89,7 @@ async function resolveTarget(urlPath) {
 
   const resolved = path.resolve(ROOT, `.${path.posix.normalize(decoded)}`);
   if (resolved !== ROOT && !resolved.startsWith(ROOT + path.sep)) return null;
+  if (isBlocked(path.relative(ROOT, resolved))) return null;
 
   const asFile = async (candidate) => {
     try {

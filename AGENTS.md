@@ -55,6 +55,17 @@ and use the atomic JSON writer in `tools/lib/`.
 - Never modify evidence, player identity, historical results, or uncertainty markers merely to make
   validation output quieter.
 
+## URL 慣例
+
+- 站內連結不帶 `.html`：寫 `href="bracket?id=…"`，首頁寫 `href="/"`。實體檔名仍是
+  `bracket.html`，只有 URL 去掉後綴。
+- GitHub Pages 原生支援這種 extensionless 解析；`tools/dev-server.mjs` 也比照實作，讓本機與線上
+  行為一致。舊的 `.html` 網址仍可存取，外部既有連結不會失效。
+- `href` 之外提到 `.html` 的地方（工具讀檔路徑、程式註解）指的是實體檔案，不要一併改掉。
+- `tools/dev-server.mjs` 只服務會部署的內容：`screenshots/`、`tmp/`、`notes/`、`tools/`、`test/`、
+  `schemas/`、`node_modules/` 與所有 dotfile 一律 404。新增網站用目錄時要確認它不在 `BLOCKED`，
+  新增工作用目錄時要記得加進去。`assets/`（css 的 @font-face）與 `docs/` 是線上內容，不可封鎖。
+
 ## Useful commands
 
 ```bash

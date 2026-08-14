@@ -53,6 +53,40 @@ python -m http.server 8000    # 備援：手邊沒有 Node 時
 npm run check
 ```
 
+## 發布正式下注建議
+
+正式預測需要已完成的賽事 `groups[].players`，以及經人工核對的 R1 對陣 JSON。對陣檔只描述
+8 組的 A、B、C、D，不用也不得預填賽果：
+
+```json
+{
+  "season_id": "2026-08-14",
+  "groups": [
+    {
+      "id": 1,
+      "matches": [
+        { "slot": "A", "p1": { "name": "玩家 A" }, "p2": { "name": "玩家 B" } }
+      ]
+    }
+  ]
+}
+```
+
+先預覽，不寫入任何檔案：
+
+```bash
+npm run predictions:preview -- 2026-08-14 --matchup tmp/2026-08-14-matchup.json
+```
+
+人工核對 8 組、56 場、覆蓋率及強制選擇數量後正式發布：
+
+```bash
+npm run predictions:publish -- 2026-08-14 --matchup tmp/2026-08-14-matchup.json
+```
+
+發布會同時驗證 schema、8 × 7 場與晉級依賴，並拒絕覆寫既有正式快照。判斷規則、信心降級、
+資料修正及 KPI 定義見 [下注建議工具規格](notes/betting-assistant-spec.md)。
+
 Codex、Claude Code 與其他 AI agents 的共用操作規範見 [AGENTS.md](AGENTS.md)；
 任務專屬的資料抽取規則仍以 [notes/workflows/](notes/workflows/) 為準。
 

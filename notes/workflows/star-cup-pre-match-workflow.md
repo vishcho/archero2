@@ -1,5 +1,10 @@
 # 明星盃賽前對陣與競猜 Guide 工作流
 
+> 正式網站不再從 Markdown 即時計算建議。完成本工作流的客觀資料核對後，必須另建符合
+> `schemas/matchup.schema.json` 的 R1 對陣檔，依序執行 `npm run predictions:preview` 與
+> `npm run predictions:publish`。只有人工確認並發布到 `data/predictions/star-cup/` 的唯一快照
+> 才是網站與命中率 KPI 使用的正式建議；Markdown Guide 是人讀分析，不是網站資料源。
+
 本工作流用於從明星盃賽前截圖產生兩份正式文件：
 
 1. `docs/star-cup/YYYY-MM-DD-roundN-matchup.md`：淘汰賽賽前對陣表，整合本屆對陣、本屆資格賽時間與上屆淘汰賽表現。

@@ -53,6 +53,16 @@ python -m http.server 8000    # 備援：手邊沒有 Node 時
 npm run check
 ```
 
+最新明星盃資料加入 `data/star-cup/seasons.json` 後，更新 LINE 等社群平台的分享預覽：
+
+```bash
+npm run social-preview
+```
+
+此指令讀取最新一屆的 `round`、`season` 與 `theme`，產生 1200 × 630 PNG，並同步更新
+`index.html` 的 Open Graph 資訊。圖片檔名包含賽事日期，可避免社群平台沿用上一屆快取；
+整個流程只使用本機 SVG 渲染，不會呼叫 AI 或消耗 token。`npm run check` 會確認產物與最新資料一致。
+
 ## 發布正式下注建議
 
 正式預測需要已完成的賽事 `groups[].players`，以及經人工核對的 R1 對陣 JSON。對陣檔只描述

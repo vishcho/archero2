@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050b16"/><stop offset=".52" stop-color="#101b30"/><stop offset="1" stop-color="#160d29"/></linearGradient>
+    <radialGradient id="aura" cx="50%" cy="43%" r="58%"><stop offset="0" stop-color="#7c3aed" stop-opacity=".32"/><stop offset=".45" stop-color="#3b2a66" stop-opacity=".13"/><stop offset="1" stop-color="#08111f" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3ad"/><stop offset=".46" stop-color="#f5c84c"/><stop offset="1" stop-color="#b97816"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#aura)"/>
+  <ellipse cx="600" cy="315" rx="350" ry="230" fill="#6636a5" opacity=".13" filter="url(#soft)"/>
+  <g fill="none" stroke="#f5c84c" stroke-opacity=".36" stroke-width="3"><path d="M0 164h108v62h70v58h64"/><path d="M0 466h108v-62h70v-58h64"/><path d="M1200 164h-108v62h-70v58h-64"/><path d="M1200 466h-108v-62h-70v-58h-64"/></g>
+  <g fill="none" stroke="#b99cff" stroke-opacity=".16" stroke-width="2"><circle cx="600" cy="300" r="204"/><circle cx="600" cy="300" r="174"/><path d="M600 84v432M384 300h432M447 147l306 306M753 147 447 453"/></g>
+  <g transform="translate(600 118)" filter="url(#glow)"><path d="M0-48 18-16 55-9 28 17 35 54 0 36-35 54-28 17-55-9-18-16Z" fill="#0d1627" stroke="url(#gold)" stroke-width="4"/><path d="M0-23 14 0 0 23-14 0Z" fill="#b99cff" stroke="#f5c84c" stroke-width="3"/></g>
+  <g opacity=".52" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"><path d="M330 112 515 292"/><path d="M870 112 685 292"/></g>
+  <g fill="url(#gold)" opacity=".82"><path d="m303 82 61 18-43 43Z"/><path d="m897 82-61 18 43 43Z"/></g>
+  <text x="600" y="312" text-anchor="middle" fill="url(#gold)" stroke="#f5c84c" stroke-width="1.5" paint-order="stroke" font-family="Noto Sans TC" font-size="82" font-weight="700" letter-spacing="3">明星盃下注助手</text>
+  <line x1="310" y1="342" x2="890" y2="342" stroke="#f5c84c" stroke-opacity=".55"/>
+  <text x="600" y="407" text-anchor="middle" fill="#edf3fb" stroke="#edf3fb" stroke-width=".7" paint-order="stroke" font-family="Noto Sans TC" font-size="43" font-weight="700" letter-spacing="6">第五屆・精靈季</text>
+  <rect x="318" y="448" width="564" height="58" rx="29" fill="#111d30" stroke="#b99cff" stroke-opacity=".6"/>
+  <text x="600" y="488" text-anchor="middle" fill="#d8ccff" font-family="Noto Sans TC" font-size="24" font-weight="500" letter-spacing="2">獲得精靈和飛劍流派技能</text>
+  <text x="600" y="563" text-anchor="middle" fill="#91a1b7" font-family="Noto Sans TC" font-size="23" font-weight="500" letter-spacing="5">對戰分析｜下注建議</text>
+  <circle cx="92" cy="78" r="3" fill="#f5c84c"/><circle cx="1090" cy="102" r="3" fill="#b99cff"/><circle cx="154" cy="548" r="2" fill="#b99cff"/><circle cx="1046" cy="536" r="2" fill="#f5c84c"/>
+</svg>

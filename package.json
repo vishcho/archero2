@@ -12,15 +12,18 @@
     "predictions:preview": "node tools/generate-prediction.mjs",
     "predictions:web-preview": "node tools/generate-prediction.mjs --web-preview",
     "predictions:publish": "node tools/generate-prediction.mjs --publish --confirm",
+    "social-preview": "node tools/generate-social-preview.mjs",
+    "social-preview:check": "node tools/generate-social-preview.mjs --check",
     "validate": "npm run validate:data && npm run validate:players && npm run validate:results",
     "docs:build": "node tools/build-docs-index.mjs",
     "docs:check": "node tools/build-docs-index.mjs --check",
-    "check": "npm run test && npm run validate:contracts && npm run validate && npm run docs:check"
+    "check": "npm run test && npm run validate:contracts && npm run validate && npm run docs:check && npm run social-preview:check"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "ajv": "^8.20.0"
   }
 }

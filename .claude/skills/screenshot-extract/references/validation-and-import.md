@@ -24,7 +24,8 @@
 ## 完整性
 
 - qualifier：rank 連續唯一、時間合理、排除固定本人列。
-- matchup：8 組×8 人、順序保留、power 合法。
+- season matchup：8 組×8 人、順序保留、power 合法。
+- prediction matchup：8 組×4 場、A/B/C/D 唯一、每組 8 個 identity 與賽季名單完全一致。
 - top64：64 個唯一 ID、欄位完整、名單差異有決議。
 - knockout：8 組×7 場，round/slot、勝負與晉級自洽。
 - grand finals：7 場、8 位組冠軍、名次與 champion 一致。
@@ -38,6 +39,7 @@ node tools/import-top64-profiles.mjs <extract.json> --dry-run
 node tools/backfill-from-players.mjs data/star-cup/<season>.json --dry-run
 node tools/import-grand-finals.mjs <extract.json> data/star-cup/<season>.json --dry-run
 node tools/check-screenshots.mjs --round roundN
+npm run predictions:preview -- <season> --matchup tmp/<season>-matchup.json
 npm run check
 ```
 

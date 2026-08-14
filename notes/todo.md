@@ -6,22 +6,18 @@
 
 ## 第 5 屆正式下注建議
 
-目前 `2026-08-14` 的四批證據皆標記為 `missing`，賽事 JSON 也尚無資格賽與分組資料，
-因此不得猜測產生正式建議。
+`2026-08-14` 的資格賽、分組與 Top 64 身分資料已完成並通過驗證。正式建議目前只缺經人工核對的 R1 對陣檔。
 
-需要外部輸入：
+需要外部確認：
 
-- 資格賽排行榜截圖，涵蓋淘汰賽 64 人。
-- 8 張淘汰賽賽前對陣截圖。
-- 如要用 `player_id` 排除同名歧義，需完成同屆 Top64 名片資料。
+- 依 8 張賽前對陣截圖逐場確認 A、B、C、D 連線；不得沿用舊暫存檔的固定版面假設。
 
 完成條件：
 
-1. 依 `notes/workflows/star-cup-pre-match-workflow.md` 寫入並驗證客觀資料。
-2. 建立 `tmp/2026-08-14-matchup.json`，每組包含不重複的 A、B、C、D。
-3. 執行 `npm run predictions:preview -- 2026-08-14 --matchup tmp/2026-08-14-matchup.json`。
-4. 人工核對 56 場後執行 `npm run predictions:publish -- 2026-08-14 --matchup tmp/2026-08-14-matchup.json`。
-5. 執行 `npm run check` 並在網站確認最新一屆入口。
+1. 建立符合 `schemas/matchup.schema.json` 的 `tmp/2026-08-14-matchup.json`，每組包含不重複的 A、B、C、D。
+2. 執行 `npm run predictions:preview -- 2026-08-14 --matchup tmp/2026-08-14-matchup.json`。
+3. 人工核對 56 場後執行 `npm run predictions:publish -- 2026-08-14 --matchup tmp/2026-08-14-matchup.json`。
+4. 執行 `npm run check` 並在網站確認最新一屆入口。
 
 ## 第 5 屆賽後成效
 

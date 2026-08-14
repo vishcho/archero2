@@ -1,6 +1,6 @@
 ---
 name: screenshot-extract
-description: 從 Archero 2 明星盃／超級明星盃手機截圖建立、核對或修正結構化資料。適用於新截圖入庫、混裝批次分類、既有 JSON 抽樣或完整複核、OCR 差異裁決、名片身分回填、淘汰賽與總決賽結果抽取，以及重新產生來源紀錄或戰報；涵蓋證據歸屬、視覺抽取、交叉驗證、dry-run 匯入與完成門檻。
+description: 從 Archero 2 明星盃／超級明星盃手機截圖建立、核對或修正結構化資料。適用於新截圖入庫、混裝批次分類、既有 JSON 抽樣或完整複核、OCR 差異裁決、名片身分回填、賽前 R1 配對與下注預覽、淘汰賽與總決賽結果抽取，以及重新產生來源紀錄或戰報；涵蓋證據歸屬、視覺抽取、交叉驗證、dry-run 匯入與完成門檻。
 ---
 
 # 截圖抽取與核對
@@ -30,6 +30,7 @@ Validator 能抓結構錯誤，抓不到看錯的字或數字。每次都要加�
 | 新批次入庫   | 完整執行 Step 0–5                            |
 | 既有資料核對 | 只讀證據，建立抽樣或逐筆比對；未受要求不修改 |
 | 補缺／回填   | 只處理缺少的批次或欄位，保留既有證據         |
+| 下注預覽     | 查看全部 8 張對陣圖、建立 R1 matchup、跑預覽 |
 | 雙來源複核   | 逐欄 diff，依欄位是否可變分類差異            |
 | 戰報重生     | 先 render 到暫存檔並 diff，避免蓋掉人工內容  |
 
@@ -49,6 +50,7 @@ Validator 能抓結構錯誤，抓不到看錯的字或數字。每次都要加�
 - 屆次、分類、manifest、重複入庫：[`references/evidence-and-batches.md`](references/evidence-and-batches.md)
 - 排行榜、名片、對陣或結果判讀：[`references/visual-extraction.md`](references/visual-extraction.md)
 - 抽樣、雙盲、匯入與驗收：[`references/validation-and-import.md`](references/validation-and-import.md)
+- R1 配對與下注預覽：[`references/prediction-matchup.md`](references/prediction-matchup.md)
 
 ## Step 1：建立證據盤點
 
@@ -76,6 +78,15 @@ Validator 能抓結構錯誤，抓不到看錯的字或數字。每次都要加�
 4. 名片優先讀 `player_id`；ID 不清時中止該筆身分匯入。
 5. 對陣圖照畫面籤位記錄，禁止從 `players[]` 索引推導場次。
 6. 結果批次同時讀樹狀圖與逐場彈窗，讓兩種證據互驗。
+
+賽前對陣需同時支援兩個用途：
+
+- 客觀賽季資料寫 `groups[].players[]`，保持畫面籤位順序。
+- 下注預覽另寫 `tmp/<season>-matchup.json`，直接符合 `schemas/matchup.schema.json`。只有能從畫面連線逐場確認 R1-A～D 時才建立 `matches[]`；不得把 `players[]` 相鄰位置當作配對。
+
+需要產生下注預覽時，完整讀取 [`references/prediction-matchup.md`](references/prediction-matchup.md)。不得先產生自訂 `players[].slot` 格式再留待日後轉換。
+
+使用者要求查看、建立或確認下注預覽時，把「完整查看 8 張賽前對陣圖並建立合規 matchup」視為同一任務內的必要步驟。只要證據已在工作區，就應直接執行，不得只回報 matchup／preview 檔尚未建立。只有圖片缺失或連線確實不可辨識時才停止並列出精確缺口。
 
 保留原始 Unicode。若清楚名片可裁決排行榜遮擋或 OCR 字形，以清楚證據為準並保留原始 variant。
 

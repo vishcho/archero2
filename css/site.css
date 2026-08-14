@@ -428,6 +428,9 @@ h2 {
   overflow: auto;
   padding-bottom: 6px;
   margin: 22px 0;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  overscroll-behavior-inline: contain;
 }
 .tab {
   flex: 0 0 auto;
@@ -439,6 +442,7 @@ h2 {
   font-weight: 750;
   cursor: pointer;
   transition: background-color 150ms, border-color 150ms, color 150ms;
+  scroll-snap-align: center;
 }
 .tab.active {
   background: var(--gold);
@@ -693,32 +697,13 @@ h2 {
   color: var(--muted);
   font-size: 12px;
 }
-.pick-players {
-  display: grid;
-  gap: 5px;
-  margin: 8px 0;
-}
-.pick-player {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  min-height: 32px;
-  padding: 5px 8px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  color: var(--muted);
-  font-weight: 750;
-}
-.pick-player.recommended {
-  border-color: var(--gold);
-  background: rgba(245, 200, 76, 0.1);
-  color: var(--text);
-}
-.pick-player strong {
-  color: var(--gold);
-  font-size: 11px;
-}
+.pick-recommendation { margin-top: 12px; }
+.pick-recommendation span { display: block; color: var(--muted); font-size: 12px; }
+.pick-recommendation strong { display: block; margin-top: 2px; color: var(--text); font-size: 20px; line-height: 1.25; overflow-wrap: anywhere; }
+.pick-opponent { margin-top: 5px; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.pick-details { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; }
+.pick-details summary { color: var(--gold-bright); font-size: 13px; font-weight: 700; cursor: pointer; }
+.pick-details[open] summary { margin-bottom: 7px; }
 .pick-reason {
   color: var(--muted);
   font-size: 12px;
@@ -799,6 +784,8 @@ td {
 .status[data-status="in_progress"] { border-color: var(--gold); color: var(--gold-bright); }
 .status[data-status="finished"] { color: var(--green); }
 .view-switch { display: none; gap: 8px; margin: 16px 0; }
+.view-switch .button[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: #12100c; }
+.mobile-group-dock { display: none; }
 
 /* season.html 使用同一組色彩 token；以下為其資料表所需的小型版面工具。 */
 .hidden { display: none !important; }
@@ -867,11 +854,14 @@ td {
     align-items: flex-start;
     flex-direction: column;
     padding-bottom: 10px;
+    margin-bottom: 24px;
   }
   .nav {
     width: 100%;
     gap: 18px;
     overflow-x: auto;
+    scrollbar-width: thin;
+    overscroll-behavior-inline: contain;
   }
   .nav a {
     flex: 0 0 auto;
@@ -913,56 +903,96 @@ td {
     margin-top: 8px;
     padding-bottom: 8px;
   }
-  .view-switch { display: flex; }
+  .view-switch { display: grid; grid-template-columns: 1fr 1fr; position: sticky; top: 0; z-index: 8; padding: 8px 0; background: linear-gradient(var(--bg) 72%, transparent); }
   .bracket-panel[data-mobile-view="list"] .bracket-scroll { display: none; }
   .bracket-panel[data-mobile-view="diagram"] + .advice-panel { display: none; }
   .game-r1 {
-    width: 81.667%;
+    width: 94%;
   }
   .game-player {
-    flex-direction: column;
-    justify-content: center;
-    gap: 1px;
-    min-height: 65px;
-    padding: 3px 2px;
-    text-align: center;
+    gap: 4px;
+    min-height: 46px;
+    padding: 4px;
+    border-color: transparent;
+    border-radius: 9px;
+    background: rgba(18, 17, 31, 0.5);
   }
   .game-player + .game-player {
-    margin-top: 4px;
+    margin-top: 5px;
   }
   .game-avatar {
-    flex-basis: 34px;
-    width: 34px;
-    height: 34px;
+    display: grid;
+    flex: 0 0 27px;
+    width: 27px;
+    height: 27px;
     border-width: 2px;
-    border-radius: 10px;
-    font-size: 15px;
+    border-radius: 8px;
+    font-size: 12px;
   }
   .game-player-copy {
     width: 100%;
+    text-align: left;
   }
   .game-player-copy strong {
-    font-size: 12px;
-    line-height: 1.2;
+    font-size: 11px;
+    line-height: 1.25;
   }
   .game-player-copy small {
-    font-size: 12px;
-    line-height: 1.2;
+    margin-top: 2px;
+    font-size: 10px;
+    line-height: 1.15;
   }
   .game-slot {
     margin-bottom: 2px;
     font-size: 12px;
   }
   .game-champion {
-    width: 76px;
-    height: 82px;
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255, 197, 43, 0.2), rgba(23, 21, 31, 0.96));
+    box-shadow: 0 0 12px rgba(255, 176, 0, 0.28);
   }
   .game-final-node {
     top: 50%;
+    width: 54px;
+    height: 25px;
+    border-radius: 13px;
+    font-size: 10px;
   }
+  .game-bracket { height: clamp(350px, 104vw, 410px); }
+  .game-bracket-lines path { stroke-width: 3.5; filter: drop-shadow(0 0 3px rgba(255, 176, 0, 0.58)); }
+  .game-junction-label { width: 15px; height: 15px; font-size: 9px; }
+  .game-matchup-label { width: 40px; height: 18px; border-radius: 9px; font-size: 9px; }
   .advice-grid {
     grid-template-columns: 1fr;
   }
+  .advice-panel { padding: 18px 14px; }
+  .advice-panel > .summary .muted { display: none; }
+  .pick { padding: 16px; }
+  .pick-recommendation strong { font-size: 22px; }
+  .mobile-group-dock {
+    position: fixed;
+    z-index: 20;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr auto auto 1fr;
+    gap: 6px;
+    align-items: center;
+    padding: 8px max(10px, env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+    border-top: 1px solid var(--line-strong);
+    background: rgba(11, 13, 16, 0.96);
+    backdrop-filter: blur(12px);
+  }
+  .mobile-group-dock > span { min-width: 52px; text-align: center; line-height: 1.15; }
+  .mobile-group-dock strong, .mobile-group-dock small { display: block; }
+  .mobile-group-dock small { margin-top: 3px; color: var(--muted); font-size: 11px; }
+  .dock-button { min-height: 44px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel2); color: var(--text); font: inherit; font-size: 13px; font-weight: 750; }
+  .dock-button:last-child { justify-self: stretch; }
+  .dock-button:disabled { opacity: .35; }
+  body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
   .filter-bar { grid-template-columns: 1fr; }
   .season-data-table thead { display: none; }
   .season-data-table, .season-data-table tbody, .season-data-table tr, .season-data-table td { display: block; width: 100%; }

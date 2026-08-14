@@ -31,7 +31,7 @@ async function loadHome() {
   const latestScore = prediction ? scorePrediction(prediction, latest) : null;
   const actionLabel = latest.status === "finished" ? "查看建議與結果" : "查看 56 場下注建議";
   const action = prediction
-    ? `<a class="button primary" href="bracket.html?id=${encodeURIComponent(latestId)}">${actionLabel}</a>`
+    ? `<a class="button primary" href="bracket?id=${encodeURIComponent(latestId)}">${actionLabel}</a>`
     : '<span class="button primary" aria-disabled="true">下注建議準備中</span>';
   const coverage = prediction?.coverage;
   const forced =
@@ -63,7 +63,7 @@ async function loadHome() {
         <p class="eyebrow">${escapeHtml(state.label)}</p>
         <h2>${escapeHtml(latest.date)} 明星盃</h2>
         <p class="focus-value">8 組共 56 場完整預測路徑</p><p class="muted">${escapeHtml(latest.season || latest.theme || "最新一屆")}</p>
-        <div class="actions">${action}<a class="button" href="season.html?id=${encodeURIComponent(latestId)}">查看賽事資料</a></div>
+        <div class="actions">${action}<a class="button" href="season?id=${encodeURIComponent(latestId)}">查看賽事資料</a></div>
       </div>
       <div class="focus-stats">
         <div class="compact-stat"><span>戰力資料</span><strong>${coverage ? `${coverage.power.available}/${coverage.power.total} 人` : "待收集"}</strong></div>
@@ -75,13 +75,13 @@ async function loadHome() {
     </section>
 
     <section class="section">
-      <div class="section-head"><div><p class="eyebrow">主要功能</p><h2>快速入口</h2></div><a href="archive.html">全部賽事資料 →</a></div>
+      <div class="section-head"><div><p class="eyebrow">主要功能</p><h2>快速入口</h2></div><a href="archive">全部賽事資料 →</a></div>
       <div class="grid portal-grid">
-        <a class="panel portal-card" href="bracket.html?id=${encodeURIComponent(latestId)}">
+        <a class="panel portal-card" href="bracket?id=${encodeURIComponent(latestId)}">
           <img class="game-icon" src="img/game/events/dice.png" alt="" width="64" height="64">
           <div><span class="portal-kicker">兩週一輪</span><h3>明星盃</h3><p>下注建議、歷史成效與完整對陣資料。</p></div><span class="portal-arrow">→</span>
         </a>
-        <a class="panel portal-card" href="archive.html#super-star-cup">
+        <a class="panel portal-card" href="archive#super-star-cup">
           <img class="game-icon" src="img/game/runes/twin-core.png" alt="" width="64" height="64">
           <div><span class="portal-kicker">${escapeHtml(statusLabel(latestSuper.status))}</span><h3>超級明星盃</h3><p>${escapeHtml(latestSuper.theme || "最新選手配置")}｜${escapeHtml(latestSuper.date)}</p></div><span class="portal-arrow">→</span>
         </a>
@@ -94,7 +94,7 @@ async function loadHome() {
 
     <section class="section split-grid">
       <div class="panel performance-panel">
-        <div class="section-head"><div><p class="eyebrow">預測成效</p><h2>下注成效</h2></div><a href="history.html">完整報告 →</a></div>
+        <div class="section-head"><div><p class="eyebrow">預測成效</p><h2>下注成效</h2></div><a href="history">完整報告 →</a></div>
         <div class="performance-list">
           <div><span>本屆目前</span><strong>${latestScore ? formatRate(latestScore.correct, latestScore.settled) : "尚未發布"}</strong></div>
           <div><span>上一完整屆</span><strong>${previous ? formatRate(previous.correct, previous.settled) : "尚無完整資料"}</strong></div>
@@ -102,11 +102,11 @@ async function loadHome() {
         </div>
       </div>
       <div class="panel update-panel">
-        <div class="section-head"><div><p class="eyebrow">最近更新</p><h2>最近資料</h2></div><a href="archive.html">查看全部 →</a></div>
+        <div class="section-head"><div><p class="eyebrow">最近更新</p><h2>最近資料</h2></div><a href="archive">查看全部 →</a></div>
         <div class="update-list">
-          <a href="season.html?id=${encodeURIComponent(latestId)}"><span class="update-type">明星盃</span><strong>${escapeHtml(latest.date)} ${escapeHtml(latest.season || latest.theme || "賽事資料")}</strong><small>${escapeHtml(statusLabel(latest.status))}</small></a>
-          <a href="season.html?cup=super-star-cup&id=${encodeURIComponent(latestSuperId)}"><span class="update-type">超級明星盃</span><strong>${escapeHtml(latestSuper.date)} ${escapeHtml(latestSuper.theme || "選手配置")}</strong><small>${escapeHtml(statusLabel(latestSuper.status))}</small></a>
-          <a href="history.html"><span class="update-type">統計</span><strong>正式下注歷史累計</strong><small>${formatRate(cumulative.correct, cumulative.settled)}</small></a>
+          <a href="season?id=${encodeURIComponent(latestId)}"><span class="update-type">明星盃</span><strong>${escapeHtml(latest.date)} ${escapeHtml(latest.season || latest.theme || "賽事資料")}</strong><small>${escapeHtml(statusLabel(latest.status))}</small></a>
+          <a href="season?cup=super-star-cup&id=${encodeURIComponent(latestSuperId)}"><span class="update-type">超級明星盃</span><strong>${escapeHtml(latestSuper.date)} ${escapeHtml(latestSuper.theme || "選手配置")}</strong><small>${escapeHtml(statusLabel(latestSuper.status))}</small></a>
+          <a href="history"><span class="update-type">統計</span><strong>正式下注歷史累計</strong><small>${formatRate(cumulative.correct, cumulative.settled)}</small></a>
         </div>
       </div>
     </section>`;

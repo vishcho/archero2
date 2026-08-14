@@ -210,6 +210,7 @@ h2 {
 .game-bracket {
   --bracket-gold: #ffcb26;
   --bracket-orange: #ff7a1a;
+  container-type: inline-size;
   position: relative;
   display: grid;
   grid-template-columns: 30% 40% 30%;
@@ -220,7 +221,7 @@ h2 {
     "b lower d";
   align-items: center;
   width: 100%;
-  aspect-ratio: 1000 / 620;
+  height: clamp(440px, 60vw, 500px);
 }
 .game-bracket-lines {
   position: absolute;
@@ -242,14 +243,42 @@ h2 {
   stroke: var(--bracket-orange);
   filter: drop-shadow(0 0 7px rgba(255, 88, 0, 0.82));
 }
-.game-champion.route-low {
-  box-shadow: none;
+.game-bracket-lines path.route-loser {
+  stroke: #090909;
+  filter: none;
 }
-.game-champion.route-low .game-crown {
-  border-color: var(--bracket-orange);
-  color: var(--bracket-orange);
-  box-shadow: 0 0 12px #ff6500, 0 0 28px rgba(255, 69, 0, 0.68);
+.game-junction-label,
+.game-matchup-label {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: max(1px, 0.2cqw) solid rgba(255, 255, 255, 0.55);
+  background: #17151f;
+  color: #fff;
+  line-height: 1;
 }
+.game-junction-label {
+  width: 3.6cqw;
+  height: 3.6cqw;
+  border-radius: 50%;
+  font-size: 1.9cqw;
+  font-weight: 800;
+}
+.game-matchup-label {
+  width: 6.8cqw;
+  height: 3.6cqw;
+  border-radius: 1.8cqw;
+  font-size: 1.7cqw;
+  font-weight: 800;
+}
+.game-label-a { left: 40%; top: 25.484%; }
+.game-label-c { left: 60%; top: 25.484%; }
+.game-label-b { left: 40%; top: 78.226%; }
+.game-label-d { left: 60%; top: 78.226%; }
+.game-label-ac { left: 50%; top: 25.484%; }
+.game-label-bd { left: 50%; top: 78.226%; }
 .bracket-hint {
   display: none;
   font-size: 12px;
@@ -272,7 +301,7 @@ h2 {
 .game-lower { grid-area: lower; }
 .game-champion { grid-area: champion; }
 .game-r1 {
-  width: 81.667%;
+  width: 72%;
 }
 .game-a,
 .game-b {
@@ -291,22 +320,22 @@ h2 {
   height: 104px;
   justify-self: center;
 }
-.game-crown {
+.game-final-node {
   position: absolute;
-  top: 9px;
+  top: 50%;
   left: 50%;
   display: grid;
   place-items: center;
-  width: 74px;
-  height: 74px;
-  transform: translateX(-50%);
-  border: 4px solid #ffd445;
-  border-radius: 22px;
-  background: #554f69;
-  color: #ffd445;
-  font-size: 42px;
+  width: 6.8cqw;
+  height: 3.6cqw;
+  transform: translate(-50%, -50%);
+  border: max(1px, 0.2cqw) solid rgba(255, 255, 255, 0.55);
+  border-radius: 1.8cqw;
+  background: #17151f;
+  color: #fff;
+  font-size: 1.7cqw;
+  font-weight: 800;
   line-height: 1;
-  box-shadow: 0 0 12px #ff9d00, 0 0 28px rgba(255, 112, 0, 0.68);
 }
 .game-slot {
   margin-bottom: 5px;
@@ -315,15 +344,6 @@ h2 {
   font-weight: 850;
   letter-spacing: 0.05em;
   text-align: center;
-}
-.game-champion .game-slot {
-  position: absolute;
-  top: 92px;
-  left: 50%;
-  width: 130px;
-  margin: 0;
-  transform: translateX(-50%);
-  color: #ffe395;
 }
 .game-player {
   display: flex;
@@ -521,7 +541,7 @@ td {
     display: block;
   }
   .game-bracket {
-    height: clamp(520px, 100vw, 680px);
+    height: clamp(400px, 70vw, 500px);
     aspect-ratio: auto;
   }
   .advice-grid {
@@ -555,7 +575,10 @@ td {
     padding-bottom: 8px;
   }
   .game-bracket {
-    height: clamp(500px, 150vw, 570px);
+    height: clamp(340px, 82vw, 440px);
+  }
+  .game-r1 {
+    width: 81.667%;
   }
   .game-player {
     flex-direction: column;
@@ -595,17 +618,8 @@ td {
     width: 76px;
     height: 82px;
   }
-  .game-crown {
-    top: 8px;
-    width: 60px;
-    height: 60px;
-    border-width: 3px;
-    border-radius: 17px;
-    font-size: 32px;
-  }
-  .game-champion .game-slot {
-    top: 72px;
-    width: 100px;
+  .game-final-node {
+    top: 50%;
   }
   .advice-grid {
     grid-template-columns: 1fr;

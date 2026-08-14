@@ -37,7 +37,6 @@
 
 - [明星盃下注建議工具規格](../notes/betting-assistant-spec.md)
 - [待辦事項](../notes/todo.md)
-- [Archero 2「塔塔的寶藏」UI/UX 設計評論與改善建議](../notes/uiux-design-review.md)
 
 ## 工作流
 

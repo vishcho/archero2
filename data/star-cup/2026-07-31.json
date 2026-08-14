@@ -507,7 +507,7 @@
       ],
       "champion": "LD丨힘",
       "runner_up": "牛大力",
-      "champion_power": "34.75M",
+      "champion_power": "27.41M",
       "matches": [
         {
           "round": "R1",
@@ -543,7 +543,7 @@
             "name": "LD丨힘",
             "progress": 10,
             "time": "01:06.15",
-            "power": "34.75M"
+            "power": "27.41M"
           },
           "winner": "LD丨힘",
           "loser": "龍×이노40",
@@ -624,7 +624,7 @@
             "name": "LD丨힘",
             "progress": 10,
             "time": "01:04.18",
-            "power": "34.75M"
+            "power": "27.41M"
           },
           "p2": {
             "name": "單品咖啡",
@@ -648,13 +648,13 @@
             "name": "LD丨힘",
             "progress": 10,
             "time": "00:46.72",
-            "power": "34.75M"
+            "power": "27.41M"
           },
           "winner": "LD丨힘",
           "loser": "牛大力"
         }
       ],
-      "champion_current_power": "36.65M"
+      "champion_current_power": "36.76M"
     },
     {
       "id": 2,
@@ -883,7 +883,7 @@
           "loser": "AK우연"
         }
       ],
-      "champion_current_power": "22.30M"
+      "champion_current_power": "22.56M"
     },
     {
       "id": 3,
@@ -975,7 +975,7 @@
       ],
       "champion": "送你離開",
       "runner_up": "LD丨삐얀코",
-      "champion_power": "39.66M",
+      "champion_power": "41.08M",
       "matches": [
         {
           "round": "R1",
@@ -990,12 +990,12 @@
             "name": "送你離開",
             "progress": 10,
             "time": "01:11.51",
-            "power": "39.66M"
+            "power": "41.08M"
           },
           "winner": "送你離開",
           "loser": "coco幻",
           "notes": [
-            "截圖顯示 送你離開（39.66M），賽前對陣表為 o月亮惹的禍o（39.77M），疑改名，依截圖為準"
+            "截圖顯示 送你離開（41.08M），賽前對陣表為 o月亮惹的禍o（39.77M），疑改名，依截圖為準"
           ]
         },
         {
@@ -1062,7 +1062,7 @@
             "name": "送你離開",
             "progress": 10,
             "time": "01:14.34",
-            "power": "39.66M"
+            "power": "41.08M"
           },
           "p2": {
             "name": "SuperAaron",
@@ -1101,7 +1101,7 @@
             "name": "送你離開",
             "progress": 10,
             "time": "00:59.78",
-            "power": "39.66M"
+            "power": "41.08M"
           },
           "p2": {
             "name": "LD丨삐얀코",
@@ -1433,7 +1433,7 @@
       ],
       "champion": "Cashasy",
       "runner_up": "AK丨FLEX3R",
-      "champion_power": "22.65M",
+      "champion_power": "19.06M",
       "matches": [
         {
           "round": "R1",
@@ -1502,7 +1502,7 @@
             "name": "Cashasy",
             "progress": 10,
             "time": "01:04.35",
-            "power": "22.65M"
+            "power": "19.06M"
           },
           "p2": {
             "name": "Leojian",
@@ -1513,7 +1513,7 @@
           "winner": "Cashasy",
           "loser": "Leojian",
           "notes": [
-            "Leojian 戰力 25.01M 高於 Cashasy 22.65M 仍落敗，照截圖記錄"
+            "Leojian 戰力 25.01M 高於 Cashasy 19.06M 仍落敗，照截圖記錄"
           ]
         },
         {
@@ -1547,7 +1547,7 @@
             "name": "Cashasy",
             "progress": 10,
             "time": "01:13.91",
-            "power": "22.65M"
+            "power": "19.06M"
           },
           "winner": "Cashasy",
           "loser": "고른주부J"
@@ -1565,7 +1565,7 @@
             "name": "Cashasy",
             "progress": 10,
             "time": "00:57.88",
-            "power": "22.65M"
+            "power": "19.06M"
           },
           "winner": "Cashasy",
           "loser": "AK丨FLEX3R"
@@ -1662,7 +1662,7 @@
       ],
       "champion": "koeee",
       "runner_up": "AK베라",
-      "champion_power": "60.93M",
+      "champion_power": "60.95M",
       "matches": [
         {
           "round": "R1",
@@ -1710,7 +1710,7 @@
             "name": "koeee",
             "progress": 10,
             "time": "00:32.79",
-            "power": "60.93M"
+            "power": "60.95M"
           },
           "p2": {
             "name": "龍×똥꼬",
@@ -1737,7 +1737,7 @@
             "name": "紅桃A",
             "progress": 10,
             "time": "03:00.85",
-            "power": "14.96M"
+            "power": "15.05M"
           },
           "winner": "AK베라",
           "loser": "紅桃A"
@@ -1755,7 +1755,7 @@
             "name": "koeee",
             "progress": 10,
             "time": "00:32.89",
-            "power": "60.93M"
+            "power": "60.95M"
           },
           "winner": "koeee",
           "loser": "LD丨짱구",
@@ -1788,7 +1788,7 @@
             "name": "koeee",
             "progress": 10,
             "time": "00:33.85",
-            "power": "60.93M"
+            "power": "60.95M"
           },
           "p2": {
             "name": "AK베라",
@@ -1800,7 +1800,7 @@
           "loser": "AK베라"
         }
       ],
-      "champion_current_power": "62.46M"
+      "champion_current_power": "62.93M"
     },
     {
       "id": 7,
@@ -2023,7 +2023,7 @@
           "loser": "김미태"
         }
       ],
-      "champion_current_power": "16.56M"
+      "champion_current_power": "17.76M"
     },
     {
       "id": 8,
@@ -2116,7 +2116,7 @@
       ],
       "champion": "RV297",
       "runner_up": "AK메투스",
-      "champion_power": "23.87M",
+      "champion_power": "26.53M",
       "matches": [
         {
           "round": "R1",
@@ -2125,7 +2125,7 @@
             "name": "RV297",
             "progress": 10,
             "time": "01:04.71",
-            "power": "23.87M"
+            "power": "26.53M"
           },
           "p2": {
             "name": "阿武花豆",
@@ -2203,7 +2203,7 @@
             "name": "RV297",
             "progress": 10,
             "time": "01:06.61",
-            "power": "23.87M"
+            "power": "26.53M"
           },
           "p2": {
             "name": "FLEX2R",
@@ -2239,7 +2239,7 @@
             "name": "RV297",
             "progress": 10,
             "time": "00:51.65",
-            "power": "23.87M"
+            "power": "26.53M"
           },
           "p2": {
             "name": "AK메투스",
@@ -2250,7 +2250,7 @@
           "winner": "RV297",
           "loser": "AK메투스",
           "notes": [
-            "AK메투스 戰力 30.54M 高於 RV297 23.87M 仍落敗，照截圖記錄"
+            "AK메투스 戰力 30.54M 高於 RV297 26.53M 仍落敗，照截圖記錄"
           ]
         }
       ],

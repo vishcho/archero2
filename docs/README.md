@@ -8,6 +8,7 @@
 ## 綜合
 
 - [活動行事曆](./activity-calendar.md)
+- [聯盟寶藏規則](./alliance-treasure.md)
 - [截圖批次索引](./sources.md)
 
 ## 明星盃

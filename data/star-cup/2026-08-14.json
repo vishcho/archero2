@@ -4,13 +4,19 @@
   "date": "2026/8/14",
   "theme": "精靈x飛劍",
   "season": "精靈季",
-  "qualifier_period": ["2026-08-10", "2026-08-13"],
-  "knockout_period": ["2026-08-14", "2026-08-21"],
+  "qualifier_period": [
+    "2026-08-10",
+    "2026-08-13"
+  ],
+  "knockout_period": [
+    "2026-08-14",
+    "2026-08-21"
+  ],
   "status": "in_progress",
   "collection": {
     "qualifier": "complete",
     "knockout_matchup": "complete",
-    "knockout_results": "pending",
+    "knockout_results": "complete",
     "grand_finals": "pending"
   },
   "champion": null,
@@ -412,7 +418,8 @@
           "player_id": "101899339"
         },
         {
-          "name": "욕정",
+          "name": "열망",
+          "matchup_name": "욕정",
           "power": "20.21M",
           "qualifier_rank": 33,
           "qualifier_time": "04:34.5",
@@ -460,13 +467,149 @@
           "qualifier_time": "04:23.2",
           "player_id": "101565972"
         }
-      ]
+      ],
+      "matches": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "龍×교슘",
+            "progress": 1,
+            "time": "00:01.03",
+            "power": "8.83M"
+          },
+          "p2": {
+            "name": "열망",
+            "progress": 10,
+            "time": "05:22.18",
+            "power": "16.47M"
+          },
+          "winner": "열망",
+          "loser": "龍×교슘"
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "ZᶻZ",
+            "progress": 10,
+            "time": "00:49.25",
+            "power": "35.28M"
+          },
+          "p2": {
+            "name": "南天門乂殺神",
+            "progress": 10,
+            "time": "03:37.61",
+            "power": "10.08M"
+          },
+          "winner": "ZᶻZ",
+          "loser": "南天門乂殺神"
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "coco幻",
+            "progress": 10,
+            "time": "04:00.20",
+            "power": "13.13M"
+          },
+          "p2": {
+            "name": "夜凜月",
+            "progress": 10,
+            "time": "04:31.46",
+            "power": "9.52M"
+          },
+          "winner": "coco幻",
+          "loser": "夜凜月"
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "紅桃A",
+            "progress": 10,
+            "time": "03:03.25",
+            "power": "16.14M"
+          },
+          "p2": {
+            "name": "AK연인",
+            "progress": 10,
+            "time": "02:35.49",
+            "power": "16.14M"
+          },
+          "winner": "AK연인",
+          "loser": "紅桃A"
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "열망",
+            "progress": 10,
+            "time": "03:27.11",
+            "power": "16.47M"
+          },
+          "p2": {
+            "name": "coco幻",
+            "progress": 0,
+            "time": "10:00.00",
+            "power": "13.13M"
+          },
+          "winner": "열망",
+          "loser": "coco幻",
+          "notes": [
+            "coco幻 進度 0、時間 10:00.00，疑未出賽"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "ZᶻZ",
+            "progress": 10,
+            "time": "00:43.45",
+            "power": "35.28M"
+          },
+          "p2": {
+            "name": "AK연인",
+            "progress": 1,
+            "time": "00:10.13",
+            "power": "16.14M"
+          },
+          "winner": "ZᶻZ",
+          "loser": "AK연인"
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "열망",
+            "progress": 10,
+            "time": "03:22.45",
+            "power": "16.47M"
+          },
+          "p2": {
+            "name": "ZᶻZ",
+            "progress": 10,
+            "time": "00:47.98",
+            "power": "35.28M"
+          },
+          "winner": "ZᶻZ",
+          "loser": "열망"
+        }
+      ],
+      "champion": "ZᶻZ",
+      "runner_up": "열망",
+      "champion_power": "35.28M",
+      "champion_current_power": "38.03M"
     },
     {
       "id": 2,
       "players": [
         {
-          "name": "龍×똥꼬",
+          "name": "파티똥꼬",
+          "matchup_name": "龍×똥꼬",
           "power": "9.97M",
           "qualifier_rank": 54,
           "qualifier_time": "04:37.7",
@@ -516,14 +659,147 @@
           "player_id": "102010250"
         },
         {
-          "name": "龍×똥꼬",
+          "name": "퀵하똥꼬",
+          "matchup_name": "龍×똥꼬",
           "power": "17.77M",
           "qualifier_rank": 16,
           "qualifier_time": "04:27.1",
           "player_id": "101750016",
           "note": "三位同名選手依戰力高低順序定位：本格賽時戰力 17.77M 對應名片戰力 17.09M（用戶ID 101750016），為資格賽第 16 名。"
         }
-      ]
+      ],
+      "matches": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "파티똥꼬",
+            "progress": 10,
+            "time": "05:37.91",
+            "power": "7.27M"
+          },
+          "p2": {
+            "name": "한잔ᶻZ",
+            "progress": 10,
+            "time": "03:06.65",
+            "power": "14.38M"
+          },
+          "winner": "한잔ᶻZ",
+          "loser": "파티똥꼬"
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "戰神蕉蕉",
+            "progress": 9,
+            "time": "02:34.79",
+            "power": "11.13M"
+          },
+          "p2": {
+            "name": "賽博陀螺",
+            "progress": 10,
+            "time": "02:52.42",
+            "power": "21.55M"
+          },
+          "winner": "賽博陀螺",
+          "loser": "戰神蕉蕉"
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "RV297",
+            "progress": 10,
+            "time": "00:57.11",
+            "power": "22.99M"
+          },
+          "p2": {
+            "name": "Yööᶠˣ",
+            "progress": 10,
+            "time": "03:19.51",
+            "power": "11.35M"
+          },
+          "winner": "RV297",
+          "loser": "Yööᶠˣ"
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "烏薩奇Usagi",
+            "progress": 10,
+            "time": "04:01.74",
+            "power": "12.83M"
+          },
+          "p2": {
+            "name": "퀵하똥꼬",
+            "progress": 10,
+            "time": "02:17.79",
+            "power": "17.11M"
+          },
+          "winner": "퀵하똥꼬",
+          "loser": "烏薩奇Usagi"
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "한잔ᶻZ",
+            "progress": 1,
+            "time": "00:04.63",
+            "power": "14.38M"
+          },
+          "p2": {
+            "name": "RV297",
+            "progress": 10,
+            "time": "01:00.81",
+            "power": "22.99M"
+          },
+          "winner": "RV297",
+          "loser": "한잔ᶻZ"
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "賽博陀螺",
+            "progress": 10,
+            "time": "02:37.82",
+            "power": "21.55M"
+          },
+          "p2": {
+            "name": "퀵하똥꼬",
+            "progress": 10,
+            "time": "02:31.06",
+            "power": "17.11M"
+          },
+          "winner": "퀵하똥꼬",
+          "loser": "賽博陀螺"
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "RV297",
+            "progress": 10,
+            "time": "00:56.01",
+            "power": "22.99M"
+          },
+          "p2": {
+            "name": "퀵하똥꼬",
+            "progress": 1,
+            "time": "00:04.89",
+            "power": "17.11M"
+          },
+          "winner": "RV297",
+          "loser": "퀵하똥꼬"
+        }
+      ],
+      "champion": "RV297",
+      "runner_up": "퀵하똥꼬",
+      "champion_power": "22.99M",
+      "champion_current_power": "27.52M"
     },
     {
       "id": 3,
@@ -543,7 +819,8 @@
           "player_id": "101988548"
         },
         {
-          "name": "泰融",
+          "name": "準備換帳囉",
+          "matchup_name": "泰融",
           "power": "15.27M",
           "qualifier_rank": 44,
           "qualifier_time": "04:36.3",
@@ -584,7 +861,146 @@
           "qualifier_time": "04:39.0",
           "player_id": "101667953"
         }
-      ]
+      ],
+      "matches": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "koeee",
+            "progress": 10,
+            "time": "00:33.22",
+            "power": "58.52M"
+          },
+          "p2": {
+            "name": "紫薯芋泥c",
+            "progress": 0,
+            "time": "10:00.00",
+            "power": "11.79M"
+          },
+          "winner": "koeee",
+          "loser": "紫薯芋泥c",
+          "notes": [
+            "紫薯芋泥c 進度 0、時間 10:00.00，疑未出賽",
+            "本場 WIN/LOSE 經回看原圖裁決（雙模型判讀不一致）"
+          ]
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "準備換帳囉",
+            "progress": 1,
+            "time": "00:04.33",
+            "power": "13.11M"
+          },
+          "p2": {
+            "name": "龍×콰트",
+            "progress": 10,
+            "time": "07:42.35",
+            "power": "11.21M"
+          },
+          "winner": "龍×콰트",
+          "loser": "準備換帳囉"
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "김미태",
+            "progress": 10,
+            "time": "03:34.94",
+            "power": "7.59M"
+          },
+          "p2": {
+            "name": "阿武花豆",
+            "progress": 10,
+            "time": "01:17.38",
+            "power": "17.80M"
+          },
+          "winner": "阿武花豆",
+          "loser": "김미태"
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "단별ll헌쿤",
+            "progress": 0,
+            "time": "10:00.00",
+            "power": "15.68M"
+          },
+          "p2": {
+            "name": "吐司夾蛋",
+            "progress": 10,
+            "time": "07:00.83",
+            "power": "12.79M"
+          },
+          "winner": "吐司夾蛋",
+          "loser": "단별ll헌쿤",
+          "notes": [
+            "단별ll헌쿤 進度 0、時間 10:00.00，疑未出賽"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "koeee",
+            "progress": 10,
+            "time": "00:34.92",
+            "power": "58.52M"
+          },
+          "p2": {
+            "name": "阿武花豆",
+            "progress": 10,
+            "time": "01:25.41",
+            "power": "17.80M"
+          },
+          "winner": "koeee",
+          "loser": "阿武花豆"
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "龍×콰트",
+            "progress": 10,
+            "time": "08:56.46",
+            "power": "11.21M"
+          },
+          "p2": {
+            "name": "吐司夾蛋",
+            "progress": 10,
+            "time": "07:33.98",
+            "power": "12.79M"
+          },
+          "winner": "吐司夾蛋",
+          "loser": "龍×콰트"
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "koeee",
+            "progress": 10,
+            "time": "00:33.82",
+            "power": "58.52M"
+          },
+          "p2": {
+            "name": "吐司夾蛋",
+            "progress": 1,
+            "time": "00:03.33",
+            "power": "12.79M"
+          },
+          "winner": "koeee",
+          "loser": "吐司夾蛋"
+        }
+      ],
+      "champion": "koeee",
+      "runner_up": "吐司夾蛋",
+      "champion_power": "58.52M",
+      "champion_current_power": "62.93M"
     },
     {
       "id": 4,
@@ -645,7 +1061,139 @@
           "qualifier_time": "04:35.7",
           "player_id": "101716965"
         }
-      ]
+      ],
+      "matches": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "劍人海拉",
+            "progress": 3,
+            "time": "00:33.25",
+            "power": "9.22M"
+          },
+          "p2": {
+            "name": "ᴬᴷFLEX3R",
+            "progress": 10,
+            "time": "02:31.92",
+            "power": "29.96M"
+          },
+          "winner": "ᴬᴷFLEX3R",
+          "loser": "劍人海拉"
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "말랭ᶻZ",
+            "progress": 10,
+            "time": "04:13.60",
+            "power": "16.10M"
+          },
+          "p2": {
+            "name": "ᴬᴷ인써하니",
+            "progress": 3,
+            "time": "00:21.79",
+            "power": "9.16M"
+          },
+          "winner": "말랭ᶻZ",
+          "loser": "ᴬᴷ인써하니"
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "龍×조이",
+            "progress": 1,
+            "time": "00:10.63",
+            "power": "11.60M"
+          },
+          "p2": {
+            "name": "Cashasy",
+            "progress": 10,
+            "time": "00:59.35",
+            "power": "22.83M"
+          },
+          "winner": "Cashasy",
+          "loser": "龍×조이"
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "Niff",
+            "progress": 10,
+            "time": "05:17.02",
+            "power": "13.94M"
+          },
+          "p2": {
+            "name": "秘運行者Kai",
+            "progress": 10,
+            "time": "05:18.75",
+            "power": "11.27M"
+          },
+          "winner": "Niff",
+          "loser": "秘運行者Kai"
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "ᴬᴷFLEX3R",
+            "progress": 10,
+            "time": "01:40.74",
+            "power": "29.96M"
+          },
+          "p2": {
+            "name": "Cashasy",
+            "progress": 10,
+            "time": "01:01.01",
+            "power": "22.83M"
+          },
+          "winner": "Cashasy",
+          "loser": "ᴬᴷFLEX3R"
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "말랭ᶻZ",
+            "progress": 10,
+            "time": "04:52.62",
+            "power": "16.10M"
+          },
+          "p2": {
+            "name": "Niff",
+            "progress": 10,
+            "time": "05:56.91",
+            "power": "13.94M"
+          },
+          "winner": "말랭ᶻZ",
+          "loser": "Niff"
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "Cashasy",
+            "progress": 10,
+            "time": "00:57.88",
+            "power": "22.83M"
+          },
+          "p2": {
+            "name": "말랭ᶻZ",
+            "progress": 10,
+            "time": "04:35.59",
+            "power": "16.10M"
+          },
+          "winner": "Cashasy",
+          "loser": "말랭ᶻZ"
+        }
+      ],
+      "champion": "Cashasy",
+      "runner_up": "말랭ᶻZ",
+      "champion_power": "22.83M",
+      "champion_current_power": "24.87M"
     },
     {
       "id": 5,
@@ -658,7 +1206,8 @@
           "player_id": "101707580"
         },
         {
-          "name": "龍×이노40",
+          "name": "龍×이노테라",
+          "matchup_name": "龍×이노40",
           "power": "15.70M",
           "qualifier_rank": 41,
           "qualifier_time": "04:35.8",
@@ -706,7 +1255,145 @@
           "qualifier_time": "04:37.0",
           "player_id": "101677001"
         }
-      ]
+      ],
+      "matches": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "짱구ᶻZ",
+            "progress": 0,
+            "time": "10:00.00",
+            "power": "30.71M"
+          },
+          "p2": {
+            "name": "龍×이노테라",
+            "progress": 7,
+            "time": "01:05.11",
+            "power": "14.83M"
+          },
+          "winner": "龍×이노테라",
+          "loser": "짱구ᶻZ",
+          "notes": [
+            "짱구ᶻZ 進度 0、時間 10:00.00，疑未出賽"
+          ]
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "戰神冥海龍靈",
+            "progress": 8,
+            "time": "01:45.70",
+            "power": "10.30M"
+          },
+          "p2": {
+            "name": "쿨쿨ᶻZ",
+            "progress": 10,
+            "time": "03:01.82",
+            "power": "12.79M"
+          },
+          "winner": "쿨쿨ᶻZ",
+          "loser": "戰神冥海龍靈"
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "FLEX2Rᶠˣ",
+            "progress": 10,
+            "time": "05:29.55",
+            "power": "20.03M"
+          },
+          "p2": {
+            "name": "派對孔明",
+            "progress": 10,
+            "time": "05:09.85",
+            "power": "12.55M"
+          },
+          "winner": "派對孔明",
+          "loser": "FLEX2Rᶠˣ"
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "龍×이뮤",
+            "progress": 10,
+            "time": "03:02.25",
+            "power": "12.30M"
+          },
+          "p2": {
+            "name": "小舜舜",
+            "progress": 0,
+            "time": "10:00.00",
+            "power": "7.39M"
+          },
+          "winner": "龍×이뮤",
+          "loser": "小舜舜",
+          "notes": [
+            "小舜舜 進度 0、時間 10:00.00，疑未出賽"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "龍×이노테라",
+            "progress": 10,
+            "time": "05:28.01",
+            "power": "14.83M"
+          },
+          "p2": {
+            "name": "派對孔明",
+            "progress": 10,
+            "time": "06:22.47",
+            "power": "12.55M"
+          },
+          "winner": "龍×이노테라",
+          "loser": "派對孔明"
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "쿨쿨ᶻZ",
+            "progress": 10,
+            "time": "02:49.52",
+            "power": "12.79M"
+          },
+          "p2": {
+            "name": "龍×이뮤",
+            "progress": 10,
+            "time": "02:53.35",
+            "power": "12.30M"
+          },
+          "winner": "쿨쿨ᶻZ",
+          "loser": "龍×이뮤"
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "龍×이노테라",
+            "progress": 7,
+            "time": "01:11.71",
+            "power": "14.83M"
+          },
+          "p2": {
+            "name": "쿨쿨ᶻZ",
+            "progress": 10,
+            "time": "02:28.26",
+            "power": "12.79M"
+          },
+          "winner": "쿨쿨ᶻZ",
+          "loser": "龍×이노테라"
+        }
+      ],
+      "champion": "쿨쿨ᶻZ",
+      "runner_up": "龍×이노테라",
+      "champion_power": "12.79M",
+      "champion_current_power": "18.04M"
     },
     {
       "id": 6,
@@ -740,7 +1427,8 @@
           "player_id": "102045250"
         },
         {
-          "name": "LCFFKU",
+          "name": "拎刀蹦氣",
+          "matchup_name": "LCFFKU",
           "power": "14.46M",
           "qualifier_rank": 32,
           "qualifier_time": "04:34.2",
@@ -767,7 +1455,142 @@
           "qualifier_time": "04:35.6",
           "player_id": "101479246"
         }
-      ]
+      ],
+      "matches": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "瑪法里恩中風",
+            "progress": 1,
+            "time": "00:01.16",
+            "power": "11.81M"
+          },
+          "p2": {
+            "name": "Egø",
+            "progress": 10,
+            "time": "02:14.56",
+            "power": "21.64M"
+          },
+          "winner": "Egø",
+          "loser": "瑪法里恩中風"
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "仔仔團宗宗",
+            "progress": 1,
+            "time": "00:04.99",
+            "power": "15.26M"
+          },
+          "p2": {
+            "name": "牛大力",
+            "progress": 10,
+            "time": "01:18.48",
+            "power": "49.56M"
+          },
+          "winner": "牛大力",
+          "loser": "仔仔團宗宗"
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "拎刀蹦氣",
+            "progress": 10,
+            "time": "06:09.37",
+            "power": "11.19M"
+          },
+          "p2": {
+            "name": "ᴬᴷ베라",
+            "progress": 10,
+            "time": "02:30.06",
+            "power": "17.98M"
+          },
+          "winner": "ᴬᴷ베라",
+          "loser": "拎刀蹦氣"
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "荃雉瓏",
+            "progress": 0,
+            "time": "10:00.00",
+            "power": "9.12M"
+          },
+          "p2": {
+            "name": "CoBe",
+            "progress": 10,
+            "time": "04:57.76",
+            "power": "11.92M"
+          },
+          "winner": "CoBe",
+          "loser": "荃雉瓏",
+          "notes": [
+            "荃雉瓏 進度 0、時間 10:00.00，疑未出賽"
+          ]
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "Egø",
+            "progress": 10,
+            "time": "01:33.74",
+            "power": "21.64M"
+          },
+          "p2": {
+            "name": "ᴬᴷ베라",
+            "progress": 10,
+            "time": "03:08.08",
+            "power": "17.98M"
+          },
+          "winner": "Egø",
+          "loser": "ᴬᴷ베라"
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "牛大力",
+            "progress": 10,
+            "time": "01:16.28",
+            "power": "49.56M"
+          },
+          "p2": {
+            "name": "CoBe",
+            "progress": 10,
+            "time": "05:00.92",
+            "power": "11.92M"
+          },
+          "winner": "牛大力",
+          "loser": "CoBe"
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "Egø",
+            "progress": 10,
+            "time": "01:32.94",
+            "power": "21.64M"
+          },
+          "p2": {
+            "name": "牛大力",
+            "progress": 10,
+            "time": "01:09.88",
+            "power": "49.56M"
+          },
+          "winner": "牛大力",
+          "loser": "Egø"
+        }
+      ],
+      "champion": "牛大力",
+      "runner_up": "Egø",
+      "champion_power": "49.56M",
+      "champion_current_power": "55.63M"
     },
     {
       "id": 7,
@@ -828,7 +1651,139 @@
           "qualifier_time": "04:33.4",
           "player_id": "101535841"
         }
-      ]
+      ],
+      "matches": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "ᴬᴷ우연",
+            "progress": 10,
+            "time": "02:01.93",
+            "power": "14.08M"
+          },
+          "p2": {
+            "name": "고른주부J",
+            "progress": 10,
+            "time": "02:17.76",
+            "power": "19.66M"
+          },
+          "winner": "ᴬᴷ우연",
+          "loser": "고른주부J"
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "丫丸仔",
+            "progress": 10,
+            "time": "03:27.01",
+            "power": "11.12M"
+          },
+          "p2": {
+            "name": "放開隻牛仔",
+            "progress": 10,
+            "time": "05:58.94",
+            "power": "10.58M"
+          },
+          "winner": "丫丸仔",
+          "loser": "放開隻牛仔"
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "팡대ᶻZ",
+            "progress": 10,
+            "time": "00:59.98",
+            "power": "16.15M"
+          },
+          "p2": {
+            "name": "送你離開",
+            "progress": 10,
+            "time": "01:19.24",
+            "power": "41.08M"
+          },
+          "winner": "팡대ᶻZ",
+          "loser": "送你離開"
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "戰神SAKE",
+            "progress": 10,
+            "time": "03:22.31",
+            "power": "14.85M"
+          },
+          "p2": {
+            "name": "SuperAaron",
+            "progress": 10,
+            "time": "03:06.62",
+            "power": "18.34M"
+          },
+          "winner": "SuperAaron",
+          "loser": "戰神SAKE"
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "ᴬᴷ우연",
+            "progress": 1,
+            "time": "00:07.33",
+            "power": "14.08M"
+          },
+          "p2": {
+            "name": "팡대ᶻZ",
+            "progress": 10,
+            "time": "01:09.18",
+            "power": "16.15M"
+          },
+          "winner": "팡대ᶻZ",
+          "loser": "ᴬᴷ우연"
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "丫丸仔",
+            "progress": 10,
+            "time": "05:06.32",
+            "power": "11.12M"
+          },
+          "p2": {
+            "name": "SuperAaron",
+            "progress": 10,
+            "time": "03:56.44",
+            "power": "18.34M"
+          },
+          "winner": "SuperAaron",
+          "loser": "丫丸仔"
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "팡대ᶻZ",
+            "progress": 10,
+            "time": "01:09.14",
+            "power": "16.15M"
+          },
+          "p2": {
+            "name": "SuperAaron",
+            "progress": 10,
+            "time": "03:28.31",
+            "power": "18.34M"
+          },
+          "winner": "팡대ᶻZ",
+          "loser": "SuperAaron"
+        }
+      ],
+      "champion": "팡대ᶻZ",
+      "runner_up": "SuperAaron",
+      "champion_power": "16.15M",
+      "champion_current_power": "27.08M"
     },
     {
       "id": 8,
@@ -848,7 +1803,8 @@
           "player_id": "101504112"
         },
         {
-          "name": "龍×똥꼬",
+          "name": "똥꼬조이",
+          "matchup_name": "龍×똥꼬",
           "power": "13.21M",
           "qualifier_rank": 47,
           "qualifier_time": "04:36.6",
@@ -890,10 +1846,142 @@
           "qualifier_time": "04:39.7",
           "player_id": "101489384"
         }
-      ]
+      ],
+      "matches": [
+        {
+          "round": "R1",
+          "slot": "A",
+          "p1": {
+            "name": "디킨비",
+            "progress": 10,
+            "time": "06:34.77",
+            "power": "9.71M"
+          },
+          "p2": {
+            "name": "仔仔團奧奧",
+            "progress": 10,
+            "time": "03:28.91",
+            "power": "16.31M"
+          },
+          "winner": "仔仔團奧奧",
+          "loser": "디킨비"
+        },
+        {
+          "round": "R1",
+          "slot": "B",
+          "p1": {
+            "name": "똥꼬조이",
+            "progress": 10,
+            "time": "03:03.65",
+            "power": "13.05M"
+          },
+          "p2": {
+            "name": "龍×식현",
+            "progress": 1,
+            "time": "00:00.96",
+            "power": "7.24M"
+          },
+          "winner": "똥꼬조이",
+          "loser": "龍×식현"
+        },
+        {
+          "round": "R1",
+          "slot": "C",
+          "p1": {
+            "name": "차단ᶻZ",
+            "progress": 1,
+            "time": "00:03.89",
+            "power": "13.33M"
+          },
+          "p2": {
+            "name": "AK메투스",
+            "progress": 10,
+            "time": "01:20.81",
+            "power": "31.55M"
+          },
+          "winner": "AK메투스",
+          "loser": "차단ᶻZ"
+        },
+        {
+          "round": "R1",
+          "slot": "D",
+          "p1": {
+            "name": "단별ll에이스",
+            "progress": 10,
+            "time": "05:26.82",
+            "power": "8.12M"
+          },
+          "p2": {
+            "name": "橙色楓葉",
+            "progress": 10,
+            "time": "05:33.38",
+            "power": "11.86M"
+          },
+          "winner": "단별ll에이스",
+          "loser": "橙色楓葉"
+        },
+        {
+          "round": "R2",
+          "slot": "upper",
+          "p1": {
+            "name": "仔仔團奧奧",
+            "progress": 10,
+            "time": "04:29.06",
+            "power": "16.31M"
+          },
+          "p2": {
+            "name": "AK메투스",
+            "progress": 10,
+            "time": "01:25.91",
+            "power": "31.55M"
+          },
+          "winner": "AK메투스",
+          "loser": "仔仔團奧奧"
+        },
+        {
+          "round": "R2",
+          "slot": "lower",
+          "p1": {
+            "name": "똥꼬조이",
+            "progress": 10,
+            "time": "03:27.94",
+            "power": "13.05M"
+          },
+          "p2": {
+            "name": "단별ll에이스",
+            "progress": 2,
+            "time": "00:10.33",
+            "power": "8.12M"
+          },
+          "winner": "똥꼬조이",
+          "loser": "단별ll에이스"
+        },
+        {
+          "round": "決賽",
+          "slot": "final",
+          "p1": {
+            "name": "AK메투스",
+            "progress": 10,
+            "time": "01:20.38",
+            "power": "31.55M"
+          },
+          "p2": {
+            "name": "똥꼬조이",
+            "progress": 1,
+            "time": "00:06.53",
+            "power": "13.05M"
+          },
+          "winner": "AK메투스",
+          "loser": "똥꼬조이"
+        }
+      ],
+      "champion": "AK메투스",
+      "runner_up": "똥꼬조이",
+      "champion_power": "31.55M",
+      "champion_current_power": "33.56M"
     }
   ],
   "grand_finals": null,
   "qualifier_note": "資格賽排行榜由 screenshots/star-cup/2026-08-14-round5/qualifier-rank/（16 張連拍）抽取，涵蓋名次 1–68，此處收錄前 64 名。第 32 名 LCFFKU 畫面上無公會／稱號標籤（名片顯示「公會:無」），title 記 null。",
-  "groups_note": "賽前對陣由 screenshots/star-cup/2026-08-14-round5/knockout-matchup/（8 張）抽取。players 陣列順序＝對陣圖籤位，**不可排序**；但依 README「排序約定」，對陣關係的唯一真實來源是 groups[].matches，不得由 players 陣列位置推導——本屆賽前尚無賽果故 matches 省略，待淘汰賽結果批次入庫時一併填入。名單完整性已交叉驗證：對陣 64 人與資格賽前 64 名完全一致。原始 top64-profile 批次誤將第 41 名「龍×이노40」重複拍攝；第 42 名「夜凜月」已由 Screenshot_20260814-120711.png 補拍，現已取得前 64 名全部 player_id。顯示名稱「龍×똥꼬」本屆有 3 位不同選手（資格賽第 16／47／54 名），依三張名片戰力 17.09M／12.15M／7.27M 與三個賽時戰力 17.77M／13.21M／9.97M 的高低順序定位 player_id；各筆 note 保留對應依據。"
+  "groups_note": "賽前對陣由 screenshots/star-cup/2026-08-14-round5/knockout-matchup/（8 張）抽取。players 陣列順序＝對陣圖籤位，**不可排序**；但依 README「排序約定」，對陣關係的唯一真實來源是 groups[].matches，不得由 players 陣列位置推導——本屆賽前尚無賽果故 matches 省略，待淘汰賽結果批次入庫時一併填入。名單完整性已交叉驗證：對陣 64 人與資格賽前 64 名完全一致。原始 top64-profile 批次誤將第 41 名「龍×이노40」重複拍攝；第 42 名「夜凜月」已由 Screenshot_20260814-120711.png 補拍，現已取得前 64 名全部 player_id。顯示名稱「龍×똥꼬」本屆有 3 位不同選手（資格賽第 16／47／54 名），依三張名片戰力 17.09M／12.15M／7.27M 與三個賽時戰力 17.77M／13.21M／9.97M 的高低順序定位 player_id；各筆 note 保留對應依據。　淘汰賽結果由 screenshots/star-cup/2026-08-14-round5/knockout-results/（8 組 × 8 張 = 64 張，2026/8/20 23:38–23:45 單次連拍）抽取，通過工作流 §2b 抽取完整性檢查點、`tools/validate-season.mjs` 與 `tools/validate-tournament-results.mjs` 驗證。場次位置（R1 A/B/C/D、R2 upper/lower、決賽 final）依各組結果樹狀圖版面歸位（左上=A、左下=B、右上=C、右下=D），並與已發布的下注快照 `data/predictions/star-cup/2026-08-14.json` 的 R1 配對逐組核對一致；**不由 players 陣列索引推導**。對戰彈窗中央的「決賽」是固定 UI 字串（56 張全部相同），不是回合名，不可據以判斷場次。賽時戰力為快照，同一位選手在同組跨場相同；樹狀圖的目前戰力另存 `champion_current_power`。　選手名稱以結果截圖為準，因此有 7 筆與賽前對陣表不同（8/14 → 8/20 期間改名）：욕정→열망（101782988）、龍×똥꼬→파티똥꼬（101751766）、龍×똥꼬→퀵하똥꼬（101750016）、泰融→準備換帳囉（101970866）、龍×이노40→龍×이노테라（101859768）、LCFFKU→拎刀蹦氣（101884001）、龍×똥꼬→똥꼬조이（101804999）。身分歸屬由兩個獨立訊號互證：組內名單集合減法＋下注快照 slot 錨點，以及樹狀圖目前戰力與 8/14 對陣圖戰力比對（三位同名 龍×똥꼬 為 9.97M／17.77M／13.21M **完全相等**，其餘 4 筆為 +0.24～0.66M 的 6 天正常成長）。依 round4 慣例，`groups[].players[].name` 已改為結果截圖的現行名稱，賽前對陣表當時的名稱存於同一筆的 `matchup_name`；`qualifier[]` 與 `data/predictions/star-cup/2026-08-14.json` 是 8/14 當時的快照，維持舊名不動。"
 }

@@ -16,6 +16,7 @@
 兩週一輪：資格賽 → 8 組淘汰賽 → 總決賽。
 
 - [明星盃規則](./star-cup/star-cup.md)
+- [第 5 屆淘汰賽成績（2026/8/14）](./star-cup/2026-08-20-tournament-results.md)
 - [第 4 屆淘汰賽成績（2026/8/6）](./star-cup/2026-08-06-tournament-results.md)
 - [2026/7/31 淘汰賽對陣表](./star-cup/2026-07-31-round4-matchup.md)
 - [2026/7/31 淘汰賽競猜下注 Guide](./star-cup/2026-07-31-round4-betting-guide.md)

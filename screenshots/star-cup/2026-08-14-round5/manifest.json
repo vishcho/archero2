@@ -15,7 +15,8 @@
     },
     "knockout-results": {
       "path": "knockout-results",
-      "evidence_status": "missing"
+      "evidence_status": "original",
+      "captured_at": "2026-08-20T23:38:48+08:00"
     },
     "grand-finals-results": {
       "path": "grand-finals-results",

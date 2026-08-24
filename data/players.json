@@ -21,10 +21,17 @@
   "101470142": {
     "player_id": "101470142",
     "names": ["劍人海拉"],
-    "guild": null,
+    "guild": "戰神殿",
     "seasons": {
       "2026-08-14": {
+        "power": "13.81M",
+        "title": "逆天改命",
         "qualifier_rank": 50,
+        "normal": 154,
+        "hard": 71,
+        "tower": 1855,
+        "charm": 6530,
+        "emblem": 1020,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083840.png"
       }
@@ -48,7 +55,14 @@
         "source": "Screenshot_20260809-012200.png"
       },
       "2026-08-14": {
+        "power": "9.84M",
+        "title": "逆天改命",
         "qualifier_rank": 55,
+        "normal": 154,
+        "hard": 94,
+        "tower": 3404,
+        "charm": 6760,
+        "emblem": 506,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083920.png"
       }
@@ -91,7 +105,14 @@
         "source": "Screenshot_20260809-011701.png"
       },
       "2026-08-14": {
+        "power": "11.75M",
+        "title": "逆天改命",
         "qualifier_rank": 39,
+        "normal": 155,
+        "hard": 100,
+        "tower": 3508,
+        "charm": 7345,
+        "emblem": 968,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083356.png"
       }
@@ -115,7 +136,14 @@
         "source": "Screenshot_20260809-012249.png"
       },
       "2026-08-14": {
+        "power": "11.80M",
+        "title": "洞察先機",
         "qualifier_rank": 64,
+        "normal": 158,
+        "hard": 84,
+        "tower": 3500,
+        "charm": 6235,
+        "emblem": 616,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-084034.png"
       }
@@ -139,7 +167,14 @@
         "source": "Screenshot_20260809-012058.png"
       },
       "2026-08-14": {
+        "power": "14.82M",
+        "title": "洞察先機",
         "qualifier_rank": 34,
+        "normal": 154,
+        "hard": 75,
+        "tower": 3471,
+        "charm": 8800,
+        "emblem": 968,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083316.png"
       }
@@ -163,7 +198,14 @@
         "source": "Screenshot_20260809-011907.png"
       },
       "2026-08-14": {
+        "power": "17.78M",
+        "title": "고른햇살",
         "qualifier_rank": 15,
+        "normal": 150,
+        "hard": 94,
+        "tower": 3325,
+        "charm": 8485,
+        "emblem": 1323,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083032.png"
       }
@@ -187,7 +229,14 @@
         "source": "Screenshot_20260809-011829.png"
       },
       "2026-08-14": {
+        "power": "13.94M",
+        "title": "洞察先機",
         "qualifier_rank": 61,
+        "normal": 155,
+        "hard": 110,
+        "tower": 3500,
+        "charm": 7060,
+        "emblem": 741,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-084017.png"
       }
@@ -196,10 +245,17 @@
   "101527960": {
     "player_id": "101527960",
     "names": ["戰神冥海龍靈"],
-    "guild": null,
+    "guild": "戰神殿",
     "seasons": {
       "2026-08-14": {
+        "power": "10.27M",
+        "title": "洞察先機",
         "qualifier_rank": 31,
+        "normal": 151,
+        "hard": 83,
+        "tower": 3429,
+        "charm": 5615,
+        "emblem": 541,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083248.png"
       }
@@ -208,14 +264,22 @@
   "101533959": {
     "player_id": "101533959",
     "names": ["ᴬᴷ인써하니"],
-    "guild": null,
+    "guild": "ARKΛ",
     "seasons": {
       "2026-08-14": {
+        "power": "9.16M",
+        "title": "逆天改命",
         "qualifier_rank": 58,
+        "normal": 121,
+        "hard": 23,
+        "tower": 1605,
+        "charm": 4890,
+        "emblem": 542,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083948.png"
       }
-    }
+    },
+    "ocr_variants": ["AK인써하니"]
   },
   "101535841": {
     "player_id": "101535841",
@@ -235,7 +299,14 @@
         "source": "Screenshot_20260809-011443.png"
       },
       "2026-08-14": {
+        "power": "16.94M",
+        "title": "洞察先機",
         "qualifier_rank": 30,
+        "normal": 176,
+        "hard": 143,
+        "tower": 3500,
+        "charm": 9485,
+        "emblem": 1019,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083242.png"
       }
@@ -243,7 +314,7 @@
   },
   "101536777": {
     "player_id": "101536777",
-    "names": ["FLEX2Rfx", "FLEX2Rᶠˣ"],
+    "names": ["FLEX2Rfx","FLEX2Rᶠˣ"],
     "ocr_variants": ["FLEX2R^fx"],
     "guild": "FLΞX",
     "seasons": {
@@ -260,7 +331,14 @@
         "source": "Screenshot_20260809-011619.png"
       },
       "2026-08-14": {
+        "power": "14.87M",
+        "title": "逆天改命",
         "qualifier_rank": 59,
+        "normal": 175,
+        "hard": 151,
+        "tower": 3649,
+        "charm": 10245,
+        "emblem": 1230,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083954.png"
       }
@@ -284,7 +362,14 @@
         "source": "Screenshot_20260809-011257.png"
       },
       "2026-08-14": {
+        "power": "19.06M",
+        "title": "洞察先機",
         "qualifier_rank": 7,
+        "normal": 177,
+        "hard": 151,
+        "tower": 3510,
+        "charm": 10765,
+        "emblem": 2361,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082924.png"
       }
@@ -308,7 +393,14 @@
         "source": "Screenshot_20260809-012225.png"
       },
       "2026-08-14": {
+        "power": "12.87M",
+        "title": "戰神殿",
         "qualifier_rank": 63,
+        "normal": 150,
+        "hard": 73,
+        "tower": 3589,
+        "charm": 6200,
+        "emblem": 883,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-084028.png"
       }
@@ -333,7 +425,14 @@
         "source": "Screenshot_20260809-011432.png"
       },
       "2026-08-14": {
+        "power": "15.97M",
+        "title": "洞察先機",
         "qualifier_rank": 11,
+        "normal": 155,
+        "hard": 81,
+        "tower": 3530,
+        "charm": 8140,
+        "emblem": 1406,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082958.png"
       }
@@ -341,7 +440,7 @@
   },
   "101575904": {
     "player_id": "101575904",
-    "names": ["AK우연", "ᴬᴷ우연"],
+    "names": ["AK우연","ᴬᴷ우연"],
     "ocr_variants": ["I매I우연"],
     "guild": "ARKΛ",
     "seasons": {
@@ -358,7 +457,14 @@
         "source": "Screenshot_20260809-011319.png"
       },
       "2026-08-14": {
+        "power": "13.70M",
+        "title": "洞察先機",
         "qualifier_rank": 19,
+        "normal": 152,
+        "hard": 77,
+        "tower": 2840,
+        "charm": 7720,
+        "emblem": 1020,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083106.png"
       }
@@ -366,7 +472,7 @@
   },
   "101579946": {
     "player_id": "101579946",
-    "names": ["단별ll헌쿈", "단별ll헌쿤"],
+    "names": ["단별ll헌쿈","단별ll헌쿤"],
     "ocr_variants": ["단벌ll헌쿈"],
     "guild": "단별",
     "seasons": {
@@ -383,7 +489,14 @@
         "source": "Screenshot_20260809-011350.png"
       },
       "2026-08-14": {
+        "power": "15.68M",
+        "title": "洞察先機",
         "qualifier_rank": 60,
+        "normal": 155,
+        "hard": 86,
+        "tower": 3280,
+        "charm": 6990,
+        "emblem": 940,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-084000.png"
       }
@@ -391,9 +504,9 @@
   },
   "101582242": {
     "player_id": "101582242",
-    "names": ["LD | 말랭", "말랭ᶻZ"],
-    "ocr_variants": ["LD丨말랭"],
-    "guild": "레전더리",
+    "names": ["LD | 말랭","말랭ᶻZ"],
+    "ocr_variants": ["LD丨말랭","말랭ᶻᶻ"],
+    "guild": "Zënith",
     "seasons": {
       "2026-07-31": {
         "power": "15.24M",
@@ -408,7 +521,14 @@
         "source": "Screenshot_20260809-021739.png"
       },
       "2026-08-14": {
+        "power": "15.95M",
+        "title": "Zënith",
         "qualifier_rank": 24,
+        "normal": 161,
+        "hard": 136,
+        "tower": 3680,
+        "charm": 9555,
+        "emblem": 748,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083146.png"
       }
@@ -416,9 +536,9 @@
   },
   "101592430": {
     "player_id": "101592430",
-    "names": ["LD | 도하", "차단ᶻZ"],
+    "names": ["LD | 도하","차단ᶻZ"],
     "ocr_variants": ["LD丨도하"],
-    "guild": "레전더리",
+    "guild": "Zënith",
     "seasons": {
       "2026-07-31": {
         "power": "13.97M",
@@ -433,7 +553,14 @@
         "source": "Screenshot_20260809-011401.png"
       },
       "2026-08-14": {
+        "power": "13.33M",
+        "title": "Zënith",
         "qualifier_rank": 28,
+        "normal": 143,
+        "hard": 71,
+        "tower": 3235,
+        "charm": 7240,
+        "emblem": 784,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083220.png"
       }
@@ -441,9 +568,9 @@
   },
   "101594098": {
     "player_id": "101594098",
-    "names": ["LD | 팡대", "팡대ᶻZ"],
-    "ocr_variants": ["LD丨팡대"],
-    "guild": "레전더리",
+    "names": ["LD | 팡대","팡대ᶻZ"],
+    "ocr_variants": ["LD丨팡대","팡대ᶻz"],
+    "guild": "Zënith",
     "seasons": {
       "2026-07-31": {
         "power": "15.84M",
@@ -458,7 +585,14 @@
         "source": "Screenshot_20260809-011123.png"
       },
       "2026-08-14": {
+        "power": "6.33M",
+        "title": "Zënith",
         "qualifier_rank": 5,
+        "normal": 191,
+        "hard": 155,
+        "tower": 3590,
+        "charm": 11920,
+        "emblem": 2206,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082912.png"
       }
@@ -466,9 +600,9 @@
   },
   "101607272": {
     "player_id": "101607272",
-    "names": ["LD丨팡대ꕥ", "쿨쿨ᶻZ"],
-    "ocr_variants": ["LD丨팡대ㅎㅎ", "LD｜팡대ᴰᴳ"],
-    "guild": "레전더리",
+    "names": ["LD丨팡대ꕥ","쿨쿨ᶻZ"],
+    "ocr_variants": ["LD丨팡대ㅎㅎ","LD｜팡대ᴰᴳ","쿵쿵ᶻᶻ"],
+    "guild": "Zënith",
     "seasons": {
       "2026-07-31": {
         "power": "13.15M",
@@ -483,7 +617,14 @@
         "source": "Screenshot_20260809-012111.png"
       },
       "2026-08-14": {
+        "power": "13.74M",
+        "title": "Zënith",
         "qualifier_rank": 18,
+        "normal": 161,
+        "hard": 84,
+        "tower": 3475,
+        "charm": 8455,
+        "emblem": 896,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083100.png"
       }
@@ -492,10 +633,17 @@
   "101623252": {
     "player_id": "101623252",
     "names": ["단별ll에이스"],
-    "guild": null,
+    "guild": "단별",
     "seasons": {
       "2026-08-14": {
+        "power": "8.12M",
+        "title": "단별",
         "qualifier_rank": 52,
+        "normal": 127,
+        "hard": 51,
+        "tower": 2000,
+        "charm": 4895,
+        "emblem": 272,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083852.png"
       }
@@ -519,7 +667,14 @@
         "source": "Screenshot_20260809-011329.png"
       },
       "2026-08-14": {
+        "power": "10.58M",
+        "title": "洞察先機",
         "qualifier_rank": 38,
+        "normal": 141,
+        "hard": 70,
+        "tower": 3009,
+        "charm": 5505,
+        "emblem": 329,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083350.png"
       }
@@ -527,8 +682,8 @@
   },
   "101634016": {
     "player_id": "101634016",
-    "names": ["LD丨삐얀코", "한잔ᶻZ"],
-    "guild": "레전더리",
+    "names": ["LD丨삐얀코","한잔ᶻZ"],
+    "guild": "Zënith",
     "seasons": {
       "2026-07-31": {
         "power": "13.26M",
@@ -543,19 +698,34 @@
         "source": "Screenshot_20260809-011808.png"
       },
       "2026-08-14": {
+        "power": "14.34M",
+        "title": "Zënith",
         "qualifier_rank": 23,
+        "normal": 161,
+        "hard": 140,
+        "tower": 3615,
+        "charm": 7305,
+        "emblem": 794,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083140.png"
       }
-    }
+    },
+    "ocr_variants": ["한잔ᶻᶻ"]
   },
   "101667953": {
     "player_id": "101667953",
     "names": ["吐司夾蛋"],
-    "guild": null,
+    "guild": "超常解放戰線",
     "seasons": {
       "2026-08-14": {
+        "power": "12.79M",
+        "title": "超常解放戰線",
         "qualifier_rank": 62,
+        "normal": 160,
+        "hard": 110,
+        "tower": 3575,
+        "charm": 7850,
+        "emblem": 860,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-084022.png"
       }
@@ -564,10 +734,17 @@
   "101677001": {
     "player_id": "101677001",
     "names": ["小舜舜"],
-    "guild": null,
+    "guild": "楓葉之家",
     "seasons": {
       "2026-08-14": {
+        "power": "7.39M",
+        "title": "洞察先機",
         "qualifier_rank": 51,
+        "normal": 109,
+        "hard": 41,
+        "tower": 1405,
+        "charm": 3615,
+        "emblem": 429,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083846.png"
       }
@@ -575,9 +752,9 @@
   },
   "101678554": {
     "player_id": "101678554",
-    "names": ["LD | 힘", "ZᶻZ"],
-    "ocr_variants": ["LD丨힝", "LD｜항"],
-    "guild": "레전더리",
+    "names": ["LD | 힘","ZᶻZ"],
+    "ocr_variants": ["LD丨힝","LD｜항"],
+    "guild": "Zënith",
     "seasons": {
       "2026-07-31": {
         "power": "27.41M",
@@ -592,7 +769,14 @@
         "source": "Screenshot_20260809-011133.png"
       },
       "2026-08-14": {
+        "power": "36.54M",
+        "title": "洞察先機",
         "qualifier_rank": 2,
+        "normal": 191,
+        "hard": 103,
+        "tower": 3525,
+        "charm": 13585,
+        "emblem": 4258,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082844.png"
       }
@@ -602,7 +786,7 @@
     "player_id": "101706762",
     "names": ["Yööᶠˣ"],
     "ocr_variants": ["Yöö^fx"],
-    "guild": "FLEX",
+    "guild": "FLΞX",
     "seasons": {
       "2026-07-31": {
         "power": "11.05M",
@@ -617,7 +801,14 @@
         "source": "Screenshot_20260809-012034.png"
       },
       "2026-08-14": {
+        "power": "11.35M",
+        "title": "FLΞX",
         "qualifier_rank": 13,
+        "normal": 148,
+        "hard": 62,
+        "tower": 3192,
+        "charm": 9165,
+        "emblem": 1041,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083020.png"
       }
@@ -625,9 +816,9 @@
   },
   "101707580": {
     "player_id": "101707580",
-    "names": ["LD | 짱구", "짱구ᶻZ"],
-    "ocr_variants": ["LD丨쨩구"],
-    "guild": "레전더리",
+    "names": ["LD | 짱구","짱구ᶻZ"],
+    "ocr_variants": ["LD丨쨩구","짱구ᶻᶻ"],
+    "guild": "Zënith",
     "seasons": {
       "2026-07-31": {
         "power": "28.82M",
@@ -642,7 +833,14 @@
         "source": "Screenshot_20260809-011535.png"
       },
       "2026-08-14": {
+        "power": "30.71M",
+        "title": "洞察先機",
         "qualifier_rank": 21,
+        "normal": 176,
+        "hard": 140,
+        "tower": 3505,
+        "charm": 11015,
+        "emblem": 3339,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083128.png"
       }
@@ -685,7 +883,14 @@
         "source": "Screenshot_20260809-012405.png"
       },
       "2026-08-14": {
+        "power": "11.27M",
+        "title": "洞察先機",
         "qualifier_rank": 40,
+        "normal": 154,
+        "hard": 87,
+        "tower": 3266,
+        "charm": 5835,
+        "emblem": 509,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083402.png"
       }
@@ -694,10 +899,17 @@
   "101722608": {
     "player_id": "101722608",
     "names": ["디킨비"],
-    "guild": null,
+    "guild": "FLΞX",
     "seasons": {
       "2026-08-14": {
+        "power": "9.45M",
+        "title": "FLΞX",
         "qualifier_rank": 35,
+        "normal": 129,
+        "hard": 52,
+        "tower": 2584,
+        "charm": 3540,
+        "emblem": 422,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083322.png"
       }
@@ -721,7 +933,14 @@
         "source": "Screenshot_20260809-011411.png"
       },
       "2026-08-14": {
+        "power": "16.80M",
+        "title": "逆天改命",
         "qualifier_rank": 10,
+        "normal": 161,
+        "hard": 93,
+        "tower": 3297,
+        "charm": 8420,
+        "emblem": 849,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082952.png"
       }
@@ -729,7 +948,7 @@
   },
   "101750016": {
     "player_id": "101750016",
-    "names": ["龍×똥꼬", "퀵하똥꼬"],
+    "names": ["龍×똥꼬","퀵하똥꼬"],
     "guild": "용기사",
     "seasons": {
       "2026-07-31": {
@@ -745,23 +964,39 @@
         "source": "Screenshot_20260809-011247.png"
       },
       "2026-08-14": {
+        "power": "17.09M",
+        "title": "용기사",
         "qualifier_rank": 16,
+        "normal": 151,
+        "hard": 75,
+        "tower": 3424,
+        "charm": 7970,
+        "emblem": 945,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083038.png"
       }
-    }
+    },
+    "ocr_variants": ["龍×똥卫"]
   },
   "101751766": {
     "player_id": "101751766",
-    "names": ["龍×똥꼬", "파티똥꼬"],
-    "guild": null,
+    "names": ["龍×똥꼬","파티똥꼬"],
+    "guild": "용기사",
     "seasons": {
       "2026-08-14": {
+        "power": "7.27M",
+        "title": "洞察先機",
         "qualifier_rank": 54,
+        "normal": 101,
+        "hard": 21,
+        "tower": 1200,
+        "charm": 4115,
+        "emblem": 461,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083914.png"
       }
-    }
+    },
+    "ocr_variants": ["龍×똥卫"]
   },
   "101769770": {
     "player_id": "101769770",
@@ -781,7 +1016,14 @@
         "source": "Screenshot_20260809-011144.png"
       },
       "2026-08-14": {
+        "power": "21.16M",
+        "title": "課金",
         "qualifier_rank": 6,
+        "normal": 188,
+        "hard": 161,
+        "tower": 3615,
+        "charm": 8155,
+        "emblem": 1797,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082918.png"
       }
@@ -790,10 +1032,17 @@
   "101771950": {
     "player_id": "101771950",
     "names": ["戰神SAKE"],
-    "guild": null,
+    "guild": "戰神殿",
     "seasons": {
       "2026-08-14": {
+        "power": "11.92M",
+        "title": "洞察先機",
         "qualifier_rank": 45,
+        "normal": 154,
+        "hard": 110,
+        "tower": 3509,
+        "charm": 5680,
+        "emblem": 773,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083801.png"
       }
@@ -802,7 +1051,7 @@
   "101776467": {
     "player_id": "101776467",
     "names": ["ᴬᴷ나츠"],
-    "ocr_variants": ["I매I사냥", "I매I사랑"],
+    "ocr_variants": ["I매I사냥","I매I사랑"],
     "guild": "ARKΛ",
     "seasons": {
       "2026-07-31": {
@@ -821,7 +1070,7 @@
   },
   "101782988": {
     "player_id": "101782988",
-    "names": ["욕정", "열망"],
+    "names": ["욕정","열망"],
     "guild": "용기사",
     "seasons": {
       "2026-07-31": {
@@ -837,7 +1086,14 @@
         "source": "Screenshot_20260809-011308.png"
       },
       "2026-08-14": {
+        "power": "18.31M",
+        "title": "逆天改命",
         "qualifier_rank": 33,
+        "normal": 151,
+        "hard": 77,
+        "tower": 3376,
+        "charm": 8390,
+        "emblem": 1518,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083310.png"
       }
@@ -863,7 +1119,14 @@
         "source": "Screenshot_20260809-011039.png"
       },
       "2026-08-14": {
+        "power": "31.58M",
+        "title": "洞察先機",
         "qualifier_rank": 3,
+        "normal": 191,
+        "hard": 173,
+        "tower": 3500,
+        "charm": 13015,
+        "emblem": 3271,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082850.png"
       }
@@ -871,7 +1134,7 @@
   },
   "101804999": {
     "player_id": "101804999",
-    "names": ["龍×똥꼬", "똥꼬조이"],
+    "names": ["龍×똥꼬","똥꼬조이"],
     "guild": "용기사",
     "seasons": {
       "2026-07-31": {
@@ -887,11 +1150,19 @@
         "source": "Screenshot_20260809-023312.png"
       },
       "2026-08-14": {
+        "power": "12.15M",
+        "title": "洞察先機",
         "qualifier_rank": 47,
+        "normal": 141,
+        "hard": 36,
+        "tower": 2460,
+        "charm": 6525,
+        "emblem": 546,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083812.png"
       }
-    }
+    },
+    "ocr_variants": ["龍×똥卫"]
   },
   "101807642": {
     "player_id": "101807642",
@@ -935,7 +1206,7 @@
   "101830927": {
     "player_id": "101830927",
     "names": ["荃雉瓏"],
-    "ocr_variants": ["荃雄瓏", "荃雄矓"],
+    "ocr_variants": ["荃雄瓏","荃雄矓"],
     "guild": "幸運轉向17",
     "seasons": {
       "2026-07-31": {
@@ -951,7 +1222,14 @@
         "source": "Screenshot_20260809-012353.png"
       },
       "2026-08-14": {
+        "power": "9.05M",
+        "title": "幸運轉向17",
         "qualifier_rank": 57,
+        "normal": 141,
+        "hard": 71,
+        "tower": 2957,
+        "charm": 4715,
+        "emblem": 437,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083943.png"
       }
@@ -975,7 +1253,14 @@
         "source": "Screenshot_20260809-011422.png"
       },
       "2026-08-14": {
+        "power": "21.55M",
+        "title": "洞察先機",
         "qualifier_rank": 29,
+        "normal": 172,
+        "hard": 92,
+        "tower": 3517,
+        "charm": 8495,
+        "emblem": 1153,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083236.png"
       }
@@ -983,7 +1268,7 @@
   },
   "101833366": {
     "player_id": "101833366",
-    "names": ["AKFLEX3R", "ᴬᴷFLEX3R"],
+    "names": ["AKFLEX3R","ᴬᴷFLEX3R"],
     "ocr_variants": ["I매IFLEX3R"],
     "guild": "ARKΛ",
     "seasons": {
@@ -1000,7 +1285,14 @@
         "source": "Screenshot_20260809-011154.png"
       },
       "2026-08-14": {
+        "power": "28.83M",
+        "title": "洞察先機",
         "qualifier_rank": 14,
+        "normal": 186,
+        "hard": 157,
+        "tower": 3587,
+        "charm": 11110,
+        "emblem": 2809,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083026.png"
       }
@@ -1009,10 +1301,17 @@
   "101857898": {
     "player_id": "101857898",
     "names": ["南天門乂殺神"],
-    "guild": null,
+    "guild": "Vastac",
     "seasons": {
       "2026-08-14": {
+        "power": "10.08M",
+        "title": "洞察先機",
         "qualifier_rank": 49,
+        "normal": 139,
+        "hard": 61,
+        "tower": 2563,
+        "charm": 4510,
+        "emblem": 364,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083835.png"
       }
@@ -1020,7 +1319,7 @@
   },
   "101859768": {
     "player_id": "101859768",
-    "names": ["龍×이노40", "龍×이노테라"],
+    "names": ["龍×이노40","龍×이노테라"],
     "guild": "용기사",
     "seasons": {
       "2026-07-31": {
@@ -1036,7 +1335,14 @@
         "source": "Screenshot_20260809-012009.png"
       },
       "2026-08-14": {
+        "power": "13.66M",
+        "title": "洞察先機",
         "qualifier_rank": 41,
+        "normal": 138,
+        "hard": 71,
+        "tower": 3321,
+        "charm": 6965,
+        "emblem": 844,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083418.png"
       }
@@ -1060,7 +1366,14 @@
         "source": "Screenshot_20260809-011504.png"
       },
       "2026-08-14": {
+        "power": "10.05M",
+        "title": "逆天改命",
         "qualifier_rank": 20,
+        "normal": 139,
+        "hard": 59,
+        "tower": 3165,
+        "charm": 5335,
+        "emblem": 504,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083112.png"
       }
@@ -1084,7 +1397,14 @@
         "source": "Screenshot_20260809-011340.png"
       },
       "2026-08-14": {
+        "power": "7.59M",
+        "title": "빅보스",
         "qualifier_rank": 9,
+        "normal": 103,
+        "hard": 25,
+        "tower": 1225,
+        "charm": 3725,
+        "emblem": 376,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082946.png"
       }
@@ -1108,7 +1428,14 @@
         "source": "Screenshot_20260809-011011.png"
       },
       "2026-08-14": {
+        "power": "58.52M",
+        "title": "課金",
         "qualifier_rank": 1,
+        "normal": 191,
+        "hard": 176,
+        "tower": 4000,
+        "charm": 31580,
+        "emblem": 6310,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082838.png"
       }
@@ -1151,16 +1478,24 @@
         "source": "Screenshot_20260809-011944.png"
       },
       "2026-08-14": {
+        "power": "13.28M",
+        "title": "용기사",
         "qualifier_rank": 17,
+        "normal": 157,
+        "hard": 92,
+        "tower": 3500,
+        "charm": 7545,
+        "emblem": 763,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083054.png"
       }
-    }
+    },
+    "ocr_variants": ["龍×이유"]
   },
   "101884001": {
     "player_id": "101884001",
-    "names": ["某剩啊", "LCFFKU", "拎刀蹦氣"],
-    "guild": "HABBY大股東",
+    "names": ["某剩啊","LCFFKU","拎刀蹦氣"],
+    "guild": null,
     "seasons": {
       "2026-07-31": {
         "power": "11.40M",
@@ -1175,7 +1510,14 @@
         "source": "Screenshot_20260809-011112.png"
       },
       "2026-08-14": {
+        "power": "11.19M",
+        "title": null,
         "qualifier_rank": 32,
+        "normal": 155,
+        "hard": 75,
+        "tower": 3500,
+        "charm": 6070,
+        "emblem": 557,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083254.png"
       }
@@ -1224,14 +1566,22 @@
   "101899339": {
     "player_id": "101899339",
     "names": ["龍×교슘"],
-    "guild": null,
+    "guild": "용기사",
     "seasons": {
       "2026-08-14": {
+        "power": "8.83M",
+        "title": "용기사",
         "qualifier_rank": 43,
+        "normal": 141,
+        "hard": 35,
+        "tower": 2365,
+        "charm": 6435,
+        "emblem": 547,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083430.png"
       }
-    }
+    },
+    "ocr_variants": ["龍×교숫2"]
   },
   "101907704": {
     "player_id": "101907704",
@@ -1251,7 +1601,14 @@
         "source": "Screenshot_20260809-021803.png"
       },
       "2026-08-14": {
+        "power": "8.47M",
+        "title": "逆天改命",
         "qualifier_rank": 42,
+        "normal": 141,
+        "hard": 83,
+        "tower": 3341,
+        "charm": 5655,
+        "emblem": 396,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-120711.png"
       }
@@ -1259,8 +1616,8 @@
   },
   "101918694": {
     "player_id": "101918694",
-    "names": ["AK베라", "ᴬᴷ베라"],
-    "ocr_variants": ["I매I진", "I매진"],
+    "names": ["AK베라","ᴬᴷ베라"],
+    "ocr_variants": ["I매I진","I매진"],
     "guild": "ARKΛ",
     "seasons": {
       "2026-07-31": {
@@ -1276,7 +1633,14 @@
         "source": "Screenshot_20260809-011630.png"
       },
       "2026-08-14": {
+        "power": "19.03M",
+        "title": "洞察先機",
         "qualifier_rank": 27,
+        "normal": 167,
+        "hard": 143,
+        "tower": 3610,
+        "charm": 7995,
+        "emblem": 1029,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083214.png"
       }
@@ -1300,7 +1664,14 @@
         "source": "Screenshot_20260809-012314.png"
       },
       "2026-08-14": {
+        "power": "5.89M",
+        "title": "용기사",
         "qualifier_rank": 53,
+        "normal": 140,
+        "hard": 75,
+        "tower": 3150,
+        "charm": 7000,
+        "emblem": 532,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083909.png"
       }
@@ -1324,7 +1695,14 @@
         "source": "Screenshot_20260809-011932.png"
       },
       "2026-08-14": {
+        "power": "12.77M",
+        "title": "洞察先機",
         "qualifier_rank": 25,
+        "normal": 148,
+        "hard": 72,
+        "tower": 3080,
+        "charm": 6475,
+        "emblem": 637,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083202.png"
       }
@@ -1368,7 +1746,14 @@
         "source": "Screenshot_20260809-011215.png"
       },
       "2026-08-14": {
+        "power": "20.36M",
+        "title": "課金",
         "qualifier_rank": 12,
+        "normal": 176,
+        "hard": 113,
+        "tower": 3500,
+        "charm": 10005,
+        "emblem": 1604,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083004.png"
       }
@@ -1395,7 +1780,7 @@
   },
   "101970866": {
     "player_id": "101970866",
-    "names": ["泰融", "準備換帳囉"],
+    "names": ["泰融","準備換帳囉"],
     "guild": "超常解放戰線",
     "seasons": {
       "2026-07-31": {
@@ -1411,7 +1796,14 @@
         "source": "Screenshot_20260809-011651.png"
       },
       "2026-08-14": {
+        "power": "13.11M",
+        "title": "逆天改命",
         "qualifier_rank": 44,
+        "normal": 139,
+        "hard": 73,
+        "tower": 3174,
+        "charm": 6315,
+        "emblem": 616,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083436.png"
       }
@@ -1436,7 +1828,14 @@
         "source": "Screenshot_20260809-012148.png"
       },
       "2026-08-14": {
+        "power": "11.79M",
+        "title": "逆天改命",
         "qualifier_rank": 37,
+        "normal": 143,
+        "hard": 81,
+        "tower": 3320,
+        "charm": 6325,
+        "emblem": 504,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083344.png"
       }
@@ -1460,7 +1859,14 @@
         "source": "Screenshot_20260809-011236.png"
       },
       "2026-08-14": {
+        "power": "22.96M",
+        "title": "洞察先機",
         "qualifier_rank": 4,
+        "normal": 179,
+        "hard": 96,
+        "tower": 3515,
+        "charm": 11715,
+        "emblem": 2615,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082856.png"
       }
@@ -1469,7 +1875,7 @@
   "102003128": {
     "player_id": "102003128",
     "names": ["龍×콰트"],
-    "ocr_variants": ["龍×과트", "龍×라트"],
+    "ocr_variants": ["龍×과트","龍×라트"],
     "guild": "용기사",
     "seasons": {
       "2026-07-31": {
@@ -1485,7 +1891,14 @@
         "source": "Screenshot_20260809-012123.png"
       },
       "2026-08-14": {
+        "power": "10.67M",
+        "title": "용기사",
         "qualifier_rank": 48,
+        "normal": 148,
+        "hard": 72,
+        "tower": 3500,
+        "charm": 7190,
+        "emblem": 923,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083818.png"
       }
@@ -1509,7 +1922,14 @@
         "source": "Screenshot_20260809-011919.png"
       },
       "2026-08-14": {
+        "power": "12.64M",
+        "title": "課金",
         "qualifier_rank": 22,
+        "normal": 161,
+        "hard": 91,
+        "tower": 3579,
+        "charm": 7500,
+        "emblem": 501,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083134.png"
       }
@@ -1533,7 +1953,14 @@
         "source": "Screenshot_20260809-011514.png"
       },
       "2026-08-14": {
+        "power": "12.55M",
+        "title": "逆天改命",
         "qualifier_rank": 26,
+        "normal": 151,
+        "hard": 80,
+        "tower": 3549,
+        "charm": 7015,
+        "emblem": 483,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083208.png"
       }
@@ -1541,7 +1968,7 @@
   },
   "102037229": {
     "player_id": "102037229",
-    "names": ["送你離開", "o月亮惹的禍o"],
+    "names": ["送你離開","o月亮惹的禍o"],
     "names_note": "「o月亮惹的禍o」為 2026-07-31 對陣表時期舊名，非 OCR 誤讀；改名後為「送你離開」。戰力 39.77M（第3組）與名片 41.08M 相符。",
     "guild": "課金",
     "seasons": {
@@ -1558,7 +1985,14 @@
         "source": "Screenshot_20260809-011205.png"
       },
       "2026-08-14": {
+        "power": "41.08M",
+        "title": "課金",
         "qualifier_rank": 8,
+        "normal": 177,
+        "hard": 129,
+        "tower": 3515,
+        "charm": 16870,
+        "emblem": 3935,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-082930.png"
       }
@@ -1582,7 +2016,14 @@
         "source": "Screenshot_20260809-011226.png"
       },
       "2026-08-14": {
+        "power": "49.56M",
+        "title": "超星亞軍",
         "qualifier_rank": 46,
+        "normal": 181,
+        "hard": 126,
+        "tower": 3265,
+        "charm": 25540,
+        "emblem": 4675,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083806.png"
       }
@@ -1606,7 +2047,14 @@
         "source": "Screenshot_20260809-011712.png"
       },
       "2026-08-14": {
+        "power": "15.26M",
+        "title": "逆天改命",
         "qualifier_rank": 56,
+        "normal": 168,
+        "hard": 71,
+        "tower": 3523,
+        "charm": 8295,
+        "emblem": 893,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083926.png"
       }
@@ -1630,7 +2078,14 @@
         "source": "Screenshot_20260809-011558.png"
       },
       "2026-08-14": {
+        "power": "11.81M",
+        "title": "姒神",
         "qualifier_rank": 36,
+        "normal": 146,
+        "hard": 55,
+        "tower": 1750,
+        "charm": 5560,
+        "emblem": 482,
         "captured": "2026-08-14",
         "source": "screenshots/star-cup/2026-08-14-round5/top64-profile/Screenshot_20260814-083328.png"
       }

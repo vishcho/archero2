@@ -12,14 +12,14 @@
     "2026-08-14",
     "2026-08-21"
   ],
-  "status": "in_progress",
+  "status": "finished",
   "collection": {
     "qualifier": "complete",
     "knockout_matchup": "complete",
     "knockout_results": "complete",
-    "grand_finals": "pending"
+    "grand_finals": "complete"
   },
-  "champion": null,
+  "champion": "ZᶻZ",
   "qualifier": [
     {
       "rank": 1,
@@ -1981,7 +1981,181 @@
       "champion_current_power": "33.56M"
     }
   ],
-  "grand_finals": null,
+  "grand_finals": {
+    "results": [
+      {
+        "rank": 1,
+        "name": "ZᶻZ",
+        "power": "37.49M"
+      },
+      {
+        "rank": 2,
+        "name": "koeee",
+        "power": "58.52M"
+      },
+      {
+        "rank": 3,
+        "name": "RV297",
+        "power": "23.07M"
+      },
+      {
+        "rank": 3,
+        "name": "AK메투스",
+        "power": "31.55M"
+      },
+      {
+        "rank": 5,
+        "name": "牛大力",
+        "power": "49.56M"
+      },
+      {
+        "rank": 5,
+        "name": "쿨쿨ᶻZ",
+        "power": "12.79M"
+      },
+      {
+        "rank": 5,
+        "name": "팡대ᶻZ",
+        "power": "16.15M"
+      },
+      {
+        "rank": 5,
+        "name": "Cashasy",
+        "power": "22.83M"
+      }
+    ],
+    "bracket": [
+      {
+        "round": "R1",
+        "slot": "A",
+        "p1": {
+          "name": "牛大力",
+          "progress": 10,
+          "time": "01:40.24",
+          "power": "49.56M"
+        },
+        "p2": {
+          "name": "koeee",
+          "progress": 10,
+          "time": "00:37.32",
+          "power": "58.52M"
+        },
+        "winner": "koeee",
+        "loser": "牛大力"
+      },
+      {
+        "round": "R1",
+        "slot": "B",
+        "p1": {
+          "name": "AK메투스",
+          "progress": 10,
+          "time": "02:14.16",
+          "power": "31.55M"
+        },
+        "p2": {
+          "name": "쿨쿨ᶻZ",
+          "progress": 2,
+          "time": "00:34.29",
+          "power": "12.79M"
+        },
+        "winner": "AK메투스",
+        "loser": "쿨쿨ᶻZ"
+      },
+      {
+        "round": "R1",
+        "slot": "C",
+        "p1": {
+          "name": "팡대ᶻZ",
+          "progress": 10,
+          "time": "01:31.54",
+          "power": "16.15M"
+        },
+        "p2": {
+          "name": "RV297",
+          "progress": 10,
+          "time": "01:05.75",
+          "power": "23.07M"
+        },
+        "winner": "RV297",
+        "loser": "팡대ᶻZ"
+      },
+      {
+        "round": "R1",
+        "slot": "D",
+        "p1": {
+          "name": "Cashasy",
+          "progress": 10,
+          "time": "01:16.81",
+          "power": "22.83M"
+        },
+        "p2": {
+          "name": "ZᶻZ",
+          "progress": 10,
+          "time": "00:54.52",
+          "power": "37.49M"
+        },
+        "winner": "ZᶻZ",
+        "loser": "Cashasy"
+      },
+      {
+        "round": "R2",
+        "slot": "upper",
+        "p1": {
+          "name": "koeee",
+          "progress": 10,
+          "time": "00:36.59",
+          "power": "58.52M"
+        },
+        "p2": {
+          "name": "RV297",
+          "progress": 1,
+          "time": "00:04.16",
+          "power": "23.07M"
+        },
+        "winner": "koeee",
+        "loser": "RV297"
+      },
+      {
+        "round": "R2",
+        "slot": "lower",
+        "p1": {
+          "name": "AK메투스",
+          "progress": 10,
+          "time": "01:56.57",
+          "power": "31.55M"
+        },
+        "p2": {
+          "name": "ZᶻZ",
+          "progress": 10,
+          "time": "00:48.35",
+          "power": "37.49M"
+        },
+        "winner": "ZᶻZ",
+        "loser": "AK메투스"
+      },
+      {
+        "round": "決賽",
+        "slot": "final",
+        "p1": {
+          "name": "koeee",
+          "progress": 0,
+          "time": "10:00.00",
+          "power": "58.52M"
+        },
+        "p2": {
+          "name": "ZᶻZ",
+          "progress": 10,
+          "time": "00:51.32",
+          "power": "37.49M"
+        },
+        "winner": "ZᶻZ",
+        "loser": "koeee",
+        "notes": [
+          "koeee 進度 0、時間 10:00.00，疑未出賽"
+        ]
+      }
+    ]
+  },
   "qualifier_note": "資格賽排行榜由 screenshots/star-cup/2026-08-14-round5/qualifier-rank/（16 張連拍）抽取，涵蓋名次 1–68，此處收錄前 64 名。第 32 名 LCFFKU 畫面上無公會／稱號標籤（名片顯示「公會:無」），title 記 null。",
   "groups_note": "賽前對陣由 screenshots/star-cup/2026-08-14-round5/knockout-matchup/（8 張）抽取。players 陣列順序＝對陣圖籤位，**不可排序**；但依 README「排序約定」，對陣關係的唯一真實來源是 groups[].matches，不得由 players 陣列位置推導——本屆賽前尚無賽果故 matches 省略，待淘汰賽結果批次入庫時一併填入。名單完整性已交叉驗證：對陣 64 人與資格賽前 64 名完全一致。原始 top64-profile 批次誤將第 41 名「龍×이노40」重複拍攝；第 42 名「夜凜月」已由 Screenshot_20260814-120711.png 補拍，現已取得前 64 名全部 player_id。顯示名稱「龍×똥꼬」本屆有 3 位不同選手（資格賽第 16／47／54 名），依三張名片戰力 17.09M／12.15M／7.27M 與三個賽時戰力 17.77M／13.21M／9.97M 的高低順序定位 player_id；各筆 note 保留對應依據。　淘汰賽結果由 screenshots/star-cup/2026-08-14-round5/knockout-results/（8 組 × 8 張 = 64 張，2026/8/20 23:38–23:45 單次連拍）抽取，通過工作流 §2b 抽取完整性檢查點、`tools/validate-season.mjs` 與 `tools/validate-tournament-results.mjs` 驗證。場次位置（R1 A/B/C/D、R2 upper/lower、決賽 final）依各組結果樹狀圖版面歸位（左上=A、左下=B、右上=C、右下=D），並與已發布的下注快照 `data/predictions/star-cup/2026-08-14.json` 的 R1 配對逐組核對一致；**不由 players 陣列索引推導**。對戰彈窗中央的「決賽」是固定 UI 字串（56 張全部相同），不是回合名，不可據以判斷場次。賽時戰力為快照，同一位選手在同組跨場相同；樹狀圖的目前戰力另存 `champion_current_power`。　選手名稱以結果截圖為準，因此有 7 筆與賽前對陣表不同（8/14 → 8/20 期間改名）：욕정→열망（101782988）、龍×똥꼬→파티똥꼬（101751766）、龍×똥꼬→퀵하똥꼬（101750016）、泰融→準備換帳囉（101970866）、龍×이노40→龍×이노테라（101859768）、LCFFKU→拎刀蹦氣（101884001）、龍×똥꼬→똥꼬조이（101804999）。身分歸屬由兩個獨立訊號互證：組內名單集合減法＋下注快照 slot 錨點，以及樹狀圖目前戰力與 8/14 對陣圖戰力比對（三位同名 龍×똥꼬 為 9.97M／17.77M／13.21M **完全相等**，其餘 4 筆為 +0.24～0.66M 的 6 天正常成長）。依 round4 慣例，`groups[].players[].name` 已改為結果截圖的現行名稱，賽前對陣表當時的名稱存於同一筆的 `matchup_name`；`qualifier[]` 與 `data/predictions/star-cup/2026-08-14.json` 是 8/14 當時的快照，維持舊名不動。"
 }

@@ -20,7 +20,8 @@
     },
     "grand-finals-results": {
       "path": "grand-finals-results",
-      "evidence_status": "missing"
+      "evidence_status": "original",
+      "captured_at": "2026-08-22T23:28:50+08:00"
     },
     "top64-profile": {
       "path": "top64-profile",

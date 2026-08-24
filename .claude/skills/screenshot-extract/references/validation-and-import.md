@@ -103,6 +103,30 @@ for(const g of s.groups){
 - knockout：8 組×7 場，round/slot、勝負與晉級自洽。
 - grand finals：7 場、8 位組冠軍、名次與 champion 一致。
 
+## 改名的寫入慣例
+
+賽前批與賽後批相隔數日，選手會改名。確認身分後（三重訊號見
+[`visual-extraction.md`](./visual-extraction.md)「跨批改名要用三重訊號定身分」）依下列位置寫：
+
+| 位置 | 寫什麼 |
+| --- | --- |
+| `groups[].matches[].p1/p2.name`、`winner`、`loser` | **結果截圖的名稱**（工作流：以截圖為準） |
+| `groups[].players[].name` | 改為現行名稱 |
+| `groups[].players[].matchup_name` | 賽前對陣表當時的名稱（同一筆，緊接 `name` 之後） |
+| `data/players.json` 的 `names[]` | **append 新名，舊名在前不刪**（見 `tools/import-top64-profiles.mjs`：`existing.names.push`，`names[0]` 被當成 from） |
+| `data/players.json` 的 `ocr_variants[]` | 只放誤讀字形，**不混進 `names[]`** |
+| `qualifier[]`、`data/predictions/star-cup/<season>.json` | **不動**——兩者是當時的快照 |
+
+判斷是改名還是誤讀：能用清楚名片或同批相鄰原圖確認畫面字形不同者為改名，
+進 `names[]`；字形相近且無獨立證據支持者為誤讀，進 `ocr_variants[]`。
+round4 的 `荃雉瓏`／`荃雄瓏`（雉/雄）是誤讀，`送你離開`／`o月亮惹的禍o` 是改名。
+
+同名多人各自改名時，重複顯示名稱的驗證警告會自然消除；不要為了消警告而改名，
+順序顛倒就是造假。
+
+`data/players.json` **不是** `stableJson` 格式（短陣列維持單行），
+不要用 `json.dumps(indent=2)` 整檔重寫——會產生數百行無意義 diff。改用原地文字替換。
+
 ## dry-run 與完成門檻
 
 優先使用既有 importer：

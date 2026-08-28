@@ -1,0 +1,902 @@
+{
+  "id": "2026-08-28",
+  "round": 6,
+  "date": "2026/8/28",
+  "theme": "精靈x流星",
+  "season": "精靈季",
+  "qualifier_period": [
+    "2026-08-24",
+    "2026-08-27"
+  ],
+  "knockout_period": [
+    "2026-08-28",
+    "2026-09-04"
+  ],
+  "status": "in_progress",
+  "collection": {
+    "qualifier": "complete",
+    "knockout_matchup": "complete",
+    "knockout_results": "pending",
+    "grand_finals": "pending"
+  },
+  "champion": null,
+  "qualifier": [
+    {
+      "rank": 1,
+      "name": "koeee",
+      "title": "課金",
+      "time": "03:47.3"
+    },
+    {
+      "rank": 2,
+      "name": "ZᶻZ",
+      "title": "洞察先機",
+      "time": "03:47.6"
+    },
+    {
+      "rank": 3,
+      "name": "RV297",
+      "title": "洞察先機",
+      "time": "03:49.9"
+    },
+    {
+      "rank": 4,
+      "name": "Cashasy",
+      "title": "洞察先機",
+      "time": "03:55.9"
+    },
+    {
+      "rank": 5,
+      "name": "烏薩奇Usagi",
+      "title": "課金",
+      "time": "03:59.2"
+    },
+    {
+      "rank": 6,
+      "name": "팡대ᶻZ",
+      "title": "Zënith",
+      "time": "04:06.8"
+    },
+    {
+      "rank": 7,
+      "name": "泰融",
+      "title": "超常解放戰線",
+      "time": "04:09.9"
+    },
+    {
+      "rank": 8,
+      "name": "龍×이뮤",
+      "title": "용기사",
+      "time": "04:11.3"
+    },
+    {
+      "rank": 9,
+      "name": "阿武花豆",
+      "title": "課金",
+      "time": "04:11.8"
+    },
+    {
+      "rank": 10,
+      "name": "龍×조이",
+      "title": "용기사",
+      "time": "04:13.6"
+    },
+    {
+      "rank": 11,
+      "name": "ᴬᴷ메투스",
+      "title": "洞察先機",
+      "time": "04:13.6"
+    },
+    {
+      "rank": 12,
+      "name": "丫丸仔",
+      "title": "逆天改命",
+      "time": "04:18.1"
+    },
+    {
+      "rank": 13,
+      "name": "ᴬᴷ우연",
+      "title": "洞察先機",
+      "time": "04:18.9"
+    },
+    {
+      "rank": 14,
+      "name": "한잔ᶻZ",
+      "title": "Zënith",
+      "time": "04:19.0"
+    },
+    {
+      "rank": 15,
+      "name": "쿨쿨ᶻZ",
+      "title": "逆天改命",
+      "time": "04:19.0"
+    },
+    {
+      "rank": 16,
+      "name": "식현",
+      "title": "용기사",
+      "time": "04:19.4"
+    },
+    {
+      "rank": 17,
+      "name": "龍×교슘",
+      "title": "용기사",
+      "time": "04:19.4"
+    },
+    {
+      "rank": 18,
+      "name": "紅桃A",
+      "title": "逆天改命",
+      "time": "04:20.7"
+    },
+    {
+      "rank": 19,
+      "name": "ᴬᴷFLEX3R",
+      "title": "洞察先機",
+      "time": "04:20.9"
+    },
+    {
+      "rank": 20,
+      "name": "送你離開",
+      "title": "課金",
+      "time": "04:21.2"
+    },
+    {
+      "rank": 21,
+      "name": "FLEX2Rᶠˣ",
+      "title": "FLΞX",
+      "time": "04:21.5"
+    },
+    {
+      "rank": 22,
+      "name": "龍×욜정",
+      "title": "용기사",
+      "time": "04:21.9"
+    },
+    {
+      "rank": 23,
+      "name": "퀵하똥꼬",
+      "title": "용기사",
+      "time": "04:22.0"
+    },
+    {
+      "rank": 24,
+      "name": "龍기ᴧrㅎ이노",
+      "title": "逆天改命",
+      "time": "04:22.2"
+    },
+    {
+      "rank": 25,
+      "name": "Egø",
+      "title": "課金",
+      "time": "04:22.9"
+    },
+    {
+      "rank": 26,
+      "name": "CoBe",
+      "title": "逆天改命",
+      "time": "04:23.3"
+    },
+    {
+      "rank": 27,
+      "name": "말랭ᶻZ",
+      "title": "Zënith",
+      "time": "04:23.7"
+    },
+    {
+      "rank": 28,
+      "name": "고른주부J",
+      "title": "고른햇살",
+      "time": "04:25.4"
+    },
+    {
+      "rank": 29,
+      "name": "派對孔明",
+      "title": "逆天改命",
+      "time": "04:25.7"
+    },
+    {
+      "rank": 30,
+      "name": "瑪法里恩中風",
+      "title": "姒神",
+      "time": "04:26.2"
+    },
+    {
+      "rank": 31,
+      "name": "小人2",
+      "title": "逆天改命",
+      "time": "04:26.4"
+    },
+    {
+      "rank": 32,
+      "name": "劍人海拉",
+      "title": "逆天改命",
+      "time": "04:26.7"
+    },
+    {
+      "rank": 33,
+      "name": "牛大力",
+      "title": "課金",
+      "time": "04:27.4"
+    },
+    {
+      "rank": 34,
+      "name": "ᴬᴷ연인",
+      "title": "洞察先機",
+      "time": "04:28.3"
+    },
+    {
+      "rank": 35,
+      "name": "박짜니",
+      "title": "逆天改命",
+      "time": "04:28.6"
+    },
+    {
+      "rank": 36,
+      "name": "김미태",
+      "title": "빅보스",
+      "time": "04:29.1"
+    },
+    {
+      "rank": 37,
+      "name": "龍기ᴧrㅎ냥코",
+      "title": "용기사",
+      "time": "04:29.1"
+    },
+    {
+      "rank": 38,
+      "name": "티하ᶻZ",
+      "title": "逆天改命",
+      "time": "04:29.7"
+    },
+    {
+      "rank": 39,
+      "name": "唬人的傭兵",
+      "title": "逆天改命",
+      "time": "04:30.4"
+    },
+    {
+      "rank": 40,
+      "name": "헌쿈",
+      "title": "洞察先機",
+      "time": "04:30.7"
+    },
+    {
+      "rank": 41,
+      "name": "龍×욕맣",
+      "title": "용기사",
+      "time": "04:31.0"
+    },
+    {
+      "rank": 42,
+      "name": "紫薯芋泥c",
+      "title": "逆天改命",
+      "time": "04:31.9"
+    },
+    {
+      "rank": 43,
+      "name": "螞蟻王子",
+      "title": "洞察先機",
+      "time": "04:32.2"
+    },
+    {
+      "rank": 44,
+      "name": "秘運行者Kai",
+      "title": "洞察先機",
+      "time": "04:32.4"
+    },
+    {
+      "rank": 45,
+      "name": "戰神冥海龍靈",
+      "title": "洞察先機",
+      "time": "04:32.9"
+    },
+    {
+      "rank": 46,
+      "name": "龍기ᴧrㅎ콰트",
+      "title": "용기사",
+      "time": "04:33.1"
+    },
+    {
+      "rank": 47,
+      "name": "Yööᶠˣ",
+      "title": "FLΞX",
+      "time": "04:33.1"
+    },
+    {
+      "rank": 48,
+      "name": "龍×에이스",
+      "title": "洞察先機",
+      "time": "04:33.5"
+    },
+    {
+      "rank": 49,
+      "name": "SuperAaron",
+      "title": "洞察先機",
+      "time": "04:33.7"
+    },
+    {
+      "rank": 50,
+      "name": "賽博陀螺",
+      "title": "洞察先機",
+      "time": "04:33.9"
+    },
+    {
+      "rank": 51,
+      "name": "戰神蕉蕉",
+      "title": "逆天改命",
+      "time": "04:34.2"
+    },
+    {
+      "rank": 52,
+      "name": "Leojian",
+      "title": "洞察先機",
+      "time": "04:34.6"
+    },
+    {
+      "rank": 53,
+      "name": "coco幻",
+      "title": "戰神殿",
+      "time": "04:34.6"
+    },
+    {
+      "rank": 54,
+      "name": "仔仔團宗宗",
+      "title": "超常解放戰線",
+      "time": "04:34.9"
+    },
+    {
+      "rank": 55,
+      "name": "퀵하패왕",
+      "title": "洞察先機",
+      "time": "04:35.0"
+    },
+    {
+      "rank": 56,
+      "name": "짱구ᶻZ",
+      "title": "洞察先機",
+      "time": "04:35.0"
+    },
+    {
+      "rank": 57,
+      "name": "放開隻牛仔",
+      "title": "洞察先機",
+      "time": "04:35.5"
+    },
+    {
+      "rank": 58,
+      "name": "파티똥꼬",
+      "title": "洞察先機",
+      "time": "04:35.6"
+    },
+    {
+      "rank": 59,
+      "name": "ᴬᴷ베라",
+      "title": "洞察先機",
+      "time": "04:35.7"
+    },
+    {
+      "rank": 60,
+      "name": "老灰阿郎",
+      "title": "洞察先機",
+      "time": "04:37.5"
+    },
+    {
+      "rank": 61,
+      "name": "南天門乂殺神",
+      "title": "洞察先機",
+      "time": "04:37.9"
+    },
+    {
+      "rank": 62,
+      "name": "犇魔王",
+      "title": "逆天改命",
+      "time": "04:38.0"
+    },
+    {
+      "rank": 63,
+      "name": "小舜舜",
+      "title": "逆天改命",
+      "time": "04:38.2"
+    },
+    {
+      "rank": 64,
+      "name": "戰神大叔o",
+      "title": "洞察先機",
+      "time": "04:38.7"
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "players": [
+        {
+          "name": "ᴬᴷ우연",
+          "power": "16.32M",
+          "qualifier_rank": 13,
+          "qualifier_time": "04:18.9",
+          "player_id": "101575904"
+        },
+        {
+          "name": "파티똥꼬",
+          "power": "10.18M",
+          "qualifier_rank": 58,
+          "qualifier_time": "04:35.6",
+          "player_id": "101751766"
+        },
+        {
+          "name": "티하ᶻZ",
+          "power": "12.22M",
+          "qualifier_rank": 38,
+          "qualifier_time": "04:29.7",
+          "player_id": "101637938"
+        },
+        {
+          "name": "coco幻",
+          "power": "16.03M",
+          "qualifier_rank": 53,
+          "qualifier_time": "04:34.6",
+          "player_id": "101560949"
+        },
+        {
+          "name": "말랭ᶻZ",
+          "power": "19.90M",
+          "qualifier_rank": 27,
+          "qualifier_time": "04:23.7",
+          "player_id": "101582242"
+        },
+        {
+          "name": "仔仔團宗宗",
+          "power": "31.19M",
+          "qualifier_rank": 54,
+          "qualifier_time": "04:34.9",
+          "player_id": "101474994"
+        },
+        {
+          "name": "龍기ᴧrㅎ콰트",
+          "power": "14.85M",
+          "qualifier_rank": 46,
+          "qualifier_time": "04:33.1",
+          "player_id": "102003128"
+        },
+        {
+          "name": "賽博陀螺",
+          "power": "24.93M",
+          "qualifier_rank": 50,
+          "qualifier_time": "04:33.9",
+          "player_id": "101831875"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "players": [
+        {
+          "name": "戰神蕉蕉",
+          "power": "13.67M",
+          "qualifier_rank": 51,
+          "qualifier_time": "04:34.2",
+          "player_id": "101472573"
+        },
+        {
+          "name": "龍기ᴧrㅎ이노",
+          "power": "17.15M",
+          "qualifier_rank": 24,
+          "qualifier_time": "04:22.2",
+          "player_id": "101859768"
+        },
+        {
+          "name": "泰融",
+          "power": "24.39M",
+          "qualifier_rank": 7,
+          "qualifier_time": "04:09.9",
+          "player_id": "101713612"
+        },
+        {
+          "name": "阿武花豆",
+          "power": "22.64M",
+          "qualifier_rank": 9,
+          "qualifier_time": "04:11.8",
+          "player_id": "101769770"
+        },
+        {
+          "name": "送你離開",
+          "power": "42.35M",
+          "qualifier_rank": 20,
+          "qualifier_time": "04:21.2",
+          "player_id": "102037229"
+        },
+        {
+          "name": "한잔ᶻZ",
+          "power": "14.88M",
+          "qualifier_rank": 14,
+          "qualifier_time": "04:19.0",
+          "player_id": "101634016"
+        },
+        {
+          "name": "식현",
+          "power": "10.34M",
+          "qualifier_rank": 16,
+          "qualifier_time": "04:19.4",
+          "player_id": "101925334"
+        },
+        {
+          "name": "秘運行者Kai",
+          "power": "13.87M",
+          "qualifier_rank": 44,
+          "qualifier_time": "04:32.4",
+          "player_id": "101716965"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "players": [
+        {
+          "name": "小舜舜",
+          "power": "8.15M",
+          "qualifier_rank": 63,
+          "qualifier_time": "04:38.2",
+          "player_id": "101677001"
+        },
+        {
+          "name": "烏薩奇Usagi",
+          "power": "14.15M",
+          "qualifier_rank": 5,
+          "qualifier_time": "03:59.2",
+          "player_id": "102010250"
+        },
+        {
+          "name": "짱구ᶻZ",
+          "power": "31.75M",
+          "qualifier_rank": 56,
+          "qualifier_time": "04:35.0",
+          "player_id": "101707580"
+        },
+        {
+          "name": "龍×욜정",
+          "power": "21.67M",
+          "qualifier_rank": 22,
+          "qualifier_time": "04:21.9",
+          "player_id": "101782988"
+        },
+        {
+          "name": "팡대ᶻZ",
+          "power": "27.78M",
+          "qualifier_rank": 6,
+          "qualifier_time": "04:06.8",
+          "player_id": "101594098"
+        },
+        {
+          "name": "龍기ᴧrㅎ냥코",
+          "power": "12.01M",
+          "qualifier_rank": 37,
+          "qualifier_time": "04:29.1",
+          "player_id": "101869340"
+        },
+        {
+          "name": "戰神大叔o",
+          "power": "15.33M",
+          "qualifier_rank": 64,
+          "qualifier_time": "04:38.7",
+          "player_id": "101715421"
+        },
+        {
+          "name": "쿨쿨ᶻZ",
+          "power": "18.04M",
+          "qualifier_rank": 15,
+          "qualifier_time": "04:19.0",
+          "player_id": "101607272"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "players": [
+        {
+          "name": "南天門乂殺神",
+          "power": "10.65M",
+          "qualifier_rank": 61,
+          "qualifier_time": "04:37.9",
+          "player_id": "101857898"
+        },
+        {
+          "name": "放開隻牛仔",
+          "power": "15.30M",
+          "qualifier_rank": 57,
+          "qualifier_time": "04:35.5",
+          "player_id": "101629103"
+        },
+        {
+          "name": "koeee",
+          "power": "64.56M",
+          "qualifier_rank": 1,
+          "qualifier_time": "03:47.3",
+          "player_id": "101874870"
+        },
+        {
+          "name": "紅桃A",
+          "power": "19.49M",
+          "qualifier_rank": 18,
+          "qualifier_time": "04:20.7",
+          "player_id": "101735606"
+        },
+        {
+          "name": "퀵하똥꼬",
+          "power": "18.00M",
+          "qualifier_rank": 23,
+          "qualifier_time": "04:22.0",
+          "player_id": "101750016"
+        },
+        {
+          "name": "Leojian",
+          "power": "27.73M",
+          "qualifier_rank": 52,
+          "qualifier_time": "04:34.6",
+          "player_id": "101875463"
+        },
+        {
+          "name": "龍×욕맣",
+          "power": "13.60M",
+          "qualifier_rank": 41,
+          "qualifier_time": "04:31.0",
+          "player_id": "101829083"
+        },
+        {
+          "name": "派對孔明",
+          "power": "14.72M",
+          "qualifier_rank": 29,
+          "qualifier_time": "04:25.7",
+          "player_id": "102033986"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "players": [
+        {
+          "name": "劍人海拉",
+          "power": "14.97M",
+          "qualifier_rank": 32,
+          "qualifier_time": "04:26.7",
+          "player_id": "101470142"
+        },
+        {
+          "name": "ᴬᴷ연인",
+          "power": "18.80M",
+          "qualifier_rank": 34,
+          "qualifier_time": "04:28.3",
+          "player_id": "101565972"
+        },
+        {
+          "name": "ᴬᴷ메투스",
+          "power": "33.56M",
+          "qualifier_rank": 11,
+          "qualifier_time": "04:13.6",
+          "player_id": "101792517"
+        },
+        {
+          "name": "老灰阿郎",
+          "power": "11.94M",
+          "qualifier_rank": 60,
+          "qualifier_time": "04:37.5",
+          "player_id": "101978287"
+        },
+        {
+          "name": "唬人的傭兵",
+          "power": "17.32M",
+          "qualifier_rank": 39,
+          "qualifier_time": "04:30.4",
+          "player_id": "101578823"
+        },
+        {
+          "name": "김미태",
+          "power": "9.17M",
+          "qualifier_rank": 36,
+          "qualifier_time": "04:29.1",
+          "player_id": "101873331"
+        },
+        {
+          "name": "Cashasy",
+          "power": "25.77M",
+          "qualifier_rank": 4,
+          "qualifier_time": "03:55.9",
+          "player_id": "101548138"
+        },
+        {
+          "name": "퀵하패왕",
+          "power": "14.29M",
+          "qualifier_rank": 55,
+          "qualifier_time": "04:35.0",
+          "player_id": "101804999"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "players": [
+        {
+          "name": "牛大力",
+          "power": "55.83M",
+          "qualifier_rank": 33,
+          "qualifier_time": "04:27.4",
+          "player_id": "102045250"
+        },
+        {
+          "name": "CoBe",
+          "power": "15.38M",
+          "qualifier_rank": 26,
+          "qualifier_time": "04:23.3",
+          "player_id": "101479246"
+        },
+        {
+          "name": "Yööᶠˣ",
+          "power": "16.24M",
+          "qualifier_rank": 47,
+          "qualifier_time": "04:33.1",
+          "player_id": "101706762"
+        },
+        {
+          "name": "丫丸仔",
+          "power": "13.61M",
+          "qualifier_rank": 12,
+          "qualifier_time": "04:18.1",
+          "player_id": "101862182"
+        },
+        {
+          "name": "RV297",
+          "power": "27.52M",
+          "qualifier_rank": 3,
+          "qualifier_time": "03:49.9",
+          "player_id": "101993264"
+        },
+        {
+          "name": "龍×조이",
+          "power": "14.21M",
+          "qualifier_rank": 10,
+          "qualifier_time": "04:13.6",
+          "player_id": "101925569"
+        },
+        {
+          "name": "龍×에이스",
+          "power": "10.50M",
+          "qualifier_rank": 48,
+          "qualifier_time": "04:33.5",
+          "player_id": "101623252"
+        },
+        {
+          "name": "ᴬᴷ베라",
+          "power": "20.77M",
+          "qualifier_rank": 59,
+          "qualifier_time": "04:35.7",
+          "player_id": "101918694"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "players": [
+        {
+          "name": "紫薯芋泥c",
+          "power": "12.54M",
+          "qualifier_rank": 42,
+          "qualifier_time": "04:31.9",
+          "player_id": "101988548"
+        },
+        {
+          "name": "Egø",
+          "power": "23.23M",
+          "qualifier_rank": 25,
+          "qualifier_time": "04:22.9",
+          "player_id": "101957780"
+        },
+        {
+          "name": "FLEX2Rᶠˣ",
+          "power": "21.31M",
+          "qualifier_rank": 21,
+          "qualifier_time": "04:21.5",
+          "player_id": "101536777"
+        },
+        {
+          "name": "박짜니",
+          "power": "11.32M",
+          "qualifier_rank": 35,
+          "qualifier_time": "04:28.6",
+          "player_id": "101823252"
+        },
+        {
+          "name": "螞蟻王子",
+          "power": "15.32M",
+          "qualifier_rank": 43,
+          "qualifier_time": "04:32.2",
+          "player_id": "101943098"
+        },
+        {
+          "name": "고른주부J",
+          "power": "19.71M",
+          "qualifier_rank": 28,
+          "qualifier_time": "04:25.4",
+          "player_id": "101517893"
+        },
+        {
+          "name": "ᴬᴷFLEX3R",
+          "power": "31.27M",
+          "qualifier_rank": 19,
+          "qualifier_time": "04:20.9",
+          "player_id": "101833366"
+        },
+        {
+          "name": "戰神冥海龍靈",
+          "power": "13.71M",
+          "qualifier_rank": 45,
+          "qualifier_time": "04:32.9",
+          "player_id": "101527960"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "players": [
+        {
+          "name": "龍×이뮤",
+          "power": "15.50M",
+          "qualifier_rank": 8,
+          "qualifier_time": "04:11.3",
+          "player_id": "101875640"
+        },
+        {
+          "name": "ZᶻZ",
+          "power": "38.03M",
+          "qualifier_rank": 2,
+          "qualifier_time": "03:47.6",
+          "player_id": "101678554"
+        },
+        {
+          "name": "SuperAaron",
+          "power": "24.11M",
+          "qualifier_rank": 49,
+          "qualifier_time": "04:33.7",
+          "player_id": "101535841"
+        },
+        {
+          "name": "犇魔王",
+          "power": "10.86M",
+          "qualifier_rank": 62,
+          "qualifier_time": "04:38.0",
+          "player_id": "103945752"
+        },
+        {
+          "name": "瑪法里恩中風",
+          "power": "13.41M",
+          "qualifier_rank": 30,
+          "qualifier_time": "04:26.2",
+          "player_id": "102117405"
+        },
+        {
+          "name": "헌쿈",
+          "power": "18.61M",
+          "qualifier_rank": 40,
+          "qualifier_time": "04:30.7",
+          "player_id": "101579946"
+        },
+        {
+          "name": "龍×교슘",
+          "power": "13.95M",
+          "qualifier_rank": 17,
+          "qualifier_time": "04:19.4",
+          "player_id": "101899339"
+        },
+        {
+          "name": "小人2",
+          "power": "16.59M",
+          "qualifier_rank": 31,
+          "qualifier_time": "04:26.4",
+          "player_id": "101938689"
+        }
+      ]
+    }
+  ],
+  "grand_finals": null,
+  "qualifier_note": "資格賽排行榜由 screenshots/star-cup/2026-08-28-round6/qualifier-rank/（16 張連拍，每 5 張一組的第 1 張）抽取，涵蓋名次 1–68，此處收錄前 64 名；相鄰張重疊補回被自己名次列（第 65 名）遮住的行。名稱與稱號一律以同批 top64-profile 名片為準，因此有 5 筆與排行榜讀值不同：第 7、54 名的稱號在排行榜被截斷（皆為「超常解放戰線」），第 17 名 龍×교수→龍×교슘、第 30 名 稱號 蚊神→姒神、第 41 名 龍×욕많→龍×욕맣 為字形近似的排行榜誤讀。",
+  "groups_note": "賽前對陣由 screenshots/star-cup/2026-08-28-round6/knockout-matchup/（8 張，2026/8/28 09:39–09:40 連拍，畫面標示「距淘汰賽開始 22 小時 19–20 分鐘」、下注 0/7）抽取。players 陣列順序＝對陣圖籤位（左欄由上而下 4 位、再右欄由上而下 4 位），**不可排序**；對陣關係的唯一真實來源是 groups[].matches，賽前尚無賽果故 matches 省略，待淘汰賽結果批次入庫時填入。players[].power 為賽時戰力，不可與名片的平時戰力比對。名單完整性已交叉驗證：對陣 64 人、名片 64 位 player_id、資格賽前 64 名三者完全一致，本屆對陣表無同名選手，player_id 由名稱唯一對應名片取得。qualifier_period 無畫面證據，依前五屆一致的「淘汰賽起日前 4 天至前 1 天」規律推定。"
+}
